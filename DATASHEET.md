@@ -53,8 +53,12 @@ codebook) carry all cross-medium comparisons.
 - **Validation asymmetry.** Stronger for film than for books; television inherits the film
   viewer-validation (no separate TV survey).
 - **Television dating.** A television work is a single Wikipedia entry (a series or a notable
-  episode); undated entries are placed at the corpus endpoint, so television temporal trends
-  are read on the pre-2020 window.
+  episode). The `year` field is unreliable at both tails: undated entries (concentrated in the
+  most recent decade) are placed at the corpus endpoint, and the ~46 entries dated before 1950
+  are mislabeled — a year taken from a source film or the story's setting, or a non-television
+  work (a novel, play, or film) misclassified as television — since broadcast television begins
+  only in the late 1940s. Read television temporal trends on the **1950–2020 window** and do
+  not trust an individual early TV year.
 
 ## 6. Reproducibility status
 Every headline number reproduces from this package via `reproduce.py` (**96/96**). `[R]`
