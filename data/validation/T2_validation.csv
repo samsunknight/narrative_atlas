@@ -1,0 +1,31 @@
+attribute,film_r2,book_r2,both_media
+sci-fi,0.493,0.291,True
+fantastical,0.392,0.361,True
+realistic world,0.294,0.051,True
+# protagonists,0.247,0.119,True
+resolution,0.218,0.032,False
+plot convincing,0.139,0.002,False
+surprise,0.131,0.026,False
+world-building,0.103,0.057,True
+competence,0.103,0.1,True
+dialogue show/tell,0.092,0.016,False
+clarity,0.087,0.003,False
+identity relevance,0.081,0.004,False
+dialogue engaging,0.08,0.03,False
+relatability,0.07,0.087,True
+moved emotionally,0.066,0.002,False
+pace,0.066,0.011,False
+# settings,0.062,0.006,False
+dialogue realism,0.06,0.026,False
+# side characters,0.058,0.033,False
+score,0.054,,False
+likability,0.054,0.019,False
+proactiveness,0.053,0.109,True
+setting quality,0.053,0.008,False
+visual evocative,0.051,,False
+visual interest,0.044,,False
+character quality,0.03,0.0,False
+feels real,0.027,0.051,False
+plot vs character,0.023,0.008,False
+emotional investment,0.021,0.021,False
+immersive,,0.001,False

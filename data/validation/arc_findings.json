@@ -1,0 +1,358 @@
+{
+  "n": {
+    "film": 87744,
+    "book": 19361,
+    "tv": 32766
+  },
+  "typical": {
+    "film_likable": {
+      "mean": 0.16237007658643327,
+      "sd": 0.5051472915478546,
+      "rise": 0.20643006929248722,
+      "flat": 0.743139132020423,
+      "fall": 0.05043079868708972,
+      "steeprise": 0.006131473377097009
+    },
+    "film_competent": {
+      "mean": 0.8447301239970825,
+      "sd": 0.9712634980604169,
+      "rise": 0.6206008388037928,
+      "flat": 0.3233611415025529,
+      "fall": 0.05603801969365427,
+      "steeprise": 0.23716721371261854
+    },
+    "film_proactive": {
+      "mean": 0.6327384208606857,
+      "sd": 0.8683696225686085,
+      "rise": 0.5378487417943107,
+      "flat": 0.4073212983223924,
+      "fall": 0.054829959883296864,
+      "steeprise": 0.13411743253099928
+    },
+    "book_likable": {
+      "mean": 0.2890346573007593,
+      "sd": 0.510051957010717,
+      "rise": 0.30044935695470276,
+      "flat": 0.6809049119363669,
+      "fall": 0.018645731108930325,
+      "steeprise": 0.00702443055627292
+    },
+    "book_competent": {
+      "mean": 0.9673570580032023,
+      "sd": 0.9385942556221413,
+      "rise": 0.6866897371003564,
+      "flat": 0.275915500232426,
+      "fall": 0.037394762667217606,
+      "steeprise": 0.26687671091369247
+    },
+    "book_proactive": {
+      "mean": 0.4459996900986519,
+      "sd": 0.7721853940933768,
+      "rise": 0.42880016528071896,
+      "flat": 0.5143329373482775,
+      "fall": 0.05686689737100356,
+      "steeprise": 0.07143226073033418
+    },
+    "tv_likable": {
+      "mean": 0.22688152353048893,
+      "sd": 0.4949728277705473,
+      "rise": 0.2458951352011231,
+      "flat": 0.7289873649514741,
+      "fall": 0.025117499847402795,
+      "steeprise": 0.005768174327046328
+    },
+    "tv_competent": {
+      "mean": 0.9177501068180431,
+      "sd": 0.9093061522697466,
+      "rise": 0.6616309589208326,
+      "flat": 0.308704144540072,
+      "fall": 0.029664896539095403,
+      "steeprise": 0.23936397485198072
+    },
+    "tv_proactive": {
+      "mean": 0.4411585179759507,
+      "sd": 0.7432498745994508,
+      "rise": 0.42071049258377585,
+      "flat": 0.5306109992064946,
+      "fall": 0.0486785082097296,
+      "steeprise": 0.0659219923091009
+    }
+  },
+  "shape_families": {
+    "c0": {
+      "share": 0.194,
+      "n": 17035.0,
+      "likable_B": 2.629,
+      "likable_M": 2.702,
+      "likable_E": 2.672,
+      "likable_d": 0.044,
+      "competent_B": 2.342,
+      "competent_M": 2.769,
+      "competent_E": 2.873,
+      "competent_d": 0.531,
+      "proactive_B": 3.45,
+      "proactive_M": 4.114,
+      "proactive_E": 4.194,
+      "proactive_d": 0.745,
+      "label": "Agency climb (proactive-led)"
+    },
+    "c1": {
+      "share": 0.092,
+      "n": 8030.0,
+      "likable_B": 1.997,
+      "likable_M": 2.026,
+      "likable_E": 1.958,
+      "likable_d": -0.039,
+      "competent_B": 1.822,
+      "competent_M": 1.944,
+      "competent_E": 1.799,
+      "competent_d": -0.023,
+      "proactive_B": 2.262,
+      "proactive_M": 2.632,
+      "proactive_E": 2.289,
+      "proactive_d": 0.027,
+      "label": "Flat/static (little movement)"
+    },
+    "c2": {
+      "share": 0.275,
+      "n": 24123.0,
+      "likable_B": 3.985,
+      "likable_M": 4.119,
+      "likable_E": 4.256,
+      "likable_d": 0.27,
+      "competent_B": 2.422,
+      "competent_M": 3.063,
+      "competent_E": 3.639,
+      "competent_d": 1.217,
+      "proactive_B": 3.339,
+      "proactive_M": 4.018,
+      "proactive_E": 4.246,
+      "proactive_d": 0.907,
+      "label": "Full rise (competence+agency)"
+    },
+    "c3": {
+      "share": 0.166,
+      "n": 14573.0,
+      "likable_B": 3.712,
+      "likable_M": 3.819,
+      "likable_E": 3.946,
+      "likable_d": 0.234,
+      "competent_B": 3.181,
+      "competent_M": 3.833,
+      "competent_E": 4.222,
+      "competent_d": 1.042,
+      "proactive_B": 4.157,
+      "proactive_M": 4.647,
+      "proactive_E": 4.815,
+      "proactive_d": 0.658,
+      "label": "Underdog\u2192triumph (competence-led)"
+    },
+    "c4": {
+      "share": 0.139,
+      "n": 12207.0,
+      "likable_B": 3.419,
+      "likable_M": 3.483,
+      "likable_E": 3.561,
+      "likable_d": 0.142,
+      "competent_B": 2.287,
+      "competent_M": 2.614,
+      "competent_E": 2.72,
+      "competent_d": 0.433,
+      "proactive_B": 2.455,
+      "proactive_M": 2.912,
+      "proactive_E": 2.898,
+      "proactive_d": 0.443,
+      "label": "Mild all-round growth"
+    },
+    "c5": {
+      "share": 0.134,
+      "n": 11776.0,
+      "likable_B": 4.783,
+      "likable_M": 4.889,
+      "likable_E": 4.966,
+      "likable_d": 0.183,
+      "competent_B": 3.381,
+      "competent_M": 4.145,
+      "competent_E": 4.694,
+      "competent_d": 1.312,
+      "proactive_B": 4.404,
+      "proactive_M": 4.778,
+      "proactive_E": 4.89,
+      "proactive_d": 0.486,
+      "label": "Underdog\u2192triumph (competence-led)"
+    }
+  },
+  "drift": {
+    "film": {
+      "trend": {
+        "fall_comp": 0.0003,
+        "fall_lik": -0.0002,
+        "steeprise_comp": 0.0085,
+        "absmove": 0.0454,
+        "tragic": 0.0001
+      },
+      "corr_logn_steeprise": 0.682,
+      "corr_logn_absmove": 0.767,
+      "bins": "1930-2015"
+    },
+    "book": {
+      "trend": {
+        "fall_comp": -0.0054,
+        "fall_lik": -0.0021,
+        "steeprise_comp": 0.0106,
+        "absmove": 0.0327,
+        "tragic": -0.0009
+      },
+      "corr_logn_steeprise": 0.737,
+      "corr_logn_absmove": 0.859,
+      "bins": "1930-2015"
+    },
+    "tv": {
+      "trend": {
+        "fall_comp": -0.004,
+        "fall_lik": -0.0001,
+        "steeprise_comp": 0.0197,
+        "absmove": 0.0661,
+        "tragic": -0.0002
+      },
+      "corr_logn_steeprise": 0.867,
+      "corr_logn_absmove": 0.877,
+      "bins": "1950-2015"
+    }
+  },
+  "antihero_1970s": {
+    "likable": {
+      "dec1970": 3.3535173160173164,
+      "rest": 3.601351539253038,
+      "diff": -0.24783422323572157,
+      "t": -17.42732535090888,
+      "p": 1.283046801452661e-66,
+      "z_vs_century": -1.7572502429862757
+    },
+    "competent": {
+      "dec1970": 2.9106601731601733,
+      "rest": 3.0400224329560515,
+      "diff": -0.12936225979587812,
+      "t": -11.694702193038058,
+      "p": 2.6283047467443158e-31,
+      "z_vs_century": -1.612156412959759
+    },
+    "proactive": {
+      "dec1970": 3.6787878787878787,
+      "rest": 3.807095117587622,
+      "diff": -0.12830723879974348,
+      "t": -10.224497192463298,
+      "p": 2.284086360556962e-24,
+      "z_vs_century": -1.7942619556465687
+    }
+  },
+  "crossmedium": {
+    "film": {
+      "likable": {
+        "mean\u0394": 0.1589820435974282,
+        "meanCurv": 0.015721458029150336,
+        "flat": 0.7444606675375907
+      },
+      "competent": {
+        "mean\u0394": 0.8282870975178668,
+        "meanCurv": 0.10672020287404903,
+        "flat": 0.32836394374855915
+      },
+      "proactive": {
+        "mean\u0394": 0.6210071979302748,
+        "meanCurv": 0.23059632675017291,
+        "flat": 0.41028202566664107
+      }
+    },
+    "book": {
+      "likable": {
+        "mean\u0394": 0.2863070539419087,
+        "meanCurv": -0.01288490936885783,
+        "flat": 0.6828455994758681
+      },
+      "competent": {
+        "mean\u0394": 0.959652762611924,
+        "meanCurv": 0.11358921161825726,
+        "flat": 0.27931862852151124
+      },
+      "proactive": {
+        "mean\u0394": 0.4429460580912863,
+        "meanCurv": 0.1518071631360559,
+        "flat": 0.5150687923127321
+      }
+    },
+    "tv": {
+      "likable": {
+        "mean\u0394": 0.2424418604651163,
+        "meanCurv": -0.05,
+        "flat": 0.719985465116279
+      },
+      "competent": {
+        "mean\u0394": 1.021438953488372,
+        "meanCurv": 0.18673691860465116,
+        "flat": 0.27696220930232557
+      },
+      "proactive": {
+        "mean\u0394": 0.4782703488372093,
+        "meanCurv": 0.10388808139534884,
+        "flat": 0.5174418604651163
+      }
+    }
+  },
+  "reception": {
+    "mean_rating": {
+      "n": 31045,
+      "dcomp_simple": {
+        "beta": 0.055569918229421686,
+        "se": 0.003621878613108027,
+        "t": 15.342843912081227
+      },
+      "dcomp_decFE": {
+        "beta": 0.05900007896836271,
+        "se": 0.0036344907987979707,
+        "t": 16.233382400603602
+      },
+      "all3_decFE": {
+        "likable": {
+          "beta": 0.06632633069059046,
+          "t": 17.631582946633074
+        },
+        "competent": {
+          "beta": 0.05602167769320447,
+          "t": 13.69600065147157
+        },
+        "proactive": {
+          "beta": -0.036081065888620444,
+          "t": -8.95990589988694
+        }
+      }
+    },
+    "logreach": {
+      "n": 31045,
+      "dcomp_simple": {
+        "beta": 0.286874590319528,
+        "se": 0.014264038933304232,
+        "t": 20.111736350475184
+      },
+      "dcomp_decFE": {
+        "beta": 0.24138946985333937,
+        "se": 0.01355361252957057,
+        "t": 17.809972752776304
+      },
+      "all3_decFE": {
+        "likable": {
+          "beta": 0.03776944533425396,
+          "t": 2.6865506998937385
+        },
+        "competent": {
+          "beta": 0.13796594229739165,
+          "t": 9.025237724966507
+        },
+        "proactive": {
+          "beta": 0.21776258389096576,
+          "t": 14.469597549902456
+        }
+      }
+    }
+  }
+}

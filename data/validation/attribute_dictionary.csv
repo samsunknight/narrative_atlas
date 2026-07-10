@@ -1,0 +1,163 @@
+layer,attribute,column,definition,scale,validation,validation_metric,film_r,book_r,tier,cross_medium
+structure,sci-fi world,6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,How science-fictional was the world of the movie?,1--7,0.70 / 0.80,r,0.70,0.80,Headline,True
+structure,fantastical world,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,How fantastical was the world of the movies?,1--7,0.63 / 0.73,r,0.63,0.73,Headline,True
+structure,realistic world,3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,How realistic was the world of the movie?,1--7,0.54 / 0.61,r,0.54,0.61,Headline,True
+structure,# protagonists,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,How many protagonists were there?,1--6,0.50 / 0.54,r,0.50,0.54,Headline,True
+structure,sensitive-content relevance,,"If you checked any of the above, how relevant are these aspect(s) of their identity …",1--5,0.56,r,0.56,,Headline,False
+structure,ending resolved,,On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,1--7,0.47,r,0.47,,Headline,False
+structure,world-building relevance,7_overall_how_relevant_was_world_building_to_the_movie_world_building,"Overall, how relevant was world-building to the movie?",1--5,0.47 / 0.29,r,0.47,0.29,Headline,True
+structure,ending surprising,,On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,1--7,0.46,r,0.46,,Headline,False
+structure,setting/world quality,,"In your opinion, how would you rate the quality of the setting and world-building …",1--7,0.43,r,0.43,,Headline,False
+structure,protagonist likable,,How likable was this protagonist?,1--5,0.42,r,0.42,,Headline,False
+structure,plot convincing,,How convincing did you find the plot?,1--7,0.41,r,0.41,,Headline,False
+structure,dialogue overall,,"Now, let's talk (pun intended) about dialogue! In your opinion …",2--5,0.41,r,0.41,,Headline,False
+structure,dialogue engaging,,How engaging did you find the dialogue in the movie?,1--7,0.40,r,0.40,,Headline,False
+structure,pace,,"On the whole, how would you describe the pace of the movie?",1--5,0.40,r,0.40,,Headline,False
+structure,protagonist competent,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,How competent was this protagonist?,1--5,0.32 / 0.56,r,0.32,0.56,Headline,True
+structure,emotionally moved,,To what extent did you feel moved by this movie on an emotional basis?,1--5,0.39,r,0.39,,Headline,False
+structure,protagonist relatable,13_how_relatable_did_you_find_this_protagonist,How relatable did you find this protagonist?,1--7,0.38 / 0.28,r,0.38,0.28,Headline,True
+structure,visual evocative,,How evocative did you find the visual style?,1--7,0.37,r,0.37,,Headline,False
+structure,character-writing quality,,"In your opinion, how would you rate the quality of the character writing …",1--7,0.37,r,0.37,,Headline,False
+structure,visual interesting,,How interesting did you find the visual style?,1--7,0.37,r,0.37,,Headline,False
+structure,clarity (easy to follow),,On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,1--7,0.36,r,0.36,,Headline,False
+structure,# settings,,How many major settings does the movie contain?,1--6,0.36,r,0.36,,Headline,False
+structure,protagonist proactive,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,How proactive was this protagonist?,1--5,0.36 / 0.37,r,0.36,0.37,Headline,True
+structure,overall feeling,,How did you feel about the movie?,1--7,0.35,r,0.35,,Validated,False
+structure,character-writing quality (2),,"In your opinion, how would you rate the quality of the character writing …",1--7,0.34,r,0.34,,Validated,False
+structure,glad watched,,"After having watched the movie, how glad are you to have devoted time and energy to it?",1--5,0.33,r,0.33,,Validated,False
+structure,plot compelling,,How compelling did you find the plot?,2--7,0.33,r,0.33,,Validated,False
+structure,dialogue importance,,How important was the dialogue to your experience of the movie as a whole?,1--5,0.31,r,0.31,,Validated,False
+structure,# side characters,,Approximately how many named side characters are in this movie?,2--50,0.31,r,0.31,,Validated,False
+structure,score liking,,How much did you like the score?,2--7,0.30,r,0.30,,Validated,False
+structure,dialogue realistic,,How realistic did you find the dialogue in the movie?,1--7,0.30,r,0.30,,Validated,False
+structure,setting importance,,"In your opinion, how important was the setting and world-building to your experience …",1--5,0.30,r,0.30,,Validated,False
+structure,characters importance,,"In your opinion, how important were the characters to your experience of the movie …",1--5,0.29,r,0.29,,Validated,False
+structure,enjoyable watching,,"While you were in the process of watching the movie, how enjoyable did you find it?",1--5,0.29,r,0.29,,Validated,False
+structure,familiar world,,How familiar was the world of the movie?,1--7,0.29,r,0.29,,Validated,False
+structure,visual importance,,How important was the visual style to your experience of the movie as a whole?,1--7,0.28,r,0.28,,Validated,False
+structure,protagonist investment,,How emotionally invested were you in this protagonist?,1--7,0.26,r,0.26,,Validated,False
+structure,ending satisfying,,On a scale of 1 (very unsatisfying) to 7 (very satisfying)?,1--7,0.26,r,0.26,,Validated,False
+structure,themes interesting,,How interesting do you personally find the movie's themes?,1--5,0.24,r,0.24,,Validated,False
+structure,ideal-viewer fit,,"How closely do you think you fit the director's vision of the ""ideal viewer"" …",1--5,0.23,r,0.23,,Validated,False
+structure,side-character importance,,How important would you say the side characters are in this movie?,1--5,0.22,r,0.22,,Marginal,False
+structure,protagonist real,,How real did this protagonist feel to you?,1--7,0.21,r,0.21,,Marginal,False
+structure,score importance,,How important was the score to your experience of the movie?,1--7,0.21,r,0.21,,Marginal,False
+structure,score match,,How well-matched did the score feel to the action?,2--7,0.20,r,0.20,,Marginal,False
+structure,visual consistent,,How consistent did you find the visual style?,1--7,0.18,r,0.18,,Marginal,False
+structure,overall feeling (plot-predicted),,"Plot-predicted audience rating: based only on this plot, predict how a typical viewer would rate their OVERALL FEELING about …",1--7,0.33,r,0.33,,Validated,False
+structure,liked vs expected,,"Plot-predicted audience rating: based on this plot and the kind of description a viewer would have seen beforehand, predict how much a typical viewer LIKED the movie relative …",1--5,0.17,r,0.17,,Marginal,False
+structure,ideal-viewer fit (plot-predicted),,"Plot-predicted audience rating: predict how closely a typical viewer would say they fit the director's intended ""ideal …",1--5,0.15,r,0.15,,Marginal,False
+structure,identity relevance,,"Plot-predicted audience rating: for the main protagonist, predict how RELEVANT their marginalized-group identity (race, gender, class, etc.) is to their experience …",1--5,0.48,r,0.48,,Headline,False
+structure,protagonist real (plot-predicted),,"Plot-predicted audience rating: predict how REAL (believable, lifelike) the main protagonist would feel to a typical …",1--7,0.20,r,0.20,,Marginal,False
+structure,protagonist investment (plot-predicted),,Plot-predicted audience rating: predict how EMOTIONALLY INVESTED a typical viewer would be in the main …,1--7,0.23,r,0.23,,Validated,False
+structure,protagonist relatable (plot-predicted),,Plot-predicted audience rating: predict how RELATABLE a typical viewer would find the main …,1--7,0.35,r,0.35,,Validated,False
+structure,character-writing quality (plot-predicted),,Plot-predicted audience rating: predict how a typical viewer would rate the QUALITY OF THE CHARACTER WRITING …,1--7,0.43,r,0.43,,Headline,False
+structure,characters importance (plot-predicted),,"Plot-predicted audience rating: predict how IMPORTANT the characters are to a viewer's experience of the movie, relative to other …",1--5,0.27,r,0.27,,Validated,False
+structure,setting importance (plot-predicted),,Plot-predicted audience rating: predict how IMPORTANT the setting/world-building is to a viewer's experience …,1--5,0.40,r,0.40,,Headline,False
+structure,setting/world quality (plot-predicted),,Plot-predicted audience rating: predict how a typical viewer would rate the QUALITY OF THE SETTING/WORLD-BUILDING writing …,1--7,0.40,r,0.40,,Headline,False
+structure,visual evocative (plot-predicted),,"Plot-predicted audience rating: predict how EVOCATIVE (affecting, memorable) a typical viewer would find the visual …",1--7,0.32,r,0.32,,Validated,False
+structure,visual interesting (plot-predicted),,"Plot-predicted audience rating: predict how INTERESTING (noteworthy, attention-grabbing) a typical viewer would find the visual …",1--7,0.38,r,0.38,,Headline,False
+structure,visual importance (plot-predicted),,Plot-predicted audience rating: predict how IMPORTANT the visual style is to a viewer's experience …,1--7,0.31,r,0.31,,Validated,False
+structure,dialogue quality (plot-predicted),,Plot-predicted audience rating: predict how a typical viewer would rate the QUALITY …,1--5,0.38,r,0.38,,Headline,False
+structure,dialogue engaging (plot-predicted),,Plot-predicted audience rating: predict how ENGAGING a typical viewer would find …,1--7,0.37,r,0.37,,Headline,False
+structure,dialogue realistic (plot-predicted),,Plot-predicted audience rating: predict how REALISTIC a typical viewer would find …,1--7,0.28,r,0.28,,Validated,False
+structure,dialogue importance (plot-predicted),,Plot-predicted audience rating: predict how IMPORTANT the dialogue is to a viewer's experience …,1--5,0.32,r,0.32,,Validated,False
+structure,score liking (plot-predicted),,Plot-predicted audience rating: predict how much a typical viewer would LIKE the musical …,1--7,0.24,r,0.24,,Validated,False
+structure,score importance (plot-predicted),,Plot-predicted audience rating: predict how IMPORTANT the musical score is to a viewer's experience …,1--7,0.24,r,0.24,,Validated,False
+structure,enjoyable watching (plot-predicted),,Plot-predicted audience rating: predict how ENJOYABLE a typical viewer would find the movie WHILE watching …,1--5,0.32,r,0.32,,Validated,False
+structure,glad watched (plot-predicted),,"Plot-predicted audience rating: predict how GLAD a typical viewer would be, afterward, to have devoted time to watching (was it …",1--5,0.32,r,0.32,,Validated,False
+mood,Adventurous,mood_Adventurous,"Intensity of the ""Adventurous"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Bittersweet,mood_Bittersweet,"Intensity of the ""Bittersweet"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Bleak,mood_Bleak,"Intensity of the ""Bleak"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Chaotic,mood_Chaotic,"Intensity of the ""Chaotic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Challenging,mood_Challenging,"Intensity of the ""Challenging"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Chilling,mood_Chilling,"Intensity of the ""Chilling"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Cozy,mood_Cozy,"Intensity of the ""Cozy"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Dark,mood_Dark,"Intensity of the ""Dark"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Dreamy,mood_Dreamy,"Intensity of the ""Dreamy"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Eerie,mood_Eerie,"Intensity of the ""Eerie"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Energetic,mood_Energetic,"Intensity of the ""Energetic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Epic,mood_Epic,"Intensity of the ""Epic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Funny,mood_Funny,"Intensity of the ""Funny"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Gritty,mood_Gritty,"Intensity of the ""Gritty"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Heartwarming,mood_Heartwarming,"Intensity of the ""Heartwarming"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Hopeful,mood_Hopeful,"Intensity of the ""Hopeful"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Inspirational,mood_Inspirational,"Intensity of the ""Inspirational"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Lighthearted,mood_Lighthearted,"Intensity of the ""Lighthearted"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Melancholic,mood_Melancholic,"Intensity of the ""Melancholic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Mysterious,mood_Mysterious,"Intensity of the ""Mysterious"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Optimistic,mood_Optimistic,"Intensity of the ""Optimistic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Quirky,mood_Quirky,"Intensity of the ""Quirky"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Raw,mood_Raw,"Intensity of the ""Raw"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Reflective,mood_Reflective,"Intensity of the ""Reflective"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Romantic,mood_Romantic,"Intensity of the ""Romantic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Sad,mood_Sad,"Intensity of the ""Sad"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Surreal,mood_Surreal,"Intensity of the ""Surreal"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Tense,mood_Tense,"Intensity of the ""Tense"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Tragic,mood_Tragic,"Intensity of the ""Tragic"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Whimsical,mood_Whimsical,"Intensity of the ""Whimsical"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+mood,Wistful,mood_Wistful,"Intensity of the ""Wistful"" mood evoked by the story",0--100,0.39,r,0.39,,--,False
+genre,Western,genre_Western,"Intensity of the Western genre; scored against the IMDb ""Western"" label",0--100,0.99,AUC,0.99,,--,False
+genre,Animation,genre_Animation,"Intensity of the Animation genre; scored against the IMDb ""Animation"" label",0--100,0.99,AUC,0.99,,--,False
+genre,Documentary,genre_Documentary,"Intensity of the Documentary genre; scored against the IMDb ""Documentary"" label",0--100,0.99,AUC,0.99,,--,False
+genre,Horror,genre_Horror,"Intensity of the Horror genre; scored against the IMDb ""Horror"" label",0--100,0.98,AUC,0.98,,--,False
+genre,Science Fiction,genre_Science_Fiction,"Intensity of the Science Fiction genre; scored against the IMDb ""Sci-Fi"" label",0--100,0.97,AUC,0.97,,--,False
+genre,War,genre_War,"Intensity of the War genre; scored against the IMDb ""War"" label",0--100,0.95,AUC,0.95,,--,False
+genre,Historical,genre_Historical,"Intensity of the Historical genre; scored against the IMDb ""History"" label",0--100,0.94,AUC,0.94,,--,False
+genre,Comedy,genre_Comedy,"Intensity of the Comedy genre; scored against the IMDb ""Comedy"" label",0--100,0.92,AUC,0.92,,--,False
+genre,Fantasy,genre_Fantasy,"Intensity of the Fantasy genre; scored against the IMDb ""Fantasy"" label",0--100,0.91,AUC,0.91,,--,False
+genre,Musical,genre_Musical,"Intensity of the Musical genre; scored against the IMDb ""Musical"" label",0--100,0.90,AUC,0.90,,--,False
+genre,Action,genre_Action,"Intensity of the Action genre; scored against the IMDb ""Action"" label",0--100,0.89,AUC,0.89,,--,False
+genre,Adventure,genre_Adventure,"Intensity of the Adventure genre; scored against the IMDb ""Adventure"" label",0--100,0.89,AUC,0.89,,--,False
+genre,Mystery,genre_Mystery,"Intensity of the Mystery genre; scored against the IMDb ""Mystery"" label",0--100,0.88,AUC,0.88,,--,False
+genre,Crime,genre_Crime,"Intensity of the Crime genre; scored against the IMDb ""Crime"" label",0--100,0.88,AUC,0.88,,--,False
+genre,Family,genre_Family,"Intensity of the Family genre; scored against the IMDb ""Family"" label",0--100,0.85,AUC,0.85,,--,False
+genre,Thriller,genre_Thriller,"Intensity of the Thriller genre; scored against the IMDb ""Thriller"" label",0--100,0.85,AUC,0.85,,--,False
+genre,Romance,genre_Romance,"Intensity of the Romance genre; scored against the IMDb ""Romance"" label",0--100,0.84,AUC,0.84,,--,False
+genre,Drama,genre_Drama,"Intensity of the Drama genre; scored against the IMDb ""Drama"" label",0--100,0.79,AUC,0.79,,--,False
+character-arc,Likability (beginning),arc_likable_Beginning,How likable the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Likability (middle),arc_likable_Middle,How likable the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Likability (end),arc_likable_End,How likable the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Competence (beginning),arc_competent_Beginning,How competent the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Competence (middle),arc_competent_Middle,How competent the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Competence (end),arc_competent_End,How competent the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Proactiveness (beginning),arc_proactive_Beginning,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Proactiveness (middle),arc_proactive_Middle,How proactive the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+character-arc,Proactiveness (end),arc_proactive_End,How proactive the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.37--0.48,range,0.37--0.48,,--,False
+texture,Acting: Campy,acting_Campy,"Strength of the ""Campy"" acting descriptor implied by the summary",0--100,0.56,r,0.56,,Headline,False
+texture,Acting: Brooding,acting_Brooding,"Strength of the ""Brooding"" acting descriptor implied by the summary",0--100,0.45,r,0.45,,Headline,False
+texture,Acting: Deadpan,acting_Deadpan,"Strength of the ""Deadpan"" acting descriptor implied by the summary",0--100,0.43,r,0.43,,Headline,False
+texture,Acting: Raw,acting_Raw,"Strength of the ""Raw"" acting descriptor implied by the summary",0--100,0.40,r,0.40,,Headline,False
+texture,Acting: Manic,acting_Manic,"Strength of the ""Manic"" acting descriptor implied by the summary",0--100,0.37,r,0.37,,Headline,False
+texture,Acting: Intense,acting_Intense,"Strength of the ""Intense"" acting descriptor implied by the summary",0--100,0.32,r,0.32,,Validated,False
+texture,Acting: Physical,acting_Physical,"Strength of the ""Physical"" acting descriptor implied by the summary",0--100,0.32,r,0.32,,Validated,False
+texture,Acting: Improvisational,acting_Improvisational,"Strength of the ""Improvisational"" acting descriptor implied by the summary",0--100,0.30,r,0.30,,Validated,False
+texture,Acting: Natural,acting_Natural,"Strength of the ""Natural"" acting descriptor implied by the summary",0--100,0.30,r,0.30,,Validated,False
+texture,Acting: Subtle,acting_Subtle,"Strength of the ""Subtle"" acting descriptor implied by the summary",0--100,0.27,r,0.27,,Validated,False
+texture,Acting: Method,acting_Method,"Strength of the ""Method"" acting descriptor implied by the summary",0--100,0.22,r,0.22,,Marginal,False
+texture,Acting: Theatrical,acting_Theatrical,"Strength of the ""Theatrical"" acting descriptor implied by the summary",0--100,0.21,r,0.21,,Marginal,False
+texture,Score: Ominous,score_Ominous,"Strength of the ""Ominous"" score descriptor implied by the summary",0--100,0.61,r,0.61,,Headline,False
+texture,Score: Orchestral,score_Orchestral,"Strength of the ""Orchestral"" score descriptor implied by the summary",0--100,0.47,r,0.47,,Headline,False
+texture,Score: Melodic,score_Melodic,"Strength of the ""Melodic"" score descriptor implied by the summary",0--100,0.45,r,0.45,,Headline,False
+texture,Score: Rock n' Roll,score_Rock_n__Roll,"Strength of the ""Rock n' Roll"" score descriptor implied by the summary",0--100,0.44,r,0.44,,Headline,False
+texture,Score: Electronic,score_Electronic,"Strength of the ""Electronic"" score descriptor implied by the summary",0--100,0.43,r,0.43,,Headline,False
+texture,Score: Grand,score_Grand,"Strength of the ""Grand"" score descriptor implied by the summary",0--100,0.41,r,0.41,,Headline,False
+texture,Score: Dissonant,score_Dissonant,"Strength of the ""Dissonant"" score descriptor implied by the summary",0--100,0.38,r,0.38,,Headline,False
+texture,Score: Jazz,score_Jazz,"Strength of the ""Jazz"" score descriptor implied by the summary",0--100,0.38,r,0.38,,Headline,False
+texture,Score: Emotional,score_Emotional,"Strength of the ""Emotional"" score descriptor implied by the summary",0--100,0.36,r,0.36,,Headline,False
+texture,Score: Intimate,score_Intimate,"Strength of the ""Intimate"" score descriptor implied by the summary",0--100,0.29,r,0.29,,Validated,False
+texture,Score: Choral,score_Choral,"Strength of the ""Choral"" score descriptor implied by the summary",0--100,0.21,r,0.21,,Marginal,False
+texture,Visual: Dark,visual_Dark,"Strength of the ""Dark"" visual descriptor implied by the summary",0--100,0.65,r,0.65,,Headline,False
+texture,Visual: Saturated,visual_Saturated,"Strength of the ""Saturated"" visual descriptor implied by the summary",0--100,0.56,r,0.56,,Headline,False
+texture,Visual: Muted,visual_Muted,"Strength of the ""Muted"" visual descriptor implied by the summary",0--100,0.54,r,0.54,,Headline,False
+texture,Visual: Gritty,visual_Gritty,"Strength of the ""Gritty"" visual descriptor implied by the summary",0--100,0.51,r,0.51,,Headline,False
+texture,Visual: Bright,visual_Bright,"Strength of the ""Bright"" visual descriptor implied by the summary",0--100,0.48,r,0.48,,Headline,False
+texture,Visual: Handheld,visual_Handheld,"Strength of the ""Handheld"" visual descriptor implied by the summary",0--100,0.46,r,0.46,,Headline,False
+texture,Visual: Slow,visual_Slow,"Strength of the ""Slow"" visual descriptor implied by the summary",0--100,0.45,r,0.45,,Headline,False
+texture,Visual: Stylized,visual_Stylized,"Strength of the ""Stylized"" visual descriptor implied by the summary",0--100,0.44,r,0.44,,Headline,False
+texture,Visual: Clean,visual_Clean,"Strength of the ""Clean"" visual descriptor implied by the summary",0--100,0.39,r,0.39,,Headline,False
+texture,Visual: Natural,visual_Natural,"Strength of the ""Natural"" visual descriptor implied by the summary",0--100,0.35,r,0.35,,Headline,False
+texture,Visual: Busy,visual_Busy,"Strength of the ""Busy"" visual descriptor implied by the summary",0--100,0.35,r,0.35,,Validated,False
+texture,Visual: Fast-cut,visual_Fast_cut,"Strength of the ""Fast-cut"" visual descriptor implied by the summary",0--100,0.31,r,0.31,,Validated,False
+texture,Visual: Sharp,visual_Sharp,"Strength of the ""Sharp"" visual descriptor implied by the summary",0--100,0.25,r,0.25,,Validated,False
+texture,Visual: Dreamy,visual_Dreamy,"Strength of the ""Dreamy"" visual descriptor implied by the summary",0--100,0.23,r,0.23,,Validated,False

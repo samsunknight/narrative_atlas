@@ -1,0 +1,62 @@
+attribute,question,n_movies,r2,in_corpus_28
+6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,"how science-fictional was the world of the movie?
+
+by scienc",242,0.493,True
+5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,how fantastical was the world of the movies? by fantastical ,242,0.392,True
+3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,how realistic was the world of the movie? by realistic we me,242,0.294,True
+1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,"how many protagonists were there?
+
+
+a protagonist is the per",240,0.247,True
+12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,on a scale of 1 (entirely unresolved) to 7 (entirely resolve,242,0.218,True
+19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,how convincing did you find the plot? by convincing we mean ,242,0.139,True
+12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,on a scale of 1 (very unsurprising / predictable) to 7 (very,242,0.131,True
+7_overall_how_relevant_was_world_building_to_the_movie_world_building,"overall, how relevant was world-building to the movie?
+
+worl",242,0.103,True
+8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,"how competent was this protagonist? by competent, we mean ef",134,0.103,True
+7_now_let_s_talk_pun_intended_about_dialogue_in_your_opinion_how_was_t,"now, let’s talk (pun intended) about dialogue! 
+
+
+in your op",242,0.092,True
+12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,on a scale of 1 (very confusing) to 7 (very easy-to-understa,242,0.087,True
+5_if_you_checked_any_of_the_above_how_relevant_are_these_aspect_s_of_t,"if you checked any of the above, how relevant are these aspe",103,0.081,True
+8_how_engaging_did_you_find_the_dialogue_in_the_movie,how engaging did you find the dialogue in the movie?,242,0.08,True
+13_how_relatable_did_you_find_this_protagonist,how relatable did you find this protagonist?,134,0.07,True
+7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,"on the whole, how would you describe the pace of the movie?
+",242,0.066,True
+5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,to what extent did you feel moved by this movie on an emotio,242,0.066,True
+8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,"how many major settings does the movie contain? here, we're ",233,0.062,True
+9_how_realistic_did_you_find_the_dialogue_in_the_movie,how realistic did you find the dialogue in the movie?,242,0.06,True
+3_approximately_how_many_named_side_characters_are_in_this_movie_feel,approximately how many named side characters are in this mov,242,0.058,True
+8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,"how likable was this protagonist? by likable, we mean easy t",134,0.054,True
+13_how_much_did_you_like_the_score,how much did you like the score?,242,0.054,False
+5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,"in your opinion, how would you rate the quality of the setti",134,0.053,True
+8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,"how proactive was this protagonist? by proactive, we mean mo",134,0.053,False
+3_how_evocative_did_you_find_the_visual_style_by_evocative_we_mean_aff,how evocative did you find the visual style? by evocative we,242,0.051,True
+10_how_important_was_the_dialogue_to_your_experience_of_the_movie_as_a,how important was the dialogue to your experience of the mov,242,0.049,False
+1_in_your_opinion_how_important_were_the_characters_to_your_experience,"in your opinion, how important were the characters to your e",242,0.044,False
+4_how_interesting_did_you_find_the_visual_style_by_interesting_we_mean,how interesting did you find the visual style? by interestin,242,0.044,True
+1_in_your_opinion_how_important_was_the_setting_and_world_building_to,"in your opinion, how important was the setting and world-bui",242,0.038,False
+6_how_did_you_feel_about_the_movie,how did you feel about the movie?,242,0.036,False
+18_how_compelling_did_you_find_the_plot_by_compelling_we_mean_interest,how compelling did you find the plot? by compelling we mean ,242,0.036,False
+5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,"in your opinion, how would you rate the quality of the chara",134,0.03,True
+12d_on_a_scale_of_1_very_unsatisfying_to_7_very_satisfying,on a scale of 1 (very unsatisfying) to 7 (very satisfying)?,242,0.03,False
+11_how_real_did_this_protagonist_feel_to_you,how real did this protagonist feel to you?,134,0.027,True
+4_after_having_watched_the_movie_how_glad_are_you_to_have_devoted_time,"after having watched the movie, how glad are you to have dev",242,0.026,False
+5_how_important_was_the_visual_style_to_your_experience_of_the_movie_a,how important was the visual style to your experience of the,242,0.026,False
+15_in_your_opinion_how_would_you_rate_the_quality_of_the_character_wri,"in your opinion, how would you rate the quality of the chara",134,0.024,False
+4_to_what_extent_would_you_describe_the_movie_as_plot_driven_and_chara,to what extent would you describe the movie as plot-driven a,242,0.023,True
+3_while_you_were_in_the_process_of_watching_the_movie_how_enjoyable_di,"while you were in the process of watching the movie, how enj",242,0.023,False
+2_how_interesting_do_you_personally_find_the_movie_s_themes,how interesting do you personally find the movie's themes?,242,0.022,False
+12_how_emotionally_invested_were_you_in_this_protagonist,how emotionally invested were you in this protagonist?,134,0.021,True
+14_how_important_was_the_score_to_your_experience_of_the_movie,how important was the score to your experience of the movie?,242,0.017,False
+12_how_well_matched_did_the_score_feel_to_the_action,how well-matched did the score feel to the action?,241,0.012,False
+4_how_familiar_was_the_world_of_the_movie_by_familiar_we_mean_a_settin,how familiar was the world of the movie? by familiar we mean,242,0.009,False
+2_how_consistent_did_you_find_the_visual_style_by_consistent_we_mean_t,how consistent did you find the visual style? by consistent ,242,0.007,False
+6_how_related_was_the_sequence_of_plot_events_throughout_the_movie_if,how related was the sequence of plot events throughout the m,242,0.006,False
+4_how_important_would_you_say_the_side_characters_are_in_this_movie,how important would you say the side characters are in this ,242,0.003,False
+12e_on_a_scale_of_1_entirely_arbitrary_could_have_easily_happened_anot,on a scale of 1 (entirely arbitrary / could have easily happ,242,0.003,False
+10_how_closely_do_you_think_you_fit_the_director_s_vision_of_the_ideal,how closely do you think you fit the director's vision of th,242,0.002,False
+6_in_your_opinion_how_was_the_amount_of_showing_and_telling_throughout,"in your opinion, how was the amount of showing and telling t",242,0.001,False
+20_in_your_opinion_how_important_was_the_plot_pacing_to_your_experienc,"in your opinion, how important was the plot/pacing to your e",242,0.0,False
