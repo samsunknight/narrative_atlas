@@ -2,7 +2,7 @@
 """
 From-scratch replication driver for the Narrative Atlas paper ("How Artistic
 Style Evolves", P0).  Reproduces ALL FIVE LAYERS of the released dense atlas
-(149,985 works; film 94,147 / book 22,998 / tv 32,840), not just structure.
+(149,985 works; film 94,147 / book 22,998 / tv 32,840), not the structural spine alone.
 
 WHAT THIS DOES
 --------------

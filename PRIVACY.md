@@ -23,9 +23,9 @@ correlations inside `reproduce.py`).
 Rater counts per work × attribute are small (median 2, up to 6 for film and 8 for book), and
 some are 1. Where `n_raters = 1`, that work's mean equals a single anonymous rater's ordinal
 response to a question **about a public work** (e.g. "how science-fictional is this film,
-1–7"). This carries no re-identification risk: there is no rater identifier, no demographic
-field, and no key linking one rater's responses across works, so an individual's response set
-cannot be reconstructed and no person can be identified. This is a standard aggregate release.
+1–7"). This carries no re-identification risk, since there is no rater identifier, no
+demographic field, and no key linking one rater's responses across works; an individual's
+response set cannot be reconstructed and no person can be identified. This is a standard aggregate release.
 
 ## Provenance of the human data
 

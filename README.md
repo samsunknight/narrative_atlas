@@ -76,7 +76,8 @@ This prints, and writes to `outputs/check_report.txt`, one line per check
 (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `96/96 passed`. `[R]` checks
 are re-derived from the shipped tables; `[A]` checks (the mood and character-arc validation
 r) are asserted against the shipped sweep values, since the per-rater mood/arc ratings are
-not redistributed. See `REPRODUCE.md` for how to read the report.
+not redistributed. The one documented correction (the adaptation fantastical delta re-derives
+to 0.58, matching the paper) is noted at the foot of the report; no tolerances were widened.
 
 ## Scope of this release
 

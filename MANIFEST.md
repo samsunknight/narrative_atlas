@@ -45,7 +45,7 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 
 ### Code + docs
 `reproduce.py`, `requirements.txt`, `README.md`, `DATASHEET.md`, `PRIVACY.md`, `MANIFEST.md`,
-`REPRODUCE.md`, `LICENSE`.
+`LICENSE`.
 
 `code/` — scoring transparency (method reference; not part of replication):
 `PROMPT.md` (model, settings, prompt format), `rescore_oneat.py` (one-attribute-per-call
