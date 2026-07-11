@@ -46,14 +46,14 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][R] adaptation t world-building                          target=    -5.3  reproduced=    -5.3
 [PASS][R] adaptation t competence                              target=    -5.2  reproduced=    -5.2
 [PASS][R] adaptation sign-agree (of 8)                         target=       6  reproduced=       6
-[PASS][R] reception spectacle->votes                           target=    0.28  reproduced=   0.273
+[PASS][R] reception spectacle->votes                           target=    0.27  reproduced=   0.273
 [PASS][R] reception spectacle->rating                          target=    0.25  reproduced=   0.252
-[PASS][R] reception fashion->rating                            target=    0.46  reproduced=   0.452
-[PASS][R] reception fashion->votes                             target=    0.03  reproduced=   0.005
-[PASS][R] reception spectacle_v->votes                         target=    0.19  reproduced=   0.214
+[PASS][R] reception fashion->rating                            target=    0.45  reproduced=   0.452
+[PASS][R] reception fashion->votes                             target=    0.01  reproduced=   0.005
+[PASS][R] reception spectacle_v->votes                         target=    0.21  reproduced=   0.214
 [PASS][R] reception spectacle_v->rating                        target=    0.07  reproduced=   0.074
-[PASS][R] reception fashion_v->rating                          target=    0.37  reproduced=   0.376
-[PASS][R] reception fashion_v->votes                           target=   -0.01  reproduced=   0.003
+[PASS][R] reception fashion_v->rating                          target=    0.38  reproduced=   0.376
+[PASS][R] reception fashion_v->votes                           target=     0.0  reproduced=   0.003
 [PASS][R] convergence book-tv 1950s                            target=    1.41  reproduced=    1.41
 [PASS][R] convergence book-tv 1990s                            target=    1.17  reproduced=    1.16
 [PASS][R] convergence book-tv 2010s                            target=    1.25  reproduced=    1.25

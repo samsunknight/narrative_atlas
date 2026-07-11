@@ -3,7 +3,7 @@ structure,sci-fi world,6_how_science_fictional_was_the_world_of_the_movie_by_sci
 structure,fantastical world,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,How fantastical was the world of the movies?,1--7,0.63 / 0.73,r,0.63,0.73,Headline,True
 structure,realistic world,3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,How realistic was the world of the movie?,1--7,0.54 / 0.61,r,0.54,0.61,Headline,True
 structure,# protagonists,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,How many protagonists were there?,1--6,0.50 / 0.54,r,0.50,0.54,Headline,True
-structure,sensitive-content relevance,,"If you checked any of the above, how relevant are these aspect(s) of their identity …",1--5,0.56,r,0.56,,Headline,False
+structure,identity relevance,,"If you checked any of the above, how relevant are these aspect(s) of their identity …",1--5,0.56,r,0.56,,Headline,False
 structure,ending resolved,,On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,1--7,0.47,r,0.47,,Headline,False
 structure,world-building relevance,7_overall_how_relevant_was_world_building_to_the_movie_world_building,"Overall, how relevant was world-building to the movie?",1--5,0.47 / 0.29,r,0.47,0.29,Headline,True
 structure,ending surprising,,On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,1--7,0.46,r,0.46,,Headline,False
