@@ -8,9 +8,9 @@ largest single file 9.3 MB (well within GitHub limits; no Git LFS needed).
 ### `data/atlas/` — the dataset (the published resource)
 | file | rows | contents |
 |---|---|---|
-| `century_frame_film.parquet` | 94,147 | `idx, title, year, decade, medium` + 162 attribute columns (film-side instrument) |
-| `century_frame_book.parquet` | 22,998 | same schema, book-side attribute set |
-| `century_frame_tv.parquet` | 32,840 | same schema, television |
+| `century_frame_film.parquet` | 94,140 | `idx, title, year, decade, medium` + 162 attribute columns (film-side instrument) |
+| `century_frame_book.parquet` | 22,978 | same schema, book-side attribute set |
+| `century_frame_tv.parquet` | 32,223 | same schema, television |
 
 One row per work, one column per attribute. Attribute columns are layer-prefixed
 (`mood_*`, `genre_*`, `arc_*`, visual/score/acting/dialogue texture) or named by their survey
@@ -20,7 +20,7 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 ### `data/corpus/` — the structural spine
 | file | rows | contents |
 |---|---|---|
-| `{film,book,tv}_structural_1890_2025.csv` | 94,147 / 22,998 / 32,840 | `idx, title, year` + the 30 structural attributes, with column names **shared across media** so film, book, and tv are directly comparable (used for adaptation, convergence, crystallization) |
+| `{film,book,tv}_structural_1890_2025.csv` | 94,140 / 22,978 / 32,223 | `idx, title, year` + the 30 structural attributes, with column names **shared across media** so film, book, and tv are directly comparable (used for adaptation, convergence, crystallization) |
 
 ### `data/validation/` — human anchor + codebook
 | file | rows | contents / provenance |
@@ -32,7 +32,7 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 | `genre_validation_layer.csv` | 18 | `genre, imdb_tag, auc, n_pos` — genre-recovery ROC-AUC vs IMDb labels |
 | `rescore_manifest.csv` | 246 | `attr_id, layer, mode, media, lo, hi, prompt, tier, r, …` — the deployed-prompt registry with per-attribute validation r and tier |
 | `reliability_halves.csv` | 11 | `attribute, medium, r_halfsplit, n_raters, n_works` — split-half reliability (feeds the r² ceilings) |
-| `summary_lengths.csv` | 149,985 | `idx, medium, n_char` — plot-summary character length (length-control robustness) |
+| `summary_lengths.csv` | 149,341 | `idx, medium, n_char` — plot-summary character length (length-control robustness) |
 | `movie_attribute_validation.csv`, `book_attribute_validation.csv`, `T2_validation.csv` | 50 / 27 / 30 | per-attribute machine-vs-human r² tables (validation documentation) |
 | `mood_numbers.json`, `arc_findings.json` | — | the mood- and character-arc-layer sweep results (the `[A]` asserted checks) |
 

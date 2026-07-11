@@ -11,10 +11,10 @@ LAYERS RE-DERIVED FROM RAW: corpus counts | STRUCTURE (film+book val r) | GENRE 
   crystallization | variance-ratio | genre-lifecycles | production-code DiD | geometry
 LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 ============================================================================================
-[PASS][R] corpus total                                         target=  149985  reproduced=  149985
-[PASS][R] film N                                               target=   94147  reproduced=   94147
-[PASS][R] book N                                               target=   22998  reproduced=   22998
-[PASS][R] tv N                                                 target=   32840  reproduced=   32840
+[PASS][R] corpus total                                         target=  149341  reproduced=  149341
+[PASS][R] film N                                               target=   94140  reproduced=   94140
+[PASS][R] book N                                               target=   22978  reproduced=   22978
+[PASS][R] tv N                                                 target=   32223  reproduced=   32223
 [PASS][R] structure film r sci-fi                              target=     0.7  reproduced=     0.7
 [PASS][R] structure film r fantastical                         target=    0.63  reproduced=    0.63
 [PASS][R] structure film r realistic                           target=    0.54  reproduced=    0.54
@@ -55,24 +55,24 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][R] reception fashion_v->rating                          target=    0.37  reproduced=   0.376
 [PASS][R] reception fashion_v->votes                           target=   -0.01  reproduced=   0.003
 [PASS][R] convergence book-tv 1950s                            target=    1.41  reproduced=    1.41
-[PASS][R] convergence book-tv 1990s                            target=    1.17  reproduced=    1.17
+[PASS][R] convergence book-tv 1990s                            target=    1.17  reproduced=    1.16
 [PASS][R] convergence book-tv 2010s                            target=    1.25  reproduced=    1.25
 [PASS][R] two-clocks point-biserial r (struct-vs-eval x phi)   target=   -0.01  reproduced=   -0.01
 [PASS][R] crystallization film 1910s                           target=    0.25  reproduced=    0.25
 [PASS][R] crystallization film 1980s                           target=    0.39  reproduced=    0.39
-[PASS][R] variance ratio between/within (>1.5)                 target=    1.62  reproduced=    1.58
+[PASS][R] variance ratio between/within (>1.5)                 target=    2.03  reproduced=    2.03
 [PASS][R] genre lifecycle Western pct                          target=   -84.0  reproduced=   -80.8
 [PASS][R] genre lifecycle Musical pct                          target=   -52.0  reproduced=   -51.6
 [PASS][R] genre lifecycle Sci-Fi pct                           target=   133.0  reproduced=   133.0
 [PASS][R] genre lifecycle Horror pct                           target=   144.0  reproduced=   143.7
 [PASS][R] genre lifecycle Drama pct                            target=    14.0  reproduced=    13.5
 [PASS][R] production-code gap film-novel 1935                  target=   -33.0  reproduced=   -33.0
-[PASS][R] production-code gap film-novel 1968                  target=    -8.0  reproduced=    -8.2
-[PASS][R] production-code DiD (film-novel)                     target=    13.0  reproduced=    13.3
+[PASS][R] production-code gap film-novel 1968                  target=    -8.0  reproduced=    -8.1
+[PASS][R] production-code DiD (film-novel)                     target=    13.0  reproduced=    13.2
 [PASS][R] PCA PC1 var %                                        target=    0.42  reproduced=    0.42
 [PASS][R] PCA PC2 var %                                        target=    0.09  reproduced=    0.11
 [PASS][R] silhouette k=4 (weak ~0.10)                          target=     0.1  reproduced=    0.15
-[PASS][R] medium classification film recall                    target=    0.94  reproduced=    0.94
+[PASS][R] medium classification film recall                    target=    0.94  reproduced=    0.95
 [PASS][R] validated count: genre                               target=      18  reproduced=      18
 [PASS][R] validated count: arc                                 target=       9  reproduced=       9
 [PASS][R] validated count: texture                             target=      34  reproduced=      34

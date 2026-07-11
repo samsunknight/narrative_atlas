@@ -1,7 +1,7 @@
 # Datasheet — the Narrative Atlas
 
 ## 1. Motivation & composition
-The atlas is 149,985 narrative works (94,147 films, 22,998 novels, 32,840 television
+The atlas is 149,341 narrative works (94,140 films, 22,978 novels, 32,223 television
 programs), each scored on 162 attributes of narrative form across five layers (structure,
 mood, genre, character arc, texture). The dataset is `data/atlas/century_frame_{film,book,tv}.parquet`
 (one row per work; `idx`, `title`, `year`, `decade`, `medium`, and the layer-prefixed

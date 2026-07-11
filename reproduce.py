@@ -2,7 +2,7 @@
 """
 From-scratch replication driver for the Narrative Atlas paper ("How Artistic
 Style Evolves", P0).  Reproduces ALL FIVE LAYERS of the released dense atlas
-(149,985 works; film 94,147 / book 22,998 / tv 32,840), not the structural spine alone.
+(149,341 works; film 94,140 / book 22,978 / tv 32,223), not the structural spine alone.
 
 WHAT THIS DOES
 --------------
@@ -91,10 +91,10 @@ VAL8 = [c for c in B.columns if any(k in c.lower() for k in VAL8_KEYS) and c in 
 # =====================================================================================
 # LAYER 0.  CORPUS COUNTS  (re-derived)
 # =====================================================================================
-chk("R", "corpus total", 149985, len(F)+len(B)+len(T), 0)
-chk("R", "film N",  94147, len(F), 0)
-chk("R", "book N",  22998, len(B), 0)
-chk("R", "tv N",    32840, len(T), 0)
+chk("R", "corpus total", 149341, len(F)+len(B)+len(T), 0)
+chk("R", "film N",  94140, len(F), 0)
+chk("R", "book N",  22978, len(B), 0)
+chk("R", "tv N",    32223, len(T), 0)
 
 # =====================================================================================
 # LAYER 1a.  STRUCTURE validation, FILM   (re-derived from human_means + LLM scores)
@@ -271,7 +271,7 @@ medmean = {m: np.mean(list(C[m].values()), axis=0) for m in C}
 grand = np.mean([v for m in C for v in C[m].values()], axis=0)
 between = np.mean([np.mean((medmean[m]-grand)**2) for m in C])
 within  = np.mean([np.mean([np.mean((c-medmean[m])**2) for c in C[m].values()]) for m in C])
-chk("R", "variance ratio between/within (>1.5)", 1.62, round(between/within, 2), 0.10)
+chk("R", "variance ratio between/within (>1.5)", 2.03, round(between/within, 2), 0.10)
 
 # =====================================================================================
 # GENRE LIFECYCLES  (re-derived from atlas genre_ columns by decade, film)

@@ -4,7 +4,7 @@ A century of narrative style across film, book, and television, scored on more t
 attributes of narrative form and anchored to human judgment. This repository is the
 self-contained replication package and data release for the paper *The Narrative Atlas*.
 
-The atlas covers **149,985 works** (94,147 films, 22,998 novels, 32,840 television
+The atlas covers **149,341 works** (94,140 films, 22,978 novels, 32,223 television
 programs), 1890–2025, each scored on **162 attributes** across five layers — structure,
 mood, genre, character arc, and texture — of which **130 clear the validation bar**. Scores
 are produced by a language model reading each work's English Wikipedia plot summary and
