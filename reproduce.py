@@ -344,12 +344,17 @@ chk("R", "medium classification film recall", 0.94, round(film_recall, 2), 0.02)
 n_genre_layer = len(GV)
 n_arc_layer   = int((RM.layer=="arc").sum())
 n_tex_film    = int(((DESC.media=="film,tv") & (DESC.r>=0.22)).sum())
+# structure validated count DERIVED from the shipped codebook (Table S1: Headline+Validated),
+# not asserted -- so it can never silently drift from the codebook again (it was 41==41, a
+# tautology; the true count incl. the plot-predicted reception variants that validate is 59).
+CBK = pd.read_csv(P("data/validation/attribute_dictionary.csv"))
+n_struct = int(CBK[(CBK.layer == "structure") & CBK.tier.isin(["Headline", "Validated"])].shape[0])
 chk("R", "validated count: genre",   18, n_genre_layer, 0)
 chk("R", "validated count: arc",      9, n_arc_layer, 0)
 chk("R", "validated count: texture", 34, n_tex_film, 0)
-chk("A", "validated count: structure (shipped §11t)", 41, 41, 0)
+chk("R", "validated count: structure (codebook H+V)", 59, n_struct, 0)
 chk("A", "validated count: mood (shipped §11q)",      28, 28, 0)
-chk("R", "validated count: total (130)", 130, 41 + 28 + n_genre_layer + n_arc_layer + n_tex_film, 0)
+chk("R", "validated count: total (148)", 148, n_struct + 28 + n_genre_layer + n_arc_layer + n_tex_film, 0)
 
 # =====================================================================================
 # MOOD layer validation r  (ASSERTED vs shipped §11 sweep; not re-derivable from data/)

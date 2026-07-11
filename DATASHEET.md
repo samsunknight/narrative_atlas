@@ -11,6 +11,14 @@ attribute scores). A 30-attribute structural spine with column names shared acro
 2025); main analyses use 1915–2020. Titles are English Wikipedia page titles and may include
 a disambiguation suffix (`"Casablanca (film)"`).
 
+**Cleaning.** Each work's medium is its Wikipedia classification. Before release we removed
+644 works (0.4% of the corpus) whose entry identified a different medium — chiefly theatrical
+films that had been carried in the television set (titles disambiguated as `"… (film)"`) —
+together with the pre-1950 television entries, which carry a year taken from a source film or
+the story's setting, or are non-television works misclassified as television, since broadcast
+television begins only in the late 1940s. The removals were: television −617, book −20, film
+−7. This is the only row-level filtering; no work is dropped for its scores.
+
 ## 2. How the scores were generated (data generation, not replication)
 Each attribute is scored by `gpt-4o-mini` at temperature 0 (greedy decoding, so an identical
 summary returns an identical score), reading the work's English Wikipedia plot summary and
