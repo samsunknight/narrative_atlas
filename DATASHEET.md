@@ -81,3 +81,5 @@ adaptation fantastical delta re-derives to 0.58, matching the paper) is noted in
 ## 7. Distribution & license
 See `LICENSE`. Survey-derived ratings are governed by the companion HumanReader / HumanViewer
 releases; IMDb and Wikidata content are subject to their respective terms.
+
+*Prompt note:* six deployed prompts retain a verbatim "plot and reception" survey preamble; no reception text is ever supplied (plot summary only), and deleting the clause leaves scores unchanged (mean Δr 0.003).
