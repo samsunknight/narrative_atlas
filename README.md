@@ -60,8 +60,9 @@ western = film.assign(dec=film.year // 10 * 10).groupby("dec")["genre_Western"].
 Titles are English Wikipedia page titles and may carry a disambiguation suffix
 (`"Casablanca (film)"`). Cross-medium comparisons should keep to the eight
 both-media-validated attributes (`cross_medium == True`); within-medium and
-film/television analyses can use the wider film-validated set; the Marginal tier is for
-description, not headline inference. The codebook's `column` field gives the exact parquet
+film/television analyses can use the wider film-validated set. The `tier` field grades
+human-anchoring strength — A (strongest), B (clears the r>0.22 bar), C (below it) — and
+tier C is for description, not headline inference. The codebook's `column` field gives the exact parquet
 column for the clean-named layers and the eight cross-medium attributes; the remaining
 structural rows are named by their survey question and matched through `definition`.
 

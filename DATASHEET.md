@@ -31,7 +31,10 @@ model settings, prompt format, and scoring harness are in `code/` (`PROMPT.md`,
 in `data/validation/rescore_manifest.csv`.
 
 ## 3. Validation / human anchoring
-Attributes are anchored to two human surveys approved by the University of Toronto Research
+Of the 162 attributes, **144 are validated against human survey ratings** (structure 67,
+mood 31, character-arc 9, texture 37) and **18 — the genre layer — against IMDb category
+tags** (AUC), since the survey carried only a coarse genre checklist. The survey attributes
+are anchored to two human surveys approved by the University of Toronto Research
 Ethics Board (protocol 46547): 751 readers (book survey; the HumanReader corpus) and 225
 viewers (two film surveys; the HumanViewer corpus). The raw per-respondent responses are
 **not** redistributed here (see `PRIVACY.md`); they remain with the companion HumanReader and

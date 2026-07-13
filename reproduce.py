@@ -159,7 +159,7 @@ for ak, gl, pv in [("6_how_science_fictional","Sci-Fi",0.96),
 # =====================================================================================
 # LAYER 3.  TEXTURE / DESCRIPTOR words   (re-derived from rescore_manifest r column)
 #   descriptor r is populated only for the plot-scored descriptor taxonomies.
-#   Validate = human-vs-LLM r >= 0.22 (the package's ">=Marginal" tier gate).
+#   Validate = human-vs-LLM r >= 0.22 (the package's ">=C" tier gate).
 # =====================================================================================
 RM = pd.read_csv(P("data/validation/rescore_manifest.csv"))
 DESC = RM[RM.layer == "descriptor"].copy()
@@ -344,11 +344,11 @@ chk("R", "medium classification film recall", 0.94, round(film_recall, 2), 0.02)
 n_genre_layer = len(GV)
 n_arc_layer   = int((RM.layer=="arc").sum())
 n_tex_film    = int(((DESC.media=="film,tv") & (DESC.r>=0.22)).sum())
-# structure validated count DERIVED from the shipped codebook (Table S1: Headline+Validated),
+# structure validated count DERIVED from the shipped codebook (Table S1: tiers A+B),
 # not asserted -- so it can never silently drift from the codebook again (it was 41==41, a
 # tautology; the true count incl. the plot-predicted reception variants that validate is 59).
 CBK = pd.read_csv(P("data/validation/attribute_dictionary.csv"))
-n_struct = int(CBK[(CBK.layer == "structure") & CBK.tier.isin(["Headline", "Validated"])].shape[0])
+n_struct = int(CBK[(CBK.layer == "structure") & CBK.tier.isin(["A", "B"])].shape[0])
 chk("R", "validated count: genre",   18, n_genre_layer, 0)
 chk("R", "validated count: arc",      9, n_arc_layer, 0)
 chk("R", "validated count: texture", 34, n_tex_film, 0)
