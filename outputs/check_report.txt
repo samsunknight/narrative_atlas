@@ -1,10 +1,10 @@
 ============================================================================================
 NARRATIVE ATLAS — FULL FIVE-LAYER REPLICATION CHECK (self-contained, from released package)
 ============================================================================================
-RESULT: 96/96 checks reproduce within tolerance
+RESULT: 99/99 checks reproduce within tolerance
   RE-DERIVED-FROM-RAW  (recomputed here from shipped tables): 91 checks
   ASSERTED-VS-SHIPPED  (mood + arc validation r; no raw mood/arc human ratings in data/,
-                        computed values from ATLAS_VALIDATION_MASTER.md §11 sweep): 5 checks
+                        computed values from ATLAS_VALIDATION_MASTER.md §11 sweep): 8 checks
 --------------------------------------------------------------------------------------------
 LAYERS RE-DERIVED FROM RAW: corpus counts | STRUCTURE (film+book val r) | GENRE (AUC layer +
   structural->IMDb) | TEXTURE (descriptor r) | ADAPTATION | RECEPTION | convergence |
@@ -83,6 +83,9 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][A] arc change r competent (§11a)                        target=    0.45  reproduced=    0.45
 [PASS][A] arc change r range lo (§11a)                         target=    0.37  reproduced=    0.37
 [PASS][A] arc change r range hi (§11a)                         target=    0.48  reproduced=    0.48
+[PASS][A] book mood median r (survey)                          target=    0.48  reproduced=    0.48
+[PASS][A] book genre median AUC (survey)                       target=    0.93  reproduced=    0.93
+[PASS][A] book arc competence change r                         target=    0.38  reproduced=    0.38
 [PASS][R] SI§S1.4 escalation rise, raw (before)                target=    0.13  reproduced=   0.127
 [PASS][R] SI§S1.4 escalation rise, length-residualized         target=    0.05  reproduced=   0.047
 [PASS][R] SI§S1.4 surface r^2 log(n_char)->sci-fi              target=   0.034  reproduced=   0.034
@@ -108,7 +111,7 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][R] SI§S1.5 genre-decomp between-genre                   target=    0.03  reproduced=    0.03
 [PASS][R] SI§S1.6 reception match N (complete spectacle)       target=   37231  reproduced=   37231
 ============================================================================================
-96/96 passed
+99/99 passed
 
 SI TABLE S2 (persistence spectrum) REPRODUCED FROM THE RELEASED CORPUS:
   six most persistent:  scifi phi=0.93 hl=>10, worldbuild phi=0.92 hl=8.1, identityrel phi=0.91 hl=7.3, #sidechar phi=0.91 hl=7.3, clarity phi=0.89 hl=5.9, surprise phi=0.88 hl=5.5

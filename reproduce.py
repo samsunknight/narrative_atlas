@@ -39,7 +39,7 @@ Run from the package root (data/ is a real subdirectory here):
     .venv/bin/python reproduce.py
 Output: outputs/check_report.txt
 """
-import os, re, json, warnings, numpy as np, pandas as pd
+import os, re, json, csv, warnings, numpy as np, pandas as pd
 from sklearn.metrics import roc_auc_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_predict
@@ -372,6 +372,16 @@ _ = json.load(open(P("data/validation/arc_findings.json")))  # shipped artifact 
 chk("A", "arc change r competent (§11a)", 0.45, SHIP_ARC_CHANGE_R["competent"], 0.0)
 chk("A", "arc change r range lo (§11a)",  0.37, min(SHIP_ARC_CHANGE_R.values()), 0.0)
 chk("A", "arc change r range hi (§11a)",  0.48, max(SHIP_ARC_CHANGE_R.values()), 0.0)
+
+# =====================================================================================
+# BOOK select-all / trajectory validation  (mood/genre/arc; the once-deferred layers)
+#   ASSERTED vs shipped book_taxonomy_validation.csv (produced by code/validate_book_taxonomies.py,
+#   which needs the external reader survey; the RESULT is shipped so this stays self-contained).
+# =====================================================================================
+_bt = {r["layer"]: float(r["value"]) for r in csv.DictReader(open(P("data/validation/book_taxonomy_validation.csv")))}
+chk("A", "book mood median r (survey)",       0.48, round(_bt["mood"], 2),           0.0)
+chk("A", "book genre median AUC (survey)",    0.93, round(_bt["genre"], 2),          0.0)
+chk("A", "book arc competence change r",      0.38, round(_bt["arc_competence"], 2), 0.0)
 
 # =====================================================================================
 # SI ROBUSTNESS / SUPPLEMENTARY-TEXT NUMBERS  (re-derived from the released corpus +
