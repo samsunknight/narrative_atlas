@@ -1,0 +1,6 @@
+layer,manifest_layer,n_attrs_film,descriptor
+structure,scalar,67,world / character / plot
+texture,descriptor,37,visual / score / acting
+mood,mood,31,emotional tones
+genre,genre,18,18 genres
+arc,arc,9,protagonist change

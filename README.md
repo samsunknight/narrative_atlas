@@ -94,3 +94,26 @@ HumanViewer dataset papers — and this package ships only aggregated per-work m
 
 Code (`reproduce.py`) under MIT; data under CC BY 4.0, subject to the upstream terms of IMDb,
 Wikidata, and the companion survey releases. See `LICENSE`.
+
+## Figures
+
+All figures in the paper (main text, Extended Data, and Supplementary) are provided as PNGs in
+`outputs/figures/`, and the code that generates them is in `code/figures/`.
+
+Regenerate the core figures from the released data:
+
+```bash
+python code/figures/build_fig_f1.py           # corpus coverage + attribute taxonomy
+python code/figures/build_fig_f2.py           # human validation, all five layers
+python code/figures/build_missing_figs.py     # adaptation, crystallization (line + heatmap), 1-D shifts, strongest planes
+python code/figures/build_levels_diff.py      # style-space density grid + per-plane SI figures
+python code/figures/fig_f6_crosscutting.py    # layer convergence + complementarity
+```
+
+These read only the released data (`data/corpus/*_structural_1890_2025.csv`, `data/atlas/*.parquet`,
+`data/validation/*`, `data/derived/adaptation_deltas.csv`) and write to `outputs/figures/`. The
+crystallization line reproduces `reproduce.py`'s `crys()` exactly (film 0.25 in the 1910s to 0.39 by
+the 1980s). The remaining layer figures (genre lifecycles, the Production-Code tone comparison, the
+Extended-Data exhibits, the PCA style-space map) additionally use analysis intermediates produced by
+the scoring/reception pipeline; their generators are included in `code/figures/` and the rendered
+figures are in `outputs/figures/`.
