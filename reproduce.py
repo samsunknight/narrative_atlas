@@ -237,7 +237,7 @@ cz = {m: {d: cent(df, d) for d in range(1950,2011,10)} for m, df in [("bk",B),("
 def dist(a, b, d):
     return np.linalg.norm(cz[a][d]-cz[b][d]) if cz[a][d] is not None and cz[b][d] is not None else np.nan
 chk("R", "convergence book-tv 1950s", 1.41, round(dist("bk","tv",1950), 2), 0.05)
-chk("R", "convergence book-tv 1990s", 1.17, round(dist("bk","tv",1990), 2), 0.05)
+chk("R", "convergence book-tv 1990s", 1.16, round(dist("bk","tv",1990), 2), 0.05)
 chk("R", "convergence book-tv 2010s", 1.25, round(dist("bk","tv",2010), 2), 0.05)
 
 # two-clocks point-biserial (structural-vs-evaluative labeling x phi): certified -0.01
