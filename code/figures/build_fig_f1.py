@@ -10,9 +10,9 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from pathlib import Path
 
-ROOT = Path.cwd()
+ROOT = Path.home() / "uoft" / "style_evolves"
 DATA = ROOT / "data" / "atlas"
-OUT  = ROOT / "outputs" / "figures"
+OUT  = ROOT / "results" / "figures_certified"
 OUT.mkdir(parents=True, exist_ok=True)
 
 MEDIA = ["film", "book", "tv"]
@@ -36,7 +36,7 @@ cov = pivot.reindex(decades).fillna(0).astype(int)[MEDIA]
 
 # --- taxonomy (film) ---
 taxo = pd.DataFrame([
-    ("structure", "scalar",     67, "world / character / plot"),
+    ("structure", "scalar",     47, "world / character / plot"),
     ("texture",   "descriptor", 37, "visual / score / acting"),
     ("mood",      "mood",       31, "emotional tones"),
     ("genre",     "genre",      18, "18 genres"),

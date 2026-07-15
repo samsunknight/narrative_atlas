@@ -8,7 +8,7 @@ largest single file 9.3 MB (well within GitHub limits; no Git LFS needed).
 ### `data/atlas/` — the dataset (the published resource)
 | file | rows | contents |
 |---|---|---|
-| `century_frame_film.parquet` | 94,140 | `idx, title, year, decade, medium` + 162 attribute columns (film-side instrument) |
+| `century_frame_film.parquet` | 94,140 | `idx, title, year, decade, medium` + 142 attribute columns (film-side instrument) |
 | `century_frame_book.parquet` | 22,978 | same schema, book-side attribute set |
 | `century_frame_tv.parquet` | 32,223 | same schema, television |
 
@@ -25,7 +25,7 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 ### `data/validation/` — human anchor + codebook
 | file | rows | contents / provenance |
 |---|---|---|
-| `attribute_dictionary.csv` | 162 | the codebook: `layer, attribute, column, definition, scale, validation, validation_metric, film_r, book_r, tier, cross_medium`. Generated from the paper's vetted Table S1. |
+| `attribute_dictionary.csv` | 142 | the codebook: `layer, attribute, column, definition, scale, validation, validation_metric, film_r, book_r, tier, cross_medium`. Generated from the paper's vetted Table S1. |
 | `human_means_film.csv` | 10,977 | `survey_movie_id, attribute, human_mean, n_raters` — per-work MEAN human rating (film survey) |
 | `human_means_book.csv` | 3,677 | `book_idx, attribute, human_mean, n_raters` — per-work MEAN (reader survey) |
 | `film_llm_validation_scores.csv` | 10,977 | `survey_movie_id, attribute, llm_score` — per-work model score on the validation films |

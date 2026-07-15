@@ -2,7 +2,7 @@
 
 ## 1. Motivation & composition
 The atlas is 149,341 narrative works (94,140 films, 22,978 novels, 32,223 television
-programs), each scored on 162 attributes of narrative form across five layers (structure,
+programs), each scored on 142 attributes of narrative form across five layers (structure,
 mood, genre, character arc, texture). The dataset is `data/atlas/century_frame_{film,book,tv}.parquet`
 (one row per work; `idx`, `title`, `year`, `decade`, `medium`, and the layer-prefixed
 attribute scores). A 30-attribute structural spine with column names shared across media
@@ -31,7 +31,7 @@ model settings, prompt format, and scoring harness are in `code/` (`PROMPT.md`,
 in `data/validation/rescore_manifest.csv`.
 
 ## 3. Validation / human anchoring
-Of the 162 attributes, **144 are validated against human survey ratings** (structure 67,
+Of the 142 attributes, **144 are validated against human survey ratings** (structure 67,
 mood 31, character-arc 9, texture 37) and **18 — the genre layer — against IMDb category
 tags** (AUC), since the survey carried only a coarse genre checklist. The survey attributes
 are anchored to two human surveys approved by the University of Toronto Research

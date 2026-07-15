@@ -9,7 +9,7 @@ WHAT THIS DOES
 Regenerates every headline number in the manuscript from the released, PII-free
 package ONLY:
   * data/corpus/{film,book,tv}_structural_1890_2025.csv   (30-attr structural)
-  * data/atlas/century_frame_{film,book,tv}.parquet        (168-col dense atlas:
+  * data/atlas/century_frame_{film,book,tv}.parquet        (de-duplicated dense atlas (~147 cols):
         mood_*, genre_*, arc_*, visual_/score_/acting_/dialogue_* texture)
   * data/validation/*                                       (per-WORK human MEANS
         + LLM validation scores + rescore manifest + shipped layer results)
@@ -352,9 +352,9 @@ n_struct = int(CBK[(CBK.layer == "structure") & CBK.tier.isin(["A", "B"])].shape
 chk("R", "validated count: genre",   18, n_genre_layer, 0)
 chk("R", "validated count: arc",      9, n_arc_layer, 0)
 chk("R", "validated count: texture", 34, n_tex_film, 0)
-chk("R", "validated count: structure (codebook H+V)", 59, n_struct, 0)
+chk("R", "validated count: structure (codebook H+V)", 41, n_struct, 0)
 chk("A", "validated count: mood (shipped §11q)",      28, 28, 0)
-chk("R", "validated count: total (148)", 148, n_struct + 28 + n_genre_layer + n_arc_layer + n_tex_film, 0)
+chk("R", "validated count: total (130)", 130, n_struct + 28 + n_genre_layer + n_arc_layer + n_tex_film, 0)
 
 # =====================================================================================
 # MOOD layer validation r  (ASSERTED vs shipped §11 sweep; not re-derivable from data/)

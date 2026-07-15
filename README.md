@@ -1,11 +1,11 @@
 # The Narrative Atlas
 
-A century of narrative style across film, book, and television, scored on more than 160
+A century of narrative style across film, book, and television, scored on more than 140
 attributes of narrative form and anchored to human judgment. This repository is the
 self-contained replication package and data release for the paper *The Narrative Atlas*.
 
 The atlas covers **149,341 works** (94,140 films, 22,978 novels, 32,223 television
-programs), 1890–2025, each scored on **162 attributes** across five layers — structure,
+programs), 1890–2025, each scored on **142 attributes** across five layers — structure,
 mood, genre, character arc, and texture — of which **130 clear the validation bar**. Scores
 are produced by a language model reading each work's English Wikipedia plot summary and
 answering the same questions put to human raters; the human anchor is two surveys (751
@@ -28,7 +28,7 @@ data/
   corpus/               the 30-attribute structural spine, column names shared across
     {film,book,tv}_structural_1890_2025.csv   media (used for adaptation / convergence)
   validation/           the human anchor and the codebook
-    attribute_dictionary.csv   the 162-row codebook (layer, attribute, column, scale,
+    attribute_dictionary.csv   the 142-row codebook (layer, attribute, column, scale,
                         validation r, tier, cross_medium flag)
     human_means_{film,book}.csv   per-work MEAN human ratings (no individual responses)
     film_llm_validation_scores.csv, genre_validation_layer.csv, rescore_manifest.csv,

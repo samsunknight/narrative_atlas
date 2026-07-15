@@ -1,4 +1,4 @@
-# Rebuilds certified FIG_F2_validation.png (original generator lost). All counts match Table 1 (162/148).
+# Rebuilds certified FIG_F2_validation.png. Counts match Table 1 (142/130; structure 47/41).
 import pandas as pd, numpy as np, re, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False})
@@ -12,7 +12,7 @@ fig=plt.figure(figsize=(22,12))
 gs=fig.add_gridspec(2,3,width_ratios=[0.72,0.72,1.05],height_ratios=[1,1],wspace=0.42,hspace=0.34)
 fig.suptitle("Human validation of the Narrative Atlas instrument across all five layers",fontsize=17,fontweight="bold",y=0.985)
 
-# ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 59/67) ----
+# ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 41/47) ----
 axa1=fig.add_subplot(gs[:,0]); axa2=fig.add_subplot(gs[:,1])
 st=d[d['layer']=='structure'].dropna(subset=['fr']).sort_values('fr',ascending=False).copy()
 st['val']=st['tier'].isin(['A','B'])
@@ -34,7 +34,7 @@ fig.text(0.295,0.045,f"{int(st['val'].sum())} of {len(st)} structural attributes
 
 # ---- panel b: per-layer validate bars (Table 1 deployed counts) ----
 axb=fig.add_subplot(gs[0,2])
-LAY=[("Structure\n(scalar attrs)",59,67,NAVY,"median $r$ 0.28  (top 0.70)"),
+LAY=[("Structure\n(scalar attrs)",41,47,NAVY,"median $r$ 0.28  (top 0.70)"),
      ("Mood\n(31 tags)",28,31,NAVY,"median $r$ 0.39"),
      ("Genre\n(18 labels)",18,18,ORANGE,"median AUC 0.91"),
      ("Arc\n(9 arc cells)",9,9,TEAL,"arc-change $r$ 0.37–0.48"),
