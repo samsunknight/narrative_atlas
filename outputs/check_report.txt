@@ -55,7 +55,7 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][R] reception fashion_v->rating                          target=    0.38  reproduced=   0.376
 [PASS][R] reception fashion_v->votes                           target=     0.0  reproduced=   0.003
 [PASS][R] convergence book-tv 1950s                            target=    1.41  reproduced=    1.41
-[PASS][R] convergence book-tv 1990s                            target=    1.17  reproduced=    1.16
+[PASS][R] convergence book-tv 1990s                            target=    1.16  reproduced=    1.16
 [PASS][R] convergence book-tv 2010s                            target=    1.25  reproduced=    1.25
 [PASS][R] two-clocks point-biserial r (struct-vs-eval x phi)   target=   -0.01  reproduced=   -0.01
 [PASS][R] crystallization film 1910s                           target=    0.25  reproduced=    0.25

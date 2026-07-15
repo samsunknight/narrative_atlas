@@ -2,7 +2,7 @@ import pandas as pd, numpy as np, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter
 def load(f,idx):
-    d=pd.read_csv(f"data/corpus/{f}_structural_1890_2025.csv").rename(columns={idx:"id"}); d["medium"]=f
+    d=pd.read_csv(f"data/corpus/{f}_structural_century.csv").rename(columns={idx:"id"}); d["medium"]=f
     return d[(d.year>=1915)&(d.year<=2020)]
 F,B,T=load("film","film_idx"),load("book","book_idx"),load("tv","tv_idx")
 ATTRS=[c for c in F.columns if c not in("id","title","year","medium")]
@@ -48,7 +48,7 @@ for name,xk,yk,xl,yl in PAIRS:
             if r==0: ax.set_title(mn,fontweight="bold")
             if c==0: ax.set_ylabel(f"{dec}s",fontweight="bold",fontsize=11)
     fig.suptitle(f"Style-space density by decade and medium — {xl} (x), {yl} (y)",fontweight="bold",y=1.0)
-    plt.tight_layout(); plt.savefig(f"outputs/figures/LEVELS_{name}.png",dpi=140,bbox_inches="tight"); plt.close()
+    plt.tight_layout(); plt.savefig(f"results/figures/LEVELS_{name}.png",dpi=140,bbox_inches="tight"); plt.close()
     # ---- DIFF map: early -> 2010s, per medium ----
     fig,axes=plt.subplots(1,3,figsize=(15.5,5.4))
     for ax,(mn,d,cm) in zip(axes,mediaC):
@@ -63,11 +63,11 @@ for name,xk,yk,xl,yl in PAIRS:
         if mn=="film": ax.set_ylabel(yl)
         ax.axhline(0,color="gray",lw=.5,ls=":"); ax.axvline(0,color="gray",lw=.5,ls=":"); ax.set_xlim(DRNG); ax.set_ylim(DRNG)
     fig.suptitle(f"Where works moved: density change, 1950s → 2010s — {xl} (x) vs {yl} (y)\n(red = gained, blue = lost; hollow = early centroid, filled = 2010s, arrow = drift)",fontweight="bold",y=1.03)
-    plt.tight_layout(); plt.savefig(f"outputs/figures/DIFF_{name}.png",dpi=140,bbox_inches="tight"); plt.close()
+    plt.tight_layout(); plt.savefig(f"results/figures/DIFF_{name}.png",dpi=140,bbox_inches="tight"); plt.close()
 # ---- MAIN lite figure: multi-plane contour grid, fewer decades, media overlaid ----
 LBL={name:(xl,yl) for name,xk,yk,xl,yl in PAIRS+EXTRA}
 PTITLE={"speculative_agentic":"speculative × agentic","emotional_visual":"emotional × visual","warmth_scale":"character warmth × scale","immersion_dialogue":"immersion × dialogue","resolution_surprise":"plot resolution × surprise"}
-MP=["speculative_agentic","emotional_visual","warmth_scale","immersion_dialogue","resolution_surprise"]; MD=[1930,1970,2010]
+MP=["speculative_agentic","emotional_visual","immersion_dialogue","resolution_surprise"]; MD=[1930,1970,2010]
 # short axis end-labels per row so the plane is readable without the caption
 AXLBL={"speculative_agentic":("grounded → science-fictional/fantastical","passive → proactive"),
        "emotional_visual":("detached → involving","plain → lavish"),
@@ -91,15 +91,15 @@ for r,name in enumerate(MP):
                 ax.scatter([sub[xc].mean()],[sub[yc].mean()],s=28,c=mc[mn],edgecolor="white",linewidths=0.7,zorder=6)
         ax.set_xticks([]); ax.set_yticks([]); ax.set_xlim(DRNG); ax.set_ylim(DRNG)
         ax.axhline(0,color="0.85",lw=.5); ax.axvline(0,color="0.85",lw=.5)
-        if r==0: ax.set_title(f"{dec}s",fontweight="bold",fontsize=12)
+        if r==0: ax.set_title(f"{dec}s",fontweight="bold",fontsize=13)
         if c==0:
-            ax.set_ylabel(f"{PTITLE[name]}",fontsize=9,fontweight="bold")
+            ax.set_ylabel(f"{PTITLE[name]}",fontsize=11.5,fontweight="bold")
             axx,axy=AXLBL[name]
-            ax.set_xlabel(axx,fontsize=7.5,color="0.45",style="italic")
-            ax.text(-0.12,0.5,axy,transform=ax.transAxes,rotation=90,ha="center",va="center",fontsize=7.5,color="0.45",style="italic")
+            ax.set_xlabel(axx,fontsize=10.5,color="0.32",style="italic")
+            ax.text(-0.12,0.5,axy,transform=ax.transAxes,rotation=90,ha="center",va="center",fontsize=10.5,color="0.32",style="italic")
 from matplotlib.lines import Line2D
 figM.legend([Line2D([0],[0],color=mc[m],lw=2) for m in ["film","book","tv"]],["film","novel","television"],loc="upper center",ncol=3,frameon=False,bbox_to_anchor=(0.5,1.03),fontsize=11)
 figM.suptitle("Narrative style by decade: where each medium sits, and how it drifts",fontweight="bold",y=1.07)
-plt.tight_layout(); plt.savefig("outputs/figures/MAIN_density_grid.png",dpi=150,bbox_inches="tight"); plt.close()
+plt.tight_layout(); plt.savefig("results/figures/MAIN_density_grid.png",dpi=150,bbox_inches="tight"); plt.close()
 print("saved MAIN_density_grid.png")
 print("saved LEVELS_* and DIFF_* for:", [p[0] for p in PAIRS])
