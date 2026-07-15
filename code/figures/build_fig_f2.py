@@ -8,8 +8,8 @@ d=pd.read_csv(f"{R}/data/validation/attribute_dictionary.csv")
 d['fr']=pd.to_numeric(d['film_r'],errors='coerce'); d['brk']=pd.to_numeric(d['book_r'],errors='coerce')
 def nice(a): return re.sub(r'^\d+[a-z]?_','',str(a)).replace('_',' ').strip()
 
-fig=plt.figure(figsize=(22,12))
-gs=fig.add_gridspec(2,3,width_ratios=[0.72,0.72,1.05],height_ratios=[1,1],wspace=0.42,hspace=0.34)
+fig=plt.figure(figsize=(15.5,16))
+gs=fig.add_gridspec(2,3,width_ratios=[0.72,0.72,1.05],height_ratios=[1,1],wspace=0.5,hspace=0.34)
 fig.suptitle("Human validation of the Narrative Atlas instrument across all five layers",fontsize=17,fontweight="bold",y=0.985)
 
 # ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 41/47) ----
@@ -23,14 +23,13 @@ for ax,sub in [(axa1,st.iloc[:half]),(axa2,st.iloc[half:])]:
         c=NAVY if val else GREY
         ax.plot([0,fr],[yi,yi],color=c,lw=1.05,alpha=.5,zorder=1); ax.scatter(fr,yi,s=28,color=c,zorder=3)
     ax.axvline(0.22,color=THR,ls="--",lw=1.4)
-    ax.set_yticks(yy); ax.set_yticklabels(sub['attribute'].map(nice),fontsize=9)
+    ax.set_yticks(yy); ax.set_yticklabels(sub['attribute'].map(nice),fontsize=11.5)
     ax.set_ylim(-1,len(sub)); ax.set_xlim(0,0.75)
-    ax.set_xlabel("Validation $r$",fontsize=9.5)
+    ax.set_xlabel("Validation $r$",fontsize=11)
 axa1.text(0.235,half-1.2,"Validated\n$r\\geq0.22$",color=THR,fontsize=10,va="top")
-axa1.set_title("a   Structure layer — per-attribute film validation  (highest $r$ at top; list continues at right)",
-               fontsize=13,fontweight="bold",loc="left")
+axa1.set_title("a  Structure layer — per-attribute film validation",fontsize=14.5,fontweight="bold",loc="left")
 fig.text(0.295,0.045,f"{int(st['val'].sum())} of {len(st)} structural attributes validate against human ratings"
-         "   ·   validation $r$ = LLM score vs.\\ 225-viewer human mean, zero-shot",ha="center",fontsize=9.5,color="#555")
+         "   ·   validation $r$ = LLM score vs.\\ 225-viewer human mean, zero-shot",ha="center",fontsize=11,color="#555")
 
 # ---- panel b: per-layer validate bars (Table 1 deployed counts) ----
 axb=fig.add_subplot(gs[0,2])
@@ -43,12 +42,12 @@ yb=np.arange(len(LAY))[::-1]
 for yi,(lab,v,tot,col,note) in zip(yb,LAY):
     f=100*v/tot
     axb.barh(yi,100,color=BAR_BG,height=0.62,zorder=1); axb.barh(yi,f,color=col,height=0.62,zorder=2)
-    axb.text(f-2,yi,f"{v}/{tot}",color="white",ha="right",va="center",fontweight="bold",fontsize=11,zorder=3)
-    axb.text(103,yi,note,va="center",fontsize=9.5,color="#333")
-axb.set_yticks(yb); axb.set_yticklabels([l for l,*_ in LAY],fontsize=10)
+    axb.text(f-2,yi,f"{v}/{tot}",color="white",ha="right",va="center",fontweight="bold",fontsize=12.5,zorder=3)
+    axb.text(103,yi,note,va="center",fontsize=11,color="#333")
+axb.set_yticks(yb); axb.set_yticklabels([l for l,*_ in LAY],fontsize=11.5)
 axb.set_xlim(0,100); axb.set_xticks([0,25,50,75,100]); axb.set_xticklabels(["0","25","50","75","100%"])
-axb.set_xlabel("Attributes that validate against human ground truth",fontsize=10)
-axb.set_title("b   All five layers validate",fontsize=13,fontweight="bold",loc="left"); axb.set_ylim(-0.6,len(LAY)-0.4)
+axb.set_xlabel("Attributes that validate against human ground truth",fontsize=11.5)
+axb.set_title("b   All five layers validate",fontsize=14.5,fontweight="bold",loc="left"); axb.set_ylim(-0.6,len(LAY)-0.4)
 
 # ---- panel c: cross-medium scatter. The 8 come from the dictionary (guaranteed); greys from the film/book validation join ----
 axc=fig.add_subplot(gs[1,2])
@@ -74,11 +73,11 @@ axc.scatter(greys['fr'],greys['brk'],s=42,color=GREY,zorder=2,label="film-only")
 axc.scatter(eight['fr'],eight['brk'],s=72,color=NAVY,zorder=3,label="validate in both media")
 for _,r in eight.iterrows():
     lab=r['lab']; dx,dy,ha,va=OFF[lab]
-    axc.annotate(lab,(r['fr'],r['brk']),textcoords="offset points",xytext=(dx,dy),ha=ha,va=va,fontsize=9.5,color=NAVY)
+    axc.annotate(lab,(r['fr'],r['brk']),textcoords="offset points",xytext=(dx,dy),ha=ha,va=va,fontsize=11,color=NAVY)
 axc.set_xlim(0,0.85); axc.set_ylim(0,0.85)
-axc.set_xlabel("Film validation $r$",fontsize=10); axc.set_ylabel("Book validation $r$",fontsize=10)
-axc.set_title("c   Cross-medium replication (structure)",fontsize=13,fontweight="bold",loc="left")
-axc.legend(loc="lower right",fontsize=9,frameon=False)
+axc.set_xlabel("Film validation $r$",fontsize=11.5); axc.set_ylabel("Book validation $r$",fontsize=11.5)
+axc.set_title("c   Cross-medium replication (structure)",fontsize=14.5,fontweight="bold",loc="left")
+axc.legend(loc="lower right",fontsize=10.5,frameon=False)
 
 fig.savefig(f"{R}/results/figures_certified/FIG_F2_validation.png",dpi=200,bbox_inches="tight"); plt.close(fig)
 print(f"F2 saved | panel a {int(st['val'].sum())}/{len(st)} | panel c 8 cross-medium + {len(greys)} film-only")
