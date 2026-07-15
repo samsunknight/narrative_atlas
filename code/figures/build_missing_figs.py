@@ -37,13 +37,32 @@ rows={m:[] for m in ["film","book","tv"]}
 for m,df in [("film",F),("book",B),("tv",T)]:
     for dec,g in df.groupby("dec"):
         if dec>=1910 and len(g)>=40: rows[m].append((dec,mean_abs_corr(g)))
-fig,ax=plt.subplots(figsize=(9,5.5))
+# combined MAIN exhibit: line (a) + the two correlation matrices themselves (b, c)
+def _corr_ordered(sub):
+    C=sub[ATTRS].astype(float).corr(); order=C.abs().mean().sort_values(ascending=False).index.tolist(); return C.loc[order,order],order
+_early=F[(F.year>=1915)&(F.year<=1945)]; _recent=F[(F.year>=1980)&(F.year<=2010)]
+_Ce,_order=_corr_ordered(_early); _Cr=_recent[ATTRS].astype(float).corr().loc[_order,_order]
+_labs=[NAMES.get(c,c) for c in _order]
+_iu=np.triu_indices(len(_order),1)
+_me=np.nanmean(np.abs(_Ce.values[_iu])); _mr=np.nanmean(np.abs(_Cr.values[_iu]))
+fig=plt.figure(figsize=(12,11.6))
+gs=fig.add_gridspec(2,2,height_ratios=[0.66,1.0],hspace=0.34,wspace=0.10)
+axl=fig.add_subplot(gs[0,:])
 for m in ["film","book","tv"]:
-    xy=np.array(rows[m]); ax.plot(xy[:,0],xy[:,1],"-o",color=COL[m],lw=1.8,ms=4,label={"film":"film","book":"the novel","tv":"television"}[m])
-ax.set_xlabel("decade"); ax.set_ylabel("mean absolute pairwise correlation among attributes")
-ax.set_title("The crystallization of film: attributes grow more tightly correlated over the century")
-ax.legend(frameon=False); ax.spines[["top","right"]].set_visible(False)
-fig.tight_layout(); fig.savefig("outputs/figures/FIG_crystallization.png",dpi=150,bbox_inches="tight"); plt.close(fig)
+    xy=np.array(rows[m]); axl.plot(xy[:,0],xy[:,1],"-o",color=COL[m],lw=2.0,ms=5,label={"film":"film","book":"the novel","tv":"television"}[m])
+axl.set_xlabel("decade"); axl.set_ylabel("mean |correlation|\namong attributes")
+axl.legend(frameon=False,loc="upper left"); axl.spines[["top","right"]].set_visible(False)
+axl.set_title("a   Film's attributes grow more tightly correlated over the century",fontsize=13,fontweight="bold",loc="left")
+axb=fig.add_subplot(gs[1,0]); axc=fig.add_subplot(gs[1,1])
+for ax,Cm,ttl,mv,ylab in [(axb,_Ce,"b   Film 1915–1945",_me,True),(axc,_Cr,"c   Film 1980–2010",_mr,False)]:
+    im=ax.imshow(Cm.values,cmap="RdBu_r",vmin=-0.6,vmax=0.6,aspect="equal")
+    ax.set_xticks(range(len(_order))); ax.set_xticklabels(_labs,rotation=90,fontsize=6.5)
+    ax.set_yticks(range(len(_order)))
+    ax.set_yticklabels(_labs if ylab else [],fontsize=6.5)
+    ax.set_title(f"{ttl}   (mean |r| = {mv:.2f})",fontsize=12,fontweight="bold",loc="left")
+cb=fig.colorbar(im,ax=[axb,axc],fraction=0.022,pad=0.02); cb.set_label("attribute correlation")
+fig.suptitle("The crystallization of film",fontsize=15,fontweight="bold",y=0.955)
+fig.savefig("results/figures/FIG_crystallization.png",dpi=150,bbox_inches="tight"); plt.close(fig)
 fcr=dict(rows["film"]); print(f"crystallization film: {min(fcr):.0f}s={fcr[min(fcr)]:.2f} -> 1980s={fcr.get(1980,np.nan):.2f}")
 
 # heatmap: film early vs recent, attrs ordered by mean|r| (descending), with clean names
@@ -60,7 +79,7 @@ for ax,Cm,ttl in [(axs[0],Ce,f"Film 1915–1945  (mean |r| = {np.nanmean(np.abs(
     ax.set_yticks(range(len(order))); ax.set_yticklabels(labs,fontsize=6.5); ax.set_title(ttl,fontsize=12)
 fig.suptitle("Crystallization, shown as the correlation structure itself",fontsize=14,y=1.0)
 cb=fig.colorbar(im,ax=axs,fraction=0.025,pad=0.02); cb.set_label("attribute correlation")
-fig.savefig("outputs/figures/SUPP_crystallization_heatmap.png",dpi=150,bbox_inches="tight"); plt.close(fig)
+fig.savefig("results/figures/SUPP_crystallization_heatmap.png",dpi=150,bbox_inches="tight"); plt.close(fig)
 
 # ---------------- SUPP_1d_shifts ----------------
 def shift(df,a):
@@ -74,7 +93,7 @@ ax.axvline(0,color="#888",lw=1); ax.set_yticks(yb); ax.set_yticklabels([NAMES[a]
 ax.set_xlabel("standardized shift, 1950s → 2010s (SD units)"); ax.set_ylim(-1,len(S))
 ax.set_title("Per-attribute shift over the second half of the century"); ax.legend(frameon=False,loc="lower right")
 ax.spines[["top","right"]].set_visible(False)
-fig.tight_layout(); fig.savefig("outputs/figures/SUPP_1d_shifts.png",dpi=150,bbox_inches="tight"); plt.close(fig)
+fig.tight_layout(); fig.savefig("results/figures/SUPP_1d_shifts.png",dpi=150,bbox_inches="tight"); plt.close(fig)
 
 # ---------------- SUPP_highstat_planes ----------------
 def comp(df,keys): cs=[c for c in ATTRS if any(k in c.lower() for k in keys)]; return np.mean([z(df,c) for c in cs],axis=0)
@@ -100,10 +119,10 @@ from matplotlib.lines import Line2D
 fig.legend([Line2D([0],[0],color=COL[m],lw=2) for m in ["film","book","tv"]],["film","the novel","television"],
            loc="upper center",ncol=3,frameon=False,bbox_to_anchor=(0.5,1.04))
 fig.suptitle("Density on the two empirically-strongest planes",y=1.08,fontweight="bold")
-fig.tight_layout(); fig.savefig("outputs/figures/SUPP_highstat_planes.png",dpi=150,bbox_inches="tight"); plt.close(fig)
+fig.tight_layout(); fig.savefig("results/figures/SUPP_highstat_planes.png",dpi=150,bbox_inches="tight"); plt.close(fig)
 
 # ---------------- FIG_adaptation (from adaptation_deltas.csv) ----------------
-AD=pd.read_csv("data/derived/adaptation_deltas.csv").sort_values("film_minus_novel_SD")
+AD=pd.read_csv("results/layers/structure/adaptation_deltas.csv").sort_values("film_minus_novel_SD")
 agree=AD.agrees_sign.values
 fig,ax=plt.subplots(figsize=(9,5.6)); yb=np.arange(len(AD))
 ax.barh(yb,AD.film_minus_novel_SD,color=["#1f77b4" if a else "#9aa0a6" for a in agree],alpha=.9,zorder=2)
@@ -116,5 +135,5 @@ ax.legend(handles=[Patch(color="#1f77b4",label="within-pair, agrees in sign"),Pa
                    Line2D([0],[0],marker="D",color="w",markerfacecolor="#e6820a",markersize=8,label="cross-sectional")],
           fontsize=8,loc="lower right")
 ax.spines[["top","right"]].set_visible(False)
-fig.tight_layout(); fig.savefig("outputs/figures/FIG_adaptation.png",dpi=150,bbox_inches="tight"); plt.close(fig)
+fig.tight_layout(); fig.savefig("results/figures/FIG_adaptation.png",dpi=150,bbox_inches="tight"); plt.close(fig)
 print("saved: FIG_crystallization, SUPP_crystallization_heatmap, SUPP_1d_shifts, SUPP_highstat_planes, FIG_adaptation")
