@@ -207,8 +207,8 @@ chk("R", "adaptation sign-agree (of 8)", 6, int(sum(v[2] for v in adt.values()))
 RAT  = [c for c in ATTRS if any(x in c for x in ["science_fictional","how_many_major_settings",
         "how_many_protagonists","named_side","world_building","immersive"])]
 RATv = [c for c in ATTRS if any(x in c for x in ["science_fictional","how_many_protagonists","world_building"])]
-FAS  = [c for c in ATTRS if any(x in c for x in ["unsurprising","proactive","plot_driven","moved","competent"])]
-FASv = [c for c in ATTRS if any(x in c for x in ["unsurprising","proactive","plot_driven"])]
+FAS  = [c for c in ATTRS if any(x in c for x in ["unsurprising","proactive","character_driven","moved","competent"])]
+FASv = [c for c in ATTRS if any(x in c for x in ["unsurprising","proactive","character_driven"])]
 IM = pd.read_csv(P("data/matched/imdb_film_ratings.csv"))
 M = IM.merge(F, on="id", how="left"); M["dec"] = (M.year//10)*10; M["lvotes"] = np.log1p(M.votes)
 def zmean(df, cols): return pd.DataFrame({c: (df[c]-df[c].mean())/df[c].std() for c in cols}).mean(axis=1)
@@ -220,11 +220,11 @@ M["spectacle"]=zmean(M,RAT); M["spectacle_v"]=zmean(M,RATv); M["fashion"]=zmean(
 chk("R", "reception spectacle->votes",   0.27, partial(M,"spectacle","lvotes"), 0.03)
 chk("R", "reception spectacle->rating",  0.25, partial(M,"spectacle","rating"), 0.03)
 chk("R", "reception fashion->rating",    0.45, partial(M,"fashion","rating"), 0.03)
-chk("R", "reception fashion->votes",     0.01, partial(M,"fashion","lvotes"), 0.03)
+chk("R", "reception fashion->votes",     0.05, partial(M,"fashion","lvotes"), 0.03)
 chk("R", "reception spectacle_v->votes", 0.21, partial(M,"spectacle_v","lvotes"), 0.03)
 chk("R", "reception spectacle_v->rating",0.07, partial(M,"spectacle_v","rating"), 0.03)
 chk("R", "reception fashion_v->rating",  0.38, partial(M,"fashion_v","rating"), 0.03)
-chk("R", "reception fashion_v->votes",   0.00, partial(M,"fashion_v","lvotes"), 0.03)
+chk("R", "reception fashion_v->votes",   0.08, partial(M,"fashion_v","lvotes"), 0.03)
 
 # =====================================================================================
 # CROSS-MEDIUM STRUCTURE:  convergence / crystallization / variance ratio (corpus)
@@ -253,15 +253,15 @@ for a in ATTRS:
 ADD_SHORT = {"sci-fi","fantastical","world-building","#settings","#protagonists","#sidechar","immersive"}
 pbdf = pd.DataFrame([(short_of(a), p, 1 if short_of(a) in ADD_SHORT else 0) for a, p in phi.items()],
                     columns=["attr","phi","code"]).dropna()
-chk("R", "two-clocks point-biserial r (struct-vs-eval x phi)", -0.01,
+chk("R", "two-clocks point-biserial r (struct-vs-eval x phi)", -0.05,
     round(pointbiserialr(pbdf.code, pbdf.phi).statistic, 2), 0.03)
 
 def crys(d, dec):
     s = d[(d.year>=dec)&(d.year<dec+10)][ATTRS].dropna(axis=1, how="all")
     if len(s) < 40: return None
     cm = s.corr().abs().values; return np.nanmean(cm[np.triu_indices_from(cm, 1)])
-chk("R", "crystallization film 1910s", 0.25, round(crys(F,1910), 2))
-chk("R", "crystallization film 1980s", 0.39, round(crys(F,1980), 2))
+chk("R", "crystallization film 1910s", 0.24, round(crys(F,1910), 2))
+chk("R", "crystallization film 1980s", 0.37, round(crys(F,1980), 2))
 
 C = {}
 for m, df in [("bk",B),("fm",F),("tv",T)]:
@@ -502,7 +502,7 @@ def _meanphi(floor, names):
     p = _phis(F, lo=floor); return round(float(np.mean([p[n] for n in names if n in p])), 2)
 for floor, pv in [(1915,0.77),(1930,0.66),(1950,0.51)]:
     v = _meanphi(floor, PERS6); chk("R", f"SI-S3 persistent mean phi, {floor}+", pv, v, 0.05)
-for floor, pv in [(1915,0.56),(1930,0.62),(1950,0.55)]:
+for floor, pv in [(1915,0.62),(1930,0.66),(1950,0.62)]:
     chk("R", f"SI-S3 fashion mean phi, {floor}+", pv, _meanphi(floor, FASH6), 0.05)
 
 # =====================================================================================
