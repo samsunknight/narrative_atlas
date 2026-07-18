@@ -85,7 +85,6 @@ mood,Eerie,mood_Eerie,"Intensity of the ""Eerie"" mood evoked by the story",0--1
 texture,Score: Jazz,score_Jazz,"Strength of the ""Jazz"" score descriptor implied by the summary",0--100,0.38,r,0.38,,A,False
 structure,protagonist relatable,13_how_relatable_did_you_find_this_protagonist,How relatable did you find this protagonist?,1--7,0.38 / 0.28,r,0.38,0.28,A,True
 texture,Score: Dissonant,score_Dissonant,"Strength of the ""Dissonant"" score descriptor implied by the summary",0--100,0.38,r,0.38,,A,False
-structure,dialogue quality (plot-predicted),,Plot-predicted audience rating: predict how a typical viewer would rate the QUALITY …,1--5,0.38,r,0.38,,A,False
 texture,Acting: Manic,acting_Manic,"Strength of the ""Manic"" acting descriptor implied by the summary",0--100,0.37,r,0.37,,A,False
 structure,character-writing quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,"In your opinion, how would you rate the quality of the character writing …",1--7,0.37,r,0.37,,A,False
 structure,visual interesting,4_how_interesting_did_you_find_the_visual_style_by_interesting_we_mean,How interesting did you find the visual style?,1--7,0.37,r,0.37,,A,False
@@ -97,7 +96,6 @@ texture,Score: Emotional,score_Emotional,"Strength of the ""Emotional"" score de
 texture,Visual: Natural,visual_Natural,"Strength of the ""Natural"" visual descriptor implied by the summary",0--100,0.35,r,0.35,,A,False
 texture,Visual: Busy,visual_Busy,"Strength of the ""Busy"" visual descriptor implied by the summary",0--100,0.35,r,0.35,,B,False
 structure,overall feeling,6_how_did_you_feel_about_the_movie,How did you feel about the movie?,1--7,0.35,r,0.35,,B,False
-structure,character-writing quality (2),,"In your opinion, how would you rate the quality of the character writing …",1--7,0.34,r,0.34,,B,False
 structure,glad watched,glad_worthwhile,"After having watched the movie, how glad are you to have devoted time and energy to it?",1--5,0.33,r,0.33,,B,False
 structure,plot compelling,book_plot_compelling,How compelling did you find the plot?,2--7,0.33,r,0.33,,B,False
 texture,Acting: Physical,acting_Physical,"Strength of the ""Physical"" acting descriptor implied by the summary",0--100,0.32,r,0.32,,B,False

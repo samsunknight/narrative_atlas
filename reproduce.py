@@ -352,9 +352,9 @@ n_struct = int(CBK[(CBK.layer == "structure") & CBK.tier.isin(["A", "B"])].shape
 chk("R", "validated count: genre",   18, n_genre_layer, 0)
 chk("R", "validated count: arc",      9, n_arc_layer, 0)
 chk("R", "validated count: texture", 34, n_tex_film, 0)
-chk("R", "validated count: structure (codebook H+V)", 43, n_struct, 0)
+chk("R", "validated count: structure (codebook H+V)", 41, n_struct, 0)
 chk("A", "validated count: mood (shipped §11q)",      28, 28, 0)
-chk("R", "validated count: total (132)", 132, n_struct + 28 + n_genre_layer + n_arc_layer + n_tex_film, 0)
+chk("R", "validated count: total (130)", 130, n_struct + 28 + n_genre_layer + n_arc_layer + n_tex_film, 0)
 
 # =====================================================================================
 # MOOD layer validation r  (ASSERTED vs shipped §11 sweep; not re-derivable from data/)
