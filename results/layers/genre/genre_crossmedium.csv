@@ -1,0 +1,19 @@
+genre,rho_film_book,rho_film_tv,rho_book_tv,mean_rho,verdict
+Western,0.93,0.96,0.96,0.95,shared clock
+Historical,0.96,0.86,0.89,0.9,shared clock
+Drama,0.75,0.54,0.68,0.65,shared clock
+Fantasy,0.86,0.46,0.54,0.62,shared clock
+Horror,0.54,0.5,0.29,0.44,mixed
+Family,0.68,-0.04,0.43,0.36,mixed
+Thriller,0.0,0.14,0.79,0.31,mixed
+Romance,0.18,-0.07,0.75,0.29,mixed
+Sci-Fi,0.64,-0.14,-0.32,0.06,mixed
+Musical,0.0,0.36,-0.21,0.05,mixed
+Mystery,-0.64,0.29,0.43,0.02,mixed
+Documentary,0.29,-0.21,-0.11,-0.01,medium-specific
+War,-0.68,0.04,0.14,-0.17,medium-specific
+Adventure,-0.75,0.82,-0.64,-0.19,medium-specific
+Crime,-0.68,-0.07,0.0,-0.25,medium-specific
+Comedy,0.18,-0.64,-0.32,-0.26,medium-specific
+Action,-0.11,0.07,-0.82,-0.29,medium-specific
+Animation,-0.57,-0.93,0.46,-0.35,medium-specific

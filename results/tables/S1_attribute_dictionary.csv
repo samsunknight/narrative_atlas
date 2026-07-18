@@ -1,0 +1,44 @@
+attribute,id,survey_question
+dialogue-realism,9_how_realistic_did_you_find_the_dialogue_in_the_movie,9. How realistic did you find the dialogue in the movie?
+#protagonists,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,"1. How many protagonists were there?
+
+
+A protagonist is the person or entity at the heart "
+#side-chars,3_approximately_how_many_named_side_characters_are_in_this_movie_feel,3. Approximately how many named side characters are in this movie? (Feel free to guesstima
+identity-relevance,5_if_you_checked_any_of_the_above_how_relevant_are_these_aspect_s_of_t,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to "
+likability,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize wit"
+competence,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,"8b. How competent was this protagonist? By competent, we mean effective at the activities "
+feels-real,11_how_real_did_this_protagonist_feel_to_you,11. How real did this protagonist feel to you?
+emot-investment,12_how_emotionally_invested_were_you_in_this_protagonist,12. How emotionally invested were you in this protagonist?
+relatability,13_how_relatable_did_you_find_this_protagonist,13.How relatable did you find this protagonist?
+character-quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,"5. In your opinion, how would you rate the quality of the character writing in this movie,"
+realistic-world,3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,3. How realistic was the world of the movie? By realistic we mean plausible - a faithful o
+fantastical,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,5. How fantastical was the world of the movies? By fantastical we mean a world that would 
+sci-fi,6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,"6. How science-fictional was the world of the movie?
+
+By science-fictional we mean a world"
+world-building,7_overall_how_relevant_was_world_building_to_the_movie_world_building,"7. Overall, how relevant was world-building to the movie?
+
+World-building is defined as th"
+#settings,8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,"8. How many major settings does the movie contain? Here, we're asking you to count at a hi"
+immersive,4_how_immersive_did_you_find_this_setting_by_immersive_we_mean_fully_r,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with al"
+setting-quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,"5. In your opinion, how would you rate the quality of the setting and world-building writi"
+pace,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,"7. On the whole, how would you describe the pace of the movie?
+Pace is the speed at which "
+resolution,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,12a. On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?
+surprise,12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,12b. On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?
+clarity,12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,12c. On a scale of 1 (very confusing) to 7 (very easy-to-understand)?
+plot-convincing,19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,19. How convincing did you find the plot? By convincing we mean believable.
+visual-evocative,3_how_evocative_did_you_find_the_visual_style_by_evocative_we_mean_aff,3. How evocative did you find the visual style? By evocative we mean affecting and memorab
+visual-interest,4_how_interesting_did_you_find_the_visual_style_by_interesting_we_mean,"4. How interesting did you find the visual style? By interesting we mean noteworthy, atten"
+7_now_let_s_talk,7_now_let_s_talk_pun_intended_about_dialogue_in_your_opinion_how_was_t,"7. 
+Now, let’s talk (pun intended) about dialogue! 
+
+
+In your opinion, how was the quality"
+dialogue-engaging,8_how_engaging_did_you_find_the_dialogue_in_the_movie,8. How engaging did you find the dialogue in the movie?
+moved-emotionally,5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,5. To what extent did you feel moved by this movie on an emotional basis? An intellectual 
+score,13_how_much_did_you_like_the_score,13. How much did you like the score?
+proactiveness,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps t"
+plot-vs-character,plot_driven,
+character_driven,character_driven,

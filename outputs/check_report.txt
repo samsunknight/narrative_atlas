@@ -69,8 +69,8 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][R] production-code gap film-novel 1935                  target=   -33.0  reproduced=   -33.0
 [PASS][R] production-code gap film-novel 1968                  target=    -8.0  reproduced=    -8.1
 [PASS][R] production-code DiD (film-novel)                     target=    13.0  reproduced=    13.2
-[PASS][R] PCA PC1 var %                                        target=    0.42  reproduced=     0.4
-[PASS][R] PCA PC2 var %                                        target=    0.09  reproduced=    0.11
+[PASS][R] PCA PC1 var %                                        target=     0.4  reproduced=     0.4
+[PASS][R] PCA PC2 var %                                        target=    0.11  reproduced=    0.11
 [PASS][R] silhouette k=4 (weak ~0.10)                          target=     0.1  reproduced=    0.15
 [PASS][R] medium classification film recall                    target=    0.94  reproduced=    0.95
 [PASS][R] validated count: genre                               target=      18  reproduced=      18

@@ -1,0 +1,4 @@
+attribute,genre,auc,n_pos
+science,Sci-Fi,0.75,1205
+fantastical,Fantasy,0.784,1468
+realistic,Documentary,0.636,1367

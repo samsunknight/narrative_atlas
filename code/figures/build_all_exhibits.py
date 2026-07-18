@@ -13,7 +13,7 @@ def load(f,idx,path=None):
     if path: L=tlen(path); d["loglen"]=np.log(d["id"].map(L).fillna(L.median()))
     return d
 F=load("film","film_idx","/tmp/dbx_dl/film_wiki_text.parquet")
-B=load("book","book_idx","data/derived/book_wiki_text_century.parquet  # external input (not shipped); see README Figures")
+B=load("book","book_idx","/Users/samsunknight/uoft/cultural_physics/data/book_wiki_text_century.parquet")
 T=load("tv","tv_idx","/tmp/dbx_dl/tv_wiki_text_century.parquet")
 ATTRS=[c for c in F.columns if c not in("id","title","year","medium","loglen")]
 def sn(c):
@@ -43,7 +43,7 @@ except Exception as ex: print("T2 err",ex)
 
 # ===== S1 attribute dictionary =====
 try:
-    reg=json.load(open("data/derived/registry.json  # external input (not shipped); see README Figures"))
+    reg=json.load(open("/Users/samsunknight/uoft/movienet/data/canonical_full/registry.json"))
     cid2q={c:v['q'] for c,v in reg.items()}
     rows=[{"attribute":sn(a),"id":a,"survey_question":cid2q.get(a,"")[:90]} for a in ATTRS]
     pd.DataFrame(rows).to_csv("results/tables/S1_attribute_dictionary.csv",index=False); built.append("S1_attribute_dictionary")
@@ -114,7 +114,7 @@ try:
     fig,ax=plt.subplots(figsize=(7,4.2)); ax.plot(ks,sils,color="#2c3e50",lw=2.5,marker="o",markersize=6)
     ax.axhspan(0,0.25,color="grey",alpha=.06)
     ax.spines[["top","right"]].set_visible(False); ax.set_axisbelow(True); ax.grid(axis="y",alpha=0.15)
-    ax.set_xlabel(r"number of clusters $k$"); ax.set_ylabel("silhouette score"); ax.set_ylim(0,0.3); ax.set_title("Style space is a filled continuum, not discrete types",loc="left",fontweight="bold")
+    ax.set_xlabel(r"number of clusters $k$"); ax.set_ylabel("silhouette score"); ax.set_ylim(0,0.35); ax.set_title("Style space is a filled continuum, not discrete types",loc="left",fontweight="bold")
     plt.tight_layout(); plt.savefig("results/figures/ED5_continuum.png",dpi=180,bbox_inches="tight"); built.append("ED5_continuum")
 except Exception as ex: print("ED5 err",ex)
 

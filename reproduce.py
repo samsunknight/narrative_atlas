@@ -321,8 +321,8 @@ chk("R", "production-code DiD (film-novel)",     13.0, round(film_chg-book_chg, 
 Z = pd.concat([F[ATTRS],B[ATTRS],T[ATTRS]]).dropna()
 Zs = (Z-Z.mean())/Z.std()
 pca = PCA(n_components=5).fit(Zs.values)
-chk("R", "PCA PC1 var %", 0.42, round(pca.explained_variance_ratio_[0], 2), 0.03)
-chk("R", "PCA PC2 var %", 0.09, round(pca.explained_variance_ratio_[1], 2), 0.03)
+chk("R", "PCA PC1 var %", 0.40, round(pca.explained_variance_ratio_[0], 2), 0.03)
+chk("R", "PCA PC2 var %", 0.11, round(pca.explained_variance_ratio_[1], 2), 0.03)
 samp = Zs.sample(n=min(8000, len(Zs)), random_state=0).values
 sil4 = silhouette_score(samp, KMeans(4, n_init=3, random_state=0).fit_predict(samp))
 chk("R", "silhouette k=4 (weak ~0.10)", 0.10, round(sil4, 2), 0.05)

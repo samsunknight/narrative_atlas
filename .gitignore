@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 .DS_Store
 outputs/gen_tab_corpus_rows.tex
+
+# Full scored atlas — released as GitHub Release data assets, not tracked in git
+data/atlas/*_atlas.csv
+data/atlas/century_frame.parquet

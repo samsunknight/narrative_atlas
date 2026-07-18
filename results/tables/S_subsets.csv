@@ -1,0 +1,6 @@
+index,n_attr,trend/century,reach (votes),rating,n
+ratchet: full (6),6,0.401,0.273,0.252,37231
+ratchet: cross-medium-validated (3),3,0.357,0.214,0.074,37231
+ratchet: readable-structural (5),5,0.463,0.295,0.102,37231
+fashion: full (5),5,0.638,0.052,0.46,37231
+fashion: structural-only (3),3,0.845,0.08,0.378,37231

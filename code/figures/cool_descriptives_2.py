@@ -229,11 +229,11 @@ ax.axvline(CODE0,color="#d62728",ls="--",lw=1)
 ax.axvline(CODE1,color="#d62728",ls="--",lw=1)
 ylo,yhi=ax.get_ylim()
 ax.text(CODE0,yhi,"Code enforced\n1934",color="#d62728",fontsize=7,va="top",ha="left")
-ax.text(CODE1,ylo,"Code ends 1968\n(New Hollywood confound)",color="#d62728",fontsize=7,va="bottom",ha="left")
+ax.text(CODE1,ylo,"Code ends 1968",color="#d62728",fontsize=7,va="bottom",ha="left")
 ax.text((CODE0+CODE1)/2,yhi*0.99,"Production Code window",color="#d62728",fontsize=8,ha="center",va="top")
 ax.set_xlabel("5-year bin"); ax.set_ylabel("darkness index: mean mood_Dark (0–100)")
-ax.set_title("The Production Code as a cross-medium natural experiment\n"
-             "Film (treated) vs the novel (never under the Code) vs TV — 'coincides with', not a causal claim",
+ax.set_title("Film darkens against a flat novel baseline\n"
+             "Dark-mood intensity by cohort; Production Code window (1934–1968) shaded — a descriptive contrast, not a causal claim",
              fontsize=10)
 ax.legend(fontsize=8,loc="lower right")
 ax.set_xlim(1930,2025)

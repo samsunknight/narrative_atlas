@@ -15,7 +15,7 @@ def nm(c):
     c=c.lower()
     for key,lab in [("science_fictional","sci-fi"),("fantastical","fantastical"),("realistic_did_you_find_the_dialogue","dlg-real"),
         ("realistic_was_the_world","realistic"),("world_building","world-build"),("major_settings","# settings"),
-        ("many_protagonists","# protag"),("named_side","# side chars"),("plot_driven","plot/char"),("immersive","immersion"),
+        ("many_protagonists","# protag"),("named_side","# side chars"),("plot_driven","plot-driven"),("character_driven","char.-driven"),("immersive","immersion"),
         ("unresolved","resolution"),("unsurprising","surprise"),("confusing","clarity"),("convincing","plot conv."),
         ("8a_how_likable","likability"),("competent","competence"),("proactive","proactiveness"),("real_did_this_protagonist","protag. realness"),
         ("emotionally_invested","emotional investment"),("relatable","relatability"),("quality_of_the_character","char.-writing quality"),

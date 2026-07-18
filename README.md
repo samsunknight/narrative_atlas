@@ -14,9 +14,9 @@ readers, 225 viewers).
 ## What is here
 
 ```
-reproduce.py            one script; reproduces every headline number (96 checks)
+reproduce.py            one script; reproduces every headline number (99 checks)
 requirements.txt        Python 3.11+ dependencies
-code/                   how the scores were generated (transparency; not needed to reproduce)
+code/                   scoring code + run_all.py (regenerates every figure and table from data/)
   PROMPT.md             model, settings, prompt format
   rescore_oneat.py, rescore_corpus.py   the gpt-4o-mini scoring harness
 data/
@@ -74,7 +74,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 This prints, and writes to `outputs/check_report.txt`, one line per check
-(`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `96/96 passed`. `[R]` checks
+(`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `99/99 passed`. `[R]` checks
 are re-derived from the shipped tables; `[A]` checks (the mood and character-arc validation
 r) are asserted against the shipped sweep values, since the per-rater mood/arc ratings are
 not redistributed. The one documented correction (the adaptation fantastical delta re-derives

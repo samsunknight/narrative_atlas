@@ -145,7 +145,7 @@ for sp in ["top", "right", "left"]:
     axB.spines[sp].set_visible(False)
 axB.spines["bottom"].set_color("#888888")
 axB.set_xticks([0, 20, 40, 60])
-axB.set_title("b  Attribute taxonomy — 162 attributes",
+axB.set_title("b  Attribute taxonomy — 142 attributes",
               fontsize=8.5, loc="left", pad=8, fontweight="bold")
 axB.text(0.0, -0.32, "per work; layers scored by an LLM viewer panel",
          transform=axB.transAxes, fontsize=6.4, color="#555555")

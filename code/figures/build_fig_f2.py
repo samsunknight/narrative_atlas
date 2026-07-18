@@ -29,15 +29,15 @@ for ax,sub in [(axa1,st.iloc[:half]),(axa2,st.iloc[half:])]:
 axa1.text(0.235,half-1.2,"Validated\n$r\\geq0.22$",color=THR,fontsize=10,va="top")
 axa1.set_title("a  Structure layer — per-attribute film validation",fontsize=14.5,fontweight="bold",loc="left")
 fig.text(0.295,0.045,f"{int(st['val'].sum())} of {len(st)} structural attributes validate against human ratings"
-         "   ·   validation $r$ = LLM score vs.\\ 225-viewer human mean, zero-shot",ha="center",fontsize=11,color="#555")
+         "   ·   validation $r$ = LLM score vs. 225-viewer human mean, zero-shot",ha="center",fontsize=11,color="#555")
 
 # ---- panel b: per-layer validate bars (Table 1 deployed counts) ----
 axb=fig.add_subplot(gs[0,2])
-LAY=[("Structure\n(scalar attrs)",41,47,NAVY,"median $r$ 0.28  (top 0.70)"),
+LAY=[("Structure\n(scalar attrs)",41,47,NAVY,"median $r$ 0.35  (top 0.70)"),
      ("Mood\n(31 tags)",28,31,NAVY,"median $r$ 0.39"),
      ("Genre\n(18 labels)",18,18,ORANGE,"median AUC 0.91"),
      ("Arc\n(9 arc cells)",9,9,TEAL,"arc-change $r$ 0.37–0.48"),
-     ("Texture\n(descriptors)",34,37,NAVY,"median $r$ 0.35  (visual 0.42)")]
+     ("Texture\n(descriptors)",34,37,NAVY,"median $r$ 0.39  (visual 0.45)")]
 yb=np.arange(len(LAY))[::-1]
 for yi,(lab,v,tot,col,note) in zip(yb,LAY):
     f=100*v/tot

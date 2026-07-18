@@ -30,8 +30,8 @@ a2.set_xlabel("film validation r"); a2.set_ylabel("book validation r"); a2.set_t
 plt.tight_layout(); plt.savefig("results/figures/FIG1_validation.png",dpi=150,bbox_inches="tight"); print("FIG1")
 
 # ===== FIG2 style-space =====
-ALL=pd.concat([F.assign(medium="film"),B.assign(medium="book"),T.assign(medium="tv")],ignore_index=True)
-Xs=StandardScaler().fit_transform(ALL[ATTRS].fillna(ALL[ATTRS].mean())); p=PCA(4).fit(Xs); pc=p.transform(Xs)
+ALL=pd.concat([F.assign(medium="film"),B.assign(medium="book"),T.assign(medium="tv")],ignore_index=True).dropna(subset=ATTRS).reset_index(drop=True)  # complete-case, matches reproduce.py
+Xs=((ALL[ATTRS]-ALL[ATTRS].mean())/ALL[ATTRS].std()).values; p=PCA(4).fit(Xs); pc=p.transform(Xs)
 fig,(a1,a2,a3)=plt.subplots(1,3,figsize=(18.5,5.5))
 for m in ["film","book","tv"]:
     mask=ALL.medium==m; a1.scatter(pc[mask,0][::8],pc[mask,1][::8],s=4,alpha=.15,color=C[m],label=m)
