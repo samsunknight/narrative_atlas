@@ -76,9 +76,9 @@ LAYERS ASSERTED VS SHIPPED §11: MOOD median r=0.39 | ARC change r=0.37-0.48
 [PASS][R] validated count: genre                               target=      18  reproduced=      18
 [PASS][R] validated count: arc                                 target=       9  reproduced=       9
 [PASS][R] validated count: texture                             target=      34  reproduced=      34
-[PASS][R] validated count: structure (codebook H+V)            target=      41  reproduced=      41
+[PASS][R] validated count: structure (codebook H+V)            target=      43  reproduced=      43
 [PASS][A] validated count: mood (shipped §11q)                 target=      28  reproduced=      28
-[PASS][R] validated count: total (130)                         target=     130  reproduced=     130
+[PASS][R] validated count: total (132)                         target=     132  reproduced=     132
 [PASS][A] mood median validation r (§11 sweep)                 target=    0.39  reproduced=    0.39
 [PASS][A] arc change r competent (§11a)                        target=    0.45  reproduced=    0.45
 [PASS][A] arc change r range lo (§11a)                         target=    0.37  reproduced=    0.37
