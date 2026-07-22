@@ -1,0 +1,55 @@
+NARRATIVE ATLAS — LICENSE
+
+Code (reproduce.py and everything under code/): MIT License.
+Data (under data/): our own narrative annotations are CC BY 4.0; third-party-
+derived files are governed by their providers' terms and are NOT CC BY (see the
+Data section below).
+
+-------------------------------------------------------------------------------
+MIT License (code)
+
+Copyright (c) 2026 The Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+Data — CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/) applies to the
+narrative annotations we produced: the scored corpus (data/corpus/*), the atlas
+frames (data/atlas/*), the per-work survey validation means and derived tables
+(data/validation/*), and our matched/derived outputs. The following are third-
+party data redistributed under their own terms and are NOT covered by CC BY 4.0:
+
+  - IMDb ratings and genres are NOT redistributed here. IMDb's public dataset
+    (https://developer.imdb.com/non-commercial-datasets/) is under a non-commercial
+    license, so the files data/matched/imdb_film_ratings.csv and
+    data/matched/imdb_film_genres.csv are omitted from this release. The corpus
+    ships the title and release year, which is the join key; rebuild the two files
+    from a fresh IMDb pull with code/rebuild_imdb_match.py to reproduce the
+    genre-validation and reception analyses.
+
+  - data/matched/adaptation_pairs.csv is derived from Wikidata (dedicated to the
+    public domain under CC0).
+
+  - Attributes are computed from English Wikipedia plot summaries, whose text is
+    licensed CC BY-SA 4.0. We redistribute only our numeric annotations, not the
+    summary text; a reuse that redistributes the underlying summaries would fall
+    under CC BY-SA.
+
+  - The survey-derived per-work rating means are governed by the companion
+    HumanReader / HumanViewer dataset releases.

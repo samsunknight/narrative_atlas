@@ -1,0 +1,6 @@
+layer,metric,value,n_pass,n_tested
+mood,median r,0.484,29,30
+genre,median AUC,0.933,5,5
+arc_competence,change r,0.378,,195
+arc_proactive,change r,0.198,,195
+arc_likability,change r,0.039,,195

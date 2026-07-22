@@ -1,0 +1,382 @@
+{
+  "amplitude": {
+    "film": {
+      "trough": -0.8329163474542332,
+      "trough_dec": 1930,
+      "crest": 0.38141033853419415,
+      "crest_dec": 1970,
+      "amplitude": 1.2143266859884272,
+      "start": -0.8329163474542332,
+      "start_dec": 1930,
+      "end": 0.08813108000995185
+    },
+    "book": {
+      "trough": 0.2236798965103866,
+      "trough_dec": 1940,
+      "crest": 0.49404107995001795,
+      "crest_dec": 2010,
+      "amplitude": 0.27036118343963134,
+      "start": 0.46692718688020474,
+      "start_dec": 1930,
+      "end": 0.49404107995001795
+    },
+    "tv": {
+      "trough": -0.9949094828082367,
+      "trough_dec": 1950,
+      "crest": -0.30013201750387547,
+      "crest_dec": 1990,
+      "amplitude": 0.6947774653043612,
+      "start": -0.9949094828082367,
+      "start_dec": 1950,
+      "end": -0.3492349284311958
+    }
+  },
+  "novel_frac_of_film_amp": 0.22264287407928046,
+  "raw_baseline_index": {
+    "film": -8.494490696941028,
+    "book": 22.131926406926407,
+    "tv": -10.968691588785047
+  },
+  "within_genre": {
+    "Horror": 2.6,
+    "Comedy": 8.6,
+    "War": 8.7,
+    "Documentary": 9.4,
+    "Historical": 10.1,
+    "Thriller": 11.6,
+    "Action": 12.5,
+    "Science_Fiction": 12.5,
+    "Adventure": 12.6,
+    "Romance": 13.0,
+    "Mystery": 13.5,
+    "Crime": 13.7,
+    "Drama": 13.8,
+    "Musical": 14.3,
+    "Family": 14.9,
+    "Animation": 15.2,
+    "Western": 17.3,
+    "Fantasy": 22.5
+  },
+  "within_genre_range": [
+    2.623620474406991,
+    22.544559464508097
+  ],
+  "horror_ceiling": {
+    "d1935": 79.48,
+    "d1970": 82.103620474407
+  },
+  "film_break_year": 1957,
+  "film_break_pre_mean": -2.51,
+  "film_break_post_mean": 15.65,
+  "production_code_DiD": {
+    "film_code": 2.49,
+    "film_post": 18.41,
+    "book_code": 19.25,
+    "book_post": 21.9,
+    "film_change": 15.92,
+    "book_change": 2.65,
+    "DiD": 13.27
+  },
+  "film_novel_gap_1935": -33.0,
+  "film_novel_gap_1968": -8.2,
+  "shape_counts": {
+    "rise": 15,
+    "fall": 11,
+    "hump": 3,
+    "U": 2,
+    "flat": 0
+  },
+  "dark_peak_decades": [
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    2010
+  ],
+  "warm_trough_decades": [
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970,
+    1970
+  ],
+  "dark_median_peak": 1970,
+  "warm_median_trough": 1970,
+  "signature": {
+    "film": {
+      "Romantic": 5.4,
+      "Lighthearted": 2.0,
+      "Heartwarming": 2.0,
+      "Funny": 1.6
+    },
+    "book": {
+      "Mysterious": 15.2,
+      "Eerie": 14.6,
+      "Dark": 13.6,
+      "Epic": 13.4
+    },
+    "tv": {
+      "Funny": 8.9,
+      "Lighthearted": 7.5,
+      "Heartwarming": 5.3,
+      "Energetic": 4.6
+    }
+  },
+  "cross_medium_spread_first": 0.642,
+  "cross_medium_spread_last": 0.422,
+  "reception_n": 31056,
+  "acclaim_dark_beta": [
+    0.0198,
+    0.0
+  ],
+  "reach_dark_beta": [
+    -0.1223,
+    0.0
+  ],
+  "acclaim_dark_x_post80": [
+    0.013,
+    0.0986
+  ],
+  "acclaim_beta_pre80": 0.0108,
+  "acclaim_beta_post80": 0.0239,
+  "exemplars": {
+    "darkest_all": [
+      {
+        "title": "Ilsa, She Wolf of the SS",
+        "year": 1975.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "Son of Saul",
+        "year": 2015.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "In the Days of Whore",
+        "year": 2000.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "Ass Clowns",
+        "year": 2000.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "August Underground's Mordum",
+        "year": 2003.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "Shoah (film)",
+        "year": 1985.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "Farmer's Daughters",
+        "year": 1976.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "A Serbian Film",
+        "year": 2010.0,
+        "mood_Dark": 100.0
+      },
+      {
+        "title": "Bog of Beasts",
+        "year": 2006.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Lost Loves (film)",
+        "year": 2010.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "The Coffee Table",
+        "year": 2022.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "The Summer of Massacre",
+        "year": 2011.0,
+        "mood_Dark": 95.0
+      }
+    ],
+    "darkest_known": [
+      {
+        "title": "Beasts of No Nation (film)",
+        "year": 2015.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Eraserhead",
+        "year": 1977.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Come and See",
+        "year": 1985.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Hostel (2005 film)",
+        "year": 2005.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Fail Safe (1964 film)",
+        "year": 1964.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Leaving Las Vegas",
+        "year": 1995.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Hereditary (film)",
+        "year": 2018.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Man Bites Dog (film)",
+        "year": 1992.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Natural Born Killers",
+        "year": 1994.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Once Were Warriors (film)",
+        "year": 1994.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Apocalypse Now",
+        "year": 1979.0,
+        "mood_Dark": 95.0
+      },
+      {
+        "title": "Antichrist (film)",
+        "year": 2009.0,
+        "mood_Dark": 95.0
+      }
+    ],
+    "whimsical": [
+      {
+        "title": "The Muppet Movie",
+        "year": 1979.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "Mary Poppins (film)",
+        "year": 1964.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "Monty Python and the Holy Grail",
+        "year": 1975.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "Alice in Wonderland (1951 film)",
+        "year": 1951.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "Airplane!",
+        "year": 1980.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "The Adventures of Baron Munchausen",
+        "year": 1988.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "Yellow Submarine (film)",
+        "year": 1968.0,
+        "mood_Whimsical": 90.0
+      },
+      {
+        "title": "Army of Darkness",
+        "year": 1992.0,
+        "mood_Whimsical": 85.0
+      },
+      {
+        "title": "Johnny English",
+        "year": 2003.0,
+        "mood_Whimsical": 85.0
+      },
+      {
+        "title": "A Hard Day's Night (film)",
+        "year": 1964.0,
+        "mood_Whimsical": 85.0
+      }
+    ],
+    "nostalgic": [
+      {
+        "title": "Grave of the Fireflies",
+        "year": 1988.0,
+        "mood_Wistful": 95.0
+      },
+      {
+        "title": "Lilya 4-ever",
+        "year": 2002.0,
+        "mood_Wistful": 90.0
+      },
+      {
+        "title": "Reign Over Me",
+        "year": 2007.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "The White Ribbon",
+        "year": 2009.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "Never Let Me Go (2010 film)",
+        "year": 2010.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "Sleepless in Seattle",
+        "year": 1993.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "The Machinist",
+        "year": 2004.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "Simon Birch",
+        "year": 1998.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "The Changeling (film)",
+        "year": 1980.0,
+        "mood_Wistful": 85.0
+      },
+      {
+        "title": "About Schmidt",
+        "year": 2002.0,
+        "mood_Wistful": 85.0
+      }
+    ]
+  }
+}

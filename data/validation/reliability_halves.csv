@@ -1,0 +1,12 @@
+attribute,medium,r_halfsplit,n_raters,n_works
+fantastical,film,0.8716,101,23
+clarity,film,0.798,101,23
+sci-fi,film,0.7754,101,23
+realistic world,film,0.7042,101,23
+resolution,film,0.6852,101,23
+surprise,film,0.6491,101,23
+# protagonists,film,0.5137,101,23
+immersive,film,0.4651,1356,185
+# settings,film,0.4302,84,19
+# side characters,film,0.3725,101,23
+plot convincing,film,0.3635,101,23
