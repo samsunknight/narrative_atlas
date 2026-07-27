@@ -410,6 +410,10 @@ book_chg = mean_raw(Bm,1969,1985) - mean_raw(Bm,1934,1968)
 chk("R", "production-code gap film-novel 1935", -33.0, round(gap(1935), 1), 2.0)
 chk("R", "production-code gap film-novel 1968",  -8.0, round(gap(1968), 1), 2.0)
 chk("R", "production-code DiD (film-novel)",     13.2, round(film_chg-book_chg, 1), 0.5)
+# darkening magnitude (dark-only 0-100): main-text "the novel darkens about a tenth as much".
+def _dk_dec(d, dec): return float(d[(d.year>=dec)&(d.year<dec+10)][DARKc].mean(axis=1).mean())
+_film_dk = _dk_dec(Fm,1970) - _dk_dec(Fm,1930); _book_dk = _dk_dec(Bm,1970) - _dk_dec(Bm,1930)
+chk("R", "novel darkening as share of film (~a tenth)", 0.09, round(_book_dk/_film_dk, 2), 0.05)
 # masking robustness: title/proper-noun masking leaves the per-work dark-mood scores essentially
 # unchanged (main-text footnote r~0.93); recomputed from the shipped masked-vs-unmasked dark scores.
 _MKf = pd.read_csv(P("data/validation/darkening_mask_film.csv"))
