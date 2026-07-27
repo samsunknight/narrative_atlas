@@ -16,3 +16,4 @@ outputs/check_report.txt
 # IMDb data (non-commercial license) — not redistributed; rebuild via code/rebuild_imdb_match.py
 data/matched/imdb_film_ratings.csv
 data/matched/imdb_film_genres.csv
+data/validation/validation_plot_text_film.csv
