@@ -1,4 +1,4 @@
-# Rebuilds certified FIG_F2_validation.png. Counts match Table 1 (141/129; structure 46/40).
+# Rebuilds certified FIG_F2_validation.png. Counts match Table 1 (141 scored / 133 validated; structure 46/42).
 import pandas as pd, numpy as np, re, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False})
@@ -12,7 +12,7 @@ fig=plt.figure(figsize=(15.5,16))
 gs=fig.add_gridspec(2,3,width_ratios=[0.72,0.72,1.05],height_ratios=[1,1],wspace=0.5,hspace=0.34)
 fig.suptitle("Human validation of the Narrative Atlas instrument across all five layers",fontsize=17,fontweight="bold",y=0.985)
 
-# ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 40/46) ----
+# ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 42/46) ----
 axa1=fig.add_subplot(gs[:,0]); axa2=fig.add_subplot(gs[:,1])
 st=d[d['layer']=='structure'].dropna(subset=['fr']).sort_values('fr',ascending=False).copy()
 st['val']=st['tier'].isin(['A','B'])
