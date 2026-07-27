@@ -33,11 +33,11 @@ fig.text(0.295,0.045,f"{int(st['val'].sum())} of {len(st)} structural attributes
 
 # ---- panel b: per-layer validate bars (Table 1 deployed counts) ----
 axb=fig.add_subplot(gs[0,2])
-LAY=[("Structure\n(scalar attrs)",40,46,NAVY,"median $r$ 0.35  (top 0.70)"),
-     ("Mood\n(31 tags)",28,31,NAVY,"median $r$ 0.39"),
+LAY=[("Structure\n(scalar attrs)",42,46,NAVY,"median $r$ 0.35  (top 0.78)"),
+     ("Mood\n(31 tags)",28,31,NAVY,"median $r$ 0.41"),
      ("Genre\n(18 labels)",18,18,ORANGE,"median AUC 0.91"),
-     ("Arc\n(9 arc cells)",9,9,TEAL,"arc-change $r$ 0.37–0.48"),
-     ("Texture\n(descriptors)",34,37,NAVY,"median $r$ 0.39  (visual 0.45)")]
+     ("Arc\n(9 arc cells)",9,9,TEAL,"arc-change $r$ 0.45–0.54"),
+     ("Texture\n(descriptors)",36,37,NAVY,"median $r$ 0.40  (visual 0.41)")]
 yb=np.arange(len(LAY))[::-1]
 for yi,(lab,v,tot,col,note) in zip(yb,LAY):
     f=100*v/tot
