@@ -10,7 +10,9 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from numpy.linalg import lstsq
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.path.dirname(os.path.abspath(__file__))
+while ROOT != os.path.dirname(ROOT) and not os.path.isdir(os.path.join(ROOT, "data", "validation")):
+    ROOT = os.path.dirname(ROOT)
 os.chdir(ROOT)
 OUT = "results/figures_certified"
 os.makedirs(OUT, exist_ok=True)

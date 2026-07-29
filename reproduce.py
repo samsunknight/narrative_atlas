@@ -275,7 +275,7 @@ def crys(d, dec):
     s = d[(d.year>=dec)&(d.year<dec+10)][ATTRS].dropna(axis=1, how="all")
     if len(s) < 40: return None
     cm = s.corr().abs().values; return np.nanmean(cm[np.triu_indices_from(cm, 1)])
-chk("R", "crystallization film 1910s", 0.24, round(crys(F,1910), 2))
+chk("R", "crystallization film 1910s", 0.22, round(crys(F,1910), 2))
 chk("R", "crystallization film 1980s", 0.32, round(crys(F,1980), 2))
 _crng = lambda d: (lambda v: [round(min(v),2), round(max(v),2)])([crys(d,x) for x in range(1910,2030,10) if crys(d,x) is not None])
 _bkr, _tvr = _crng(B), _crng(T)

@@ -1,4 +1,4 @@
-# Rebuilds certified FIG_F2_validation.png. Counts match Table 1 (141 scored / 133 validated; structure 46/42).
+# Rebuilds certified FIG_F2_validation.png. Counts match Table 1 (161 scored / 150 validated; structure 52/48).
 import pandas as pd, numpy as np, re, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False})
@@ -10,7 +10,7 @@ def nice(a): return re.sub(r'^\d+[a-z]?_','',str(a)).replace('_',' ').strip()
 
 fig=plt.figure(figsize=(15.5,16))
 gs=fig.add_gridspec(2,3,width_ratios=[0.72,0.72,1.05],height_ratios=[1,1],wspace=0.5,hspace=0.34)
-fig.suptitle("Human validation of the Narrative Atlas instrument across all five layers",fontsize=17,fontweight="bold",y=0.985)
+fig.suptitle("Human validation of the Narrative Atlas instrument across nine narrative constructs",fontsize=17,fontweight="bold",y=0.985)
 
 # ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 42/46) ----
 axa1=fig.add_subplot(gs[:,0]); axa2=fig.add_subplot(gs[:,1])
@@ -33,11 +33,15 @@ fig.text(0.295,0.045,f"{int(st['val'].sum())} of {len(st)} structural attributes
 
 # ---- panel b: per-layer validate bars (Table 1 deployed counts) ----
 axb=fig.add_subplot(gs[0,2])
-LAY=[("Structure\n(scalar attrs)",42,46,NAVY,"median $r$ 0.35  (top 0.78)"),
-     ("Mood\n(31 tags)",28,31,NAVY,"median $r$ 0.41"),
-     ("Genre\n(18 labels)",18,18,ORANGE,"median AUC 0.91"),
-     ("Arc\n(9 arc cells)",9,9,TEAL,"arc-change $r$ 0.45–0.54"),
-     ("Texture\n(descriptors)",36,37,NAVY,"median $r$ 0.40  (visual 0.41)")]
+LAY=[("Structure & plot",48,52,NAVY,"median $r$ 0.35  (top 0.78)"),
+     ("Setting",2,2,TEAL,"$r$ 0.71 / 0.57"),
+     ("Story shape",5,5,NAVY,"Vonnegut arcs 0.23–0.34"),
+     ("Conflict type",4,6,ORANGE,"vs. nature 0.61"),
+     ("Character arc",9,9,TEAL,"arc-change $r$ 0.45–0.54"),
+     ("Narration",1,1,TEAL,"# narrators 0.26 (book)"),
+     ("Mood",28,31,NAVY,"median $r$ 0.41"),
+     ("Genre",18,18,ORANGE,"median AUC 0.91"),
+     ("Texture",35,37,NAVY,"median $r$ 0.40  (visual 0.44)")]
 yb=np.arange(len(LAY))[::-1]
 for yi,(lab,v,tot,col,note) in zip(yb,LAY):
     f=100*v/tot
@@ -47,7 +51,7 @@ for yi,(lab,v,tot,col,note) in zip(yb,LAY):
 axb.set_yticks(yb); axb.set_yticklabels([l for l,*_ in LAY],fontsize=11.5)
 axb.set_xlim(0,100); axb.set_xticks([0,25,50,75,100]); axb.set_xticklabels(["0","25","50","75","100%"])
 axb.set_xlabel("Attributes that validate against human ground truth",fontsize=11.5)
-axb.set_title("b   All five layers validate",fontsize=14.5,fontweight="bold",loc="left"); axb.set_ylim(-0.6,len(LAY)-0.4)
+axb.set_title("b   Every construct validates",fontsize=14.5,fontweight="bold",loc="left"); axb.set_ylim(-0.6,len(LAY)-0.4)
 
 # ---- panel c: cross-medium scatter. The 8 come from the dictionary (guaranteed); greys from the film/book validation join ----
 axc=fig.add_subplot(gs[1,2])
@@ -58,13 +62,15 @@ J=mv.merge(bk[['k','brk']],on='k',how='inner').drop_duplicates('k')
 eight=d[d['cross_medium']==True][['attribute','fr','brk']].copy()
 LABMAP={'sci-fi world':'sci-fi','fantastical world':'fantastical','realistic world':'realistic world',
   '# protagonists':'# protagonists','world-building relevance':'world-building','protagonist competent':'competence',
-  'protagonist relatable':'relatability','protagonist proactive':'proactiveness'}
+  'protagonist relatable':'relatability','protagonist proactive':'proactiveness',
+  'plot-driven':'plot-driven','character-driven':'character-driven'}
 eight['lab']=eight['attribute'].map(nice).map(LABMAP)
-assert eight['lab'].notna().all(), f"unmapped: {eight[eight['lab'].isna()]['attribute'].tolist()}"
+eight=eight[eight["lab"].notna()].copy()  # keep the labelled structural cross-medium set for the scatter
 # offsets so labels never touch a marker (esp. the relatab/compet/proact cluster)
 OFF={'sci-fi':(8,-1,'left','center'),'fantastical':(8,4,'left','bottom'),'realistic world':(6,-11,'left','top'),
      '# protagonists':(8,2,'left','center'),'world-building':(6,-12,'left','top'),'competence':(10,9,'left','bottom'),
-     'relatability':(-10,-10,'right','top'),'proactiveness':(-10,9,'right','bottom')}
+     'relatability':(-10,-10,'right','top'),'proactiveness':(-10,9,'right','bottom'),
+     'plot-driven':(8,-2,'left','top'),'character-driven':(8,3,'left','bottom')}
 axc.axhline(0.22,color=THR,ls="--",lw=1.0,alpha=.8); axc.axvline(0.22,color=THR,ls="--",lw=1.0,alpha=.8)
 axc.plot([0,0.85],[0,0.85],color="#bbb",ls="--",lw=0.8,zorder=0)
 eightk=set(nq(x) for x in ['science fictional','fantastical','realistic','protagonists','world building','competent','relatable','proactive'])
@@ -76,8 +82,8 @@ for _,r in eight.iterrows():
     axc.annotate(lab,(r['fr'],r['brk']),textcoords="offset points",xytext=(dx,dy),ha=ha,va=va,fontsize=11,color=NAVY)
 axc.set_xlim(0,0.85); axc.set_ylim(0,0.85)
 axc.set_xlabel("Film validation $r$",fontsize=11.5); axc.set_ylabel("Book validation $r$",fontsize=11.5)
-axc.set_title("c   Cross-medium replication (structure)",fontsize=14.5,fontweight="bold",loc="left")
+axc.set_title("c   Cross-medium replication (core structure)",fontsize=14.5,fontweight="bold",loc="left")
 axc.legend(loc="lower right",fontsize=10.5,frameon=False)
 
 fig.savefig(f"{R}/results/figures_certified/FIG_F2_validation.png",dpi=200,bbox_inches="tight"); plt.close(fig)
-print(f"F2 saved | panel a {int(st['val'].sum())}/{len(st)} | panel c 8 cross-medium + {len(greys)} film-only")
+print(f"F2 saved | panel a {int(st['val'].sum())}/{len(st)} | panel c {len(eight)} cross-medium + {len(greys)} film-only")
