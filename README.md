@@ -38,10 +38,10 @@ data/
   atlas/                the released dataset, one dense table per medium
     century_frame_{film,book,tv}.parquet
   validation/           the human anchor and the codebook
-    attribute_dictionary.csv        141-row codebook (layer, attribute, column, scale,
+    attribute_dictionary.csv        161-row codebook (layer, attribute, column, scale,
                                     validation r, recommended-use tier, cross_medium flag)
     human_means_{film,book}.csv     per-work MEAN human ratings (no individual responses)
-    film_llm_validation_scores.csv, book_attribute_validation.csv, reliability_halves.csv,
+    film_validation_corpus_basis.csv, book_attribute_validation.csv, reliability_halves.csv,
     darkening_mask_{film,book}.csv, book_darkindex_pairs.csv,
     genre_validation_layer.csv, rescore_manifest.csv, summary_lengths.csv,
     mood_numbers.json, arc_findings.json

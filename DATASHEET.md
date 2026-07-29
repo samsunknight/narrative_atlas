@@ -2,10 +2,10 @@
 
 ## 1. Motivation & composition
 The atlas is 149,341 narrative works (94,140 films, 22,978 novels, 32,223 television
-programs), each scored on 141 attributes of narrative form across five layers (structure,
-mood, genre, character arc, texture). The dataset is `data/atlas/century_frame_{film,book,tv}.parquet`
+programs), each scored on 161 attributes of narrative form across nine constructs (structure
+& plot, setting, story shape, conflict, character arc, narration, mood, genre, texture). The dataset is `data/atlas/century_frame_{film,book,tv}.parquet`
 (one row per work; `idx`, `title`, `year`, `decade`, `medium`, and the layer-prefixed
-attribute scores). A 30-attribute structural spine with column names shared across media
+attribute scores). A 36-attribute structural spine with column names shared across media
 (used for adaptation, convergence, and crystallization) is at
 `data/corpus/{film,book,tv}_structural_1890_2025.csv`. Works span 1890–2025 (capped at
 2025); main analyses use 1915–2020. Titles are English Wikipedia page titles and may include
@@ -31,10 +31,10 @@ model settings, prompt format, and scoring harness are in `code/` (`PROMPT.md`,
 in `data/validation/rescore_manifest.csv`.
 
 ## 3. Validation / human anchoring
-Of the 141 attributes, **123 are measured by the human survey** (structure 46, mood 31,
-character-arc 9, texture 37) and **18 — the genre layer — against IMDb category
-tags** (AUC), since the survey carried only a coarse genre checklist; **129 clear the
-validation bar**. The survey attributes
+Of the 161 attributes, **143 are measured by the human survey** (structure & plot 52,
+setting 2, story shape 5, conflict 6, character-arc 9, narration 1, mood 31, texture 37) and
+**18 — the genre layer — against IMDb category tags** (AUC), since the survey carried only a
+coarse genre checklist; **150 clear the validation bar**. The survey attributes
 are anchored to two human surveys approved by the University of Toronto Research
 Ethics Board (protocol 46547): 714 readers (book survey; the HumanReader corpus) and 225
 viewers (two film surveys; the HumanViewer corpus). The raw per-respondent responses are
@@ -44,18 +44,21 @@ statistics (`{movie,book}_attribute_validation.csv`, `T2_validation.csv`,
 `genre_validation_layer.csv`, `rescore_manifest.csv`) and (b) the intermediate **per-work
 human means** (`human_means_{film,book}.csv`): for each work × attribute, the mean human
 rating and the rater count. Joining the means to the model scores reproduces the published
-validation correlations exactly (see `reproduce.py`). For film the model side is the validated
-per-work scoring in `film_llm_validation_scores.csv`; for book it is the released corpus
-column. The eight attributes clearing r > 0.22 in **both** media (`cross_medium == True` in the
-codebook) carry all cross-medium comparisons.
+validation correlations exactly (see `reproduce.py`). For film the model side is the
+deployed-corpus score linked to the validation films via `survey_to_corpus_map.csv`, with the
+resulting per-attribute correlations in `film_validation_corpus_basis.csv`; for book it is the
+released corpus column. The fifteen structural attributes clearing r > 0.22 in **both** media
+carry the cross-medium geometry; the codebook's `cross_medium == True` flag marks these along
+with the settings, story shapes, and conflict types that also validate cross-medium.
 
 **Recommended-use tiers.** The `tier` column grades each attribute by human-anchoring
 strength: **A** (strongest), **B** (validated), and **C** (exploratory, released for
 description and flagged for cautious use). The tiers map to how an attribute should be used.
-Cross-medium film-versus-novel comparisons use only the eight attributes flagged
-`cross_medium` (validated in both film and the novel); within-medium and film/television
-analyses may use the wider film-validated set (tiers A and B); tier C is suited to
-description rather than headline inference. The validation floor is r > 0.22, a bar stricter
+Cross-medium film-versus-novel geometry uses the fifteen structural attributes validated in
+both film and the novel (the codebook's `cross_medium` flag marks these plus the settings,
+story shapes, and conflict types that also validate cross-medium); within-medium and
+film/television analyses may use the wider film-validated set (tiers A and B); tier C is
+suited to description rather than headline inference. The validation floor is r > 0.22, a bar stricter
 than statistical significance at these sample sizes.
 
 ## 4. Matched external keys (frozen snapshots in `data/matched/`)

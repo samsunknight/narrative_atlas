@@ -3,13 +3,15 @@
 # All derive from the released structural corpus + adaptation_deltas.csv. Run from project root.
 import pandas as pd, numpy as np, re, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+import sys, os; _d=os.path.dirname(os.path.abspath(__file__)); sys.path[:0]=[_d, os.path.dirname(_d)]
+from _methods import spine_attrs
 from scipy.ndimage import gaussian_filter
 COL={"film":"#1f77b4","book":"#d62728","tv":"#2ca02c"}
 def load(m,idx):  # released 1890-2025 corpus (matches reproduce.py); natural decade bins
     d=pd.read_csv(f"data/corpus/{m}_structural_1890_2025.csv").rename(columns={idx:"id"})
     return d[d.year<=2025].assign(dec=lambda x:(x.year//10*10).astype(int),medium=m)
 F,B,T=load("film","film_idx"),load("book","book_idx"),load("tv","tv_idx")
-ATTRS=[c for c in F.columns if c not in ("id","title","year","dec","medium")]
+ATTRS=spine_attrs(F)
 # clean short display name per raw survey column
 def nm(c):
     c=c.lower()
@@ -20,7 +22,7 @@ def nm(c):
         ("8a_how_likable","likability"),("competent","competence"),("proactive","proactiveness"),("real_did_this_protagonist","protag. realness"),
         ("emotionally_invested","emotional investment"),("relatable","relatability"),("quality_of_the_character","char.-writing quality"),
         ("quality_of_the_setting","setting quality"),("evocative","visual evocativeness"),("interesting_did_you_find_the_visual","visual interest"),
-        ("engaging_did_you_find_the_dialogue","dialogue engagement"),("now_let_s_talk","dialogue show-vs-tell"),("moved_by_this","emotional impact"),
+        ("engaging_did_you_find_the_dialogue","dialogue engagement"),("now_let_s_talk","dialogue overall"),("moved_by_this","emotional impact"),
         ("like_the_score","score"),("relevant_are_these_aspect","identity relevance"),("pace","pace")]:
         if key in c: return lab
     return re.sub(r'^\d+[a-z]?_','',c).replace('_',' ')[:18]

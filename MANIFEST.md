@@ -8,7 +8,7 @@ largest single file 9.3 MB (well within GitHub limits; no Git LFS needed).
 ### `data/atlas/` — the dataset (the published resource)
 | file | rows | contents |
 |---|---|---|
-| `century_frame_film.parquet` | 94,140 | `idx, title, year, decade, medium` + 141 attribute columns (film-side instrument) |
+| `century_frame_film.parquet` | 94,140 | `idx, title, year, decade, medium` + 170 attribute columns (film-side; the 161-attribute deployed instrument is documented in `attribute_dictionary.csv`) |
 | `century_frame_book.parquet` | 22,978 | same schema, book-side attribute set |
 | `century_frame_tv.parquet` | 32,223 | same schema, television |
 
@@ -20,15 +20,15 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 ### `data/corpus/` — the structural spine
 | file | rows | contents |
 |---|---|---|
-| `{film,book,tv}_structural_1890_2025.csv` | 94,140 / 22,978 / 32,223 | `idx, title, year` + the 30 structural attributes, with column names **shared across media** so film, book, and tv are directly comparable (used for adaptation, convergence, crystallization) |
+| `{film,book,tv}_structural_1890_2025.csv` | 94,140 / 22,978 / 32,223 | `idx, title, year` + the 36 structural attributes, with column names **shared across media** so film, book, and tv are directly comparable (used for adaptation, convergence, crystallization) |
 
 ### `data/validation/` — human anchor + codebook
 | file | rows | contents / provenance |
 |---|---|---|
-| `attribute_dictionary.csv` | 141 | the codebook: `layer, attribute, column, definition, scale, validation, validation_metric, film_r, book_r, tier, cross_medium`. Generated from the paper's vetted Table S1. |
+| `attribute_dictionary.csv` | 161 | the codebook: `layer, attribute, column, definition, scale, validation, validation_metric, film_r, book_r, tier, cross_medium`. Generated from the paper's vetted Table S1. |
 | `human_means_film.csv` | 10,735 | `survey_movie_id, attribute, human_mean, n_raters` — per-work MEAN human rating (film survey) |
 | `human_means_book.csv` | 3,445 | `book_idx, attribute, human_mean, n_raters` — per-work MEAN (reader survey) |
-| `film_llm_validation_scores.csv` | 10,735 | `survey_movie_id, attribute, llm_score` — per-work model score on the validation films |
+| `film_validation_corpus_basis.csv` | 124 | `attribute, layer, r, n` — per-attribute film validation correlation (deployed-corpus score vs the 225-viewer human mean, linked via `survey_to_corpus_map.csv`); the film side of the validation |
 | `genre_validation_layer.csv` | 18 | `genre, imdb_tag, auc, n_pos` — genre-recovery ROC-AUC vs IMDb labels |
 | `rescore_manifest.csv` | 252 | `attr_id, layer, mode, media, lo, hi, prompt, tier, r, …` — the deployed-prompt registry with per-attribute validation r and tier |
 | `reliability_halves.csv` | 11 | `attribute, medium, r_halfsplit, n_raters, n_works` — split-half reliability (feeds the r² ceilings) |

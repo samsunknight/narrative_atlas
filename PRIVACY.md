@@ -10,7 +10,7 @@ The human anchor enters the package only in **aggregated** form:
 
 - `human_means_film.csv`, `human_means_book.csv` — for each work × attribute, the **mean**
   human rating and the rater count `n_raters`. No respondent rows, no respondent keys.
-- `film_llm_validation_scores.csv`, `reliability_halves.csv`,
+- `film_validation_corpus_basis.csv`, `reliability_halves.csv`,
   `{movie,book}_attribute_validation.csv`, `T2_validation.csv` — model scores and
   already-summarized validation statistics (correlations, counts).
 

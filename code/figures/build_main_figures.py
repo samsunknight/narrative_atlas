@@ -1,13 +1,15 @@
 import pandas as pd, numpy as np, warnings
 warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+import sys, os; _d=os.path.dirname(os.path.abspath(__file__)); sys.path[:0]=[_d, os.path.dirname(_d)]
+from _methods import spine_attrs
 from sklearn.decomposition import PCA; from sklearn.preprocessing import StandardScaler
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False,"axes.linewidth":0.8})
 def load(f,idx):
-    d=pd.read_csv(f"data/corpus/{f}_structural_1890_2025.csv").rename(columns={idx:"id"})
+    d=pd.read_csv(f"data/corpus/{f}_structural_century.csv").rename(columns={idx:"id"})
     return d[(d.year>=1915)&(d.year<=2020)]
 F,B,T=load("film","film_idx"),load("book","book_idx"),load("tv","tv_idx")
-ATTRS=[c for c in F.columns if c not in("id","title","year")]
+ATTRS=spine_attrs(F)
 def sn(c):
     for k,n in [("science_fictional","sci-fi"),("fantastical","fantastical"),("realistic_was_the_world","realistic world"),("world_building","world-building"),("how_many_protagonists","# protagonists"),("named_side","# side chars"),("how_many_major_settings","# settings"),("competent","competence"),("proactive","proactiveness"),("likable","likability"),("relatable","relatability"),("real_did_this","feels real"),("emotionally_invested","emot. investment"),("pace_of_the","pace"),("unresolved","resolution"),("unsurprising","surprise"),("confusing","clarity"),("convincing","plot convincing"),("evocative","visual evocative"),("interesting_did_you_find_the_visual","visual interest"),("engaging_did_you_find_the_dial","dialogue engaging"),("realistic_did_you_find_the_dial","dialogue realism"),("now_let_s_talk","show vs tell"),("showing_and","showing/telling"),("immersive","immersive"),("score","score"),("plot_driven","plot vs character"),("relevant_are_these","identity relev."),("quality_of_the_character","character quality"),("quality_of_the_setting","setting quality"),("moved","moved")]:
         if k in c: return n
@@ -30,7 +32,11 @@ a2.set_xlabel("film validation r"); a2.set_ylabel("book validation r"); a2.set_t
 plt.tight_layout(); plt.savefig("results/figures/FIG1_validation.png",dpi=150,bbox_inches="tight"); print("FIG1")
 
 # ===== FIG2 style-space =====
-ALL=pd.concat([F.assign(medium="film"),B.assign(medium="book"),T.assign(medium="tv")],ignore_index=True).dropna(subset=ATTRS).reset_index(drop=True)  # complete-case, matches reproduce.py
+# PCA style-space over the FULL corpus (all years), complete-case -- exactly matches reproduce.py's
+# geometry sample (PC1 35%, PC2 11%); the 1915-2020 window is for the temporal figures only.
+ALL=pd.concat([pd.read_csv(f"data/corpus/{f}_structural_century.csv").rename(columns={idx:"id"}).assign(medium=m)
+               for f,idx,m in [("film","film_idx","film"),("book","book_idx","book"),("tv","tv_idx","tv")]],
+              ignore_index=True).dropna(subset=ATTRS).reset_index(drop=True)
 Xs=((ALL[ATTRS]-ALL[ATTRS].mean())/ALL[ATTRS].std()).values; p=PCA(4).fit(Xs); pc=p.transform(Xs)
 fig,(a1,a2,a3)=plt.subplots(1,3,figsize=(18.5,5.5))
 for m in ["film","book","tv"]:

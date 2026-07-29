@@ -1,16 +1,15 @@
 # Extended Data: two-phase book<->television convergence.
 # Left: book-TV centroid distance by decade. Right: each medium's movement along the
 # book-TV axis (TV drifts toward the novel throughout; the novel turns toward TV only after ~1990).
-# Method matches replication/reproduce.py (VAL8 cross-medium-validated attributes, z-scored decade centroids).
+# Method matches replication/reproduce.py (the 15 cross-medium-validated attributes, z-scored decade centroids).
 import pandas as pd, numpy as np, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-def load(f,idx): return pd.read_csv(f"data/corpus/{f}_structural_1890_2025.csv").rename(columns={idx:"id"})
-F,B,T=load("film","film_idx"),load("book","book_idx"),load("tv","tv_idx")
-VAL8_KEYS=["science_fictional","fantastical","realistic_was_the_world","world_building",
-           "relatable_did_you_find","competent_was_this_protagonist","how_many_protagonists","proactiv"]
-VAL8=[c for c in F.columns if any(k in c.lower() for k in VAL8_KEYS) and c in T.columns and c in B.columns]
-pool=pd.concat([B[VAL8],T[VAL8],F[VAL8]]); mu,sd=pool.mean(),pool.std().replace(0,1)
-def z(df): return (df[VAL8]-mu)/sd
+import sys, os; _d=os.path.dirname(os.path.abspath(__file__)); sys.path[:0]=[_d, os.path.dirname(_d)]
+from _methods import load_spine, cross_medium
+F,B,T=load_spine("film"),load_spine("book"),load_spine("tv")
+VAL15=[c for c in cross_medium(B) if c in T.columns and c in F.columns]
+pool=pd.concat([B[VAL15],T[VAL15],F[VAL15]]); mu,sd=pool.mean(),pool.std().replace(0,1)
+def z(df): return (df[VAL15]-mu)/sd
 decs=list(range(1950,2011,10))
 def cent(df,d):
     s=df[(df.year>=d)&(df.year<d+10)]; return z(s).mean().values if len(s)>=30 else None
@@ -27,7 +26,7 @@ novel_to_tv=move_toward("bk", -1)   # book moving toward TV is -u
 fig,(axL,axR)=plt.subplots(1,2,figsize=(11,4.4))
 xs=[d for d in decs]
 axL.plot(xs,bk_tv,color="#333",lw=2.4,marker="o"); axL.set_title("Book–television distance narrows",fontweight="bold")
-axL.set_xlabel("decade"); axL.set_ylabel("centroid distance (SD units)"); axL.set_ylim(0,1.8)
+axL.set_xlabel("decade"); axL.set_ylabel("centroid distance (SD units)"); axL.set_ylim(0,3.0)
 axL.spines[["top","right"]].set_visible(False); axL.grid(axis="y",alpha=.15)
 axR.axhline(0,color="grey",lw=.6); axR.axvline(1990,color="grey",lw=.8,ls="--",alpha=.7)
 axR.plot(xs,tv_to_novel,color="#2ca02c",lw=2.4,marker="o",label="television → novel")

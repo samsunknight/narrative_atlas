@@ -8,7 +8,7 @@ genre,War,genre_War,"Intensity of the War genre; scored against the IMDb ""War""
 genre,Historical,genre_Historical,"Intensity of the Historical genre; scored against the IMDb ""History"" label",0--100,0.94,AUC,0.94,,--,False
 genre,Comedy,genre_Comedy,"Intensity of the Comedy genre; scored against the IMDb ""Comedy"" label",0--100,0.92,AUC,0.92,,--,False
 genre,Fantasy,genre_Fantasy,"Intensity of the Fantasy genre; scored against the IMDb ""Fantasy"" label",0--100,0.91,AUC,0.91,,--,False
-genre,Musical,genre_Musical,"Intensity of the Musical genre; scored against the IMDb ""Musical"" label",0--100,0.90,AUC,0.90,,--,False
+genre,Musical,genre_Musical,"Intensity of the Musical genre; scored against the IMDb ""Musical"" label",0--100,0.90,AUC,0.9,,--,False
 genre,Action,genre_Action,"Intensity of the Action genre; scored against the IMDb ""Action"" label",0--100,0.89,AUC,0.89,,--,False
 genre,Adventure,genre_Adventure,"Intensity of the Adventure genre; scored against the IMDb ""Adventure"" label",0--100,0.89,AUC,0.89,,--,False
 genre,Mystery,genre_Mystery,"Intensity of the Mystery genre; scored against the IMDb ""Mystery"" label",0--100,0.88,AUC,0.88,,--,False
@@ -28,45 +28,45 @@ texture,Visual: Muted,visual_Muted,"Strength of the ""Muted"" visual descriptor 
 structure,realistic world,3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,How realistic was the world of the movie?,1--7,0.62 / 0.61,r,0.62,0.6,A,True
 texture,Visual: Gritty,visual_Gritty,"Strength of the ""Gritty"" visual descriptor implied by the summary",0--100,0.54,r,0.54,,A,False
 structure,# protagonists,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,How many protagonists were there?,1--6,0.55 / 0.54,r,0.55,0.53,A,True
-texture,Visual: Bright,visual_Bright,"Strength of the ""Bright"" visual descriptor implied by the summary",0--100,0.60,r,0.60,,A,False
+texture,Visual: Bright,visual_Bright,"Strength of the ""Bright"" visual descriptor implied by the summary",0--100,0.60,r,0.6,,A,False
 texture,Score: Orchestral,score_Orchestral,"Strength of the ""Orchestral"" score descriptor implied by the summary",0--100,0.49,r,0.49,,A,False
 structure,ending resolved,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,1--7,0.54,r,0.54,,A,False
-structure,world-building relevance,7_overall_how_relevant_was_world_building_to_the_movie_world_building,"Overall, how relevant was world-building to the movie?",1--5,0.50 / 0.29,r,0.50,0.27,A,True
-texture,Visual: Handheld,visual_Handheld,"Strength of the ""Handheld"" visual descriptor implied by the summary",0--100,0.41,r,0.41,,A,False
-structure,ending surprising,12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,1--7,0.49,r,0.49,,A,False
+structure,world-building relevance,7_overall_how_relevant_was_world_building_to_the_movie_world_building,"Overall, how relevant was world-building to the movie?",1--5,0.50 / 0.29,r,0.5,0.27,A,True
+texture,Visual: Handheld,visual_Handheld,"Strength of the ""Handheld"" visual descriptor implied by the summary",0--100,0.46,r,0.46,,A,False
+structure,ending surprising,12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,1--7,0.50,r,0.5,,A,False
 texture,Score: Melodic,score_Melodic,"Strength of the ""Melodic"" score descriptor implied by the summary",0--100,0.49,r,0.49,,A,False
 texture,Acting: Brooding,acting_Brooding,"Strength of the ""Brooding"" acting descriptor implied by the summary",0--100,0.48,r,0.48,,A,False
-texture,Visual: Slow,visual_Slow,"Strength of the ""Slow"" visual descriptor implied by the summary",0--100,0.40,r,0.40,,A,False
+texture,Visual: Slow,visual_Slow,"Strength of the ""Slow"" visual descriptor implied by the summary",0--100,0.40,r,0.4,,A,False
 texture,Visual: Stylized,visual_Stylized,"Strength of the ""Stylized"" visual descriptor implied by the summary",0--100,0.49,r,0.49,,A,False
 texture,Score: Rock n' Roll,score_Rock_n__Roll,"Strength of the ""Rock n' Roll"" score descriptor implied by the summary",0--100,0.43,r,0.43,,A,False
 texture,Acting: Deadpan,acting_Deadpan,"Strength of the ""Deadpan"" acting descriptor implied by the summary",0--100,0.37,r,0.37,,A,False
-texture,Score: Electronic,score_Electronic,"Strength of the ""Electronic"" score descriptor implied by the summary",0--100,0.60,r,0.60,,A,False
+texture,Score: Electronic,score_Electronic,"Strength of the ""Electronic"" score descriptor implied by the summary",0--100,0.60,r,0.6,,A,False
 structure,setting/world quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,"In your opinion, how would you rate the quality of the setting and world-building …",1--7,0.42,r,0.42,,A,False
 structure,protagonist likable,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,How likable was this protagonist?,1--5,0.42,r,0.42,,A,False
-texture,Score: Grand,score_Grand,"Strength of the ""Grand"" score descriptor implied by the summary",0--100,0.20,r,0.20,,C,False
-structure,plot convincing,19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,How convincing did you find the plot?,1--7,0.39,r,0.39,,A,False
-structure,dialogue overall,7_now_let_s_talk_pun_intended_about_dialogue_in_your_opinion_how_was_t,"Now, let's talk (pun intended) about dialogue! In your opinion …",2--5,0.40,r,0.40,,A,False
+texture,Score: Grand,score_Grand,"Strength of the ""Grand"" score descriptor implied by the summary",0--100,0.19,r,0.19,,C,False
+structure,plot convincing,19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,How convincing did you find the plot?,1--7,0.40,r,0.4,,A,False
+structure,dialogue overall,7_now_let_s_talk_pun_intended_about_dialogue_in_your_opinion_how_was_t,"Now, let's talk (pun intended) about dialogue! In your opinion …",2--5,0.40,r,0.4,,A,False
 structure,pace,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,"On the whole, how would you describe the pace of the movie?",1--5,0.43,r,0.43,,A,False
-texture,Acting: Raw,acting_Raw,"Strength of the ""Raw"" acting descriptor implied by the summary",0--100,0.32,r,0.32,,A,False
+texture,Acting: Raw,acting_Raw,"Strength of the ""Raw"" acting descriptor implied by the summary",0--100,0.33,r,0.33,,A,False
 structure,dialogue engaging,8_how_engaging_did_you_find_the_dialogue_in_the_movie,How engaging did you find the dialogue in the movie?,1--7,0.41,r,0.41,,A,False
 mood,Sad,mood_Sad,"Intensity of the ""Sad"" mood evoked by the story",0--100,0.34,r,0.34,,--,False
 mood,Optimistic,mood_Optimistic,"Intensity of the ""Optimistic"" mood evoked by the story",0--100,0.43,r,0.43,,--,False
 mood,Quirky,mood_Quirky,"Intensity of the ""Quirky"" mood evoked by the story",0--100,0.52,r,0.52,,--,False
 mood,Raw,mood_Raw,"Intensity of the ""Raw"" mood evoked by the story",0--100,0.41,r,0.41,,--,False
-mood,Reflective,mood_Reflective,"Intensity of the ""Reflective"" mood evoked by the story",0--100,0.10,r,0.10,,--,False
-mood,Romantic,mood_Romantic,"Intensity of the ""Romantic"" mood evoked by the story",0--100,0.60,r,0.60,,--,False
+mood,Reflective,mood_Reflective,"Intensity of the ""Reflective"" mood evoked by the story",0--100,0.10,r,0.1,,--,False
+mood,Romantic,mood_Romantic,"Intensity of the ""Romantic"" mood evoked by the story",0--100,0.60,r,0.6,,--,False
 mood,Surreal,mood_Surreal,"Intensity of the ""Surreal"" mood evoked by the story",0--100,0.31,r,0.31,,--,False
 mood,Tense,mood_Tense,"Intensity of the ""Tense"" mood evoked by the story",0--100,0.52,r,0.52,,--,False
 mood,Tragic,mood_Tragic,"Intensity of the ""Tragic"" mood evoked by the story",0--100,0.48,r,0.48,,--,False
 mood,Whimsical,mood_Whimsical,"Intensity of the ""Whimsical"" mood evoked by the story",0--100,0.43,r,0.43,,--,False
 mood,Wistful,mood_Wistful,"Intensity of the ""Wistful"" mood evoked by the story",0--100,0.15,r,0.15,,--,False
-mood,Lighthearted,mood_Lighthearted,"Intensity of the ""Lighthearted"" mood evoked by the story",0--100,0.60,r,0.60,,--,False
+mood,Lighthearted,mood_Lighthearted,"Intensity of the ""Lighthearted"" mood evoked by the story",0--100,0.60,r,0.6,,--,False
 texture,Visual: Clean,visual_Clean,"Strength of the ""Clean"" visual descriptor implied by the summary",0--100,0.41,r,0.41,,A,False
 mood,Melancholic,mood_Melancholic,"Intensity of the ""Melancholic"" mood evoked by the story",0--100,0.38,r,0.38,,--,False
-mood,Mysterious,mood_Mysterious,"Intensity of the ""Mysterious"" mood evoked by the story",0--100,0.40,r,0.40,,--,False
+mood,Mysterious,mood_Mysterious,"Intensity of the ""Mysterious"" mood evoked by the story",0--100,0.40,r,0.4,,--,False
 mood,Inspirational,mood_Inspirational,"Intensity of the ""Inspirational"" mood evoked by the story",0--100,0.33,r,0.33,,--,False
 mood,Cozy,mood_Cozy,"Intensity of the ""Cozy"" mood evoked by the story",0--100,0.35,r,0.35,,--,False
-structure,emotionally moved,5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,To what extent did you feel moved by this movie on an emotional basis?,1--5,0.37,r,0.37,,A,False
+structure,emotionally moved,5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,To what extent did you feel moved by this movie on an emotional basis?,1--5,0.38,r,0.38,,A,False
 mood,Hopeful,mood_Hopeful,"Intensity of the ""Hopeful"" mood evoked by the story",0--100,0.38,r,0.38,,--,False
 mood,Bittersweet,mood_Bittersweet,"Intensity of the ""Bittersweet"" mood evoked by the story",0--100,0.24,r,0.24,,--,False
 mood,Bleak,mood_Bleak,"Intensity of the ""Bleak"" mood evoked by the story",0--100,0.41,r,0.41,,--,False
@@ -78,27 +78,27 @@ mood,Dark,mood_Dark,"Intensity of the ""Dark"" mood evoked by the story",0--100,
 mood,Funny,mood_Funny,"Intensity of the ""Funny"" mood evoked by the story",0--100,0.69,r,0.69,,--,False
 mood,Heartwarming,mood_Heartwarming,"Intensity of the ""Heartwarming"" mood evoked by the story",0--100,0.62,r,0.62,,--,False
 mood,Dreamy,mood_Dreamy,"Intensity of the ""Dreamy"" mood evoked by the story",0--100,0.37,r,0.37,,--,False
-mood,Gritty,mood_Gritty,"Intensity of the ""Gritty"" mood evoked by the story",0--100,0.40,r,0.40,,--,False
+mood,Gritty,mood_Gritty,"Intensity of the ""Gritty"" mood evoked by the story",0--100,0.40,r,0.4,,--,False
 mood,Epic,mood_Epic,"Intensity of the ""Epic"" mood evoked by the story",0--100,0.49,r,0.49,,--,False
 mood,Energetic,mood_Energetic,"Intensity of the ""Energetic"" mood evoked by the story",0--100,0.47,r,0.47,,--,False
 mood,Eerie,mood_Eerie,"Intensity of the ""Eerie"" mood evoked by the story",0--100,0.52,r,0.52,,--,False
 texture,Score: Jazz,score_Jazz,"Strength of the ""Jazz"" score descriptor implied by the summary",0--100,0.37,r,0.37,,A,False
-structure,protagonist relatable,13_how_relatable_did_you_find_this_protagonist,How relatable did you find this protagonist?,1--7,0.33 / 0.28,r,0.33,0.29,A,True
-texture,Score: Dissonant,score_Dissonant,"Strength of the ""Dissonant"" score descriptor implied by the summary",0--100,0.53,r,0.53,,A,False
-texture,Acting: Manic,acting_Manic,"Strength of the ""Manic"" acting descriptor implied by the summary",0--100,0.30,r,0.30,,A,False
+structure,protagonist relatable,13_how_relatable_did_you_find_this_protagonist,How relatable did you find this protagonist?,1--7,0.34,r,0.34,0.29,A,True
+texture,Score: Dissonant,score_Dissonant,"Strength of the ""Dissonant"" score descriptor implied by the summary",0--100,0.54,r,0.54,,A,False
+texture,Acting: Manic,acting_Manic,"Strength of the ""Manic"" acting descriptor implied by the summary",0--100,0.30,r,0.3,,A,False
 structure,character-writing quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,"In your opinion, how would you rate the quality of the character writing …",1--7,0.34,r,0.34,,A,False
 structure,visual interesting,4_how_interesting_did_you_find_the_visual_style_by_interesting_we_mean,How interesting did you find the visual style?,1--7,0.41,r,0.41,,A,False
 structure,visual evocative,3_how_evocative_did_you_find_the_visual_style_by_evocative_we_mean_aff,How evocative did you find the visual style?,1--7,0.38,r,0.38,,A,False
-structure,clarity (easy to follow),12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,1--7,0.35,r,0.35,,A,False
+structure,clarity (easy to follow),12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,1--7,0.34,r,0.34,,A,False
 structure,# settings,8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,How many major settings does the movie contain?,1--6,0.28,r,0.28,,A,False
 structure,protagonist proactive,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,How proactive was this protagonist?,1--5,0.35 / 0.37,r,0.35,0.31,A,True
 texture,Score: Emotional,score_Emotional,"Strength of the ""Emotional"" score descriptor implied by the summary",0--100,0.29,r,0.29,,A,False
-texture,Visual: Natural,visual_Natural,"Strength of the ""Natural"" visual descriptor implied by the summary",0--100,0.36,r,0.36,,A,False
+texture,Visual: Natural,visual_Natural,"Strength of the ""Natural"" visual descriptor implied by the summary",0--100,0.37,r,0.37,,A,False
 texture,Visual: Busy,visual_Busy,"Strength of the ""Busy"" visual descriptor implied by the summary",0--100,0.27,r,0.27,,B,False
-structure,overall feeling,6_how_did_you_feel_about_the_movie,How did you feel about the movie?,1--7,0.35,r,0.35,,B,False
+structure,overall feeling,6_how_did_you_feel_about_the_movie,How did you feel about the movie?,1--7,0.34,r,0.34,,B,False
 structure,glad watched,glad_worthwhile,"After having watched the movie, how glad are you to have devoted time and energy to it?",1--5,0.29,r,0.29,,B,False
 structure,plot compelling,book_plot_compelling,How compelling did you find the plot?,2--7,0.35,r,0.35,,B,False
-texture,Acting: Physical,acting_Physical,"Strength of the ""Physical"" acting descriptor implied by the summary",0--100,0.32,r,0.32,,B,False
+texture,Acting: Physical,acting_Physical,"Strength of the ""Physical"" acting descriptor implied by the summary",0--100,0.31,r,0.31,,B,False
 structure,protagonist competent,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,How competent was this protagonist?,1--5,0.43 / 0.56,r,0.43,0.54,A,True
 texture,Acting: Intense,acting_Intense,"Strength of the ""Intense"" acting descriptor implied by the summary",0--100,0.51,r,0.51,,B,False
 structure,# side characters,3_approximately_how_many_named_side_characters_are_in_this_movie_feel,Approximately how many named side characters are in this movie?,2--50,0.27,r,0.27,,B,False
@@ -109,23 +109,23 @@ texture,Acting: Natural,acting_Natural,"Strength of the ""Natural"" acting descr
 texture,Acting: Improvisational,acting_Improvisational,"Strength of the ""Improvisational"" acting descriptor implied by the summary",0--100,0.37,r,0.37,,B,False
 structure,dialogue realistic,9_how_realistic_did_you_find_the_dialogue_in_the_movie,How realistic did you find the dialogue in the movie?,1--7,0.34,r,0.34,,B,False
 structure,setting importance,import_setting,"In your opinion, how important was the setting and world-building to your experience …",1--5,0.26,r,0.26,,B,False
-structure,characters importance,import_characters,"In your opinion, how important were the characters to your experience of the movie …",1--5,0.30,r,0.30,,B,False
+structure,characters importance,import_characters,"In your opinion, how important were the characters to your experience of the movie …",1--5,0.30,r,0.3,,B,False
 structure,enjoyable watching,enjoyable_watching,"While you were in the process of watching the movie, how enjoyable did you find it?",1--5,0.28,r,0.28,,B,False
-texture,Score: Intimate,score_Intimate,"Strength of the ""Intimate"" score descriptor implied by the summary",0--100,0.41,r,0.41,,B,False
+texture,Score: Intimate,score_Intimate,"Strength of the ""Intimate"" score descriptor implied by the summary",0--100,0.43,r,0.43,,B,False
 structure,familiar world,book_familiar_world,How familiar was the world of the movie?,1--7,0.26,r,0.26,,B,False
 structure,visual importance,visual_importance,How important was the visual style to your experience of the movie as a whole?,1--7,0.28,r,0.28,,B,False
-texture,Acting: Subtle,acting_Subtle,"Strength of the ""Subtle"" acting descriptor implied by the summary",0--100,0.27,r,0.27,,B,False
-structure,protagonist investment,12_how_emotionally_invested_were_you_in_this_protagonist,How emotionally invested were you in this protagonist?,1--7,0.24,r,0.24,,B,False
+texture,Acting: Subtle,acting_Subtle,"Strength of the ""Subtle"" acting descriptor implied by the summary",0--100,0.21,r,0.21,,C,False
+structure,protagonist investment,12_how_emotionally_invested_were_you_in_this_protagonist,How emotionally invested were you in this protagonist?,1--7,0.25,r,0.25,,B,False
 structure,ending satisfying,book_satisfying_ending,On a scale of 1 (very unsatisfying) to 7 (very satisfying)?,1--7,0.28,r,0.28,,B,False
 texture,Visual: Sharp,visual_Sharp,"Strength of the ""Sharp"" visual descriptor implied by the summary",0--100,0.22,r,0.22,,B,False
 structure,themes interesting,book_themes_interesting,How interesting do you personally find the movie's themes?,1--5,0.24,r,0.24,,B,False
-texture,Visual: Dreamy,visual_Dreamy,"Strength of the ""Dreamy"" visual descriptor implied by the summary",0--100,0.30,r,0.30,,B,False
-texture,Acting: Method,acting_Method,"Strength of the ""Method"" acting descriptor implied by the summary",0--100,0.27,r,0.27,,B,False
+texture,Visual: Dreamy,visual_Dreamy,"Strength of the ""Dreamy"" visual descriptor implied by the summary",0--100,0.30,r,0.3,,B,False
+texture,Acting: Method,acting_Method,"Strength of the ""Method"" acting descriptor implied by the summary",0--100,0.26,r,0.26,,B,False
 structure,side-character importance,4_how_important_would_you_say_the_side_characters_are_in_this_movie,How important would you say the side characters are in this movie?,1--5,0.26,r,0.26,,B,False
 structure,protagonist real,11_how_real_did_this_protagonist_feel_to_you,How real did this protagonist feel to you?,1--7,0.18,r,0.18,,C,False
-structure,score importance,score_importance,How important was the score to your experience of the movie?,1--7,0.30,r,0.30,,B,False
+structure,score importance,score_importance,How important was the score to your experience of the movie?,1--7,0.30,r,0.3,,B,False
 texture,Score: Choral,score_Choral,"Strength of the ""Choral"" score descriptor implied by the summary",0--100,0.37,r,0.37,,B,False
-texture,Acting: Theatrical,acting_Theatrical,"Strength of the ""Theatrical"" acting descriptor implied by the summary",0--100,0.32,r,0.32,,B,False
+texture,Acting: Theatrical,acting_Theatrical,"Strength of the ""Theatrical"" acting descriptor implied by the summary",0--100,0.34,r,0.34,,B,False
 structure,score match,,How well-matched did the score feel to the action?,2--7,0.21,r,0.21,,C,False
 structure,visual consistent,2_how_consistent_did_you_find_the_visual_style_by_consistent_we_mean_t,How consistent did you find the visual style?,1--7,0.15,r,0.15,,C,False
 structure,liked vs expected,liked_vs_expect,"Plot-predicted audience rating: based on this plot and the kind of description a viewer would have seen beforehand, predict how much a typical viewer LIKED the movie relative …",1--5,0.17,r,0.17,,C,False
@@ -135,8 +135,28 @@ character-arc,Likability (end),arc_likable_End,How likable the main protagonist 
 character-arc,Competence (beginning),arc_competent_Beginning,How competent the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.46,r,0.46,0.54,--,False
 character-arc,Competence (middle),arc_competent_Middle,How competent the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.32,r,0.32,0.54,--,False
 character-arc,Competence (end),arc_competent_End,How competent the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.43,r,0.43,0.54,--,False
-character-arc,Proactiveness (beginning),arc_proactive_Beginning,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.54,r,0.54,0.31,--,False
+character-arc,Proactiveness (beginning),arc_proactive_Beginning,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.55,r,0.55,0.31,--,False
 character-arc,Proactiveness (middle),arc_proactive_Middle,How proactive the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.09,r,0.09,0.31,--,False
 character-arc,Proactiveness (end),arc_proactive_End,How proactive the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.24,r,0.24,0.31,--,False
 structure,plot-driven,plot_driven,How plot-driven the story is (emphasis on external events)?,1--5,0.27 / 0.54,r,0.27,0.54,A,True
 structure,character-driven,character_driven,How character-driven the story is (internal needs drive the story)?,1--5,0.51 / 0.43,r,0.51,0.43,A,True
+setting,Setting: era (when),setting_when,"When the story is set relative to the present (present day, near/distant past, near/distant future)","select-all, 5 options 0-100",0.78,r,0.71,0.78,A,True
+setting,Setting: place (where),setting_where,"Where the story is set (real Earth, imaginary Earth, off Earth)","select-all, 3 options 0-100",0.62,r,0.57,0.62,A,True
+structure,Character development,character_development,Extent of the protagonist’s internal change over the story,1-5,0.58,r,0.58,0.34,A,True
+structure,Opening hook,opening_hook,"Whether the story opens with a dramatic, mysterious, or shocking hook",1-7,0.36,r,0.36,0.35,A,True
+structure,Time linearity,time_linearity,How non-linear the temporal order is,1-4,0.45,r,0.32,0.45,A,True
+structure,Plot linearity,plot_linearity,How non-linear the plot order is (2-run average),1-4,0.33,r,0.24,0.33,B,True
+structure,Ending reversal (peripeteia),ending_reversal,Major reversal of fortune at the ending (peripeteia framing),1-3,0.29,r,0.29,0.25,B,True
+structure,Catharsis,catharsis,Emotional release at the ending,1-3,0.36,r,0.36,,A,False
+narration,Number of narrators,num_narrators,Count of distinct narrators / POV characters (novel),count,0.26,r,,0.26,B,False
+conflict,Conflict: vs self,conflict_self,Centrality of “protagonist versus the protagonist’s own self” as the story’s conflict,0-100,0.31,r,0.284,0.31,B,True
+conflict,Conflict: vs other,conflict_other,Centrality of “protagonist versus other character(s)” as the story’s conflict,0-100,0.21,r,0.206,0.2,C,True
+conflict,Conflict: vs society,conflict_society,Centrality of “protagonist versus society” as the story’s conflict,0-100,0.24,r,0.241,0.185,B,True
+conflict,Conflict: vs nature,conflict_nature,Centrality of “protagonist versus nature” as the story’s conflict,0-100,0.61,r,0.608,0.606,A,True
+conflict,Conflict: vs technology,conflict_technology,Centrality of “protagonist versus technology” as the story’s conflict,0-100,0.25,r,0.147,0.253,B,True
+conflict,Conflict: vs fate,conflict_fate,Centrality of “protagonist versus fate or luck” as the story’s conflict,0-100,0.21,r,0.215,-0.024,C,True
+story-shape,Shape: Cinderella (rise-fall-rise),shape_cinderella,Goodness-of-fit to the Vonnegut “Cinderella (rise-fall-rise)” arc,0-100,0.34,r,0.34,0.28,B,True
+story-shape,Shape: Rags to Riches (steady rise),shape_rags_to_riches,Goodness-of-fit to the Vonnegut “Rags to Riches (steady rise)” arc,0-100,0.29,r,0.25,0.29,B,True
+story-shape,Shape: Riches to Rags (steady fall),shape_riches_to_rags,Goodness-of-fit to the Vonnegut “Riches to Rags (steady fall)” arc,0-100,0.35,r,0.26,0.25,B,True
+story-shape,Shape: Man in a Hole (fall-rise),shape_man_in_a_hole,Goodness-of-fit to the Vonnegut “Man in a Hole (fall-rise)” arc,0-100,0.25,r,0.25,,B,False
+story-shape,Shape: Icarus (rise-fall),shape_icarus,Goodness-of-fit to the Vonnegut “Icarus (rise-fall)” arc,0-100,0.23,r,0.23,,B,False
