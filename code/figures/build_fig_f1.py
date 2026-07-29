@@ -10,7 +10,9 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parent
+while ROOT != ROOT.parent and not (ROOT / "data" / "atlas").is_dir():
+    ROOT = ROOT.parent
 DATA = ROOT / "data" / "atlas"
 OUT  = ROOT / "results" / "figures_certified"
 OUT.mkdir(parents=True, exist_ok=True)
@@ -36,11 +38,15 @@ cov = pivot.reindex(decades).fillna(0).astype(int)[MEDIA]
 
 # --- taxonomy (film) ---
 taxo = pd.DataFrame([
-    ("structure", "scalar",     46, "world / character / plot"),
+    ("structure & plot", "scalar", 52, "world / character / plot"),
     ("texture",   "descriptor", 37, "visual / score / acting"),
     ("mood",      "mood",       31, "emotional tones"),
-    ("genre",     "genre",      18, "IMDb categories"),
-    ("arc",       "arc",         9, "protagonist change"),
+    ("genre",     "genre",      18, "18 genres"),
+    ("character arc", "arc",     9, "protagonist change"),
+    ("conflict",  "conflict",    6, "6 conflict types"),
+    ("story shape", "shape",     5, "Vonnegut arcs"),
+    ("setting",   "setting",     2, "when / where"),
+    ("narration", "narration",   1, "narrators (novel)"),
 ], columns=["layer", "manifest_layer", "n_attrs_film", "descriptor"])
 
 # ---------------- save counts CSV ----------------
@@ -65,9 +71,40 @@ mpl.rcParams.update({
     "axes.labelcolor": "#222222",
 })
 
-fig = plt.figure(figsize=(7.2, 3.3))
-gs = fig.add_gridspec(1, 2, width_ratios=[1.30, 1.0], wspace=0.30,
-                      left=0.07, right=0.985, top=0.86, bottom=0.16)
+# ---------------- fingerprint panel (c): what a scored work looks like ----------------
+import re as _re
+def _norm(s): return _re.sub(r'[^a-z0-9]', '', str(s).lower())
+_S = {m: pd.read_csv(DATA.parent / "corpus" / f"{m}_structural_1890_2025.csv").rename(columns={f"{m}_idx": "id"}) for m in MEDIA}
+_MD = {}
+for m in MEDIA:
+    _a = pd.read_parquet(DATA / f"century_frame_{m}.parquet", columns=["title", "mood_Dark"])
+    _MD[m] = {_norm(t): v for t, v in zip(_a.title, _a.mood_Dark)}
+WORKS = [("film", "Blade Runner", 1982, "Blade Runner"), ("film", "2001: A Space Odyssey", 1968, "2001"),
+         ("tv", "Breaking Bad", None, "Breaking Bad"), ("book", "Pride and Prejudice", None, "Pride & Prejudice"),
+         ("book", "The Road", None, "The Road")]
+FP_ATTR = [("science_fictional", "science-fictional", 7), ("realistic_was_the_world", "realistic world", 7),
+           ("world_building", "world-building", 7), ("character_driven", "character-driven", 7),
+           ("competent_was_this_protagonist", "competent lead", 7), ("time_linearity", "non-linear time", 7),
+           ("opening_hook", "opening hook", 7), ("__dark__", "dark mood", 100)]
+def _scol(df, k):
+    mm = [c for c in df.columns if k in c.lower()]; return mm[0] if mm else None
+_fp, _flab = [], []
+for m, t, y, disp in WORKS:
+    d = _S[m]; c = d[d.title.map(_norm) == _norm(t)]
+    if y and len(c) > 1 and "year" in c: c = c[c.year == y]
+    if not len(c): continue
+    r = c.iloc[0]; _flab.append(disp); row = []
+    for k, lab, mx in FP_ATTR:
+        if k == "__dark__":
+            row.append(_MD[m].get(_norm(t), np.nan) / 100.0)
+        else:
+            col = _scol(d, k); row.append((float(r[col]) - 1) / (mx - 1) if col and not pd.isna(r[col]) else np.nan)
+    _fp.append(row)
+FPM = np.array(_fp); FPLAB = [a[1] for a in FP_ATTR]
+
+fig = plt.figure(figsize=(7.2, 5.0))
+gs = fig.add_gridspec(2, 2, width_ratios=[1.30, 1.0], height_ratios=[1.0, 0.62], wspace=0.30, hspace=0.62,
+                      left=0.115, right=0.985, top=0.92, bottom=0.10)
 
 # ---- Panel (a): coverage heatmap ----
 axA = fig.add_subplot(gs[0, 0])
@@ -107,7 +144,7 @@ axA.set_title("a  Corpus coverage — works per medium × decade",
 # totals annotation (fig-level, clear of rotated tick labels)
 tot_txt = (f"Corpus totals   Film {TOTALS['film']:,}  ·  Book {TOTALS['book']:,}  ·  "
            f"TV {TOTALS['tv']:,}   =   {sum(TOTALS.values()):,} works")
-fig.text(0.07, 0.015, tot_txt, fontsize=6.6, color="#555555", ha="left")
+fig.text(0.115, 0.45, tot_txt, fontsize=6.6, color="#555555", ha="left")
 
 # colorbar
 cb = fig.colorbar(im, ax=axA, fraction=0.046, pad=0.02)
@@ -123,9 +160,9 @@ axB = fig.add_subplot(gs[0, 1])
 tx = taxo.iloc[::-1].reset_index(drop=True)   # largest at top
 ypos = np.arange(len(tx))
 # restrained mono-hue ramp (dark->light) by size
-shades = ["#3a4a5a", "#5a6b7a", "#7d8b98", "#a4afb8", "#c9d0d6"]
-size_order = tx["n_attrs_film"].rank(ascending=True).astype(int) - 1
-colors = [shades[i] for i in size_order]
+ramp = plt.get_cmap("Blues_r")(np.linspace(0.12, 0.72, len(tx)))
+size_order = tx["n_attrs_film"].rank(ascending=True, method="first").astype(int) - 1
+colors = [ramp[i] for i in size_order]
 
 bars = axB.barh(ypos, tx["n_attrs_film"], color=colors, edgecolor="white",
                 linewidth=0.5, height=0.72)
@@ -145,13 +182,24 @@ for sp in ["top", "right", "left"]:
     axB.spines[sp].set_visible(False)
 axB.spines["bottom"].set_color("#888888")
 axB.set_xticks([0, 20, 40, 60])
-axB.set_title("b  Attribute taxonomy — 141 attributes",
+axB.set_title("b  Attribute taxonomy — 161 attributes",
               fontsize=8.5, loc="left", pad=8, fontweight="bold")
 axB.text(0.0, -0.32, "per work; layers scored by an LLM viewer panel",
          transform=axB.transAxes, fontsize=6.4, color="#555555")
 
+# ---- Panel (c): fingerprint of scored works ----
+axC = fig.add_subplot(gs[1, :])
+imC = axC.imshow(FPM, aspect="auto", cmap=plt.get_cmap("RdPu"), vmin=0, vmax=1)
+axC.set_xticks(range(len(FPLAB))); axC.set_xticklabels(FPLAB, rotation=32, ha="right", fontsize=6.6)
+axC.set_yticks(range(len(_flab))); axC.set_yticklabels(_flab, fontsize=7)
+axC.set_xticks(np.arange(-.5, len(FPLAB), 1), minor=True); axC.set_yticks(np.arange(-.5, len(_flab), 1), minor=True)
+axC.grid(which="minor", color="white", linewidth=0.8); axC.tick_params(which="minor", length=0); axC.tick_params(which="major", length=2)
+for s in axC.spines.values(): s.set_visible(False)
+axC.set_title("c  A fingerprint of scored works: five titles across eight attributes",
+              fontsize=8.5, loc="left", pad=8, fontweight="bold")
+cbC = fig.colorbar(imC, ax=axC, fraction=0.020, pad=0.015); cbC.outline.set_linewidth(0.4)
+cbC.set_ticks([0, 1]); cbC.set_ticklabels(["low", "high"]); cbC.ax.tick_params(labelsize=6, length=2)
+
 fig.savefig(OUT / "FIG_F1_resource.png", dpi=300)
 fig.savefig(OUT / "FIG_F1_resource.pdf")
-print("saved to", OUT)
-print(cov)
-print(taxo)
+print("saved to", OUT, "| fingerprint works:", _flab)
