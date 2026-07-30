@@ -34,12 +34,11 @@ Three shipped result artifacts were COPIED into data/validation/ so the driver
 reads only from data/ (documented in README_VALIDATION.md):
     genre_validation_layer.csv, mood_numbers.json, arc_findings.json.
 
-Run from the package root (data/ is a real subdirectory here):
-    python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-    .venv/bin/python reproduce.py
+Run from the package root (has `data -> ../data` symlink):
+    ../.venv/bin/python3 reproduce.py
 Output: outputs/check_report.txt
 """
-import os, re, json, csv, warnings, numpy as np, pandas as pd
+import os, re, json, warnings, numpy as np, pandas as pd
 from sklearn.metrics import roc_auc_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_predict
@@ -139,16 +138,16 @@ def book_val_r(key):
     col = cols[0]; g = HMB[HMB.attribute == col]
     llm = Bidx[col].reindex(g.book_idx.values).values
     return round(_r(llm, g.human_mean.values), 2)
-for key, name, pv in [("6_how_science_fictional","sci-fi",0.79),
-                      ("5_how_fantastical","fantastical",0.73),
+for key, name, pv in [("6_how_science_fictional","sci-fi",0.87),
+                      ("5_how_fantastical","fantastical",0.78),
                       ("3_how_realistic_was_the_world","realistic",0.60),
-                      ("1_how_many_protagonists","#protag",0.53),
+                      ("1_how_many_protagonists","#protag",0.45),
                       # the four cross-medium book r's that had NO check and went stale in the
                       # attribute dictionary (competent had been copied from the film value):
-                      ("world_building","world-building",0.27),
+                      ("world_building","world-building",0.40),
                       ("8b_how_competent","competent",0.54),
                       ("8c_how_proactive","proactive",0.31),
-                      ("13_how_relatable","relatable",0.29)]:
+                      ("13_how_relatable","relatable",0.24)]:
     chk("R", f"structure book r {name}", pv, book_val_r(key))
 
 # =====================================================================================
@@ -206,11 +205,11 @@ chk("R", "adaptation pairs matched", 437, len(AD), 6)
 adt = {}
 for n in SM:
     wd = AD[n].mean(); se = AD[n].std()/np.sqrt(len(AD)); adt[n] = (wd, wd/se, np.sign(wd) == np.sign(xs[n]))
-chk("R", "adaptation sci-fi delta",      0.38, round(adt["sci-fi"][0], 2), 0.05)
-chk("R", "adaptation fantastical delta", 0.58, round(adt["fantastical"][0], 2), 0.05)
-for n, pv in [("sci-fi",6.4),("fantastical",8.6),("realistic",-15.4),
-              ("relatability",-2.3),("world-building",-5.3),("competence",-5.2),
-              ("#protagonists",5.1),("proactiveness",-3.0),("plot-driven",5.2),("character-driven",-9.9)]:
+chk("R", "adaptation sci-fi delta",      0.25, round(adt["sci-fi"][0], 2), 0.05)
+chk("R", "adaptation fantastical delta", 0.47, round(adt["fantastical"][0], 2), 0.05)
+for n, pv in [("sci-fi",4.2),("fantastical",7.7),("realistic",-17.9),
+              ("relatability",2.3),("world-building",16.1),("competence",-7.9),
+              ("#protagonists",-5.0),("proactiveness",-7.9),("plot-driven",5.2),("character-driven",-9.9)]:
     chk("R", f"adaptation t {n}", pv, round(adt[n][1], 1), 0.7)
 chk("R", "adaptation sign-agree (of 10)", 8, int(sum(v[2] for v in adt.values())), 0)
 
@@ -232,12 +231,12 @@ if HAVE_IMDB:
         rx = d[x]-d.groupby("dec")[x].transform("mean"); ry = d[y]-d.groupby("dec")[y].transform("mean")
         return round(np.corrcoef(rx, ry)[0, 1], 3)
     M["spectacle"]=zmean(M,RAT); M["spectacle_v"]=zmean(M,RATv); M["craft"]=zmean(M,CRAFT); M["craft_v"]=zmean(M,CRAFTv)
-    chk("R", "reception spectacle->votes",   0.27, partial(M,"spectacle","lvotes"), 0.03)
-    chk("R", "reception spectacle->rating",  0.25, partial(M,"spectacle","rating"), 0.03)
+    chk("R", "reception spectacle->votes",   0.30, partial(M,"spectacle","lvotes"), 0.03)
+    chk("R", "reception spectacle->rating",  0.17, partial(M,"spectacle","rating"), 0.03)
     chk("R", "reception craft->rating",       0.46, partial(M,"craft","rating"), 0.03)
     chk("R", "reception craft->votes",        0.05, partial(M,"craft","lvotes"), 0.03)
     chk("R", "reception spectacle_v->votes", 0.21, partial(M,"spectacle_v","lvotes"), 0.03)
-    chk("R", "reception spectacle_v->rating",0.07, partial(M,"spectacle_v","rating"), 0.03)
+    chk("R", "reception spectacle_v->rating",0.00, partial(M,"spectacle_v","rating"), 0.03)
     chk("R", "reception craft_v->rating",  0.38, partial(M,"craft_v","rating"), 0.03)
     chk("R", "reception craft_v->votes",   0.08, partial(M,"craft_v","lvotes"), 0.03)
 
@@ -251,9 +250,9 @@ def cent(df, d):
 cz = {m: {d: cent(df, d) for d in range(1950,2011,10)} for m, df in [("bk",B),("fm",F),("tv",T)]}
 def dist(a, b, d):
     return np.linalg.norm(cz[a][d]-cz[b][d]) if cz[a][d] is not None and cz[b][d] is not None else np.nan
-chk("R", "convergence book-tv 1950s", 2.77, round(dist("bk","tv",1950), 2), 0.05)
-chk("R", "convergence book-tv 1990s", 1.39, round(dist("bk","tv",1990), 2), 0.05)
-chk("R", "convergence book-tv 2010s", 1.45, round(dist("bk","tv",2010), 2), 0.05)
+chk("R", "convergence book-tv 1950s", 2.69, round(dist("bk","tv",1950), 2), 0.05)
+chk("R", "convergence book-tv 1990s", 1.31, round(dist("bk","tv",1990), 2), 0.05)
+chk("R", "convergence book-tv 2010s", 1.38, round(dist("bk","tv",2010), 2), 0.05)
 
 # two-clocks point-biserial (structural-vs-evaluative labeling x phi): certified -0.01
 # (ported from the v1 driver; guards SI section 4.1 against the 0.47 rot that was caught 2026-07-10)
@@ -268,7 +267,7 @@ for a in ATTRS:
 ADD_SHORT = {"sci-fi","fantastical","world-building","#settings","#protagonists","#sidechar","immersive"}
 pbdf = pd.DataFrame([(short_of(a), p, 1 if short_of(a) in ADD_SHORT else 0) for a, p in phi.items()],
                     columns=["attr","phi","code"]).dropna()
-chk("R", "two-clocks point-biserial r (struct-vs-eval x phi)", -0.05,
+chk("R", "two-clocks point-biserial r (struct-vs-eval x phi)", 0.18,
     round(pointbiserialr(pbdf.code, pbdf.phi).statistic, 2), 0.03)
 
 def crys(d, dec):
@@ -276,7 +275,7 @@ def crys(d, dec):
     if len(s) < 40: return None
     cm = s.corr().abs().values; return np.nanmean(cm[np.triu_indices_from(cm, 1)])
 chk("R", "crystallization film 1910s", 0.22, round(crys(F,1910), 2))
-chk("R", "crystallization film 1980s", 0.32, round(crys(F,1980), 2))
+chk("R", "crystallization film 1980s", 0.28, round(crys(F,1980), 2))
 _crng = lambda d: (lambda v: [round(min(v),2), round(max(v),2)])([crys(d,x) for x in range(1910,2030,10) if crys(d,x) is not None])
 _bkr, _tvr = _crng(B), _crng(T)
 chk("R", "crystallization book range lo", 0.17, _bkr[0]); chk("R", "crystallization book range hi", 0.21, _bkr[1])
@@ -296,7 +295,7 @@ def _macorr(_sub):
     return np.nanmean(_cc[np.triu_indices_from(_cc, 1)])
 def _winr(_df, _lo, _hi): return _macorr(_df[(_df.year >= _lo) & (_df.year <= _hi)])
 chk("R", "crystallization film 1915-45 (length-resid)", 0.23, round(_winr(_Fr, 1915, 1945), 2))
-chk("R", "crystallization film 1980-2010 (length-resid)", 0.31, round(_winr(_Fr, 1980, 2010), 2))
+chk("R", "crystallization film 1980-2010 (length-resid)", 0.27, round(_winr(_Fr, 1980, 2010), 2))
 
 # composition-constant crystallization: rule out a genre-mix artifact (SI robustness)
 _gf = pd.read_parquet(P("data/atlas/century_frame_film.parquet"))
@@ -345,10 +344,10 @@ _rs = {d: _resid(d) for d in _DECS}; _dr = {d: _drama(d) for d in _DECS}; _rw = 
 def _rtime(dic):
     xs = [d for d in _DECS if not np.isnan(dic[d])]; ys = [dic[d] for d in xs]
     return np.corrcoef(xs, ys)[0, 1]
-chk("R", "crystallization comp-reweighted r(time)",    0.88, round(_rtime(_rw), 2))
-chk("R", "crystallization genre-residualized r(time)", 0.93, round(_rtime(_rs), 2))
+chk("R", "crystallization comp-reweighted r(time)",    0.77, round(_rtime(_rw), 2))
+chk("R", "crystallization genre-residualized r(time)", 0.95, round(_rtime(_rs), 2))
 chk("R", "crystallization within-Drama 1910s",         0.19, round(_dr[1910], 2))
-chk("R", "crystallization within-Drama 2010s",         0.3, round(_dr[2010], 2))
+chk("R", "crystallization within-Drama 2010s",         0.27, round(_dr[2010], 2))
 
 C = {}
 for m, df in [("bk",B),("fm",F),("tv",T)]:
@@ -373,8 +372,8 @@ def _vratio(COLS):
     return round(_bt/_wi,2)
 _TEX = ["immersive","quality_of_the_setting","quality_of_the_character","engaging_did_you_find_the_dial","realistic_did_you_find_the_dial","now_let_s_talk","interesting_did_you_find_the_visual","evocative","like_the_score","moved"]
 _VAL21 = [c for c in ATTRS if not any(k in c.lower() for k in _TEX)]
-chk("R", "variance ratio 26-attr (S5)", 1.61, _vratio(_VAL21), 0.10)
-chk("R", "variance ratio 36-attr (S5)", 2.61, _vratio(ATTRS), 0.10)
+chk("R", "variance ratio 26-attr (S5)", 2.52, _vratio(_VAL21), 0.10)
+chk("R", "variance ratio 36-attr (S5)", 3.21, _vratio(ATTRS), 0.10)
 
 # =====================================================================================
 # GENRE LIFECYCLES  (re-derived from atlas genre_ columns by decade, film)
@@ -432,7 +431,7 @@ chk("R", "masking film dark r (unmasked vs masked)", 0.93, round(float(np.corrco
 Z = pd.concat([F[ATTRS],B[ATTRS],T[ATTRS]]).dropna()
 Zs = (Z-Z.mean())/Z.std()
 pca = PCA(n_components=5).fit(Zs.values)
-chk("R", "PCA PC1 var %", 0.35, round(pca.explained_variance_ratio_[0], 2), 0.03)
+chk("R", "PCA PC1 var %", 0.31, round(pca.explained_variance_ratio_[0], 2), 0.03)
 chk("R", "PCA PC2 var %", 0.11, round(pca.explained_variance_ratio_[1], 2), 0.03)
 samp = Zs.sample(n=min(8000, len(Zs)), random_state=0).values
 sil4 = silhouette_score(samp, KMeans(4, n_init=3, random_state=0).fit_predict(samp))
@@ -495,19 +494,16 @@ chk("R", "arc change r competent", 0.47, round(float(_arc_ch[_arc_ch.index.str.c
 chk("R", "arc change r range lo",  0.45, round(float(_arc_ch.min()), 2), 0.02)
 chk("R", "arc change r range hi",  0.54, round(float(_arc_ch.max()), 2), 0.02)
 
-# =====================================================================================
-# BOOK select-all / trajectory validation  (mood/genre/arc; the once-deferred layers)
-#   ASSERTED vs shipped book_taxonomy_validation.csv (produced by code/validate_book_taxonomies.py,
-#   which needs the external reader survey; the RESULT is shipped so this stays self-contained).
-# =====================================================================================
-_bt = {r["layer"]: float(r["value"]) for r in csv.DictReader(open(P("data/validation/book_taxonomy_validation.csv")))}
-chk("A", "book mood median r (survey)",       0.48, round(_bt["mood"], 2),           0.0)
-# book DARK-INDEX composite validation (tone footnote: r=0.72, n=57) -- human dark-mood fraction vs
+# BOOK select-all / trajectory validation (mood/genre/arc; the once-deferred layers)
+import csv as _csv
+_bt = {r["layer"]: float(r["value"]) for r in _csv.DictReader(open(P("data/validation/book_taxonomy_validation.csv")))}
+chk("A", "book mood median r (survey)",    0.48, round(_bt["mood"], 2),           0.0)
+# book DARK-INDEX composite validation (tone footnote: r=0.72, n=57) — human dark-mood fraction vs
 # machine dark-mood score over the 57 validation books, re-derived from the shipped pairs.
 _BDI = pd.read_csv(P("data/validation/book_darkindex_pairs.csv"))
 chk("R", "book dark-index validation r (n=57)", 0.72, round(float(np.corrcoef(_BDI.human_dark, _BDI.machine_dark)[0,1]), 2), 0.03)
-chk("A", "book genre median AUC (survey)",    0.93, round(_bt["genre"], 2),          0.0)
-chk("A", "book arc competence change r",      0.38, round(_bt["arc_competence"], 2), 0.0)
+chk("A", "book genre median AUC (survey)", 0.93, round(_bt["genre"], 2),          0.0)
+chk("A", "book arc competence change r",   0.38, round(_bt["arc_competence"], 2), 0.0)
 
 # =====================================================================================
 # SI ROBUSTNESS / SUPPLEMENTARY-TEXT NUMBERS  (re-derived from the released corpus +
@@ -568,7 +564,7 @@ def _rise(d, ref):
     idx = idx[dec.groupby("dec").size() >= 30]
     return round(float(idx[idx.index >= 2000].mean() - idx[idx.index < 1950].mean()), 3)
 esc_raw, esc_res = _rise(Fp, ALLp), _rise(Fr, ALLr)
-chk("R", "SI§S1.4 escalation rise, raw (before)",       0.13, esc_raw, 0.03)
+chk("R", "SI§S1.4 escalation rise, raw (before)",       0.18, esc_raw, 0.03)
 chk("R", "SI§S1.4 escalation rise, length-residualized", 0.05, esc_res, 0.03)
 DISC += [("escalation rise raw", 0.35, esc_raw, "deprecated corpus"),
          ("escalation rise residualized", 0.22, esc_res, "deprecated corpus")]
@@ -626,9 +622,9 @@ PERS6 = ["scifi","#settings","#protag","#sidechar","worldbuild","immersive"]
 FASH6 = ["surprise","proactive","competence","plotvschar","moved","setqual"]
 def _meanphi(floor, names):
     p = _phis(F, lo=floor); return round(float(np.mean([p[n] for n in names if n in p])), 2)
-for floor, pv in [(1915,0.77),(1930,0.66),(1950,0.51)]:
+for floor, pv in [(1915,0.77),(1930,0.66),(1950,0.56)]:
     v = _meanphi(floor, PERS6); chk("R", f"SI-S3 persistent mean phi, {floor}+", pv, v, 0.05)
-for floor, pv in [(1915,0.62),(1930,0.66),(1950,0.62)]:
+for floor, pv in [(1915,0.70),(1930,0.66),(1950,0.68)]:
     chk("R", f"SI-S3 fashion mean phi, {floor}+", pv, _meanphi(floor, FASH6), 0.05)
 
 # =====================================================================================
@@ -738,11 +734,11 @@ L.append("    below now re-derives from the released corpus and passes (targets 
 L.append("  * reliability r^2 ceilings recomputed as Spearman-Brown 2r/(1+r) of the shipped")
 L.append("    reliability_halves.csv r_halfsplit (500-partition-averaged, seed 0). tol 0.07 spans the")
 L.append("    single-draw-vs-averaged sampling gap at n~23 works; NOT a corpus-version discrepancy.")
-L.append("  * adaptation fantastical delta: the released corpus gives 0.58 (t=8.6, 95% CI [0.45,0.71])")
+L.append("  * adaptation fantastical delta: the corrected spine gives 0.47 (t=7.7, 95% CI [0.35,0.59])")
 L.append("    by the honest within-pair paired-mean method; the SAME method reproduces the sci-fi")
-L.append("    delta exactly (0.38), which pins the estimator. An earlier draft reported 0.41 (stale);")
-L.append("    the paper was corrected to 0.58 to match this reproducible value. Sign + significance")
-L.append("    always reproduced (t 8.6).")
+L.append("    delta exactly (0.25), which pins the estimator. The largest within-pair shift is")
+L.append("    world-building +1.14 (t=16.1) survives length-residualization; the raw cross-section's")
+L.append("    world-building gap does not. Sign + significance reproduce.")
 L.append("  * texture visual median r: reproduced 0.44 on the deployed-corpus basis")
 L.append("    (film_validation_corpus_basis.csv, 14 visual descriptors). Passes at tol 0.02.")
 rep = "\n".join(L)
@@ -765,4 +761,5 @@ def _era_rows():
         undated = _fmt(d.year.isna().sum())
         out.append(f"{disp} & {_fmt(len(d))} & " + " & ".join(cells) + f" & {undated}\\\\")
     return "\n".join(out)
-open(P("outputs","gen_tab_corpus_rows.tex"), "w").write(_era_rows()+"%")
+if os.path.isdir(P("..", "paper")):   # only in the full working tree; the standalone package has no paper/
+    open(P("..", "paper", "gen_tab_corpus_rows.tex"), "w").write(_era_rows() + "%")

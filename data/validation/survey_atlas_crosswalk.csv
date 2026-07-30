@@ -1,0 +1,160 @@
+qid,survey,section,question_text,options,type,asked_movie,asked_book,scored_film,scored_tv,scored_book,film_col,book_col,film_r,book_r,status,confidence,notes
+Q2,both,Overview,1a. Participant ID number,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,admin/ID
+Q720,both,Overview,1b. Movie/Book ID number,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,admin/ID
+Q721,both,Overview,1c. Title of the movie/novel,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,admin/title
+Q860,movie,Overview,Did you watch the movie?,Yes/No,C,Y,N,N,N,N,,,,,not_scorable(C),verified,screening; movie-only
+Q777,both,Overview,Free-text description of the genre,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free-text metadata
+Q724,both,Overview,Which genre(s)? select-all,"Romance,Horror,SciFi,Western,Drama,Mystery,Thriller,Fantasy,Action,Comedy (+more)",A,Y,Y,Y,Y,Y,genre_* family,genre_* family,,,covered_all_media,verified,genre_* family in all 3 frames; per-option r 0.79-0.99 (film) in dict
+Q716,both,Overview,3. Summarize the plot (input text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,"this is the LLM INPUT summary, not a scored attribute"
+Q7,both,Overview,4. Plot-driven vs character-driven,rating scale,A,Y,Y,Y,Y,Y,film_plot_driven,book_plot_driven,,,covered_all_media,verified,plot_driven film_r .27/book_r .54; character_driven .51/.43 (2 sub-attrs)
+Q8,both,Overview,5. Mood/vibes select-all,"Adventurous,Bittersweet,Bleak,...,Heartwarming (31 opts)",A,Y,Y,Y,Y,Y,mood_* family,mood_* family,,,covered_all_media,verified,mood_* family all 3 frames; per-option r ~0.10-0.69 film
+Q10,both,Overview,6. How did you feel about the movie/book?,rating scale,B,Y,Y,Y,Y,N,6_how_did_you_feel_about_the_movie,,0.35,,covered_partial [not scored: book],verified,overall feeling; scored film/tv (slug); NO overall_feel col in book frame
+Q11,both,Overview,7. Rank-order 3 most influential elements,rank,B,Y,Y,N,N,N,,,,,not_scorable(B),verified,ranking; not scored
+Q12,both,Overview,"8. If Something else, elaborate",free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q13,both,Overview,9. Liked vs expectations,rating scale,B,Y,Y,N,N,Y,,book_Q13_liked_vs_exp,,,covered_partial [not scored: film/tv],verified,scored book only; film has atlas col liked_vs_expect (film_r .17) but NOT in century_frame_film
+Q700,both,Overview,10. Fit the ideal viewer/reader?,rating scale,B,Y,Y,N,N,N,,,,,not_scorable(B),verified,not scored
+Q15,both,Overview,11. Who would like it? (free text),free text,B,Y,Y,N,N,N,,,,,not_scorable(B),verified,free text; not scored
+Q16,both,Overview,12. Who would dislike it? (free text),free text,B,Y,Y,N,N,N,,,,,not_scorable(B),verified,free text; not scored
+Q209,both,Character,1. How many protagonists?,1..>5,A,Y,Y,Y,Y,Y,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,book_Q209_n_protagonists,0.55,0.53,covered_all_media,verified,# protagonists; film_r .55 book_r .53
+Q210,both,Character,2. List protagonists & relationships,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q211,both,Character,3. Approx # named side characters,free text/num,B,Y,Y,Y,Y,N,3_approximately_how_many_named_side_characters_are_in_this_movie_feel,,0.27,,covered_partial [not scored: book],verified,# side chars; scored film/tv (r .27); NO book column
+Q212,both,Character,4. Importance of side characters,rating scale,B,Y,Y,Y,Y,N,4_how_important_would_you_say_the_side_characters_are_in_this_movie,,0.26,,covered_partial [not scored: book],verified,side-char importance; film/tv only; no book col
+Q214,both,Character (per-protagonist),1. Protagonist name,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,per-protagonist repeat block
+Q215,both,Character (per-protagonist),2. 3-5 traits of protagonist,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text descriptive
+Q216,both,Character (per-protagonist),3. Marginalized-group identity select-all,"Race,Ethnicity,SES,Citizenship,Geography,Religion,Language,Sexual,Gender,Disability,Other",A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,the identity-GROUPS select-all itself is NOT scored (only its RELEVANCE Q218 is)
+Q235,both,Character (per-protagonist),4. Specify identity,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q218,both,Character (per-protagonist),5. Relevance of identity to experience,rating scale,A,Y,Y,Y,Y,Y,5_if_you_checked_any_of_the_above_how_relevant_are_these_aspect_s_of_t,book_identity_relevance,0.64,,covered_all_media,verified,identity relevance; film_r .64; book col present (book_r not in dict)
+Q237,both,Character (per-protagonist),6. Primary conflict type,choice,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,conflict type NOT scored in any frame
+Q238,both,Character (per-protagonist),7. Secondary conflict type(s),select-all,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,conflict type NOT scored in any frame
+Q710,both,Character (per-protagonist),8a. Likable (overall+begin/mid/end),rating scale,B,Y,Y,Y,Y,Y,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,0.42,,covered_all_media,verified,likable: 8a slug (film_r .42) + arc_likable_Beginning/Middle/End (film_r .32/.38/.49); book has 8a slug + arcs
+Q241,both,Character (per-protagonist),8b. Competent (overall+arc),rating scale,B,Y,Y,Y,Y,Y,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,0.43,0.54,covered_all_media,verified,competent: 8b slug (.43/.54) + arc_competent_* (book_r .54)
+Q242,both,Character (per-protagonist),8c. Proactive (overall+arc),rating scale,B,Y,Y,Y,Y,Y,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,0.35,0.31,covered_all_media,verified,proactive: 8c slug (.35/.31) + arc_proactive_* (book_r .31)
+Q243,both,Character (per-protagonist),9. External upheaval (life/circumstances changed),Yes/Arguably/No,A,Y,Y,N,N,Y,,book_character_change,,,GAP(film/tv),verified,scored BOOK (book_character_change); NOT scored film/tv -> GAP
+Q244,both,Character (per-protagonist),10. Personal development (internal change),Yes/Arguably/No,A,Y,Y,Y,Y,Y,character_development [newscore],book_character_development,0.58,,covered_all_media,verified,film/tv via newscore (film r .58); book via frame col book_character_development
+Q245,both,Character (per-protagonist),11. How real did protagonist feel?,rating scale,B,Y,Y,Y,Y,Y,11_how_real_did_this_protagonist_feel_to_you,book_Q245_protag_real,0.18,,covered_all_media,verified,protag real; film_r .18
+Q246,both,Character (per-protagonist),12. Emotionally invested in protagonist?,rating scale,B,Y,Y,Y,Y,Y,12_how_emotionally_invested_were_you_in_this_protagonist,book_Q246_protag_invest,0.24,,covered_all_media,verified,protag investment; film_r .24
+Q247,both,Character (per-protagonist),13. Relatable protagonist?,rating scale,B,Y,Y,Y,Y,Y,13_how_relatable_did_you_find_this_protagonist,book_Q247_protag_relatable,0.33,0.29,covered_all_media,verified,protag relatable; film_r .33 book_r .29
+Q829,movie,Character (per-protagonist),14. Acting descriptors select-all,"Natural,Theatrical,Wooden,Intense,Subtle,Deadpan,Method,Campy,Raw,Improvisational,Physical,Mumbled,Manic,Brooding",A,Y,N,Y,Y,N,acting_* family,,,,covered_all_media,verified,acting_* family film/tv; MOVIE-ONLY (books have no acting); per-opt r ~.27-.62
+Q458,both,Ensemble cast (>5 protagonists),1. Indicated >5 protagonists (statement),free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q459,both,Ensemble cast (>5 protagonists),2. Ensemble needs reinforce/contradict,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q460,both,Ensemble cast (>5 protagonists),3. Ensemble marginalized groups select-all,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q461,both,Ensemble cast (>5 protagonists),4. Elaborate (free text),free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q462,both,Ensemble cast (>5 protagonists),5. Which aspects relevant (free text),free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q463,both,Ensemble cast (>5 protagonists),Intro (statement),free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q464,both,Ensemble cast (>5 protagonists),6a. Stood out especially likable,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q465,both,Ensemble cast (>5 protagonists),6b. Especially dislikable,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q466,both,Ensemble cast (>5 protagonists),6c. Especially competent,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q467,both,Ensemble cast (>5 protagonists),6d. Especially proactive,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q468,both,Ensemble cast (>5 protagonists),6e. Especially impactful,free text/choice,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,ensemble block; free-text/qualitative; not scored
+Q469,both,Opinion: Character,1. Importance of characters,rating scale,B,Y,Y,Y,Y,Y,1_in_your_opinion_how_important_were_the_characters_to_your_experience,book_Q469_imp_characters,,,covered_all_media,verified,characters importance; film_r .30
+Q735,both,Opinion: Character,2. Characters worked well (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q736,both,Opinion: Character,3. Characters not work (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q472,both,Opinion: Character,4. Distinctive vs other works (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q727,both,Opinion: Character,5. Character-writing quality (1-7),rating scale,B,Y,Y,Y,Y,Y,5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,book_Q727_char_quality,0.34,,covered_all_media,verified,char-writing quality; film_r .34. Movie protagonist-block Q824/831/833/835/837/839/841/843/845/847/849/853/855/857 are duplicates of this concept.
+Q479,both,Setting,1. When does it take place? select-all,around present day / near past / distant past / near future / distant future,A,Y,Y,Y,Y,Y,setting_when__around_present_day [newscore],setting_when__around_present_day [newscore],0.27-0.71,0.29-0.78,covered_all_media,verified,"setting_when via newscore all 3 media; per-opt r .27-.71 film, .29-.78 book"
+Q480,both,Setting,2. Where does it take place? select-all,earth real / earth imaginary / off-earth imaginary,A,Y,Y,Y,Y,Y,setting_where__somewhere_on_earth_that_really_exists [newscore],setting_where__somewhere_on_earth_that_really_exists [newscore],0.46-0.72,0.48-0.70,covered_all_media,verified,"setting_where via newscore all 3 media; per-opt r .46-.72 film, .48-.70 book"
+Q481,both,Setting,3. Realistic world?,rating scale,A,Y,Y,Y,Y,Y,3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,book_Q481_realistic,0.62,0.6,covered_all_media,verified,realistic world; film_r .62 book_r .60
+Q482,both,Setting,4. Familiar world?,rating scale,B,Y,Y,Y,Y,Y,4_how_familiar_was_the_world_of_the_movie_by_familiar_we_mean_a_settin,book_familiar_world,0.26,,covered_all_media,verified,familiar world; film_r .26; book col present (book_r not in dict)
+Q483,both,Setting,5. Fantastical world?,rating scale,A,Y,Y,Y,Y,Y,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,book_Q483_fantastical,0.77,0.73,covered_all_media,verified,fantastical; film_r .77 book_r .73
+Q484,both,Setting,6. Science-fictional world?,rating scale,A,Y,Y,Y,Y,Y,6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,book_Q484_scifi,0.78,0.79,covered_all_media,verified,sci-fi world; film_r .78 book_r .79
+Q485,both,Setting,7. World-building relevance?,rating scale,A,Y,Y,Y,Y,Y,7_overall_how_relevant_was_world_building_to_the_movie_world_building,book_Q485_wb_relevance,0.5,0.27,covered_all_media,verified,wb relevance; film_r .50 book_r .27
+Q487,both,Setting,8. How many major settings?,count,A,Y,Y,Y,Y,Y,8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,book_Q487_n_settings,0.28,,covered_all_media,verified,# settings; film_r .28
+Q488,both,Setting,9. Move linearly between settings?,choice,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,setting-transition linearity NOT scored in any frame
+Q495,both,Setting (per-setting),1. Describe the setting,free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,per-setting repeat; free text
+Q496,both,Setting (per-setting),2. Percent-of-work location,percent,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,not scored
+Q499,both,Setting (per-setting),3. Vivid setting?,rating scale,B,Y,Y,N,N,Y,,book_vivid_setting,,,covered_partial [not scored: film/tv],verified,vivid: scored BOOK (book_vivid_setting); NO film/tv frame col
+Q500,both,Setting (per-setting),4. Immersive setting?,rating scale,B,Y,Y,N,N,Y,,book_immersive_setting,,,covered_partial [not scored: film/tv],verified,immersive: scored BOOK (book_immersive_setting); NO film/tv frame col
+Q610,both,Opinion: Setting,1. Importance of setting/world-building,rating scale,B,Y,Y,Y,Y,Y,1_in_your_opinion_how_important_was_the_setting_and_world_building_to,book_Q610_imp_setting,,,covered_all_media,verified,setting importance; NOTE Qualtrics QID Q610 also reused for a per-setting vivid item in >5-settings block
+Q611o,both,Opinion: Setting,2. Setting worked well (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text; QID Q611 (reused for per-setting immersive in >5-settings block)
+Q738,both,Opinion: Setting,3. Setting not work (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q737,both,Opinion: Setting,4. Setting distinctive (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q612,both,Opinion: Setting,5. Setting/world writing quality (1-7),rating scale,B,Y,Y,Y,Y,Y,5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,book_setting_quality,0.42,,covered_all_media,verified,setting/world quality; film_r .42
+Q621,both,Plot & Pace,1. Structure: main plots & subplots,choice,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,plot-structure taxonomy NOT scored in any frame
+Q622,both,Plot & Pace,2. Linearity in time,choice(1-4),A,Y,Y,Y,Y,Y,time_linearity [newscore],book_Q622_time_linearity,0.32,,covered_all_media,verified,film/tv via newscore (film r .32); book via frame col
+Q623,both,Plot & Pace,3. Linearity in plot,choice(1-4),A,Y,Y,Y,Y,Y,plot_linearity [newscore],plot_linearity [newscore],0.21,0.39,covered_all_media,verified,"plot_linearity via newscore ALL 3 media (film r .21, book r .39); NOT in book century_frame"
+Q624,both,Plot & Pace,Vonnegut story-shape intro (statement),statement,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,instructional
+Q626,both,Plot & Pace,(blank/graphic item),n/a,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,blank/graphic parse artifact
+Q627,both,Plot & Pace,4. Which story shape best fits?,choice,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,story-shape taxonomy NOT scored in any frame
+Q628,both,Plot & Pace,"5. If none, describe shape (free text)",free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q629,both,Plot & Pace,6. How related is the plot-event sequence?,rating scale,A,Y,Y,N,N,Y,,book_plot_event_relatedness,,,GAP(film/tv),verified,scored BOOK (book_plot_event_relatedness); NO film/tv frame col -> GAP film/tv
+Q631,both,Plot & Pace,7. Pace of the movie/book,rating scale,B,Y,Y,Y,Y,Y,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,book_pace,0.43,,covered_all_media,verified,pace; film_r .43
+Q707,both,Plot & Pace,8. (blank item),n/a,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,blank parse artifact
+Q632,both,Plot & Pace,9. Begin with a hook?,Yes/No,A,Y,Y,Y,Y,Y,opening_hook [newscore],book_opening_hook,0.36,,covered_all_media,verified,film/tv via newscore (film r .36); book via frame col book_opening_hook
+Q633,both,Plot & Pace,10. One or more major turning points?,Yes/No,A,Y,Y,N,N,Y,,book_turning_points,,,GAP(film/tv),verified,scored BOOK (book_turning_points); NO film/tv col -> GAP film/tv
+Q634,both,Plot & Pace,11a. Percent-point of turning points,percent,B,Y,Y,N,N,N,,,,,not_scorable(B),verified,not scored
+Q708,both,Plot & Pace,11b. Describe turning points (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q637,both,Plot & Pace,Ending intro (statement),statement,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,instructional
+Q638,both,Plot & Pace,12a/14a. Ending resolved (1-7),rating scale,A,Y,Y,Y,Y,Y,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,book_Q638_resolved,0.54,,covered_all_media,verified,ending resolved; film_r .54
+Q639,both,Plot & Pace,12b/14b. Ending surprising (1-7),rating scale,A,Y,Y,Y,Y,Y,12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,book_Q639_surprising,0.49,,covered_all_media,verified,ending surprising; film_r .49
+Q640,both,Plot & Pace,12c/14c. Ending confusing->easy (1-7),rating scale,A,Y,Y,Y,Y,Y,12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,book_Q640_confusing,0.35,,covered_all_media,verified,clarity; film_r .35
+Q641,both,Plot & Pace,12d/14d. Ending satisfying (1-7),rating scale,B,Y,Y,Y,Y,Y,12d_on_a_scale_of_1_very_unsatisfying_to_7_very_satisfying,book_satisfying_ending,0.28,,covered_all_media,verified,ending satisfying; film_r (slug) .28
+Q732,both,Plot & Pace,12e/14e. Ending arbitrary->inevitable (1-7),rating scale,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,"ending inevitability NOT scored in any frame (no 12e slug, no book col)"
+Q729,both,Plot & Pace,13/15. Ending reversal-of-fortune?,Yes/No,A,Y,Y,Y,Y,N,ending_reversal [newscore],,0.19,,GAP(book),verified,film/tv via newscore (film r .19); NOT scored book (absent from book frame AND scores_book.csv) -> GAP book
+Q730,both,Plot & Pace,14/16. Ending sudden realization?,Yes/No,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,NOT scored in any frame
+Q731,both,Plot & Pace,15/17. Ending emotional release?,Yes/No,A,Y,Y,N,N,N,,,,,GAP(all asked media),verified,NOT scored in any frame
+Q643,both,Opinion: Plot,18. Plot compelling?,rating scale,B,Y,Y,Y,Y,Y,18_how_compelling_did_you_find_the_plot_by_compelling_we_mean_interest,book_plot_compelling,0.35,,covered_all_media,verified,compelling; film_r .35
+Q644,both,Opinion: Plot,19. Plot convincing?,rating scale,B,Y,Y,Y,Y,Y,19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,book_convincing_plot,0.39,,covered_all_media,verified,convincing; film_r .39
+Q645,both,Opinion: Plot,20. Importance of plot/pacing,rating scale,B,Y,Y,N,N,N,,,,,not_scorable(B),verified,plot/pacing importance NOT scored in any frame
+Q648,both,Opinion: Plot,21. Plot worked well (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q740,both,Opinion: Plot,22. Plot not work (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q739,both,Opinion: Plot,23. Plot distinctive (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q1(s5),movie,Visual/Writing/Score,Section note (statement),statement,C,Y,N,N,N,N,,,,,not_scorable(C),verified,instructional; movie-only section
+Q2(s5),movie,Visual/Writing/Score,1. Visual style descriptors select-all,"Dark,Bright,Muted,Saturated,Stylized,Natural,Handheld,Gritty,Clean,Sharp,Slow,Busy,Dreamy,Fast-cut",A,Y,N,Y,Y,N,visual_* family,,,,covered_all_media,verified,visual_* family film/tv; MOVIE-ONLY. QID Q2 reused (also participant-ID Q2)
+Q3(s5),movie,Visual/Writing/Score,2. Visual consistent?,rating scale,B,Y,N,Y,Y,N,2_how_consistent_did_you_find_the_visual_style_by_consistent_we_mean_t,,0.15,,covered_all_media,verified,visual consistent film_r .15; movie-only
+Q4(s5),movie,Visual/Writing/Score,3. Visual evocative?,rating scale,B,Y,N,Y,Y,N,3_how_evocative_did_you_find_the_visual_style_by_evocative_we_mean_aff,,0.38,,covered_all_media,verified,visual evocative film_r .38; movie-only
+Q5(s5),movie,Visual/Writing/Score,4. Visual interesting?,rating scale,B,Y,N,Y,Y,N,4_how_interesting_did_you_find_the_visual_style_by_interesting_we_mean,,0.41,,covered_all_media,verified,visual interesting film_r .41; movie-only
+Q817,movie,Visual/Writing/Score,5. Visual importance,rating scale,B,Y,N,Y,Y,N,5_how_important_was_the_visual_style_to_your_experience_of_the_movie_a,,,,covered_all_media,verified,visual importance; movie-only
+Q6(s5),movie,Visual/Writing/Score,Note (statement),statement,C,Y,N,N,N,N,,,,,not_scorable(C),verified,instructional
+Q7(s5),movie,Visual/Writing/Score,Showing vs telling intro (statement),statement,C,Y,N,N,N,N,,,,,not_scorable(C),verified,instructional; QID Q7 reused
+Q8(s5),movie,Visual/Writing/Score,6. Amount of showing vs telling,rating scale,B,Y,N,N,N,N,,,,,not_scorable(B),verified,show/tell NOT scored in any frame
+Q9(s5),movie,Visual/Writing/Score,7. (blank item),n/a,C,Y,N,N,N,N,,,,,not_scorable(C),verified,blank artifact
+Q11(s5),movie,Visual/Writing/Score,8. Dialogue engaging?,rating scale,B,Y,N,Y,Y,N,8_how_engaging_did_you_find_the_dialogue_in_the_movie,,0.41,,covered_all_media,verified,dialogue engaging; movie-only; QID Q11 reused
+Q12(s5),movie,Visual/Writing/Score,9. Dialogue realistic?,rating scale,B,Y,N,Y,Y,N,9_how_realistic_did_you_find_the_dialogue_in_the_movie,,0.34,,covered_all_media,verified,dialogue realistic; movie-only; QID Q12 reused
+Q13(s5),movie,Visual/Writing/Score,10. Dialogue importance,rating scale,B,Y,N,Y,Y,N,10_how_important_was_the_dialogue_to_your_experience_of_the_movie_as_a,,0.28,,covered_all_media,verified,dialogue importance; movie-only; QID Q13 reused
+Q820,movie,Visual/Writing/Score,11. Score musical style select-all,"Ominous,Melodic,Orchestral,Grand,Choral,Emotional,Electronic,Jazz,Intimate,Dissonant,Rock n Roll",A,Y,N,Y,Y,N,score_* family,,,,covered_all_media,verified,score_* family film/tv; MOVIE-ONLY
+Q819,movie,Visual/Writing/Score,12. Score well-matched to action?,rating scale,B,Y,N,Y,Y,N,12_how_well_matched_did_the_score_feel_to_the_action,,,,covered_all_media,verified,"score match: IS scored film/tv via slug col; dict row ""score match"" has film_r .21 but column=NaN (r not joined to this col)"
+Q818,movie,Visual/Writing/Score,13. How much liked the score?,rating scale,B,Y,N,Y,Y,N,13_how_much_did_you_like_the_score,,0.31,,covered_all_media,verified,score liking; movie-only
+Q821,movie,Visual/Writing/Score,14. Score importance,rating scale,B,Y,N,Y,Y,N,14_how_important_was_the_score_to_your_experience_of_the_movie,,,,covered_all_media,verified,score importance; movie-only
+Q15(s5),movie,Visual/Writing/Score,15. VWS worked well (free text),free text,C,Y,N,N,N,N,,,,,not_scorable(C),verified,free text
+Q16(s5),movie,Visual/Writing/Score,16. VWS not work (free text),free text,C,Y,N,N,N,N,,,,,not_scorable(C),verified,free text
+Q17(s5),movie,Visual/Writing/Score,17. VWS distinctive (free text),free text,C,Y,N,N,N,N,,,,,not_scorable(C),verified,free text
+Q682,both,Reflection & Close,Section note (statement),statement,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,instructional
+Q683,both,Reflection & Close,1. Describe themes (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text (theme input)
+Q684,both,Reflection & Close,2. How interesting are the themes?,rating scale,B,Y,Y,Y,Y,Y,2_how_interesting_do_you_personally_find_the_movie_s_themes,book_themes_interesting,0.24,,covered_all_media,verified,themes interesting; film_r .24
+Q688,both,Reflection & Close,3. Enjoyable while watching/reading?,rating scale,B,Y,Y,Y,Y,N,3_while_you_were_in_the_process_of_watching_the_movie_how_enjoyable_di,,,,covered_partial [not scored: book],verified,enjoyable: scored film/tv (slug); NO book frame col (atlas enjoyable_watching not in book frame)
+Q689,both,Reflection & Close,4. Glad to have devoted time?,rating scale,B,Y,Y,Y,Y,N,4_after_having_watched_the_movie_how_glad_are_you_to_have_devoted_time,,,,covered_partial [not scored: book],verified,glad watched: scored film/tv (slug); NO book frame col (atlas glad_worthwhile not in book frame)
+Q691,both,Reflection & Close,5. Moved emotionally / intellectually?,rating scale,B,Y,Y,Y,Y,Y,5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,book_moved_emotional,0.37,,covered_all_media,verified,"moved emotional/intellectual; scored all (film slug + film_moved_*, book_moved_emotional/intellectual)"
+Q692,both,Reflection & Close,6. Other feedback (free text),free text,C,Y,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q19,book,Narration & POV,1. Past or present tense?,choice,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,BOOK-only; tense NOT scored in book frame -> GAP
+Q20,book,Narration & POV,2. Type of narration (1st/2nd/3rd),choice,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,BOOK-only; narration type NOT scored -> GAP
+Q21,book,Narration & POV,3. If 3rd person: close or omniscient?,choice,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,BOOK-only; NOT scored -> GAP
+Q22,book,Narration & POV,4. How many narrators?,count,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,"BOOK-only; narrator-count NOT scored (book_narr_share is share, not count) -> GAP"
+Q34,book,Narration (per-narrator),1. Narrator name,free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,BOOK-only per-narrator repeat; free text
+Q33,book,Narration (per-narrator),2. Omniscient or a character?,choice,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,BOOK-only; NOT scored -> GAP
+Q24,book,Narration (per-narrator),3. Share of book from this narrator POV,percent,A,N,Y,N,N,Y,,book_narr_share,,,covered_all_media,verified,BOOK-only; scored via book_narr_share
+Q25,book,Narration (per-narrator),4. Reliable/unreliable narrator?,rating scale,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,BOOK-only; narrator reliability NOT scored -> GAP
+Q39,book,Narration (per-narrator),5. Narrator tone select-all,"Warm,Caring,Depressed,Philosophical,Juvenile,Irreverent,Anxious,Confident,Sarcastic,... (30+ tones)",B,N,Y,N,N,Y,,tone_* family,,,covered_all_media,inferred,BOOK-only; tone_* family in book frame; r not in attribute_dictionary (see book_mood/attribute_validation files)
+Q29,book,Narration (multi-narrator),List narrators & relationships,free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q51,book,Narration (multi-narrator),How many times narration switched?,count,A,N,Y,N,N,N,,,,,GAP(all asked media),verified,BOOK-only; narration-switch-count NOT scored -> GAP
+Q711,book,Opinion: Narration/POV,1. Importance of narration/POV,rating scale,B,N,Y,N,N,N,,,,,not_scorable(B),verified,BOOK-only; narration importance NOT scored in book frame
+Q733,book,Opinion: Narration/POV,2. Narration worked well (free text),free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q734,book,Opinion: Narration/POV,3. Narration not work (free text),free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q714,book,Opinion: Narration/POV,4. Narration distinctive (free text),free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q725,book,Opinion: Narration/POV,5. Narration/POV writing quality (1-7),rating scale,B,N,Y,N,N,N,,,,,not_scorable(B),verified,BOOK-only; narration writing quality NOT scored in book frame
+Q655,book,Writing Style,Section note (statement),statement,C,N,Y,N,N,N,,,,,not_scorable(C),verified,instructional; BOOK-only section
+Q656,book,Writing Style,1. Writing style descriptors select-all,"Accessible,Minimalist,Humorous,Dark,Ironic,Verbose,Sophisticated,Lyrical,Serious,Straightforward,Meandering,Whimsical,Sparse,Avant-garde,...",A,N,Y,N,N,Y,,writing_* family,,,covered_all_media,inferred,BOOK-only; writing_* family in book frame; r not in attribute_dictionary
+Q657,book,Writing Style,2. Writing clear?,rating scale,B,N,Y,N,N,Y,,book_clear_prose,,,covered_all_media,verified,BOOK-only; scored via book_clear_prose
+Q658,book,Writing Style,3. Writing evocative?,rating scale,B,N,Y,N,N,Y,,book_evocative_prose,,,covered_all_media,verified,BOOK-only; scored via book_evocative_prose
+Q666,book,Writing Style,4. Writing interesting?,rating scale,B,N,Y,N,N,Y,,book_interesting_writing_style,,,covered_all_media,verified,BOOK-only; scored via book_interesting_writing_style
+Q661,book,Writing Style,Note (statement),statement,C,N,Y,N,N,N,,,,,not_scorable(C),verified,instructional
+Q662,book,Writing Style,Showing vs telling intro (statement),statement,C,N,Y,N,N,N,,,,,not_scorable(C),verified,instructional
+Q663,book,Writing Style,5. Amount of showing vs telling,rating scale,B,N,Y,N,N,N,,,,,not_scorable(B),verified,BOOK-only; show/tell NOT scored
+Q664,book,Writing Style,6. Dialogue quality,rating scale,B,N,Y,N,N,Y,,book_Q664_dlg_quality,,,covered_all_media,inferred,BOOK-only; scored via book_Q664_dlg_quality (docx text blank -> parse artifact)
+Q665,book,Writing Style,7. Quantity of dialogue,rating scale,B,N,Y,N,N,N,,,,,not_scorable(B),verified,BOOK-only; dialogue quantity NOT scored
+Q659,book,Writing Style,8. Dialogue engaging?,rating scale,B,N,Y,N,N,Y,,book_Q659_dlg_engaging,,,covered_all_media,verified,BOOK-only; scored via book_Q659_dlg_engaging
+Q667,book,Writing Style,9. Dialogue realistic?,rating scale,B,N,Y,N,N,N,,,,,not_scorable(B),verified,"BOOK-only; dialogue-realistic NOT scored in book frame (film/tv have it, book does not)"
+Q670,book,Writing Style,12. Dialogue importance,rating scale,B,N,Y,N,N,Y,,book_Q670_imp_dialogue,,,covered_all_media,verified,BOOK-only; scored via book_Q670_imp_dialogue
+Q671,book,Writing Style,13. Overall writing-style importance,rating scale,B,N,Y,N,N,N,,,,,not_scorable(B),verified,BOOK-only; overall writing importance NOT scored
+Q675,book,Writing Style,14. Writing worked well (free text),free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q742,book,Writing Style,15. Writing not work (free text),free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
+Q741,book,Writing Style,16. Writing distinctive (free text),free text,C,N,Y,N,N,N,,,,,not_scorable(C),verified,free text
