@@ -39,7 +39,7 @@ FILM, NOVEL = "#2471a3", "#c0392b"
 fig = plt.figure(figsize=(16, 9.6))
 gs = fig.add_gridspec(2, 3, height_ratios=[1, 1], hspace=0.30, wspace=0.26)
 axa = fig.add_subplot(gs[0, 0]); axb = fig.add_subplot(gs[0, 1]); axc = fig.add_subplot(gs[0, 2])
-axd = fig.add_subplot(gs[1, 0]); axe = fig.add_subplot(gs[1, 1:])
+axd = fig.add_subplot(gs[1, 0]); axe = fig.add_subplot(gs[1, 1]); axf = fig.add_subplot(gs[1, 2])
 
 
 def dressed(ax, title, ylab, xlab=None):
@@ -63,7 +63,7 @@ axa.annotate("novel leads\n(modernism)", xy=(1930, 1.44), xytext=(1948, 1.34),
 # (b) internal character development
 axb.plot(DEC, dser(F, "character_development"), color=FILM, lw=2.2, marker="o", ms=6, label="Film")
 axb.plot(DEC, dser(B, "book_character_development"), color=NOVEL, lw=2.2, marker="s", ms=6, label="Novel")
-dressed(axb, "b  Characters develop more", "Internal development (1-5)")
+dressed(axb, "b  Protagonists change more", "Internal change (1-7)")
 axb.legend(loc="upper left", frameon=False, fontsize=10)
 
 # (c) speculative settings (film), % of films
@@ -83,7 +83,13 @@ axd.legend(loc="lower left", frameon=False, fontsize=9.5)
 axe.plot(DEC, dser(F, "conflict_self"), color="#7d3c98", lw=2.2, marker="o", ms=6, label="vs. self (interior)")
 axe.plot(DEC, dser(F, "conflict_society"), color="#148f77", lw=2.2, marker="s", ms=6, label="vs. society")
 dressed(axe, "e  Conflict turns inward and social", "Conflict centrality  (0-100)", "Decade")
-axe.legend(loc="center left", frameon=False, fontsize=9.5)
+axe.legend(loc="upper left", frameon=False, fontsize=9.5)
+
+# (f) endings grow less resolved: film falls, the novel holds (the down-trend)
+axf.plot(DEC, dser(F, "12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved"), color=FILM, lw=2.2, marker="o", ms=6, label="Film")
+axf.plot(DEC, dser(B, "book_Q638_resolved"), color=NOVEL, lw=2.2, marker="s", ms=6, label="Novel")
+dressed(axf, "f  Endings grow less resolved", "Ending resolution  (1-7)", "Decade")
+axf.legend(loc="lower left", frameon=False, fontsize=10)
 
 fig.suptitle("A century of storytelling  ·  the Narrative Atlas reads the elements of "
              "narrative form and how they moved, 1920–2020",

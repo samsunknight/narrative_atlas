@@ -63,14 +63,18 @@ eight=d[d['cross_medium']==True][['attribute','fr','brk']].copy()
 LABMAP={'sci-fi world':'sci-fi','fantastical world':'fantastical','realistic world':'realistic world',
   '# protagonists':'# protagonists','world-building relevance':'world-building','protagonist competent':'competence',
   'protagonist relatable':'relatability','protagonist proactive':'proactiveness',
-  'plot-driven':'plot-driven','character-driven':'character-driven'}
+  'plot-driven':'plot-driven','character-driven':'character-driven',
+  'Character development':'internal change','Opening hook':'opening hook','Time linearity':'time linearity',
+  'Plot linearity':'plot linearity','Ending reversal (peripeteia)':'peripeteia'}
 eight['lab']=eight['attribute'].map(nice).map(LABMAP)
 eight=eight[eight["lab"].notna()].copy()  # keep the labelled structural cross-medium set for the scatter
 # offsets so labels never touch a marker (esp. the relatab/compet/proact cluster)
-OFF={'sci-fi':(8,-1,'left','center'),'fantastical':(8,4,'left','bottom'),'realistic world':(8,8,'left','bottom'),
-     '# protagonists':(8,-9,'left','top'),'world-building':(7,-11,'left','top'),'competence':(11,0,'left','center'),
-     'relatability':(-10,-10,'right','top'),'proactiveness':(-11,9,'right','bottom'),
-     'plot-driven':(-8,-2,'right','top'),'character-driven':(8,3,'left','bottom')}
+OFF={'sci-fi':(8,-1,'left','center'),'fantastical':(8,4,'left','bottom'),'realistic world':(8,7,'left','bottom'),
+     '# protagonists':(9,7,'left','bottom'),'world-building':(2,-13,'center','top'),'competence':(-10,3,'right','center'),
+     'relatability':(-9,-9,'right','top'),'proactiveness':(-11,9,'right','bottom'),
+     'plot-driven':(-8,-2,'right','top'),'character-driven':(9,-8,'left','top'),
+     'internal change':(9,-7,'left','top'),'opening hook':(0,9,'center','bottom'),'time linearity':(-9,8,'right','bottom'),
+     'plot linearity':(2,9,'center','bottom'),'peripeteia':(9,-6,'left','top')}
 axc.axhline(0.22,color=THR,ls="--",lw=1.0,alpha=.8); axc.axvline(0.22,color=THR,ls="--",lw=1.0,alpha=.8)
 axc.plot([0,0.85],[0,0.85],color="#bbb",ls="--",lw=0.8,zorder=0)
 eightk=set(nq(x) for x in ['science fictional','fantastical','realistic','protagonists','world building','competent','relatable','proactive'])
@@ -79,7 +83,7 @@ axc.scatter(greys['fr'],greys['brk'],s=42,color=GREY,zorder=2,label="film-only")
 axc.scatter(eight['fr'],eight['brk'],s=72,color=NAVY,zorder=3,label="validate in both media")
 for _,r in eight.iterrows():
     lab=r['lab']; dx,dy,ha,va=OFF[lab]
-    axc.annotate(lab,(r['fr'],r['brk']),textcoords="offset points",xytext=(dx,dy),ha=ha,va=va,fontsize=11,color=NAVY)
+    axc.annotate(lab,(r['fr'],r['brk']),textcoords="offset points",xytext=(dx,dy),ha=ha,va=va,fontsize=9.5,color=NAVY)
 axc.set_xlim(0,0.85); axc.set_ylim(0,0.85)
 axc.set_xlabel("Film validation $r$",fontsize=11.5); axc.set_ylabel("Book validation $r$",fontsize=11.5)
 axc.set_title("c   Cross-medium replication (core structure)",fontsize=14.5,fontweight="bold",loc="left")
