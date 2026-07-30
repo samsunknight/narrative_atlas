@@ -67,10 +67,10 @@ LABMAP={'sci-fi world':'sci-fi','fantastical world':'fantastical','realistic wor
 eight['lab']=eight['attribute'].map(nice).map(LABMAP)
 eight=eight[eight["lab"].notna()].copy()  # keep the labelled structural cross-medium set for the scatter
 # offsets so labels never touch a marker (esp. the relatab/compet/proact cluster)
-OFF={'sci-fi':(8,-1,'left','center'),'fantastical':(8,4,'left','bottom'),'realistic world':(6,-11,'left','top'),
-     '# protagonists':(8,2,'left','center'),'world-building':(6,-12,'left','top'),'competence':(10,9,'left','bottom'),
-     'relatability':(-10,-10,'right','top'),'proactiveness':(-10,9,'right','bottom'),
-     'plot-driven':(8,-2,'left','top'),'character-driven':(8,3,'left','bottom')}
+OFF={'sci-fi':(8,-1,'left','center'),'fantastical':(8,4,'left','bottom'),'realistic world':(8,8,'left','bottom'),
+     '# protagonists':(8,-9,'left','top'),'world-building':(7,-11,'left','top'),'competence':(11,0,'left','center'),
+     'relatability':(-10,-10,'right','top'),'proactiveness':(-11,9,'right','bottom'),
+     'plot-driven':(-8,-2,'right','top'),'character-driven':(8,3,'left','bottom')}
 axc.axhline(0.22,color=THR,ls="--",lw=1.0,alpha=.8); axc.axvline(0.22,color=THR,ls="--",lw=1.0,alpha=.8)
 axc.plot([0,0.85],[0,0.85],color="#bbb",ls="--",lw=0.8,zorder=0)
 eightk=set(nq(x) for x in ['science fictional','fantastical','realistic','protagonists','world building','competent','relatable','proactive'])

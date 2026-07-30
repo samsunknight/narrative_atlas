@@ -103,8 +103,8 @@ for m, t, y, disp in WORKS:
 FPM = np.array(_fp); FPLAB = [a[1] for a in FP_ATTR]
 
 fig = plt.figure(figsize=(7.2, 5.0))
-gs = fig.add_gridspec(2, 2, width_ratios=[1.30, 1.0], height_ratios=[1.0, 0.62], wspace=0.30, hspace=0.62,
-                      left=0.115, right=0.985, top=0.92, bottom=0.10)
+gs = fig.add_gridspec(2, 2, width_ratios=[1.30, 1.0], height_ratios=[1.0, 0.62], wspace=0.55, hspace=0.62,
+                      left=0.115, right=0.975, top=0.92, bottom=0.10)
 
 # ---- Panel (a): coverage heatmap ----
 axA = fig.add_subplot(gs[0, 0])
@@ -147,7 +147,7 @@ tot_txt = (f"Corpus totals   Film {TOTALS['film']:,}  ·  Book {TOTALS['book']:,
 fig.text(0.115, 0.45, tot_txt, fontsize=6.6, color="#555555", ha="left")
 
 # colorbar
-cb = fig.colorbar(im, ax=axA, fraction=0.046, pad=0.02)
+cb = fig.colorbar(im, ax=axA, fraction=0.040, pad=0.04)
 cb.outline.set_linewidth(0.4)
 ticks = [0, 1, 2, 3, 4]
 cb.set_ticks(ticks)
@@ -182,7 +182,7 @@ for sp in ["top", "right", "left"]:
     axB.spines[sp].set_visible(False)
 axB.spines["bottom"].set_color("#888888")
 axB.set_xticks([0, 20, 40, 60])
-axB.set_title("b  Attribute taxonomy — 161 attributes",
+axB.set_title("b  Attribute taxonomy (161)",
               fontsize=8.5, loc="left", pad=8, fontweight="bold")
 axB.text(0.0, -0.32, "per work; layers scored by an LLM viewer panel",
          transform=axB.transAxes, fontsize=6.4, color="#555555")
