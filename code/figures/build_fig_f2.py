@@ -1,19 +1,39 @@
 # Rebuilds certified FIG_F2_validation.png. Counts match Table 1 (161 scored / 150 validated; structure 52/48).
+# Panel a is the build-and-release schematic (benchmark -> per-work ruler -> validated instrument -> atlas);
+# panels b-d are the human validation itself, so the one figure carries both the pipeline and the evidence for it.
 import pandas as pd, numpy as np, re, warnings; warnings.filterwarnings("ignore")
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False})
 NAVY="#1f3b57"; GREY="#c7ccd1"; ORANGE="#c0603a"; TEAL="#3f7d74"; BAR_BG="#eceef0"; THR="#c0603a"
+C_HUMAN="#c0392b"; C_INSTR="#7d3c98"; C_ATLAS="#2471a3"; C_BG="#f4f1ea"
 R="."
 d=pd.read_csv(f"{R}/data/validation/attribute_dictionary.csv")
 d['fr']=pd.to_numeric(d['film_r'],errors='coerce'); d['brk']=pd.to_numeric(d['book_r'],errors='coerce')
 def nice(a): return re.sub(r'^\d+[a-z]?_','',str(a)).replace('_',' ').strip()
 
-fig=plt.figure(figsize=(15.5,16))
-gs=fig.add_gridspec(2,3,width_ratios=[0.72,0.72,1.05],height_ratios=[1,1],wspace=0.5,hspace=0.34)
-fig.suptitle("Human validation of the Narrative Atlas instrument across nine narrative constructs",fontsize=17,fontweight="bold",y=0.985)
+fig=plt.figure(figsize=(15.5,18))
+gs=fig.add_gridspec(3,3,width_ratios=[0.72,0.72,1.05],height_ratios=[0.42,1,1],wspace=0.5,hspace=0.30)
+fig.suptitle("A human-validated measurement system for narrative form",fontsize=18,fontweight="bold",y=0.995)
 
-# ---- panel a: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 42/46) ----
-axa1=fig.add_subplot(gs[:,0]); axa2=fig.add_subplot(gs[:,1])
+# ---- panel a: the build-and-release pipeline ----
+axp=fig.add_subplot(gs[0,:]); axp.set_xlim(0,13); axp.set_ylim(0.55,3.85); axp.axis("off")
+stages=[(0.2,C_HUMAN,"HUMAN BENCHMARK","714 readers + 225 viewers\nassigned complete novels\nand films, rated on\n>140 narrative attributes","HumanReader + HumanViewer\n(aggregate public)"),
+        (3.4,C_HUMAN,"PER-WORK JUDGMENTS","work-mean rating +\nrater agreement +\nreliability ceiling\nfor every attribute","the human ruler"),
+        (6.6,C_INSTR,"VALIDATED INSTRUMENT","LLM answers the same\nquestions from a plot\nsummary; kept only where\nit matches human means","150 of >160 attributes\nvalidate, tiered"),
+        (9.8,C_ATLAS,"NARRATIVE ATLAS","the instrument applied\nat scale across film,\nthe novel, and television,\n1890–2025","149,341 works on one\ncommon scale")]
+bw,bh,by=2.7,2.2,1.3
+for i,(x,c,title,body,foot) in enumerate(stages):
+    axp.add_patch(FancyBboxPatch((x,by),bw,bh,boxstyle="round,pad=0.05,rounding_size=0.12",lw=1.6,edgecolor=c,facecolor=C_BG,mutation_aspect=1))
+    axp.text(x+bw/2,by+bh-0.30,title,ha="center",va="center",fontsize=11.5,fontweight="bold",color=c)
+    axp.text(x+bw/2,by+bh/2-0.15,body,ha="center",va="center",fontsize=10,color="#222")
+    axp.text(x+bw/2,by-0.40,foot,ha="center",va="center",fontsize=9.6,style="italic",color=c)
+    if i<len(stages)-1:
+        axp.add_patch(FancyArrowPatch((x+bw+0.04,by+bh/2),(x+bw+0.46,by+bh/2),arrowstyle="-|>",mutation_scale=22,lw=2,color="#555"))
+axp.set_title("a   From human benchmark to atlas, built as one stack",fontsize=14.5,fontweight="bold",loc="left")
+
+# ---- panel b: structure per-attribute film validation, split into two columns (validated = tier A/B, matches Table 1's 42/46) ----
+axa1=fig.add_subplot(gs[1:,0]); axa2=fig.add_subplot(gs[1:,1])
 st=d[d['layer']=='structure'].dropna(subset=['fr']).sort_values('fr',ascending=False).copy()
 st['val']=st['tier'].isin(['A','B'])
 half=(len(st)+1)//2
@@ -27,12 +47,12 @@ for ax,sub in [(axa1,st.iloc[:half]),(axa2,st.iloc[half:])]:
     ax.set_ylim(-1,len(sub)); ax.set_xlim(0,0.75)
     ax.set_xlabel("Validation $r$",fontsize=11)
 axa1.text(0.235,half-1.2,"Validated\n$r\\geq0.22$",color=THR,fontsize=10,va="top")
-axa1.set_title("a  Structure layer — per-attribute film validation",fontsize=14.5,fontweight="bold",loc="left")
+axa1.set_title("b  Structure layer — per-attribute film validation",fontsize=14.5,fontweight="bold",loc="left")
 fig.text(0.295,0.045,f"{int(st['val'].sum())} of {len(st)} structural attributes validate against human ratings"
          "   ·   validation $r$ = LLM score vs. 225-viewer human mean, zero-shot",ha="center",fontsize=11,color="#555")
 
-# ---- panel b: per-layer validate bars (Table 1 deployed counts) ----
-axb=fig.add_subplot(gs[0,2])
+# ---- panel c: per-layer validate bars (Table 1 deployed counts) ----
+axb=fig.add_subplot(gs[1,2])
 LAY=[("Structure & plot",48,52,NAVY,"median $r$ 0.35  (top 0.78)"),
      ("Setting",2,2,TEAL,"$r$ 0.71 / 0.57"),
      ("Story shape",5,5,NAVY,"Vonnegut arcs 0.23–0.34"),
@@ -51,10 +71,10 @@ for yi,(lab,v,tot,col,note) in zip(yb,LAY):
 axb.set_yticks(yb); axb.set_yticklabels([l for l,*_ in LAY],fontsize=11.5)
 axb.set_xlim(0,100); axb.set_xticks([0,25,50,75,100]); axb.set_xticklabels(["0","25","50","75","100%"])
 axb.set_xlabel("Attributes that validate against human ground truth",fontsize=11.5)
-axb.set_title("b   Every construct validates",fontsize=14.5,fontweight="bold",loc="left"); axb.set_ylim(-0.6,len(LAY)-0.4)
+axb.set_title("c   Every construct validates",fontsize=14.5,fontweight="bold",loc="left"); axb.set_ylim(-0.6,len(LAY)-0.4)
 
-# ---- panel c: cross-medium scatter. The 8 come from the dictionary (guaranteed); greys from the film/book validation join ----
-axc=fig.add_subplot(gs[1,2])
+# ---- panel d: cross-medium scatter. The 8 come from the dictionary (guaranteed); greys from the film/book validation join ----
+axc=fig.add_subplot(gs[2,2])
 def nq(q): q=re.sub(r'\b(movie|movies|film|book|books|novel|story)\b','',str(q).lower()); return re.sub(r'[^a-z]','',q)[:40]
 mv=pd.read_csv(f"{R}/data/validation/movie_attribute_validation.csv"); bk=pd.read_csv(f"{R}/data/validation/book_attribute_validation.csv")
 mv['k']=mv['question'].map(nq); mv['fr']=np.sqrt(mv['r2'].clip(lower=0)); bk['k']=bk['question'].map(nq); bk['brk']=np.sqrt(bk['r2'].clip(lower=0))
@@ -86,7 +106,7 @@ for _,r in eight.iterrows():
     axc.annotate(lab,(r['fr'],r['brk']),textcoords="offset points",xytext=(dx,dy),ha=ha,va=va,fontsize=9.5,color=NAVY)
 axc.set_xlim(0,0.85); axc.set_ylim(0,0.85)
 axc.set_xlabel("Film validation $r$",fontsize=11.5); axc.set_ylabel("Book validation $r$",fontsize=11.5)
-axc.set_title("c   Cross-medium replication (core structure)",fontsize=14.5,fontweight="bold",loc="left")
+axc.set_title("d   Cross-medium replication (core structure)",fontsize=14.5,fontweight="bold",loc="left")
 axc.legend(loc="lower right",fontsize=10.5,frameon=False)
 
 fig.savefig(f"{R}/results/figures_certified/FIG_F2_validation.png",dpi=200,bbox_inches="tight"); plt.close(fig)
