@@ -16,6 +16,7 @@ PAIRS=[("relatability_resolution",["relatable"],["unresolved"],"distant → rela
  ("speculative_agentic",["science_fictional","fantastical","world_building"],["competent","proactive"],"grounded → speculative","passive → agentic")]
 # the two empirically-strongest planes (shown in the main grid only, not the SI density family)
 EXTRA=[("immersion_dialogue",["immersive"],["how_engaging"],"shallow → immersive","flat → engaging dialogue"),
+       ("development_resolution",["character_development"],["unresolved"],"static → transformed","unresolved → resolved"),
        ("resolution_surprise",["unresolved"],["unsurprising"],"unresolved → resolved","predictable → surprising")]
 for d in (F,B,T):
     for name,xk,yk,xl,yl in PAIRS+EXTRA:
@@ -23,10 +24,13 @@ for d in (F,B,T):
 DRNG=[-2.8,2.8]   # display range: gives each medium's cloud margin so contours are not clipped at the frame
 HRNG=[-3.6,3.6]   # histogram/contour grid, padded beyond the display so contours close inside the grid
 RNG=HRNG          # all contour extents reference the padded grid
-def Hraw(sub,xc,yc):
+def Hraw(sub,xc,yc,sig=1.3):
     rj=np.random.RandomState(0)  # jitter dissolves the discrete 1-7 lattice on single-attribute planes
     jx=sub[xc].values+rj.uniform(-0.4,0.4,len(sub)); jy=sub[yc].values+rj.uniform(-0.4,0.4,len(sub))
-    H,_,_=np.histogram2d(jx,jy,bins=36,range=[HRNG,HRNG]); return gaussian_filter(H.T,1.3)
+    H,_,_=np.histogram2d(jx,jy,bins=36,range=[HRNG,HRNG]); return gaussian_filter(H.T,sig)
+# heavier smoothing for the single-attribute bottom plane, whose two discrete bimodal columns
+# otherwise leave lumpy, detached-island contours next to the smooth composite rows
+SIG={"development_resolution":2.0}
 def Hnorm(sub,xc,yc):
     H=Hraw(sub,xc,yc); return H/H.sum() if H.sum()>0 else H
 mediaC=[("film",F,"Blues"),("book",B,"Reds"),("tv",T,"Greens")]
@@ -66,14 +70,15 @@ for name,xk,yk,xl,yl in PAIRS:
     plt.tight_layout(); plt.savefig(f"results/figures/DIFF_{name}.png",dpi=140,bbox_inches="tight"); plt.close()
 # ---- MAIN lite figure: multi-plane contour grid, fewer decades, media overlaid ----
 LBL={name:(xl,yl) for name,xk,yk,xl,yl in PAIRS+EXTRA}
-PTITLE={"speculative_agentic":"speculative × agentic","emotional_visual":"emotional × visual","warmth_scale":"character warmth × scale","immersion_dialogue":"immersion × dialogue","resolution_surprise":"plot resolution × surprise"}
-MP=["speculative_agentic","emotional_visual","immersion_dialogue","resolution_surprise"]; MD=[1930,1970,2010]
+PTITLE={"speculative_agentic":"speculative × agentic","emotional_visual":"emotional × visual","warmth_scale":"character warmth × scale","immersion_dialogue":"immersion × dialogue","resolution_surprise":"plot resolution × surprise","development_resolution":"transformation × resolution"}
+MP=["speculative_agentic","emotional_visual","immersion_dialogue","development_resolution"]; MD=[1930,1970,2010]
 # short axis end-labels per row so the plane is readable without the caption
 AXLBL={"speculative_agentic":("grounded → science-fictional/fantastical","passive → proactive"),
        "emotional_visual":("detached → involving","plain → lavish"),
        "warmth_scale":("cold → warm","intimate → epic"),
        "immersion_dialogue":("shallow → immersive","flat → engaging dialogue"),
-       "resolution_surprise":("unresolved → resolved","predictable → surprising")}
+       "resolution_surprise":("unresolved → resolved","predictable → surprising"),
+       "development_resolution":("static → transformed","unresolved → resolved")}
 mc={"film":"#1f77b4","book":"#d62728","tv":"#2ca02c"}
 fillcm={"film":"Blues","book":"Reds","tv":"Greens"}
 figM,axesM=plt.subplots(len(MP),len(MD),figsize=(2.9*len(MD),2.9*len(MP)))
@@ -84,7 +89,7 @@ for r,name in enumerate(MP):
         for mn,d,_ in mediaC:
             sub=d[(d.year//10)*10==dec]
             if len(sub)>=40:
-                H=Hraw(sub,xc,yc); mx=H.max()
+                H=Hraw(sub,xc,yc,SIG.get(name,1.3)); mx=H.max()
                 if mx>0:
                     ax.contourf(H,levels=np.linspace(0.5*mx,mx,4),extent=[*RNG,*RNG],origin="lower",cmap=fillcm[mn],alpha=0.22,zorder=1)
                     ax.contour(H,levels=np.linspace(0.3*mx,0.9*mx,3),extent=[*RNG,*RNG],origin="lower",colors=mc[mn],linewidths=1.2,alpha=0.9,zorder=3)
