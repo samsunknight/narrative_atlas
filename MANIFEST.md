@@ -32,6 +32,9 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 | `genre_validation_layer.csv` | 18 | `genre, imdb_tag, auc, n_pos` — genre-recovery ROC-AUC vs IMDb labels |
 | `rescore_manifest.csv` | 252 | `attr_id, layer, mode, media, lo, hi, prompt, tier, r, …` — the deployed-prompt registry with per-attribute validation r and tier |
 | `reliability_halves.csv` | 11 | `attribute, medium, r_halfsplit, n_raters, n_works` — split-half reliability (feeds the r² ceilings) |
+| `human_means_film_splits.csv` | — | `survey_movie_id, attribute, human_mean, n_raters` — per-work film means on split-half rater partitions (reliability-ceiling input) |
+| `human_props_film_matched.csv` | — | `survey_movie_id, attribute, human_value, n_raters, rater_rule` — per-work film human proportions matched to the published rater rules (mood/texture/arc validation input) |
+| `survey_atlas_crosswalk.csv` | — | one row per survey item: `qid, survey, section, question_text, options, type, asked/scored flags per medium, film_col, book_col, film_r, book_r, status` — the instrument-to-atlas map behind the coverage ledger and the book-side spine rebuild |
 | `darkening_mask_film.csv` | 162 | `idx, year, u_dark, m_dark` — dark-mood score with vs without titles/proper-nouns masked; re-derives the r≈0.93 masking robustness (no plot text shipped) |
 | `darkening_mask_book.csv` | 162 | `idx, year, u_dark, m_dark` — same, novel side (r≈0.94) |
 | `book_darkindex_pairs.csv` | 57 | `human_dark, machine_dark` — per-book dark-index (reader dark-mood fraction vs model dark-mood score); re-derives the r=0.72 book dark-index validation |
@@ -41,12 +44,25 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 | `book_taxonomy_validation.csv` | 5 | `layer, metric, value, n_pass, n_tested` — book mood/genre taxonomy validation (feeds the `[A]` asserted checks) |
 | `mood_numbers.json`, `arc_findings.json` | — | the mood- and character-arc-layer sweep results (the `[A]` asserted checks) |
 
+### `data/cross_model/` — cross-model robustness (Supplementary Information)
+| file | rows | contents / provenance |
+|---|---|---|
+| `atlas_haiku_full.parquet` | 4,404,070 | `medium, idx, attr, value` — the full corpus re-scored with Anthropic Claude Haiku 4.5 on the identical one-attribute-per-call prompts (20,317 works across film/tv/book, ensemble prompts averaged); the second, independently trained model the deployed `gpt-4o-mini` atlas is checked against |
+| `cross_model_agreement.csv` | 87 | `medium, attr, n, r` — per-attribute Pearson r between the Haiku re-score and the deployed atlas, joined per work (book attributes matched to their film-side equivalents); every pair clears the r≥0.22 validation floor, at a median of 0.66 (film), 0.65 (tv), 0.68 (book) |
+
+`code/cross_model_verify.py` recomputes the per-medium medians, minima, and the count clearing the r≥0.22 floor from `cross_model_agreement.csv`, reproducing the numbers in the SI cross-model paragraph; the raw Haiku scores are shipped so the per-attribute r's can be recomputed in full against the deployed atlas.
+
 ### `data/matched/` — frozen external keys
 | file | rows | contents |
 |---|---|---|
 | `imdb_film_genres.csv` | — | NOT shipped (IMDb non-commercial license); `id, imdb_genres` — rebuild via `code/rebuild_imdb_match.py` |
 | `imdb_film_ratings.csv` | — | NOT shipped (IMDb non-commercial license); `id, rating, votes` — rebuild via `code/rebuild_imdb_match.py` |
 | `adaptation_pairs.csv` | 10,886 | `filmLabel, bookLabel` — Wikidata "based on" (P144) film→book pairs |
+
+### `data/derived/` — precomputed analysis output
+| file | rows | contents |
+|---|---|---|
+| `adaptation_deltas.csv` | — | `attribute, within_pair_delta, se, cross_sectional, sign_agree` — the within-pair film-minus-novel adaptation shifts on the ten shared-scale attributes (input to the adaptation figure) |
 
 ### Code + docs
 `reproduce.py`, `requirements.txt`, `README.md`, `DATASHEET.md`, `PRIVACY.md`, `MANIFEST.md`,
@@ -61,14 +77,18 @@ every attribute is in `data/validation/rescore_manifest.csv`.
 
 ## Deliberately excluded (and why)
 
-- **Raw per-respondent survey data** — privacy / REB. Only per-work means ship here; the rater-level data will be released with the companion HumanNarrative dataset paper (see `PRIVACY.md`).
+- **Respondent-level survey data** — privacy / REB. Only per-work means ship here; the de-identified rater-level responses are introduced and released with the companion HumanNarrative dataset paper, and are available under controlled access on request (see `PRIVACY.md`).
 - **Plot-summary text** — not redistributed; only the numeric scores derived from it.
 - **`*_atlas.csv` (66 MB `film_atlas.csv` + book/tv mirrors)** — CSV mirrors of the parquet
   atlas; redundant. Use the parquets.
 - **`century_frame.parquet` (merged, 237 cols)** — the union of the three per-medium frames;
   redundant (`pd.concat` the three above if you want it).
-- **`*_structural_century.csv`** — a superseded, mis-scored pre-rescoring corpus. Never use;
-  excluded so it cannot be confused with the released `*_structural_1890_2025.csv`.
+- **The superseded pre-rescoring corpus** (`deprecated/data/corpus/*_structural_century.csv`)
+  — mis-scored non-sci-fi films on the sci-fi attribute; not shipped. The canonical structural
+  corpus is `data/corpus/*_structural_1890_2025.csv`, the single spine every script reads.
+- **Plot-summary validation text** (`data/validation/validation_plot_text_film.csv`) — carries a
+  `plot_text` column, so it is git-ignored and not distributed; only the numeric scores derived
+  from plot text ship.
 - **`reception_raw/tv_episodes_wiki_handcollected.csv`** — hand-collected TV viewership with
   source URLs; not used by any released analysis.
 - **Wikidata URI columns** in `adaptation_pairs.csv` — dropped; only the two label columns

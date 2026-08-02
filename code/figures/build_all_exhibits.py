@@ -8,7 +8,7 @@ def tlen(path):
     d=pd.read_parquet(path).reset_index(drop=True); tc=[c for c in d.columns if c in("text","plot","summary")][0]
     d=d[d[tc].notna()&(d[tc].astype(str).str.len()>300)].reset_index(drop=True); return d[tc].astype(str).str.len()
 def load(f,idx,path=None):
-    d=pd.read_csv(f"data/corpus/{f}_structural_century.csv").rename(columns={idx:"id"}); d["medium"]=f
+    d=pd.read_csv(f"data/corpus/{f}_structural_1890_2025.csv").rename(columns={idx:"id"}); d["medium"]=f
     d=d[(d.year>=1890)&(d.year<=2025)]
     if path: L=tlen(path); d["loglen"]=np.log(d["id"].map(L).fillna(L.median()))
     return d

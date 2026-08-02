@@ -6,7 +6,7 @@ from _methods import spine_attrs
 from sklearn.decomposition import PCA; from sklearn.preprocessing import StandardScaler
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False,"axes.linewidth":0.8})
 def load(f,idx):
-    d=pd.read_csv(f"data/corpus/{f}_structural_century.csv").rename(columns={idx:"id"})
+    d=pd.read_csv(f"data/corpus/{f}_structural_1890_2025.csv").rename(columns={idx:"id"})
     return d[(d.year>=1915)&(d.year<=2020)]
 F,B,T=load("film","film_idx"),load("book","book_idx"),load("tv","tv_idx")
 ATTRS=spine_attrs(F)
@@ -34,7 +34,7 @@ plt.tight_layout(); plt.savefig("results/figures/FIG1_validation.png",dpi=150,bb
 # ===== FIG2 style-space =====
 # PCA style-space over the FULL corpus (all years), complete-case -- exactly matches reproduce.py's
 # geometry sample (PC1 35%, PC2 11%); the 1915-2020 window is for the temporal figures only.
-ALL=pd.concat([pd.read_csv(f"data/corpus/{f}_structural_century.csv").rename(columns={idx:"id"}).assign(medium=m)
+ALL=pd.concat([pd.read_csv(f"data/corpus/{f}_structural_1890_2025.csv").rename(columns={idx:"id"}).assign(medium=m)
                for f,idx,m in [("film","film_idx","film"),("book","book_idx","book"),("tv","tv_idx","tv")]],
               ignore_index=True).dropna(subset=ATTRS).reset_index(drop=True)
 Xs=((ALL[ATTRS]-ALL[ATTRS].mean())/ALL[ATTRS].std()).values; p=PCA(4).fit(Xs); pc=p.transform(Xs)

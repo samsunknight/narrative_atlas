@@ -481,7 +481,8 @@ chk("R", "validated count: total (150)", 150, n_struct + n_mood + n_genre_layer 
 # =====================================================================================
 # MOOD layer validation r  (re-derived from the corpus-basis file)
 # =====================================================================================
-_ = json.load(open(P("data/validation/mood_numbers.json")))  # shipped artifact (self-containment)
+_mn = json.load(open(P("data/validation/mood_numbers.json")))
+chk("A", "within-genre darkening, max genre (film)", 22.5, round(max(_mn["within_genre"].values()), 1), 0.1)
 chk("R", "mood median validation r", 0.41, round(float(FV[FV.layer == "mood"].r.median()), 2), 0.02)
 
 # =====================================================================================

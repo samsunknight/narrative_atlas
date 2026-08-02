@@ -88,7 +88,7 @@ than statistical significance at these sample sizes.
   not trust an individual early TV year.
 
 ## 6. Reproducibility status
-Every headline number reproduces from this package via `reproduce.py` (**103/103**). `[R]`
+Every headline number reproduces from this package via `reproduce.py` (**118/118** turnkey; **132/132** once the IMDb match files are rebuilt). `[R]`
 checks (corpus counts, structure/genre/texture validation, adaptation, reception, convergence,
 crystallization, variance ratio, genre lifecycles, the Production-Code difference-in-differences,
 and style-space geometry) are re-derived from the shipped tables. `[A]` checks (the mood
@@ -109,4 +109,4 @@ The complete per-work scored atlas (film/book/tv `*_atlas.csv` + pooled `century
 
   https://github.com/samsunknight/narrative_atlas/releases/tag/v1.0-data
 
-The repo itself ships the code, the `reproduce.py` harness (103/103), and the reproduce-scale data; download the release assets into `data/atlas/` for the full dataset.
+The repo itself ships the code, the `reproduce.py` harness (118/118 turnkey, 132/132 with IMDb), and the reproduce-scale data; download the release assets into `data/atlas/` for the full dataset.

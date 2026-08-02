@@ -1,6 +1,6 @@
 ## Replication Package for "A Human-Validated Atlas of Narrative Form across a Century of Literature, Film, and Television"
 
-This repository contains the code and released data to reproduce every headline number, figure, and table in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on more than 140 attributes of narrative form across five layers (structure, mood, genre, character arc, and texture), of which 129 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates 116 checked quantities from the released tables alone; a further 14 IMDb-dependent checks re-enable once the IMDb match files are rebuilt (see Data Availability).
+This repository contains the code and released data to reproduce every headline number, figure, and table in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on more than 160 attributes of narrative form across nine constructs (structure and plot, setting, story shape, conflict, character arc, narration, mood, genre, and texture), of which 150 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates 118 checked quantities from the released tables alone; a further 14 IMDb-dependent checks re-enable once the IMDb match files are rebuilt (see Data Availability).
 
 ---
 
@@ -11,7 +11,7 @@ The package is self-contained for reproduction: every number in `reproduce.py` i
 - **The full scored atlas.** The per-medium dense tables (`data/atlas/century_frame_{film,book,tv}.parquet`, one row per work and one column per attribute) are the released dataset and are included here. The larger merged and CSV forms are distributed as GitHub Release assets rather than tracked in git, to keep the repository small; download them into `data/atlas/` for the complete dataset.
 - **The raw human ratings.** The atlas ships per-work *mean* human ratings only (`data/validation/human_means_{film,book}.csv`); no individual responses or rater identifiers are included. The rater-level survey data will be released, under their own research-ethics terms, with the companion dataset paper (the HumanReader and HumanViewer corpora).
 - **The raw Wikipedia plot text.** The language-model scoring reads each work's plot summary from a Wikipedia snapshot. The scored corpus is the released output; the raw text is not redistributed here.
-- **IMDb ratings and genres.** IMDb's data is under a non-commercial license, so the two files `data/matched/imdb_film_{ratings,genres}.csv` are not redistributed. The 14 checks that use them (genre recovery against IMDb tags, and the reception analysis) are skipped by default, leaving 116 checks that run turnkey. To enable them, download IMDb's public non-commercial dataset and run `code/rebuild_imdb_match.py`, which rejoins IMDb to the corpus by the shipped title and year and writes the two files back; `reproduce.py` then runs all 130 checks.
+- **IMDb ratings and genres.** IMDb's data is under a non-commercial license, so the two files `data/matched/imdb_film_{ratings,genres}.csv` are not redistributed. The 14 checks that use them (genre recovery against IMDb tags, and the reception analysis) are skipped by default, leaving 118 checks that run turnkey. To enable them, download IMDb's public non-commercial dataset and run `code/rebuild_imdb_match.py`, which rejoins IMDb to the corpus by the shipped title and year and writes the two files back; `reproduce.py` then runs all 132 checks.
 
 ---
 
@@ -29,7 +29,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ## Contents
 
 ```
-reproduce.py            single driver; reproduces every headline number (116 checks turnkey; +14 IMDb-dependent, see Data Availability)
+reproduce.py            single driver; reproduces every headline number (118 checks turnkey; +14 IMDb-dependent, see Data Availability)
 requirements.txt        Python dependencies
 code/                   analysis code (see "Pipeline" below)
 data/
@@ -76,7 +76,7 @@ To reproduce the checked numbers:
 .venv/bin/python reproduce.py
 ```
 
-This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `116/116 passed` (or `130/130` once the IMDb match files are rebuilt), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
+This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `118/118 passed` (or `132/132` once the IMDb match files are rebuilt), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
 
 To regenerate the figures and tables:
 
