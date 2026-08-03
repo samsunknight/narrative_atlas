@@ -8,7 +8,14 @@ plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top
 NAVY="#1f3b57"; GREY="#c7ccd1"; ORANGE="#c0603a"; TEAL="#3f7d74"; BAR_BG="#eceef0"; THR="#c0603a"
 C_HUMAN="#c0392b"; C_INSTR="#7d3c98"; C_ATLAS="#2471a3"; C_BG="#f4f1ea"
 R="."
-d=pd.read_csv(f"{R}/data/validation/attribute_dictionary.csv")
+import os
+# Read the frozen 161-attribute instrument. In the working tree data/validation/ holds a 195-row
+# exploratory superset, so prefer the canonical package copy when it is present; inside the shipped
+# package that path does not exist and the local data/validation/ copy is already the 161-row instrument.
+_DICT=f"{R}/data/validation/attribute_dictionary.csv"
+_CANON=f"{R}/rep_build/narrative_atlas/data/validation/attribute_dictionary.csv"
+if os.path.exists(_CANON): _DICT=_CANON
+d=pd.read_csv(_DICT)
 d['fr']=pd.to_numeric(d['film_r'],errors='coerce'); d['brk']=pd.to_numeric(d['book_r'],errors='coerce')
 def nice(a): return re.sub(r'^\d+[a-z]?_','',str(a)).replace('_',' ').strip()
 

@@ -8,7 +8,7 @@ import subprocess, sys, os, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 for d in ["results/figures","results/figures_certified","results/cool","results/tables",
-          "results/reception","results/layers/genre","results/layers/structure","outputs"]:
+          "results/reception","results/layers/genre","results/layers/structure","outputs","paper"]:
     os.makedirs(d, exist_ok=True)
 PY = sys.executable
 ok, bad = [], []
@@ -21,10 +21,13 @@ def run(kind, script):
         err = (r.stderr.strip().splitlines() or ["?"])[-1]
         print(f"[FAIL] {kind:8} {script}  ::  {err[:120]}")
 run("numbers", "reproduce.py")
+run("guard",   "code/check_spine_atlas_sync.py")   # spine==atlas drift guard (Task 5)
 for f in sorted(glob.glob("code/figures/*.py")):
     if "build_all_figures" in f: continue
     run("figure", f)
-for f in ["code/robustness_crossmedium_sets.py","code/run_subsets.py","code/reception_bootstrap.py"]:
+for f in ["code/robustness_crossmedium_sets.py","code/run_subsets.py","code/reception_bootstrap.py",
+          # SI/paper table generators: regenerate the committed paper/tab_*.tex from the released data
+          "code/build_tab_attribute_dictionary.py","code/build_tab_persistence.py","code/build_tab_robust.py"]:
     run("table", f)
 print(f"\n=== run_all: {len(ok)} ok, {len(bad)} failed ===")
 if bad: print("FAILED:", *bad, sep="\n  ")

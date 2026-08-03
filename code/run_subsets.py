@@ -21,6 +21,10 @@ def trend(df,idx):  # per-century slope of decade means
     d=df.dropna(subset=[idx]).copy(); d["dec"]=(d.year//10)*10
     g=d.groupby("dec")[idx].mean()
     return round(np.polyfit(g.index.values.astype(float),g.values,1)[0]*100,3)
+import os
+if not os.path.exists("results/tables/imdb_success.csv"):
+    print("SKIP run_subsets: results/tables/imdb_success.csv absent (IMDb ratings are not redistributed; "
+          "rebuild via code/rebuild_imdb_match.py to enable this appendix exhibit)."); raise SystemExit(0)
 S=pd.read_csv("results/tables/imdb_success.csv")[["id","rating","votes"]]
 M=S.merge(F,on="id",how="left"); M["lvotes"]=np.log1p(M.votes); M["dec"]=(M.year//10)*10
 def partial(idxcol,out):

@@ -199,6 +199,11 @@ pd.DataFrame(fp_rows).to_csv(f"{OUT}/genre_decade_fingerprints.csv",index=False)
 # ============================================================================
 # (5) RECEPTION (film): which genres rewarded on RATING vs REACH
 # ============================================================================
+if not (os.path.exists("results/reception/atlas_reception_matched.parquet") and os.path.exists("data/matched/imdb_film_genres.csv")):
+    print("SKIP genre reception + IMDb-tag AUC sections: IMDb-derived inputs "
+          "(results/reception/atlas_reception_matched.parquet, data/matched/imdb_film_genres.csv) "
+          "are not redistributed; rebuild via code/rebuild_imdb_match.py. Sections (1)-(4) above "
+          "(entropy, fingerprints, lifecycles) are complete."); raise SystemExit(0)
 R=pd.read_parquet("results/reception/atlas_reception_matched.parquet")
 R=R[R.medium=="film"].copy()
 R=R[R.n_ratings>=5].copy()                       # drop 1-rating noise

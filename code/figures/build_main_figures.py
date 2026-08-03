@@ -48,7 +48,7 @@ a2.barh([n for n,_ in ld[-6:]]+["…"]+[n for n,_ in ld[:6]],[v for _,v in ld[-6
 a2.set_xlabel("loading on PC2"); a2.set_title("b   The speculative axis (PC2 loadings)",loc="left",fontweight="bold",fontsize=12); a2.axvline(0,color="k",lw=.5)
 # --- panel c: adaptation contrast (same source story, novel vs film) ---
 ADLAB={"sci-fi":"sci-fi","fantastical":"fantastical","realistic":"realistic world","world-building":"world-building","#protagonists":"# protagonists","competence":"competence","proactiveness":"proactiveness","relatability":"relatability"}
-ad=pd.read_csv("results/tables/adaptation_deltas.csv")
+ad=pd.read_csv("data/derived/adaptation_deltas.csv").rename(columns={"film_minus_novel_SD":"within_pair_delta"})
 ad=ad[ad.attribute.isin(ADLAB)].copy(); ad["lab"]=ad.attribute.map(ADLAB)
 ad=ad.sort_values("within_pair_delta").reset_index(drop=True); yc=np.arange(len(ad))
 a3.barh(yc,ad.within_pair_delta,color=[C["film"] if v>0 else C["book"] for v in ad.within_pair_delta],alpha=.9)

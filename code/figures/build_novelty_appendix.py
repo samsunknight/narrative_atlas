@@ -19,6 +19,19 @@ BASE="/Users/samsunknight/Library/CloudStorage/Dropbox/University of Toronto/"; 
 SCR="/private/tmp/claude-501/-Users-samsunknight-Library-CloudStorage-Dropbox-University-of-Toronto-movies-taste-over-time/5f9ad73a-5a7c-4bea-ae04-478faf6b572e/scratchpad/"
 def norm(s): return re.sub(r'[^a-z0-9]','',str(s).lower())
 
+# SI section S1.6 reads the raw Wikipedia plot text and an external OpenAI plot-summary embedding,
+# neither of which is redistributed in the package (see the SI footnote). This script is the committed
+# SOURCE for those numbers so none is an orphan, but it is NOT part of the turnkey reproduction: skip
+# gracefully when its external inputs are absent rather than hard-failing the pipeline.
+import glob as _glob
+_ext_ok = (os.path.exists(CP+"data/film_wiki_text.parquet")
+           and os.path.exists(SE+"data/atlas/century_frame_film.parquet")
+           and bool(_glob.glob(SCR+"emb_*.npy")))
+if not _ext_ok:
+    print("SKIP novelty appendix (SI Fig 15 / §S1.6): raw Wikipedia plot text and the external "
+          "plot-summary embedding are not shipped (see the SI footnote). Rebuild those inputs to run this.")
+    raise SystemExit(0)
+
 AF=pd.read_parquet(SE+"data/atlas/century_frame_film.parquet")
 cb=pd.read_csv(SE+"data/validation/attribute_dictionary.csv"); LAY={r['column']:r['layer'] for _,r in cb.iterrows()}
 attrs=[c for c in AF.columns if c not in ("idx","title","year","decade","medium") and AF[c].dtype!=object]

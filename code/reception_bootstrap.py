@@ -13,6 +13,10 @@ subs=[("spectacle full",list(RAT.values())),
       ("spectacle readable (5)",[RAT[k] for k in ["sci-fi","#settings","#protag","#sidechar","world-building"]]),
       ("fashion full",list(FAS.values())),
       ("fashion structural (3)",[FAS[k] for k in ["surprise","proactive","plot-vs-char"]])]
+import os
+if not os.path.exists("results/tables/imdb_success.csv"):
+    print("SKIP reception_bootstrap: results/tables/imdb_success.csv absent (IMDb ratings are not "
+          "redistributed; rebuild via code/rebuild_imdb_match.py to enable these bootstrap CIs)."); raise SystemExit(0)
 S=pd.read_csv("results/tables/imdb_success.csv")[["id","rating","votes"]]
 M=S.merge(F,on="id",how="left").dropna(subset=["rating","votes","year"]).reset_index(drop=True)
 M["lvotes"]=np.log1p(M.votes); M["dec"]=(M.year//10)*10

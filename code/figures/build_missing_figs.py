@@ -124,7 +124,7 @@ fig.suptitle("Density on the two empirically-strongest planes",y=1.08,fontweight
 fig.tight_layout(); fig.savefig("results/figures/SUPP_highstat_planes.png",dpi=150,bbox_inches="tight"); plt.close(fig)
 
 # ---------------- FIG_adaptation (from adaptation_deltas.csv) ----------------
-AD=pd.read_csv("results/layers/structure/adaptation_deltas.csv").sort_values("film_minus_novel_SD")
+AD=pd.read_csv("data/derived/adaptation_deltas.csv").sort_values("film_minus_novel_SD")
 agree=AD.agrees_sign.values
 fig,ax=plt.subplots(figsize=(9,5.6)); yb=np.arange(len(AD))
 ax.barh(yb,AD.film_minus_novel_SD,color=["#1f77b4" if a else "#9aa0a6" for a in agree],alpha=.9,zorder=2)
