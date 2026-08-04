@@ -8,11 +8,11 @@ metadata. Every file was screened for these before release.
 
 The human anchor enters the package only in **aggregated** form:
 
-- `human_means_film.csv`, `human_means_book.csv` — for each work × attribute, the **mean**
-  human rating and the rater count `n_raters`. No respondent rows, no respondent keys.
-- `film_validation_corpus_basis.csv`, `reliability_halves.csv`,
-  `{movie,book}_attribute_validation.csv`, `T2_validation.csv` — model scores and
-  already-summarized validation statistics (correlations, counts).
+- `human_means_book.csv` — for each work × attribute, the **mean** human rating and the rater
+  count `n_raters`. No respondent rows, no respondent keys.
+- `reliability_halves.csv`, `genre_validation_layer.csv`, and the codebook
+  `attribute_dictionary.csv` — model scores and already-summarized validation statistics
+  (correlations, counts).
 
 These aggregates are what make the validation independently re-derivable from this package
 alone (joining the per-work means to the model scores reproduces the published validation

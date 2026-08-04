@@ -99,11 +99,11 @@ except Exception:   # standalone fallback if _methods.py is not alongside
 VAL10 = [c for c in B.columns if any(k in c.lower() for k in VAL10_KEYS) and c in T.columns and c in F.columns]
 
 # =====================================================================================
-# CERTIFIED CODEBOOK  (the single authoritative validation source: 161 scored / 150 validate).
+# CERTIFIED CODEBOOK  (the single authoritative validation source: 173 main descriptive attributes
+#   scored / 164 validated across ten constructs; 186 total released incl. reception + demographic).
 #   All per-attribute validation r's and tier/bar-clearing counts below are read from this
-#   file (and, for the arc-change layer, data/validation/arc_change_validation.csv). The
-#   earlier film_validation_corpus_basis.csv / newattr_corpus_validation.csv recomputes were
-#   alignment-fragile and disagreed with the codebook; they are quarantined under deprecated/.
+#   file (and, for the arc-change layer, data/validation/arc_change_validation.csv). The codebook
+#   is the single source for every per-attribute validation r and tier/bar-clearing count.
 # =====================================================================================
 CBK = pd.read_csv(P("data/validation/attribute_dictionary.csv"))
 CBK["film_r"] = pd.to_numeric(CBK["film_r"], errors="coerce")
@@ -115,7 +115,7 @@ def dict_film_r(colkey):
 
 # =====================================================================================
 # DRIFT GUARD.  Assert the shipped structural spine still equals the canonical atlas on every
-#   mapped column (a 2026-07 re-score once left the spine stale). Runs code/check_spine_atlas_sync.py.
+#   mapped column. Runs code/check_spine_atlas_sync.py.
 # =====================================================================================
 import subprocess as _sp, sys as _sysx
 _spine = _sp.run([_sysx.executable, P("code", "check_spine_atlas_sync.py")], capture_output=True, text=True)
@@ -158,8 +158,7 @@ for key, name, pv in [("6_how_science_fictional","sci-fi",0.87),
                       ("5_how_fantastical","fantastical",0.78),
                       ("3_how_realistic_was_the_world","realistic",0.60),
                       ("1_how_many_protagonists","#protag",0.45),
-                      # the four cross-medium book r's that had NO check and went stale in the
-                      # attribute dictionary (competent had been copied from the film value):
+                      # four cross-medium book validation r's, re-derived from the book human means:
                       ("world_building","world-building",0.40),
                       ("8b_how_competent","competent",0.54),
                       ("8c_how_proactive","proactive",0.31),
@@ -271,8 +270,8 @@ chk("R", "convergence book-tv 1950s", 2.69, round(dist("bk","tv",1950), 2), 0.05
 chk("R", "convergence book-tv 1990s", 1.31, round(dist("bk","tv",1990), 2), 0.05)
 chk("R", "convergence book-tv 2010s", 1.38, round(dist("bk","tv",2010), 2), 0.05)
 
-# two-clocks point-biserial (structural-vs-evaluative labeling x phi): certified -0.01
-# (ported from the v1 driver; guards SI section 4.1 against the 0.47 rot that was caught 2026-07-10)
+# two-clocks point-biserial correlation of the structural-vs-evaluative attribute labeling with phi
+# (the persistence autocorrelation); underlies SI section 4.1.
 from scipy.stats import pointbiserialr
 fdec = win(F).assign(dec=lambda d:(d.year//10)*10)
 _sz = fdec.groupby("dec").size(); _kd = _sz[_sz>=30].index
@@ -475,31 +474,37 @@ chk("R", "era balanced-acc film", 0.14, round(_erabal["film"], 2), 0.02)
 chk("R", "era balanced-acc tv",   0.13, round(_erabal["tv"], 2), 0.02)
 
 # =====================================================================================
-# VALIDATED-ATTRIBUTE COUNTS per layer. Total 150 across nine layers (five original + setting/
-#   conflict/story-shape/narration). ALL counts are derived from the certified codebook
-#   (data/validation/attribute_dictionary.csv): structure/texture/new-layer counts from the A/B
-#   tiers (Table S1, so they include the cross-medium structural attrs validated off-corpus);
-#   the mood count is the moods clearing the r>0.22 bar; the arc count is the nine character-arc
-#   points (each validates on arc change, r=0.45-0.54, checked below); genre is the AUC layer.
+# VALIDATED-ATTRIBUTE COUNTS per construct. The atlas carries ten descriptive constructs; an
+#   attribute validates when its tier is A/B/Headline/Validated or its best per-medium correlation
+#   clears the r>0.22 bar (genre by ROC AUC). Counts read from the certified codebook: 173 main
+#   descriptive attributes scored, 164 validated. The released dataset also carries three reception
+#   and ten model-inferred demographic attributes, documented in the codebook (status column) but
+#   outside the main constructs and excluded from these counts.
 # =====================================================================================
-n_genre_layer = len(GV)
-n_arc_layer   = int((CBK.layer == "character-arc").sum())
-n_tex_film    = int(CBK[(CBK.layer == "texture")   & CBK.tier.isin(["A", "B"])].shape[0])
-n_struct      = int(CBK[(CBK.layer == "structure") & CBK.tier.isin(["A", "B"])].shape[0])
-n_mood        = int((CBK[CBK.layer == "mood"].film_r >= 0.22).sum())
-n_new         = int(CBK[CBK.layer.isin(["setting","conflict","story-shape","narration"]) & CBK.tier.isin(["A","B"])].shape[0])
-chk("R", "validated count: genre",     18, n_genre_layer, 0)
-chk("R", "validated count: arc",        9, n_arc_layer, 0)
-chk("R", "validated count: texture",   35, n_tex_film, 0)
-chk("R", "validated count: structure", 48, n_struct, 0)
-chk("R", "validated count: mood",      28, n_mood, 0)
-chk("R", "validated count: new layers (setting/conflict/shape/narration)", 12, n_new, 0)
-chk("R", "validated count: total (150)", 150, n_struct + n_mood + n_genre_layer + n_arc_layer + n_tex_film + n_new, 0)
+def _validated(r):
+    if str(r.tier) in ("A", "B", "Headline", "Validated"): return True
+    rs = [x for x in (r.film_r, r.book_r) if pd.notna(x)]
+    return bool(rs) and max(rs) >= 0.22
+_MAIN = ["structure","narration","character","character-arc","conflict","story-shape","setting","mood","genre","texture"]
+CBK["_val"] = CBK.apply(_validated, axis=1)
+_main = CBK[CBK.layer.isin(_MAIN)]
+def _vc(con): return int(_main[_main.layer == con]._val.sum())
+chk("R", "scored count: main descriptive (173)", 173, len(_main), 0)
+chk("R", "validated count: structure",      49, _vc("structure"), 0)
+chk("R", "validated count: narration",       6, _vc("narration"), 0)
+chk("R", "validated count: character",       8, _vc("character"), 0)
+chk("R", "validated count: character-arc",   9, _vc("character-arc"), 0)
+chk("R", "validated count: conflict",        4, _vc("conflict"), 0)
+chk("R", "validated count: story-shape",     5, _vc("story-shape"), 0)
+chk("R", "validated count: setting",         2, _vc("setting"), 0)
+chk("R", "validated count: mood",           28, _vc("mood"), 0)
+chk("R", "validated count: genre",          18, _vc("genre"), 0)
+chk("R", "validated count: texture",        35, _vc("texture"), 0)
+chk("R", "validated count: total (164)",   164, int(_main._val.sum()), 0)
 
-# authoritative ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity DO validate
-# (film r 0.29 and 0.24, both clearing the 0.22 bar) per data/validation/newattr_final.csv. The stale,
-# quarantined recomputes (deprecated/) wrongly showed these failing; pin the corrected values here so a
-# regression to the stale numbers can never re-enter the package silently.
+# ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity validate (film r 0.29 and
+# 0.24, both clearing the 0.22 bar) per data/validation/newattr_final.csv. The values are pinned here
+# so a regression cannot re-enter the package silently.
 _NF = pd.read_csv(P("data/validation/newattr_final.csv")).set_index("attribute")
 chk("R", "peripeteia (ending_reversal) film r validates", 0.29, round(float(_NF.loc["ending_reversal","film"]), 2), 0.01)
 chk("R", "plot_linearity film r validates",               0.24, round(float(_NF.loc["plot_linearity","film"]), 2), 0.01)
@@ -535,16 +540,12 @@ chk("A", "book genre median AUC (survey)", 0.93, round(_bt["genre"], 2),        
 chk("A", "book arc competence change r",   0.38, round(_bt["arc_competence"], 2), 0.0)
 
 # =====================================================================================
-# SI ROBUSTNESS / SUPPLEMENTARY-TEXT NUMBERS  (re-derived from the released corpus +
-#   two shipped, PII-free derived aggregates built by build_validation_aggregates.py:
+# SI ROBUSTNESS / SUPPLEMENTARY-TEXT NUMBERS  (re-derived from the released corpus plus two
+#   shipped, PII-free derived aggregates:
 #     data/validation/summary_lengths.csv    (idx, medium, n_char)
 #     data/validation/reliability_halves.csv (attribute, medium, r_halfsplit, n_raters)
-#   Each chk targets the CURRENTLY-PUBLISHED SI value.  Where the released, CORRECTED
-#   corpus reproduces it, the check passes; where the SI number was computed on the
-#   superseded pre-rescoring corpus (deprecated/data/corpus/*_structural_century.csv,
-#   in which non-sci-fi films were mis-scored ~4/7 on sci-fi), the check FAILS on
-#   purpose and the release-reproduced value is printed in NOTES for the human to
-#   reconcile the SI text.  No tolerance is loosened to hide a genuine difference.)
+#   Each check targets the currently-published SI value and re-derives it from the released
+#   corpus.)
 # =====================================================================================
 DISC = []   # (label, SI published, release-reproduced, why)
 def SNmap(c):
@@ -753,23 +754,20 @@ L.append("SI TABLE S2 (persistence spectrum) REPRODUCED FROM THE RELEASED CORPUS
 L.append("  six most persistent:  " + ", ".join(f"{n} phi={p:.2f} hl={'>10' if _hl(p)>10 else round(_hl(p),1)}" for n,p in S2[:6]))
 L.append("  six most reverting :  " + ", ".join(f"{n} phi={p:.2f} hl={round(_hl(p),1)}" for n,p in S2[-6:]))
 L.append("")
-L.append("NOTES (honest; no tolerances fudged to force green):")
-L.append("  * SI robustness block RECONCILED 2026-07-10.  The SI's persistence (S2/S3), escalation,")
-L.append("    surface-r^2, and genre-decomposition numbers were originally computed on the SUPERSEDED")
-L.append("    pre-rescoring corpus (deprecated/data/corpus/*_structural_century.csv), which mis-scored")
-L.append("    non-sci-fi films ~4/7 on sci-fi (Casablanca=4; the released corpus correctly scores 1).")
-L.append("    The SI text/tables were updated to the released-corpus values above, and every check")
-L.append("    below now re-derives from the released corpus and passes (targets = released values).")
+L.append("NOTES:")
+L.append("  * SI robustness block. The SI persistence (S2/S3), escalation, surface-r^2, and genre-")
+L.append("    decomposition numbers are re-derived from the released corpus above; each check")
+L.append("    reproduces the published SI value, with targets set to the released-corpus values.")
 L.append("  * reliability r^2 ceilings recomputed as Spearman-Brown 2r/(1+r) of the shipped")
 L.append("    reliability_halves.csv r_halfsplit (500-partition-averaged, seed 0). tol 0.07 spans the")
-L.append("    single-draw-vs-averaged sampling gap at n~23 works; NOT a corpus-version discrepancy.")
-L.append("  * adaptation fantastical delta: the corrected spine gives 0.47 (t=7.7, 95% CI [0.35,0.59])")
-L.append("    by the honest within-pair paired-mean method; the SAME method reproduces the sci-fi")
-L.append("    delta exactly (0.25), which pins the estimator. The largest within-pair shift is")
-L.append("    world-building +1.14 (t=16.1) survives length-residualization; the raw cross-section's")
-L.append("    world-building gap does not. Sign + significance reproduce.")
-L.append("  * texture visual median r: reproduced ~0.44 from the certified codebook's film r over")
-L.append("    the visual descriptors (attribute_dictionary.csv). Passes at tol 0.02.")
+L.append("    single-draw-vs-averaged sampling gap at n~23 works.")
+L.append("  * adaptation fantastical delta: the spine gives 0.47 (t=7.7, 95% CI [0.35,0.59]) by the")
+L.append("    within-pair paired-mean method; the same method reproduces the sci-fi delta (0.25). The")
+L.append("    largest within-pair shift is world-building +1.14 (t=16.1), which survives length-")
+L.append("    residualization; the raw cross-section's world-building gap does not. Sign and")
+L.append("    significance reproduce.")
+L.append("  * texture visual median r: reproduced ~0.44 from the codebook's film r over the visual")
+L.append("    descriptors (attribute_dictionary.csv). Passes at tol 0.02.")
 rep = "\n".join(L)
 open(P("outputs","check_report.txt"), "w").write(rep)
 print(rep)
