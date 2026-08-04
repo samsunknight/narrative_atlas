@@ -15,21 +15,32 @@ import os, re, json, numpy as np, pandas as pd, warnings; warnings.filterwarning
 from scipy.stats import pearsonr; from sklearn.linear_model import Ridge; from sklearn.model_selection import KFold
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 plt.rcParams.update({"font.family":"DejaVu Sans","font.size":11,"axes.spines.top":False,"axes.spines.right":False})
-BASE="/Users/samsunknight/Library/CloudStorage/Dropbox/University of Toronto/"; SE=BASE+"style_evolves/"; CP=BASE+"cultural_physics/"
+BASE="/Users/samsunknight/Library/CloudStorage/Dropbox/University of Toronto/"; SE=BASE+"style_evolves/"; CP=BASE+"cultural_physics/"; NN=BASE+"narrative_novelty/"
 SCR="/private/tmp/claude-501/-Users-samsunknight-Library-CloudStorage-Dropbox-University-of-Toronto-movies-taste-over-time/5f9ad73a-5a7c-4bea-ae04-478faf6b572e/scratchpad/"
+PKG=os.path.dirname(os.path.abspath(__file__))                    # walk up to the package root
+while os.path.dirname(PKG)!=PKG and not os.path.isdir(os.path.join(PKG,"data","atlas")): PKG=os.path.dirname(PKG)
 def norm(s): return re.sub(r'[^a-z0-9]','',str(s).lower())
 
-# SI section S1.6 reads the raw Wikipedia plot text and an external OpenAI plot-summary embedding,
-# neither of which is redistributed in the package (see the SI footnote). This script is the committed
-# SOURCE for those numbers so none is an orphan, but it is NOT part of the turnkey reproduction: skip
-# gracefully when its external inputs are absent rather than hard-failing the pipeline.
-import glob as _glob
+# The plot-summary embedding is the OpenAI text-embedding-3-small vector of each film's raw Wikipedia
+# plot text for the 9,999-film sample. It is now SHIPPED with the package (data/novelty/), sourced from
+# the sibling narrative_novelty project's cache (emb_film_sample_9999.npy) and row-aligned to `samp`
+# below: reproducing the frozen SI numbers -- primary r=0.19 and the per-layer decodability (genre 0.67,
+# mood 0.63, structure 0.47, texture 0.47, character-arc 0.30) -- to the reported precision confirms the
+# alignment (a permuted embedding would drive decodability to ~0). No re-embedding / API call is made.
+# The one remaining external input is the raw Wikipedia plot text (CP film_wiki_text.parquet), used only
+# to reconstruct `samp`; it is not redistributed (see the SI footnote), so this script skips gracefully
+# rather than hard-failing when that text is absent.
+EMB_CANDIDATES=[os.path.join(PKG,"data","novelty","emb_plot_summary_9999.npy"),   # shipped with package
+                NN+"data/emb_film_sample_9999.npy",                               # sibling-project cache
+                SCR+"emb_9999.npy"]                                               # legacy scratch (wiped)
+EMB_PATH=next((p for p in EMB_CANDIDATES if os.path.exists(p)), None)
 _ext_ok = (os.path.exists(CP+"data/film_wiki_text.parquet")
            and os.path.exists(SE+"data/atlas/century_frame_film.parquet")
-           and bool(_glob.glob(SCR+"emb_*.npy")))
+           and EMB_PATH is not None)
 if not _ext_ok:
-    print("SKIP novelty appendix (SI Fig 15 / §S1.6): raw Wikipedia plot text and the external "
-          "plot-summary embedding are not shipped (see the SI footnote). Rebuild those inputs to run this.")
+    print("SKIP novelty appendix (SI Fig 15 / §S1.6): the raw Wikipedia plot text needed to rebuild the "
+          "film sample is not shipped (see the SI footnote). The plot-summary embedding itself IS shipped "
+          "(data/novelty/); supply CP film_wiki_text.parquet to run this end to end.")
     raise SystemExit(0)
 
 AF=pd.read_parquet(SE+"data/atlas/century_frame_film.parquet")
@@ -45,7 +56,10 @@ AF=AF.dropna(subset=["title","year"]); AF["k"]=AF.title.map(norm)+"|"+AF.year.as
 TX=pd.read_parquet(CP+"data/film_wiki_text.parquet").dropna(subset=["title","year","text"]); TX["k"]=TX.title.map(norm)+"|"+TX.year.astype(int).astype(str); TX=TX.drop_duplicates("k")
 M=AF.merge(TX[["k","text"]],on="k",how="inner").dropna(subset=attrs+["text"]); M=M[(M.year>=1930)&(M.year<=2015)].copy(); M["dec"]=(M.year//10*10)
 samp=M.groupby("dec",group_keys=False).apply(lambda g:g.sample(min(len(g),max(20,10000//M.dec.nunique())),random_state=0)).reset_index(drop=True)
-yrs=samp.year.astype(int).values; E=np.load(SCR+f"emb_{len(samp)}.npy")
+yrs=samp.year.astype(int).values
+E=np.load(EMB_PATH)
+assert E.shape[0]==len(samp), f"embedding rows {E.shape[0]} != samp {len(samp)} (row alignment broken)"
+print(f"loaded plot-summary embedding {E.shape} from {EMB_PATH}")
 def std(cols): X=samp[cols].values.astype(float); return np.nan_to_num((X-np.nanmean(X,0))/(np.nanstd(X,0)+1e-9))
 A_all, A_desc = std(attrs), std(desc_attrs)
 
@@ -97,7 +111,13 @@ for yi,v in zip(range(len(order))[::-1],dvals): axb.text(v+0.015,yi,f"{v:.2f}",v
 axb.set_yticks(range(len(order))[::-1]); axb.set_yticklabels([disp.get(l,l) for l in order],fontsize=10.5)
 axb.set_xlim(0,0.8); axb.set_xlabel("variance recovered ($R^2$)")
 axb.set_title("b   What the embedding recovers of each layer",loc="left",fontweight="bold",fontsize=12.5)
-plt.tight_layout(); fig.savefig(SE+"results/figures/SUPP_novelty_axes.png",dpi=190,bbox_inches="tight")
+import shutil
+FIG="SUPP_novelty_axes.png"; MAIN=SE+"results/figures/"+FIG
+plt.tight_layout(); fig.savefig(MAIN,dpi=190,bbox_inches="tight")
+# mirror the certified PNG to the package outputs/ and the Overleaf figures/ dir (skip any absent)
+for m in [os.path.join(PKG,"outputs","figures",FIG),
+          str(os.path.expanduser("~/Library/CloudStorage/Dropbox/Apps/Overleaf/narrative_atlas_resource/figures/"+FIG))]:
+    if os.path.isdir(os.path.dirname(m)): shutil.copyfile(MAIN,m); print(f"  mirrored -> {m}")
 
 nums={"primary_r":round(r_primary,3),"descriptive_basis_r":round(r_desc,3),"calendar_pool_r":round(r_cal,3),
       "split_half_reliability":round(reliability,3),"n":n,

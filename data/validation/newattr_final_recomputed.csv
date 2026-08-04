@@ -1,0 +1,16 @@
+attribute,layer,metric,film,book,tier,spine,cross_medium
+setting_when,content,corr,0.71,0.77,Headline,False,True
+setting_where,content,corr,0.57,0.59,Headline,False,True
+character_development,structure,corr,0.58,0.44,Validated,True,True
+opening_hook,structure,corr,0.36,0.37,Validated,True,True
+time_linearity,structure,corr,0.32,0.43,Validated,True,True
+plot_linearity,structure,corr,0.24,0.38,Validated,True,True
+ending_reversal,structure,corr,0.29,0.18,Validated,True,True
+conflict_layer(6-type),conflict,corr(per-type mean),0.28,0.25,Validated,False,True
+catharsis,structure,corr,0.36,,Validated,False,False
+num_narrators,narration,corr,,0.2,Validated,False,False
+shape_cinderella,arc,corr,0.34,0.25,Validated,False,True
+shape_riches_to_rags,arc,corr,0.26,0.22,Validated,False,True
+shape_rags_to_riches,arc,corr,0.25,0.25,Validated,False,True
+shape_man_in_a_hole,arc,corr,0.25,,Validated,False,False
+shape_icarus,arc,corr,0.23,,Validated,False,False

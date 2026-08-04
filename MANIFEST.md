@@ -47,7 +47,7 @@ Wikipedia plot summaries; see `DATASHEET.md`.
 ### `data/cross_model/` — cross-model robustness (Supplementary Information)
 | file | rows | contents / provenance |
 |---|---|---|
-| `atlas_haiku_full.parquet` | 4,404,070 | `medium, idx, attr, value` — the full corpus re-scored with Anthropic Claude Haiku 4.5 on the identical one-attribute-per-call prompts (20,317 works across film/tv/book, ensemble prompts averaged); the second, independently trained model the deployed `gpt-4o-mini` atlas is checked against |
+| `atlas_haiku_full.parquet` | 4,404,070 | `medium, idx, attr, value` — a 23,262-work subsample (~1/6 of the corpus) re-scored with Anthropic Claude Haiku 4.5 on the identical one-attribute-per-call prompts (23,262 works across film/tv/book, ensemble prompts averaged); the second, independently trained model the deployed `gpt-4o-mini` atlas is checked against |
 | `cross_model_agreement.csv` | 87 | `medium, attr, n, r` — per-attribute Pearson r between the Haiku re-score and the deployed atlas, joined per work (book attributes matched to their film-side equivalents); every pair clears the r≥0.22 validation floor, at a median of 0.66 (film), 0.65 (tv), 0.68 (book) |
 
 `code/cross_model_verify.py` recomputes the per-medium medians, minima, and the count clearing the r≥0.22 floor from `cross_model_agreement.csv`, reproducing the numbers in the SI cross-model paragraph; the raw Haiku scores are shipped so the per-attribute r's can be recomputed in full against the deployed atlas.

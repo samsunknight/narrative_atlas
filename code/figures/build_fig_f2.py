@@ -51,7 +51,7 @@ for ax,sub in [(axa1,st.iloc[:half]),(axa2,st.iloc[half:])]:
         ax.plot([0,fr],[yi,yi],color=c,lw=1.05,alpha=.5,zorder=1); ax.scatter(fr,yi,s=28,color=c,zorder=3)
     ax.axvline(0.22,color=THR,ls="--",lw=1.4)
     ax.set_yticks(yy); ax.set_yticklabels(sub['attribute'].map(nice),fontsize=11.5)
-    ax.set_ylim(-1,len(sub)); ax.set_xlim(0,0.75)
+    ax.set_ylim(-1,len(sub)); ax.set_xlim(0,0.85)
     ax.set_xlabel("Validation $r$",fontsize=11)
 axa1.text(0.235,half-1.2,"Validated\n$r\\geq0.22$",color=THR,fontsize=10,va="top")
 axa1.set_title("b  Structure layer — per-attribute film validation",fontsize=14.5,fontweight="bold",loc="left")

@@ -22,6 +22,9 @@ def run(kind, script):
         print(f"[FAIL] {kind:8} {script}  ::  {err[:120]}")
 run("numbers", "reproduce.py")
 run("guard",   "code/check_spine_atlas_sync.py")   # spine==atlas drift guard (Task 5)
+# Regenerate the new-attribute validation table from the shipped per-work human means + atlas
+# (writes data/validation/newattr_final_recomputed.csv and prints frozen-vs-recomputed).
+run("validate", "code/build_newattr_validation.py")
 for f in sorted(glob.glob("code/figures/*.py")):
     if "build_all_figures" in f: continue
     run("figure", f)
