@@ -1,6 +1,6 @@
 ## Replication Package for "A Human-Validated Atlas of Narrative Form across a Century of Literature, Film, and Television"
 
-This repository contains the code and released data to reproduce every headline number, figure, and table in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on 173 attributes of narrative form across ten constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, and texture), of which 164 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates 142 checked quantities from the released tables and prints `142/142 passed`.
+This repository contains the code and released data to reproduce every headline number, figure, and table in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on 173 attributes of narrative form across ten constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, and texture), of which 164 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates the checked quantities from the released tables and prints `128/128 passed` (turnkey; `142/142` once the IMDb match files are rebuilt via `code/rebuild_imdb_match.py`, since IMDb's data is not redistributable).
 
 The clean, shared-column dataset for reuse lives in `atlas_canonical/`; the messy-named tables under `data/atlas/` are the reproduction inputs `reproduce.py` reads.
 
@@ -80,7 +80,7 @@ The analysis runs in three stages, and only the last is required to reproduce th
 .venv/bin/python reproduce.py
 ```
 
-This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `142/142 passed`, and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
+This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `128/128 passed` (turnkey; `142/142` with the IMDb files rebuilt), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
 
 ---
 
