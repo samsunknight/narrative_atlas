@@ -20,7 +20,7 @@ d['fr']=pd.to_numeric(d['film_r'],errors='coerce'); d['brk']=pd.to_numeric(d['bo
 def nice(a): return re.sub(r'^\d+[a-z]?_','',str(a)).replace('_',' ').strip()
 
 fig=plt.figure(figsize=(15.5,18))
-gs=fig.add_gridspec(3,3,width_ratios=[0.72,0.72,1.05],height_ratios=[0.42,1,1],wspace=0.5,hspace=0.30)
+gs=fig.add_gridspec(3,3,width_ratios=[0.80,0.80,1.05],height_ratios=[0.42,1,1],wspace=0.95,hspace=0.30)
 fig.suptitle("A human-validated measurement system for narrative form",fontsize=18,fontweight="bold",y=0.995)
 
 # ---- panel a: the build-and-release pipeline ----

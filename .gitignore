@@ -18,3 +18,4 @@ data/matched/imdb_film_ratings.csv
 data/matched/imdb_film_genres.csv
 data/validation/validation_plot_text_film.csv
 data/novelty/   # 61MB text-embedding cache for Supp Fig 15 (non-turnkey SI analysis; rebuild from narrative_novelty or re-embed)
+data/validation/newattr_final_recomputed.csv   # verify-mode recompute; book values use a superseded question phrasing, authoritative = newattr_final.csv
