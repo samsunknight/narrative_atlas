@@ -7,8 +7,8 @@ programs), each scored on 173 attributes of narrative form across ten constructs
 (one row per work; `idx`, `title`, `year`, `decade`, `medium`, and the layer-prefixed
 attribute scores). A 36-attribute structural spine with column names shared across media
 (used for adaptation, convergence, and crystallization) is at
-`data/corpus/{film,book,tv}_structural_1890_2025.csv`. Works span 1890–2025 (capped at
-2025); main analyses use 1915–2020. Titles are English Wikipedia page titles and may include
+`data/corpus/{film,book,tv}_structural_1890_2025.csv`. Works span 1890–2025 for film and television; the novel corpus reaches back further (earliest
+2025 cap; a tail of novels predates 1890, minimum year 1800). Main analyses use 1915–2020. Titles are English Wikipedia page titles and may include
 a disambiguation suffix (`"Casablanca (film)"`).
 
 **Cleaning.** Each work's medium is its Wikipedia classification. Before release we removed
@@ -26,14 +26,17 @@ answering the exact human-survey question for that attribute on its ordinal scal
 1–5 or 1–7; moods, genres, and texture on a 0–100 intensity scale). The model receives no
 title/date/genre metadata beyond the summary text. Re-running the scoring is **not** part of
 replication and requires an OpenAI key (read from `OPENAI_API_KEY`; no key is shipped). The
-model settings and prompt format are in `code/PROMPT.md`, and the exact deployed prompt for
-every attribute is in `data/validation/rescore_manifest.csv`.
+model settings and prompt format are in `code/PROMPT.md`. The single authoritative prompt record is
+`atlas_canonical/prompts.csv` — one row per atlas column × medium, giving the exact `deployed_prompt`
+and its `canonical_prompt` — and `atlas_canonical/verify_prompts.py` is the guard that binds those
+prompts to the shipped scores (it fails the build if any prompt is truncated, missing, or drifted).
+`data/validation/rescore_manifest.csv` is a legacy/secondary registry of the same prompts.
 
 ## 3. Validation / human anchoring
 Of the 173 main descriptive attributes, **155 are measured by the human survey** (structure & plot 51,
 setting 2, story shape 5, conflict 6, character 8, character-arc 9, narration 6, mood 31, texture 37) and
 **18 — the genre layer — against IMDb category tags** (AUC), since the survey carried only a
-coarse genre checklist; **164 clear the validation bar**. The released dataset additionally carries
+coarse genre checklist; **166 clear the validation bar**. The released dataset additionally carries
 three reception attributes and ten model-inferred protagonist-demographic attributes (documented in
 the codebook `status` column), which sit outside the main descriptive constructs and are not analyzed. The survey attributes
 are anchored to two human surveys approved by the University of Toronto Research

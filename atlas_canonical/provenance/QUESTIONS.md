@@ -1,8 +1,14 @@
 # Narrative Atlas — Questions & Prompts Provenance
 
-`questions_and_prompts.csv` is the authoritative "which questions were used" table for the
+`questions_and_prompts.csv` is the "which questions were used" table for the
 Narrative Atlas. It has **one row per attribute for all 186 canonical attributes** in
 `atlas_canonical/codebook.csv`, and for each gives:
+
+> **Prompt authority:** the single authoritative record of the exact LLM prompts is
+> `atlas_canonical/prompts.csv` (one row per atlas column × medium, with `deployed_prompt`
+> and `canonical_prompt`), guarded by `atlas_canonical/verify_prompts.py`. The `llm_prompt`
+> column below is a convenience view; on any discrepancy, `prompts.csv` governs.
+
 
 | column | meaning |
 |---|---|

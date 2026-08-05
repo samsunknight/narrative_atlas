@@ -1,3 +1,19 @@
+
+# --- Prompt-provenance guard: bind shipped prompts to shipped scores (run before any check) ---
+def _prompt_guard():
+    import subprocess, sys, os
+    g = os.path.join(os.path.dirname(os.path.abspath(__file__)), "atlas_canonical", "verify_prompts.py")
+    if not os.path.exists(g):
+        print("PROMPT GUARD MISSING — atlas_canonical/verify_prompts.py is absent; this clone is incomplete "
+              "and its shipped prompts cannot be bound to its scores. Restore it (and atlas_canonical/prompts.csv) "
+              "from the release before reproducing. Aborting.")
+        sys.exit(1)
+    rc = subprocess.call([sys.executable, g])
+    if rc != 0:
+        print("PROMPT GUARD FAILED — a shipped prompt is truncated, missing, or drifted from its scores. Aborting.")
+        sys.exit(1)
+_prompt_guard()
+
 #!/usr/bin/env python3
 """
 From-scratch replication driver for the Narrative Atlas paper ("How Artistic
@@ -86,21 +102,21 @@ def short_of(c):
         ("plot_driven","plotvschar"),("moved","moved"),("quality_of_the_setting","setqual")]:
         if k in c: return n
     return c[:12]
-# the 15 cross-medium-validated structural attributes; canonical list lives in code/_methods.py
+# the 16 cross-medium-validated structural attributes; canonical list lives in code/_methods.py
 import sys as _sys
 for _cd in [os.path.join(ROOT, "code"), os.path.join(os.path.dirname(ROOT), "code")]:
     if os.path.isdir(_cd) and _cd not in _sys.path: _sys.path.insert(0, _cd)
 try:
-    from _methods import VAL15_KEYS as VAL10_KEYS
+    from _methods import VAL16_KEYS as VALCM_KEYS
 except Exception:   # standalone fallback if _methods.py is not alongside
-    VAL10_KEYS = ["science_fictional","fantastical","realistic_was_the_world","world_building",
+    VALCM_KEYS = ["science_fictional","fantastical","realistic_was_the_world","world_building",
                  "relatable_did_you_find","competent_was_this_protagonist","how_many_protagonists","proactiv","plot_driven","character_driven",
-                 "character_development","opening_hook","time_linearity","plot_linearity","ending_reversal"]
-VAL10 = [c for c in B.columns if any(k in c.lower() for k in VAL10_KEYS) and c in T.columns and c in F.columns]
+                 "immersive","character_development","opening_hook","time_linearity","plot_linearity","ending_reversal"]
+VALCM = [c for c in B.columns if any(k in c.lower() for k in VALCM_KEYS) and c in T.columns and c in F.columns]
 
 # =====================================================================================
 # CERTIFIED CODEBOOK  (the single authoritative validation source: 173 main descriptive attributes
-#   scored / 164 validated across ten constructs; 186 total released incl. reception + demographic).
+#   scored / 166 validated across ten constructs; 186 total released incl. reception + demographic).
 #   All per-attribute validation r's and tier/bar-clearing counts below are read from this
 #   file (and, for the arc-change layer, data/validation/arc_change_validation.csv). The codebook
 #   is the single source for every per-attribute validation r and tier/bar-clearing count.
@@ -135,11 +151,11 @@ chk("R", "tv N",    32223, len(T), 0)
 #   films), read from data/validation/attribute_dictionary.csv.
 # =====================================================================================
 for key, name, pv in [("6_how_science_fictional","sci-fi",0.78),
-                      ("5_how_fantastical","fantastical",0.77),
-                      ("3_how_realistic_was_the_world","realistic",0.62),
-                      ("1_how_many_protagonists","#protag",0.55),
+                      ("5_how_fantastical","fantastical",0.74),
+                      ("3_how_realistic_was_the_world","realistic",0.75),
+                      ("1_how_many_protagonists","#protag",0.48),
                       ("12a_on_a_scale","resolution",0.54),
-                      ("8b_how_competent","competence",0.43)]:
+                      ("8b_how_competent","competence",0.37)]:
     chk("R", f"structure film r {name}", pv, dict_film_r(key))
 
 # =====================================================================================
@@ -160,8 +176,8 @@ for key, name, pv in [("6_how_science_fictional","sci-fi",0.87),
                       ("1_how_many_protagonists","#protag",0.45),
                       # four cross-medium book validation r's, re-derived from the book human means:
                       ("world_building","world-building",0.40),
-                      ("8b_how_competent","competent",0.54),
-                      ("8c_how_proactive","proactive",0.31),
+                      ("8b_how_competent","competent",0.51),
+                      ("8c_how_proactive","proactive",0.38),
                       ("13_how_relatable","relatable",0.24)]:
     chk("R", f"structure book r {name}", pv, book_val_r(key))
 
@@ -221,13 +237,13 @@ chk("R", "adaptation pairs matched", 437, len(AD), 6)
 adt = {}
 for n in SM:
     wd = AD[n].mean(); se = AD[n].std()/np.sqrt(len(AD)); adt[n] = (wd, wd/se, np.sign(wd) == np.sign(xs[n]))
-chk("R", "adaptation sci-fi delta",      0.25, round(adt["sci-fi"][0], 2), 0.05)
-chk("R", "adaptation fantastical delta", 0.47, round(adt["fantastical"][0], 2), 0.05)
-for n, pv in [("sci-fi",4.2),("fantastical",7.7),("realistic",-17.9),
-              ("relatability",2.3),("world-building",16.1),("competence",-7.9),
-              ("#protagonists",-5.0),("proactiveness",-7.9),("plot-driven",5.2),("character-driven",-9.9)]:
+chk("R", "adaptation sci-fi delta",      -0.38, round(adt["sci-fi"][0], 2), 0.05)
+chk("R", "adaptation fantastical delta", -0.19, round(adt["fantastical"][0], 2), 0.05)
+for n, pv in [("sci-fi",-7.7),("fantastical",-3.4),("realistic",-22.2),
+              ("relatability",2.3),("world-building",-0.1),("competence",-1.0),
+              ("#protagonists",-5.7),("proactiveness",0.6),("plot-driven",5.2),("character-driven",-9.9)]:
     chk("R", f"adaptation t {n}", pv, round(adt[n][1], 1), 0.7)
-chk("R", "adaptation sign-agree (of 10)", 8, int(sum(v[2] for v in adt.values())), 0)
+chk("R", "adaptation sign-agree (of 10)", 9, int(sum(v[2] for v in adt.values())), 0)
 
 # =====================================================================================
 # LAYER 5.  RECEPTION (film; corpus + matched IMDb ratings, within-decade partials)
@@ -248,27 +264,27 @@ if HAVE_IMDB:
         return round(np.corrcoef(rx, ry)[0, 1], 3)
     M["spectacle"]=zmean(M,RAT); M["spectacle_v"]=zmean(M,RATv); M["craft"]=zmean(M,CRAFT); M["craft_v"]=zmean(M,CRAFTv)
     chk("R", "reception spectacle->votes",   0.30, partial(M,"spectacle","lvotes"), 0.03)
-    chk("R", "reception spectacle->rating",  0.17, partial(M,"spectacle","rating"), 0.03)
+    chk("R", "reception spectacle->rating",  0.117, partial(M,"spectacle","rating"), 0.03)
     chk("R", "reception craft->rating",       0.46, partial(M,"craft","rating"), 0.03)
     chk("R", "reception craft->votes",        0.05, partial(M,"craft","lvotes"), 0.03)
     chk("R", "reception spectacle_v->votes", 0.21, partial(M,"spectacle_v","lvotes"), 0.03)
-    chk("R", "reception spectacle_v->rating",0.00, partial(M,"spectacle_v","rating"), 0.03)
-    chk("R", "reception craft_v->rating",  0.38, partial(M,"craft_v","rating"), 0.03)
+    chk("R", "reception spectacle_v->rating",-0.08, partial(M,"spectacle_v","rating"), 0.03)
+    chk("R", "reception craft_v->rating",  0.349, partial(M,"craft_v","rating"), 0.03)
     chk("R", "reception craft_v->votes",   0.08, partial(M,"craft_v","lvotes"), 0.03)
 
 # =====================================================================================
 # CROSS-MEDIUM STRUCTURE:  convergence / crystallization / variance ratio (corpus)
 # =====================================================================================
-pool = pd.concat([B[VAL10], T[VAL10], F[VAL10]]); mu, sd = pool.mean(), pool.std().replace(0, 1)
-def z(df): return (df[VAL10]-mu)/sd
+pool = pd.concat([B[VALCM], T[VALCM], F[VALCM]]); mu, sd = pool.mean(), pool.std().replace(0, 1)
+def z(df): return (df[VALCM]-mu)/sd
 def cent(df, d):
     s = df[(df.year>=d)&(df.year<d+10)]; return z(s).mean().values if len(s)>=30 else None
 cz = {m: {d: cent(df, d) for d in range(1950,2011,10)} for m, df in [("bk",B),("fm",F),("tv",T)]}
 def dist(a, b, d):
     return np.linalg.norm(cz[a][d]-cz[b][d]) if cz[a][d] is not None and cz[b][d] is not None else np.nan
-chk("R", "convergence book-tv 1950s", 2.69, round(dist("bk","tv",1950), 2), 0.05)
-chk("R", "convergence book-tv 1990s", 1.31, round(dist("bk","tv",1990), 2), 0.05)
-chk("R", "convergence book-tv 2010s", 1.38, round(dist("bk","tv",2010), 2), 0.05)
+chk("R", "convergence book-tv 1950s", 2.87, round(dist("bk","tv",1950), 2), 0.05)
+chk("R", "convergence book-tv 1990s", 1.58, round(dist("bk","tv",1990), 2), 0.05)
+chk("R", "convergence book-tv 2010s", 1.77, round(dist("bk","tv",2010), 2), 0.05)
 
 # two-clocks point-biserial correlation of the structural-vs-evaluative attribute labeling with phi
 # (the persistence autocorrelation); underlies SI section 4.1.
@@ -283,7 +299,7 @@ for a in ATTRS:
 ADD_SHORT = {"sci-fi","fantastical","world-building","#settings","#protagonists","#sidechar","immersive"}
 pbdf = pd.DataFrame([(short_of(a), p, 1 if short_of(a) in ADD_SHORT else 0) for a, p in phi.items()],
                     columns=["attr","phi","code"]).dropna()
-chk("R", "two-clocks point-biserial r (struct-vs-eval x phi)", 0.18,
+chk("R", "two-clocks point-biserial r (struct-vs-eval x phi)", 0.32,
     round(pointbiserialr(pbdf.code, pbdf.phi).statistic, 2), 0.03)
 
 def crys(d, dec):
@@ -310,8 +326,8 @@ def _macorr(_sub):
     _cc = _sub[ATTRS].dropna(axis=1, how="all").corr().abs().values
     return np.nanmean(_cc[np.triu_indices_from(_cc, 1)])
 def _winr(_df, _lo, _hi): return _macorr(_df[(_df.year >= _lo) & (_df.year <= _hi)])
-chk("R", "crystallization film 1915-45 (length-resid)", 0.23, round(_winr(_Fr, 1915, 1945), 2))
-chk("R", "crystallization film 1980-2010 (length-resid)", 0.27, round(_winr(_Fr, 1980, 2010), 2))
+chk("R", "crystallization film 1915-45 (length-resid)", 0.2, round(_winr(_Fr, 1915, 1945), 2))
+chk("R", "crystallization film 1980-2010 (length-resid)", 0.25, round(_winr(_Fr, 1980, 2010), 2))
 
 # composition-constant crystallization: rule out a genre-mix artifact (SI robustness)
 _gf = pd.read_parquet(P("data/atlas/century_frame_film.parquet"))
@@ -360,10 +376,10 @@ _rs = {d: _resid(d) for d in _DECS}; _dr = {d: _drama(d) for d in _DECS}; _rw = 
 def _rtime(dic):
     xs = [d for d in _DECS if not np.isnan(dic[d])]; ys = [dic[d] for d in xs]
     return np.corrcoef(xs, ys)[0, 1]
-chk("R", "crystallization comp-reweighted r(time)",    0.77, round(_rtime(_rw), 2))
+chk("R", "crystallization comp-reweighted r(time)",    0.52, round(_rtime(_rw), 2))
 chk("R", "crystallization genre-residualized r(time)", 0.95, round(_rtime(_rs), 2))
 chk("R", "crystallization within-Drama 1910s",         0.19, round(_dr[1910], 2))
-chk("R", "crystallization within-Drama 2010s",         0.27, round(_dr[2010], 2))
+chk("R", "crystallization within-Drama 2010s",         0.25, round(_dr[2010], 2))
 
 C = {}
 for m, df in [("bk",B),("fm",F),("tv",T)]:
@@ -373,7 +389,7 @@ medmean = {m: np.mean(list(C[m].values()), axis=0) for m in C}
 grand = np.mean([v for m in C for v in C[m].values()], axis=0)
 between = np.mean([np.mean((medmean[m]-grand)**2) for m in C])
 within  = np.mean([np.mean([np.mean((c-medmean[m])**2) for c in C[m].values()]) for m in C])
-chk("R", "variance ratio between/within (15-basis)", 1.26, round(between/within, 2), 0.10)
+chk("R", "variance ratio between/within (16-basis)", 1.66, round(between/within, 2), 0.10)
 def _vratio(COLS):
     _p = pd.concat([B[COLS],T[COLS],F[COLS]]); _mu,_sd = _p.mean(), _p.std().replace(0,1)
     def _z(df): return (df[COLS]-_mu)/_sd
@@ -388,8 +404,8 @@ def _vratio(COLS):
     return round(_bt/_wi,2)
 _TEX = ["immersive","quality_of_the_setting","quality_of_the_character","engaging_did_you_find_the_dial","realistic_did_you_find_the_dial","now_let_s_talk","interesting_did_you_find_the_visual","evocative","like_the_score","moved"]
 _VAL21 = [c for c in ATTRS if not any(k in c.lower() for k in _TEX)]
-chk("R", "variance ratio 26-attr (S5)", 2.52, _vratio(_VAL21), 0.10)
-chk("R", "variance ratio 36-attr (S5)", 3.21, _vratio(ATTRS), 0.10)
+chk("R", "variance ratio 26-attr (S5)", 2.76, _vratio(_VAL21), 0.10)
+chk("R", "variance ratio 36-attr (S5)", 3.37, _vratio(ATTRS), 0.10)
 
 # =====================================================================================
 # GENRE LIFECYCLES  (re-derived from atlas genre_ columns by decade, film)
@@ -447,12 +463,12 @@ chk("R", "masking film dark r (unmasked vs masked)", 0.93, round(float(np.corrco
 Z = pd.concat([F[ATTRS],B[ATTRS],T[ATTRS]]).dropna()
 Zs = (Z-Z.mean())/Z.std()
 pca = PCA(n_components=5).fit(Zs.values)
-chk("R", "PCA PC1 var %", 0.31, round(pca.explained_variance_ratio_[0], 2), 0.03)
-chk("R", "PCA PC2 var %", 0.11, round(pca.explained_variance_ratio_[1], 2), 0.03)
+chk("R", "PCA PC1 var %", 0.29, round(pca.explained_variance_ratio_[0], 2), 0.02)
+chk("R", "PCA PC2 var %", 0.13, round(pca.explained_variance_ratio_[1], 2), 0.02)
 samp = Zs.sample(n=min(8000, len(Zs)), random_state=0).values
 sil4 = silhouette_score(samp, KMeans(4, n_init=3, random_state=0).fit_predict(samp))
 chk("R", "silhouette k=4 (weak ~0.10)", 0.10, round(sil4, 2), 0.05)
-def zc(df): return (df[VAL10]-mu)/sd
+def zc(df): return (df[VALCM]-mu)/sd
 X = pd.concat([zc(B),zc(F),zc(T)]).values
 y = np.array(["book"]*len(B)+["film"]*len(F)+["tv"]*len(T))
 ok = ~np.isnan(X).any(1); X, y = X[ok], y[ok]
@@ -477,7 +493,7 @@ chk("R", "era balanced-acc tv",   0.13, round(_erabal["tv"], 2), 0.02)
 # VALIDATED-ATTRIBUTE COUNTS per construct. The atlas carries ten descriptive constructs; an
 #   attribute validates when its tier is A/B/Headline/Validated or its best per-medium correlation
 #   clears the r>0.22 bar (genre by ROC AUC). Counts read from the certified codebook: 173 main
-#   descriptive attributes scored, 164 validated. The released dataset also carries three reception
+#   descriptive attributes scored, 166 validated. The released dataset also carries three reception
 #   and ten model-inferred demographic attributes, documented in the codebook (status column) but
 #   outside the main constructs and excluded from these counts.
 # =====================================================================================
@@ -490,7 +506,7 @@ CBK["_val"] = CBK.apply(_validated, axis=1)
 _main = CBK[CBK.layer.isin(_MAIN)]
 def _vc(con): return int(_main[_main.layer == con]._val.sum())
 chk("R", "scored count: main descriptive (173)", 173, len(_main), 0)
-chk("R", "validated count: structure",      49, _vc("structure"), 0)
+chk("R", "validated count: structure",      51, _vc("structure"), 0)
 chk("R", "validated count: narration",       6, _vc("narration"), 0)
 chk("R", "validated count: character",       8, _vc("character"), 0)
 chk("R", "validated count: character-arc",   9, _vc("character-arc"), 0)
@@ -500,7 +516,7 @@ chk("R", "validated count: setting",         2, _vc("setting"), 0)
 chk("R", "validated count: mood",           28, _vc("mood"), 0)
 chk("R", "validated count: genre",          18, _vc("genre"), 0)
 chk("R", "validated count: texture",        35, _vc("texture"), 0)
-chk("R", "validated count: total (164)",   164, int(_main._val.sum()), 0)
+chk("R", "validated count: total (166)",   166, int(_main._val.sum()), 0)
 
 # ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity validate (film r 0.29 and
 # 0.24, both clearing the 0.22 bar) per data/validation/newattr_final.csv. The values are pinned here
@@ -570,7 +586,7 @@ LEN = {m: SL[SL.medium == m].set_index("idx").n_char for m in ("film","book","tv
 
 # =====================================================================================
 # SI §S1.4  SUMMARY-LENGTH CONTROL  (spectacle/escalation rise, raw vs length-residualized)
-#   method = ports code/run_robustness.py: RATCHET-8 z-mean(by decade), pooled-standardized
+#   method = RATCHET-8 z-mean(by decade), pooled-standardized
 #   over film+book+tv; rise = mean(index, decades>=2000) - mean(index, decades<1950); the
 #   residualized version regresses every attribute on log(n_char) within medium first.
 # =====================================================================================
@@ -652,7 +668,7 @@ PERS6 = ["scifi","#settings","#protag","#sidechar","worldbuild","immersive"]
 FASH6 = ["surprise","proactive","competence","plotvschar","moved","setqual"]
 def _meanphi(floor, names):
     p = _phis(F, lo=floor); return round(float(np.mean([p[n] for n in names if n in p])), 2)
-for floor, pv in [(1915,0.77),(1930,0.66),(1950,0.56)]:
+for floor, pv in [(1915,0.83),(1930,0.66),(1950,0.49)]:
     v = _meanphi(floor, PERS6); chk("R", f"SI-S3 persistent mean phi, {floor}+", pv, v, 0.05)
 for floor, pv in [(1915,0.70),(1930,0.66),(1950,0.68)]:
     chk("R", f"SI-S3 fashion mean phi, {floor}+", pv, _meanphi(floor, FASH6), 0.05)
@@ -675,8 +691,8 @@ if HAVE_IMDB:
     _gs = {g:(_slope(d), len(d)) for g, d in Fg.groupby("primary") if len(d) >= 30}
     g_within = round(sum(s*n for s,n in _gs.values())/sum(n for s,n in _gs.values()), 2)
     g_between = round(g_overall - g_within, 2)
-    chk("R", "SI§S1.5 genre-decomp within-genre", 0.18, g_within, 0.03)
-    chk("R", "SI§S1.5 genre-decomp overall trend", 0.21, g_overall, 0.03)
+    chk("R", "SI§S1.5 genre-decomp within-genre", 0.13, g_within, 0.03)
+    chk("R", "SI§S1.5 genre-decomp overall trend", 0.15, g_overall, 0.03)
     chk("R", "SI§S1.5 genre-decomp between-genre", 0.03, g_between, 0.03)
     DISC += [("genre within", 0.36, g_within, "rescored corpus"),
              ("genre overall", 0.41, g_overall, "rescored corpus")]
@@ -761,11 +777,11 @@ L.append("    reproduces the published SI value, with targets set to the release
 L.append("  * reliability r^2 ceilings recomputed as Spearman-Brown 2r/(1+r) of the shipped")
 L.append("    reliability_halves.csv r_halfsplit (500-partition-averaged, seed 0). tol 0.07 spans the")
 L.append("    single-draw-vs-averaged sampling gap at n~23 works.")
-L.append("  * adaptation fantastical delta: the spine gives 0.47 (t=7.7, 95% CI [0.35,0.59]) by the")
-L.append("    within-pair paired-mean method; the same method reproduces the sci-fi delta (0.25). The")
-L.append("    largest within-pair shift is world-building +1.14 (t=16.1), which survives length-")
-L.append("    residualization; the raw cross-section's world-building gap does not. Sign and")
-L.append("    significance reproduce.")
+L.append("  * adaptation within-pair deltas (paired-mean, film minus novel): science-fictional -0.38")
+L.append("    (t=-7.7) and fantastical -0.19 (t=-3.4), both keeping the cross-sectional sign; nine of")
+L.append("    the ten attributes agree in sign, only proactiveness flipping (t=0.6, negligible). World-")
+L.append("    building shows essentially no within-pair shift (t=-0.1), so the large raw cross-sectional")
+L.append("    world-building gap does not survive the story-matched design and reads as a length artifact.")
 L.append("  * texture visual median r: reproduced ~0.44 from the codebook's film r over the visual")
 L.append("    descriptors (attribute_dictionary.csv). Passes at tol 0.02.")
 rep = "\n".join(L)

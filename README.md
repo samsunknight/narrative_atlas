@@ -1,6 +1,6 @@
 # Replication Package for "A Human-Validated Atlas of Narrative Form across a Century of Literature, Film, and Television"
 
-This repository contains the code and released data to reproduce every headline number, figure, and table in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on 173 attributes of narrative form across ten constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, and texture), of which 164 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates the checked quantities from the released tables and prints `128/128 passed` (turnkey; `142/142` once the IMDb match files are rebuilt via `code/rebuild_imdb_match.py`, since IMDb's data is not redistributable).
+This repository contains the code and released data to reproduce the headline numbers, figures, and tables in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025 (film and television; the novel corpus reaches earlier), each read on 173 attributes of narrative form across ten constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, and texture), of which 166 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates the checked quantities from the released tables and prints `128/128 passed` (turnkey; `142/142` once the IMDb match files are rebuilt via `code/rebuild_imdb_match.py`, since IMDb's data is not redistributable).
 
 The clean, shared-column dataset for reuse lives in `atlas_canonical/`; the messy-named tables under `data/atlas/` are the reproduction inputs `reproduce.py` reads.
 
@@ -31,10 +31,14 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ## Contents
 
 ```
-reproduce.py            single driver; reproduces every headline number (142 checks)
+reproduce.py            single driver; reproduces the checked headline numbers (142 checks)
 requirements.txt        Python dependencies
 atlas_canonical/        the clean, shared-column dataset for reuse (start here)
   data/atlas_{film,book,tv}.parquet
+  prompts.csv           the single authoritative prompt record (one row per column x medium:
+                        deployed_prompt + canonical_prompt)
+  verify_prompts.py     the prompt guard binding shipped prompts to shipped scores
+                        (run by reproduce.py before any check)
   codebook.csv          186-row codebook (canonical name, construct, status, r, tier, media, scale)
   validation/           validation_summary.csv + VALIDATION.md
   provenance/           PROVENANCE.md, QUESTIONS.md, questions_and_prompts.csv

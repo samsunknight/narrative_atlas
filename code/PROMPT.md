@@ -16,15 +16,18 @@ This documents how the attribute scores were generated, so the measurement is au
   comparable validation correlations at a fraction of the cost.
 
 ## The prompts
-Every deployed attribute carries its exact prompt in
-`data/validation/rescore_manifest.csv` (the `prompt` column, all 254 rows), together with its
-layer, response scale (`lo`,`hi`), validation `r`, and tier. The question text and anchors are
+The single authoritative prompt record is `atlas_canonical/prompts.csv` (one row per atlas
+column × medium, with the exact `deployed_prompt` and its `canonical_prompt`);
+`atlas_canonical/verify_prompts.py` is the guard that binds those prompts to the shipped scores.
+`data/validation/rescore_manifest.csv` (the `prompt` column, all 252 rows) is a legacy/secondary
+registry that also carries each attribute's layer, response scale (`lo`,`hi`), validation `r`, and tier. The question text and anchors are
 taken verbatim from the human-survey item for that attribute; the noun changes by medium
 (`{m}` → "movie" / "book" / "TV show"). Example (science-fictional world):
 
 ```
 Consider this {m}. How science-fictional was the world of the movie? By science-fictional we
-mean a world … Respond 1 (not at all) to 7 (extremely). Return ONLY JSON {"v": number}.
+mean a world of alternative ways of life made possible by technological advancements, typically
+set in the future, as in Neuromancer. Respond 1 (not at all) to 7 (extremely). Return ONLY JSON {"v": number}.
 ```
 
 ## Batching

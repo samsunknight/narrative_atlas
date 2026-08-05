@@ -14,6 +14,8 @@ reproduction inputs `reproduce.py` reads.
 | file | contents |
 |---|---|
 | `atlas_canonical/data/atlas_{film,book,tv}.parquet` | 94,140 / 22,978 / 32,223 works × attributes; `idx, title, year, decade, medium` + the attribute score columns, named identically across media |
+| `atlas_canonical/prompts.csv` | **the single authoritative prompt record** (578 rows): one row per atlas column × medium — `column, medium, source, needs_rescore, deployed_prompt, canonical_prompt, …` — giving the exact prompt each score was produced from |
+| `atlas_canonical/verify_prompts.py` | the prompt guard: checks completeness and well-formedness of `prompts.csv` (and, with `--reproduce`, that each prompt reproduces its shipped score), binding the shipped prompts to the shipped scores; run by `reproduce.py` before any check |
 | `atlas_canonical/codebook.csv` | one row per attribute (186): canonical column, construct, status (`main` / `appendix_reception` / `released_demographic`), media, scale, definition, film_r, book_r, tier, cross-medium flag, source column, validated flag |
 | `atlas_canonical/validation/` | `validation_summary.csv` (per-attribute validated?, tier, film_r, book_r, metric, human-N, prompt) and `VALIDATION.md` (how validation was done and how to read the tiers) |
 | `atlas_canonical/provenance/` | `PROVENANCE.md` (lineage of every column, survey → scored atlas), `QUESTIONS.md` + `questions_and_prompts.csv` (verbatim survey question and deployed LLM prompt per attribute) |
@@ -21,7 +23,7 @@ reproduction inputs `reproduce.py` reads.
 
 The atlas covers **173 main descriptive attributes** across **ten constructs** (structure & plot,
 setting, story shape, conflict, character, character arc, narration, mood, genre, texture), of which
-**164 clear the validation bar**. The released dataset carries **186** columns in all: the 173 main
+**166 clear the validation bar**. The released dataset carries **186** columns in all: the 173 main
 attributes plus 3 reception and 10 model-inferred protagonist-demographic attributes (both flagged
 in the codebook `status` column and excluded from the main descriptive constructs).
 
@@ -50,12 +52,12 @@ reuse prefer the shared-column-name copies in `atlas_canonical/data/`.
 | `human_means_book.csv` | 3,445 | `book_idx, attribute, human_mean, n_raters` — per-work MEAN human rating (reader survey) |
 | `genre_validation_layer.csv` | 18 | `genre, imdb_tag, auc, n_pos` — genre-recovery ROC-AUC vs IMDb labels |
 | `genre_reception.csv` | 18 | `genre, reach, acclaim, tilt` — within-decade partial of each genre's intensity with IMDb reach/acclaim (Supplementary Table S6) |
-| `rescore_manifest.csv` | 252 | `attr_id, layer, mode, media, lo, hi, prompt, tier, r, …` — the deployed-prompt registry with per-attribute validation r and tier |
+| `rescore_manifest.csv` | 252 | `attr_id, layer, mode, media, lo, hi, prompt, tier, r, …` — a legacy/secondary prompt registry with per-attribute validation r and tier; the authoritative prompt record is `atlas_canonical/prompts.csv` |
 | `reliability_halves.csv` | 11 | `attribute, medium, r_halfsplit, n_raters, n_works` — split-half reliability (feeds the r² ceilings) |
 | `survey_atlas_crosswalk.csv` | 159 | one row per survey item: `qid, survey, section, question_text, options, type, asked/scored flags per medium, film_col, book_col, film_r, book_r, status` — the instrument-to-atlas map behind the coverage ledger and the book-side spine rebuild (read by `code/rebuild_spine_from_atlas.py`) |
 | `darkening_mask_film.csv` | 162 | `idx, year, u_dark, m_dark` — dark-mood score with vs without titles/proper-nouns masked; re-derives the r≈0.93 masking robustness (no plot text shipped) |
 | `book_darkindex_pairs.csv` | 57 | `human_dark, machine_dark` — per-book dark-index (reader dark-mood fraction vs model dark-mood score); re-derives the r=0.72 book dark-index validation |
-| `summary_lengths.csv` | 149,341 | `idx, medium, n_char` — plot-summary character length (length-control robustness) |
+| `summary_lengths.csv` | 149,341 | `idx, medium, n_char` — raw Wikipedia plot-summary length, roughly 300–9,000 chars (summaries under ~300 chars were excluded; capped at 9,000 in collection), distinct from the 8,000-char truncation the instrument reads (length-control robustness) |
 | `book_taxonomy_validation.csv` | 5 | `layer, metric, value, n_pass, n_tested` — book mood/genre taxonomy validation (feeds the `[A]` asserted checks) |
 | `arc_change_validation.csv`, `newattr_final.csv` | — | per-attribute arc-change and new-attribute validation r's (the character-arc and coverage-expansion spot-checks) |
 | `mood_numbers.json`, `arc_findings.json` | — | the mood- and character-arc-layer sweep results (the `[A]` asserted checks) |
