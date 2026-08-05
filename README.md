@@ -39,7 +39,7 @@ atlas_canonical/        the clean, shared-column dataset for reuse (start here)
                         deployed_prompt + canonical_prompt)
   verify_prompts.py     the prompt guard binding shipped prompts to shipped scores
                         (run by reproduce.py before any check)
-  codebook.csv          186-row codebook (canonical name, construct, status, r, tier, media, scale)
+  codebook.csv          176-row codebook (canonical name, construct, status, r, tier, media, scale)
   validation/           validation_summary.csv + VALIDATION.md
   provenance/           PROVENANCE.md, QUESTIONS.md, questions_and_prompts.csv
   README.md
@@ -50,7 +50,7 @@ data/
   atlas/                the reproduction inputs, one dense frame per medium
     century_frame_{film,book,tv}.parquet
   validation/           the human anchor and the codebook
-    attribute_dictionary.csv        186-row codebook (layer, attribute, column, scale,
+    attribute_dictionary.csv        176-row codebook (layer, attribute, column, scale,
                                     validation r, recommended-use tier, cross_medium flag)
     human_means_book.csv            per-work MEAN human ratings (no individual responses)
     survey_atlas_crosswalk.csv, reliability_halves.csv, darkening_mask_film.csv,

@@ -37,7 +37,7 @@ Of the 173 main descriptive attributes, **155 are measured by the human survey**
 setting 2, story shape 5, conflict 6, character 8, character-arc 9, narration 6, mood 31, texture 37) and
 **18 — the genre layer — against IMDb category tags** (AUC), since the survey carried only a
 coarse genre checklist; **166 clear the validation bar**. The released dataset additionally carries
-three reception attributes and ten model-inferred protagonist-demographic attributes (documented in
+three reception attributes (documented in
 the codebook `status` column), which sit outside the main descriptive constructs and are not analyzed. The survey attributes
 are anchored to two human surveys approved by the University of Toronto Research
 Ethics Board (protocol 46547): 714 readers (book survey; the HumanReader corpus) and 225

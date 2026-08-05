@@ -116,7 +116,7 @@ VALCM = [c for c in B.columns if any(k in c.lower() for k in VALCM_KEYS) and c i
 
 # =====================================================================================
 # CERTIFIED CODEBOOK  (the single authoritative validation source: 173 main descriptive attributes
-#   scored / 166 validated across ten constructs; 186 total released incl. reception + demographic).
+#   scored / 166 validated across ten constructs; 176 total released incl. reception; 10 model-inferred demographic fields are retained but not released).
 #   All per-attribute validation r's and tier/bar-clearing counts below are read from this
 #   file (and, for the arc-change layer, data/validation/arc_change_validation.csv). The codebook
 #   is the single source for every per-attribute validation r and tier/bar-clearing count.
@@ -136,6 +136,8 @@ def dict_film_r(colkey):
 import subprocess as _sp, sys as _sysx
 _spine = _sp.run([_sysx.executable, P("code", "check_spine_atlas_sync.py")], capture_output=True, text=True)
 chk("R", "spine==atlas drift guard (check_spine_atlas_sync.py)", 0, _spine.returncode, 0)
+_tiers = _sp.run([_sysx.executable, P("atlas_canonical", "check_tiers.py")], capture_output=True, text=True)
+chk("R", "tier vocab + drift guard (check_tiers.py)", 0, _tiers.returncode, 0)
 
 # =====================================================================================
 # LAYER 0.  CORPUS COUNTS  (re-derived)
@@ -308,6 +310,12 @@ def crys(d, dec):
     cm = s.corr().abs().values; return np.nanmean(cm[np.triu_indices_from(cm, 1)])
 chk("R", "crystallization film 1910s", 0.22, round(crys(F,1910), 2))
 chk("R", "crystallization film 1980s", 0.28, round(crys(F,1980), 2))
+def crys_core(d, dec):  # validated cross-medium core: the halo-minimal coupling series
+    s = d[(d.year>=dec)&(d.year<dec+10)][[c for c in VALCM if c in d.columns]].dropna(axis=1, how="all")
+    if len(s) < 40: return None
+    cm = s.corr().abs().values; return np.nanmean(cm[np.triu_indices_from(cm, 1)])
+chk("R", "crystallization film core 1910s", 0.17, round(crys_core(F,1910), 2))
+chk("R", "crystallization film core 2010s", 0.21, round(crys_core(F,2010), 2))
 _crng = lambda d: (lambda v: [round(min(v),2), round(max(v),2)])([crys(d,x) for x in range(1910,2030,10) if crys(d,x) is not None])
 _bkr, _tvr = _crng(B), _crng(T)
 chk("R", "crystallization book range lo", 0.17, _bkr[0]); chk("R", "crystallization book range hi", 0.21, _bkr[1])
@@ -494,7 +502,7 @@ chk("R", "era balanced-acc tv",   0.13, round(_erabal["tv"], 2), 0.02)
 #   attribute validates when its tier is A/B/Headline/Validated or its best per-medium correlation
 #   clears the r>0.22 bar (genre by ROC AUC). Counts read from the certified codebook: 173 main
 #   descriptive attributes scored, 166 validated. The released dataset also carries three reception
-#   and ten model-inferred demographic attributes, documented in the codebook (status column) but
+#   attributes, documented in the codebook (status column) but
 #   outside the main constructs and excluded from these counts.
 # =====================================================================================
 def _validated(r):
