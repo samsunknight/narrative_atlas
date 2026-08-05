@@ -60,8 +60,9 @@ Cross-medium film-versus-novel geometry uses the fifteen structural attributes v
 both film and the novel (the codebook's `cross_medium` flag marks these plus the settings,
 story shapes, and the vs-self and vs-nature conflict types that also validate cross-medium); within-medium and
 film/television analyses may use the wider film-validated set (tiers A and B); tier C is
-suited to description rather than headline inference. The validation floor is r > 0.22, a bar stricter
-than statistical significance at these sample sizes.
+suited to description rather than headline inference. An attribute validates when its held-out
+correlation with human judgment is significantly positive (95% CI excluding zero); a stricter robust
+core (tiers A/B) requires the CI lower bound to clear r = 0.22.
 
 ## 4. Matched external keys (frozen snapshots in `data/matched/`)
 - **imdb_film_ratings.csv / imdb_film_genres.csv** — film → IMDb average rating and vote

@@ -506,25 +506,27 @@ chk("R", "era balanced-acc tv",   0.13, round(_erabal["tv"], 2), 0.02)
 #   outside the main constructs and excluded from these counts.
 # =====================================================================================
 def _validated(r):
-    if str(r.tier) in ("A", "B", "Headline", "Validated"): return True
-    rs = [x for x in (r.film_r, r.book_r) if pd.notna(x)]
-    return bool(rs) and max(rs) >= 0.22
+    # An attribute validates when its held-out correlation with human judgment is
+    # significantly positive (95% CI lower bound above zero); genre validates by ROC AUC.
+    if str(r.layer) == "genre": return True
+    ci = pd.to_numeric(r.get("heldout_ci_lo"), errors="coerce")
+    return bool(pd.notna(ci) and ci > 0)
 _MAIN = ["structure","narration","character","character-arc","conflict","story-shape","setting","mood","genre","texture","tone"]
 CBK["_val"] = CBK.apply(_validated, axis=1)
 _main = CBK[CBK.layer.isin(_MAIN)]
 def _vc(con): return int(_main[_main.layer == con]._val.sum())
 chk("R", "scored count: main descriptive (216)", 216, len(_main), 0)
-chk("R", "validated count: structure",      53, _vc("structure"), 0)
+chk("R", "validated count: structure",      54, _vc("structure"), 0)
 chk("R", "validated count: narration",       6, _vc("narration"), 0)
 chk("R", "validated count: character",       8, _vc("character"), 0)
 chk("R", "validated count: character-arc",   9, _vc("character-arc"), 0)
-chk("R", "validated count: conflict",        4, _vc("conflict"), 0)
+chk("R", "validated count: conflict",        6, _vc("conflict"), 0)
 chk("R", "validated count: story-shape",     5, _vc("story-shape"), 0)
 chk("R", "validated count: setting",         2, _vc("setting"), 0)
-chk("R", "validated count: mood",           29, _vc("mood"), 0)
+chk("R", "validated count: mood",           30, _vc("mood"), 0)
 chk("R", "validated count: genre",          18, _vc("genre"), 0)
 chk("R", "validated count: texture",        45, _vc("texture"), 0)
-chk("R", "validated count: tone",           16, _vc("tone"), 0)
+chk("R", "validated count: tone",           12, _vc("tone"), 0)
 chk("R", "validated count: total (195)",   195, int(_main._val.sum()), 0)
 
 # ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity validate (film r 0.29 and
