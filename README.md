@@ -1,6 +1,6 @@
 # Replication Package for "A Human-Validated Atlas of Narrative Form across a Century of Literature, Film, and Television"
 
-This repository contains the code and released data to reproduce the headline numbers, figures, and tables in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025 (film and television; the novel corpus reaches earlier), each read on 173 attributes of narrative form across ten constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, and texture), of which 166 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates the checked quantities from the released tables and prints `128/128 passed` (turnkey; `142/142` once the IMDb match files are rebuilt via `code/rebuild_imdb_match.py`, since IMDb's data is not redistributable).
+This repository contains the code and released data to reproduce the headline numbers, figures, and tables in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025 (film and television; the novel corpus reaches earlier), each read on 216 attributes of narrative form across eleven constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, tone, and texture), of which 194 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates the checked quantities from the released tables and prints `146/146 passed` (turnkey; `146/146` once the IMDb match files are rebuilt via `code/rebuild_imdb_match.py`, since IMDb's data is not redistributable).
 
 The clean, shared-column dataset for reuse lives in `atlas_canonical/`; the messy-named tables under `data/atlas/` are the reproduction inputs `reproduce.py` reads.
 
@@ -39,7 +39,7 @@ atlas_canonical/        the clean, shared-column dataset for reuse (start here)
                         deployed_prompt + canonical_prompt)
   verify_prompts.py     the prompt guard binding shipped prompts to shipped scores
                         (run by reproduce.py before any check)
-  codebook.csv          176-row codebook (canonical name, construct, status, r, tier, media, scale)
+  codebook.csv          219-row codebook (canonical name, construct, status, r, tier, media, scale)
   validation/           validation_summary.csv + VALIDATION.md
   provenance/           PROVENANCE.md, QUESTIONS.md, questions_and_prompts.csv
   README.md
@@ -50,7 +50,7 @@ data/
   atlas/                the reproduction inputs, one dense frame per medium
     century_frame_{film,book,tv}.parquet
   validation/           the human anchor and the codebook
-    attribute_dictionary.csv        176-row codebook (layer, attribute, column, scale,
+    attribute_dictionary.csv        219-row codebook (layer, attribute, column, scale,
                                     validation r, recommended-use tier, cross_medium flag)
     human_means_book.csv            per-work MEAN human ratings (no individual responses)
     survey_atlas_crosswalk.csv, reliability_halves.csv, darkening_mask_film.csv,
@@ -84,7 +84,7 @@ The analysis runs in three stages, and only the last is required to reproduce th
 .venv/bin/python reproduce.py
 ```
 
-This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `128/128 passed` (turnkey; `142/142` with the IMDb files rebuilt), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
+This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `146/146 passed` (turnkey; `146/146` with the IMDb files rebuilt), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
 
 ---
 

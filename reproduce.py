@@ -115,8 +115,8 @@ except Exception:   # standalone fallback if _methods.py is not alongside
 VALCM = [c for c in B.columns if any(k in c.lower() for k in VALCM_KEYS) and c in T.columns and c in F.columns]
 
 # =====================================================================================
-# CERTIFIED CODEBOOK  (the single authoritative validation source: 173 main descriptive attributes
-#   scored / 166 validated across ten constructs; 176 total released incl. reception; 10 model-inferred demographic fields are retained but not released).
+# CERTIFIED CODEBOOK  (the single authoritative validation source: 216 main descriptive attributes
+#   scored / 195 validated across eleven constructs; 219 total released incl. reception; 10 model-inferred demographic fields are retained but not released).
 #   All per-attribute validation r's and tier/bar-clearing counts below are read from this
 #   file (and, for the arc-change layer, data/validation/arc_change_validation.csv). The codebook
 #   is the single source for every per-attribute validation r and tier/bar-clearing count.
@@ -498,10 +498,10 @@ chk("R", "era balanced-acc film", 0.14, round(_erabal["film"], 2), 0.02)
 chk("R", "era balanced-acc tv",   0.13, round(_erabal["tv"], 2), 0.02)
 
 # =====================================================================================
-# VALIDATED-ATTRIBUTE COUNTS per construct. The atlas carries ten descriptive constructs; an
+# VALIDATED-ATTRIBUTE COUNTS per construct. The atlas carries eleven descriptive constructs; an
 #   attribute validates when its tier is A/B/Headline/Validated or its best per-medium correlation
-#   clears the r>0.22 bar (genre by ROC AUC). Counts read from the certified codebook: 173 main
-#   descriptive attributes scored, 166 validated. The released dataset also carries three reception
+#   clears the r>0.22 bar (genre by ROC AUC). Counts read from the certified codebook: 216 main
+#   descriptive attributes scored, 195 validated. The released dataset also carries three reception
 #   attributes, documented in the codebook (status column) but
 #   outside the main constructs and excluded from these counts.
 # =====================================================================================
@@ -509,22 +509,23 @@ def _validated(r):
     if str(r.tier) in ("A", "B", "Headline", "Validated"): return True
     rs = [x for x in (r.film_r, r.book_r) if pd.notna(x)]
     return bool(rs) and max(rs) >= 0.22
-_MAIN = ["structure","narration","character","character-arc","conflict","story-shape","setting","mood","genre","texture"]
+_MAIN = ["structure","narration","character","character-arc","conflict","story-shape","setting","mood","genre","texture","tone"]
 CBK["_val"] = CBK.apply(_validated, axis=1)
 _main = CBK[CBK.layer.isin(_MAIN)]
 def _vc(con): return int(_main[_main.layer == con]._val.sum())
-chk("R", "scored count: main descriptive (173)", 173, len(_main), 0)
-chk("R", "validated count: structure",      51, _vc("structure"), 0)
+chk("R", "scored count: main descriptive (216)", 216, len(_main), 0)
+chk("R", "validated count: structure",      53, _vc("structure"), 0)
 chk("R", "validated count: narration",       6, _vc("narration"), 0)
 chk("R", "validated count: character",       8, _vc("character"), 0)
 chk("R", "validated count: character-arc",   9, _vc("character-arc"), 0)
 chk("R", "validated count: conflict",        4, _vc("conflict"), 0)
 chk("R", "validated count: story-shape",     5, _vc("story-shape"), 0)
 chk("R", "validated count: setting",         2, _vc("setting"), 0)
-chk("R", "validated count: mood",           28, _vc("mood"), 0)
+chk("R", "validated count: mood",           29, _vc("mood"), 0)
 chk("R", "validated count: genre",          18, _vc("genre"), 0)
-chk("R", "validated count: texture",        35, _vc("texture"), 0)
-chk("R", "validated count: total (166)",   166, int(_main._val.sum()), 0)
+chk("R", "validated count: texture",        45, _vc("texture"), 0)
+chk("R", "validated count: tone",           16, _vc("tone"), 0)
+chk("R", "validated count: total (195)",   195, int(_main._val.sum()), 0)
 
 # ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity validate (film r 0.29 and
 # 0.24, both clearing the 0.22 bar) per data/validation/newattr_final.csv. The values are pinned here

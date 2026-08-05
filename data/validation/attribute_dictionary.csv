@@ -23,17 +23,17 @@ structure,fantastical world,5_how_fantastical_was_the_world_of_the_movies_by_fan
 texture,Score: Ominous,score_Ominous,"Strength of the ""Ominous"" score descriptor implied by the summary",0--100,0.66,r,0.66,,A,False,main
 texture,Acting: Campy,acting_Campy,"Strength of the ""Campy"" acting descriptor implied by the summary",0--100,0.62,r,0.62,,A,False,main
 texture,Visual: Saturated,visual_Saturated,"Strength of the ""Saturated"" visual descriptor implied by the summary",0--100,0.65,r,0.65,,A,False,main
-structure,identity relevance,5_if_you_checked_any_of_the_above_how_relevant_are_these_aspect_s_of_t,"If you checked any of the above, how relevant are these aspect(s) of their identity …",1--5,0.64,r,0.64,,A,False,main
+structure,identity relevance,5_if_you_checked_any_of_the_above_how_relevant_are_these_aspect_s_of_t,"If you checked any of the above, how relevant are these aspect(s) of their identity …",1--5,0.64,r,0.64,0.363,A,False,main
 texture,Visual: Muted,visual_Muted,"Strength of the ""Muted"" visual descriptor implied by the summary",0--100,0.56,r,0.56,,A,False,main
 structure,realistic world,3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,How realistic was the world of the movie?,1--7,0.62,r,0.749,0.6,A,True,main
 texture,Visual: Gritty,visual_Gritty,"Strength of the ""Gritty"" visual descriptor implied by the summary",0--100,0.54,r,0.54,,A,False,main
 structure,# protagonists,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,How many protagonists were there?,1--6,0.55,r,0.482,0.45,A,True,main
 texture,Visual: Bright,visual_Bright,"Strength of the ""Bright"" visual descriptor implied by the summary",0--100,0.6,r,0.6,,A,False,main
 texture,Score: Orchestral,score_Orchestral,"Strength of the ""Orchestral"" score descriptor implied by the summary",0--100,0.49,r,0.49,,A,False,main
-structure,ending resolved,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,1--7,0.54,r,0.54,,A,False,main
+structure,ending resolved,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,1--7,0.54,r,0.54,0.313,A,False,main
 structure,world-building relevance,7_overall_how_relevant_was_world_building_to_the_movie_world_building,"Overall, how relevant was world-building to the movie?",1--5,0.5,r,0.599,0.4,A,True,main
 texture,Visual: Handheld,visual_Handheld,"Strength of the ""Handheld"" visual descriptor implied by the summary",0--100,0.46,r,0.46,,A,False,main
-structure,ending surprising,12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,1--7,0.5,r,0.5,,A,False,main
+structure,ending surprising,12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,1--7,0.5,r,0.5,0.394,A,False,main
 texture,Score: Melodic,score_Melodic,"Strength of the ""Melodic"" score descriptor implied by the summary",0--100,0.49,r,0.49,,A,False,main
 texture,Acting: Brooding,acting_Brooding,"Strength of the ""Brooding"" acting descriptor implied by the summary",0--100,0.48,r,0.48,,A,False,main
 texture,Visual: Slow,visual_Slow,"Strength of the ""Slow"" visual descriptor implied by the summary",0--100,0.4,r,0.4,,A,False,main
@@ -41,47 +41,47 @@ texture,Visual: Stylized,visual_Stylized,"Strength of the ""Stylized"" visual de
 texture,Score: Rock n' Roll,score_Rock_n__Roll,"Strength of the ""Rock n' Roll"" score descriptor implied by the summary",0--100,0.43,r,0.43,,A,False,main
 texture,Acting: Deadpan,acting_Deadpan,"Strength of the ""Deadpan"" acting descriptor implied by the summary",0--100,0.37,r,0.37,,A,False,main
 texture,Score: Electronic,score_Electronic,"Strength of the ""Electronic"" score descriptor implied by the summary",0--100,0.6,r,0.6,,A,False,main
-structure,setting/world quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,"In your opinion, how would you rate the quality of the setting and world-building …",1--7,0.42,r,0.431,,A,False,main
+structure,setting/world quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,"In your opinion, how would you rate the quality of the setting and world-building …",1--7,0.42,r,0.431,0.249,A,False,main
 structure,protagonist likable,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,How likable was this protagonist?,1--5,0.42,r,0.584,,A,False,main
 texture,Score: Grand,score_Grand,"Strength of the ""Grand"" score descriptor implied by the summary",0--100,0.19,r,0.19,,C,False,main
-structure,plot convincing,19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,How convincing did you find the plot?,1--7,0.4,r,0.474,,A,False,main
+structure,plot convincing,19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,How convincing did you find the plot?,1--7,0.4,r,0.474,0.214,A,False,main
 structure,dialogue overall,7_now_let_s_talk_pun_intended_about_dialogue_in_your_opinion_how_was_t,"Now, let's talk (pun intended) about dialogue! In your opinion …",2--5,0.4,r,0.464,,A,False,main
-structure,pace,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,"On the whole, how would you describe the pace of the movie?",1--5,0.43,r,0.43,,A,False,main
+structure,pace,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,"On the whole, how would you describe the pace of the movie?",1--5,0.43,r,0.43,0.364,A,False,main
 texture,Acting: Raw,acting_Raw,"Strength of the ""Raw"" acting descriptor implied by the summary",0--100,0.33,r,0.33,,A,False,main
 structure,dialogue engaging,8_how_engaging_did_you_find_the_dialogue_in_the_movie,How engaging did you find the dialogue in the movie?,1--7,0.41,r,0.41,,A,False,main
-mood,Sad,mood_Sad,"Intensity of the ""Sad"" mood evoked by the story",0--100,0.34,r,0.34,,--,False,main
-mood,Optimistic,mood_Optimistic,"Intensity of the ""Optimistic"" mood evoked by the story",0--100,0.43,r,0.43,,--,False,main
-mood,Quirky,mood_Quirky,"Intensity of the ""Quirky"" mood evoked by the story",0--100,0.52,r,0.52,,--,False,main
-mood,Raw,mood_Raw,"Intensity of the ""Raw"" mood evoked by the story",0--100,0.41,r,0.41,,--,False,main
+mood,Sad,mood_Sad,"Intensity of the ""Sad"" mood evoked by the story",0--100,0.34,r,0.34,0.481,--,False,main
+mood,Optimistic,mood_Optimistic,"Intensity of the ""Optimistic"" mood evoked by the story",0--100,0.43,r,0.43,0.302,--,False,main
+mood,Quirky,mood_Quirky,"Intensity of the ""Quirky"" mood evoked by the story",0--100,0.52,r,0.52,0.628,--,False,main
+mood,Raw,mood_Raw,"Intensity of the ""Raw"" mood evoked by the story",0--100,0.41,r,0.41,0.417,--,False,main
 mood,Reflective,mood_Reflective,"Intensity of the ""Reflective"" mood evoked by the story",0--100,0.1,r,0.1,,--,False,main
-mood,Romantic,mood_Romantic,"Intensity of the ""Romantic"" mood evoked by the story",0--100,0.6,r,0.6,,--,False,main
-mood,Surreal,mood_Surreal,"Intensity of the ""Surreal"" mood evoked by the story",0--100,0.31,r,0.31,,--,False,main
-mood,Tense,mood_Tense,"Intensity of the ""Tense"" mood evoked by the story",0--100,0.52,r,0.52,,--,False,main
-mood,Tragic,mood_Tragic,"Intensity of the ""Tragic"" mood evoked by the story",0--100,0.48,r,0.48,,--,False,main
-mood,Whimsical,mood_Whimsical,"Intensity of the ""Whimsical"" mood evoked by the story",0--100,0.43,r,0.43,,--,False,main
-mood,Wistful,mood_Wistful,"Intensity of the ""Wistful"" mood evoked by the story",0--100,0.15,r,0.15,,--,False,main
-mood,Lighthearted,mood_Lighthearted,"Intensity of the ""Lighthearted"" mood evoked by the story",0--100,0.6,r,0.6,,--,False,main
+mood,Romantic,mood_Romantic,"Intensity of the ""Romantic"" mood evoked by the story",0--100,0.6,r,0.6,0.324,--,False,main
+mood,Surreal,mood_Surreal,"Intensity of the ""Surreal"" mood evoked by the story",0--100,0.31,r,0.31,0.609,--,False,main
+mood,Tense,mood_Tense,"Intensity of the ""Tense"" mood evoked by the story",0--100,0.52,r,0.52,0.525,--,False,main
+mood,Tragic,mood_Tragic,"Intensity of the ""Tragic"" mood evoked by the story",0--100,0.48,r,0.48,0.522,--,False,main
+mood,Whimsical,mood_Whimsical,"Intensity of the ""Whimsical"" mood evoked by the story",0--100,0.43,r,0.43,0.608,--,False,main
+mood,Wistful,mood_Wistful,"Intensity of the ""Wistful"" mood evoked by the story",0--100,0.15,r,0.15,0.103,--,False,main
+mood,Lighthearted,mood_Lighthearted,"Intensity of the ""Lighthearted"" mood evoked by the story",0--100,0.6,r,0.6,0.672,--,False,main
 texture,Visual: Clean,visual_Clean,"Strength of the ""Clean"" visual descriptor implied by the summary",0--100,0.41,r,0.41,,A,False,main
-mood,Melancholic,mood_Melancholic,"Intensity of the ""Melancholic"" mood evoked by the story",0--100,0.38,r,0.38,,--,False,main
-mood,Mysterious,mood_Mysterious,"Intensity of the ""Mysterious"" mood evoked by the story",0--100,0.4,r,0.4,,--,False,main
-mood,Inspirational,mood_Inspirational,"Intensity of the ""Inspirational"" mood evoked by the story",0--100,0.33,r,0.33,,--,False,main
-mood,Cozy,mood_Cozy,"Intensity of the ""Cozy"" mood evoked by the story",0--100,0.35,r,0.35,,--,False,main
-structure,emotionally moved,5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,To what extent did you feel moved by this movie on an emotional basis?,1--5,0.38,r,0.262,,A,False,main
-mood,Hopeful,mood_Hopeful,"Intensity of the ""Hopeful"" mood evoked by the story",0--100,0.38,r,0.38,,--,False,main
-mood,Bittersweet,mood_Bittersweet,"Intensity of the ""Bittersweet"" mood evoked by the story",0--100,0.24,r,0.24,,--,False,main
-mood,Bleak,mood_Bleak,"Intensity of the ""Bleak"" mood evoked by the story",0--100,0.41,r,0.41,,--,False,main
-mood,Chaotic,mood_Chaotic,"Intensity of the ""Chaotic"" mood evoked by the story",0--100,0.27,r,0.27,,--,False,main
-mood,Challenging,mood_Challenging,"Intensity of the ""Challenging"" mood evoked by the story",0--100,0.17,r,0.17,,--,False,main
-mood,Chilling,mood_Chilling,"Intensity of the ""Chilling"" mood evoked by the story",0--100,0.34,r,0.34,,--,False,main
-mood,Adventurous,mood_Adventurous,"Intensity of the ""Adventurous"" mood evoked by the story",0--100,0.57,r,0.57,,--,False,main
-mood,Dark,mood_Dark,"Intensity of the ""Dark"" mood evoked by the story",0--100,0.53,r,0.53,,--,False,main
-mood,Funny,mood_Funny,"Intensity of the ""Funny"" mood evoked by the story",0--100,0.69,r,0.69,,--,False,main
-mood,Heartwarming,mood_Heartwarming,"Intensity of the ""Heartwarming"" mood evoked by the story",0--100,0.62,r,0.62,,--,False,main
-mood,Dreamy,mood_Dreamy,"Intensity of the ""Dreamy"" mood evoked by the story",0--100,0.37,r,0.37,,--,False,main
-mood,Gritty,mood_Gritty,"Intensity of the ""Gritty"" mood evoked by the story",0--100,0.4,r,0.4,,--,False,main
-mood,Epic,mood_Epic,"Intensity of the ""Epic"" mood evoked by the story",0--100,0.49,r,0.49,,--,False,main
-mood,Energetic,mood_Energetic,"Intensity of the ""Energetic"" mood evoked by the story",0--100,0.47,r,0.47,,--,False,main
-mood,Eerie,mood_Eerie,"Intensity of the ""Eerie"" mood evoked by the story",0--100,0.52,r,0.52,,--,False,main
+mood,Melancholic,mood_Melancholic,"Intensity of the ""Melancholic"" mood evoked by the story",0--100,0.38,r,0.38,0.422,--,False,main
+mood,Mysterious,mood_Mysterious,"Intensity of the ""Mysterious"" mood evoked by the story",0--100,0.4,r,0.4,0.439,--,False,main
+mood,Inspirational,mood_Inspirational,"Intensity of the ""Inspirational"" mood evoked by the story",0--100,0.33,r,0.33,0.423,--,False,main
+mood,Cozy,mood_Cozy,"Intensity of the ""Cozy"" mood evoked by the story",0--100,0.35,r,0.35,0.616,--,False,main
+structure,emotionally moved,5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,To what extent did you feel moved by this movie on an emotional basis?,1--5,0.38,r,0.262,0.29,A,False,main
+mood,Hopeful,mood_Hopeful,"Intensity of the ""Hopeful"" mood evoked by the story",0--100,0.38,r,0.38,0.538,--,False,main
+mood,Bittersweet,mood_Bittersweet,"Intensity of the ""Bittersweet"" mood evoked by the story",0--100,0.24,r,0.24,0.362,--,False,main
+mood,Bleak,mood_Bleak,"Intensity of the ""Bleak"" mood evoked by the story",0--100,0.41,r,0.41,0.567,--,False,main
+mood,Chaotic,mood_Chaotic,"Intensity of the ""Chaotic"" mood evoked by the story",0--100,0.27,r,0.27,0.353,--,False,main
+mood,Challenging,mood_Challenging,"Intensity of the ""Challenging"" mood evoked by the story",0--100,0.17,r,0.17,0.282,--,False,main
+mood,Chilling,mood_Chilling,"Intensity of the ""Chilling"" mood evoked by the story",0--100,0.34,r,0.34,0.373,--,False,main
+mood,Adventurous,mood_Adventurous,"Intensity of the ""Adventurous"" mood evoked by the story",0--100,0.57,r,0.57,0.507,--,False,main
+mood,Dark,mood_Dark,"Intensity of the ""Dark"" mood evoked by the story",0--100,0.53,r,0.53,0.511,--,False,main
+mood,Funny,mood_Funny,"Intensity of the ""Funny"" mood evoked by the story",0--100,0.69,r,0.69,0.739,--,False,main
+mood,Heartwarming,mood_Heartwarming,"Intensity of the ""Heartwarming"" mood evoked by the story",0--100,0.62,r,0.62,0.591,--,False,main
+mood,Dreamy,mood_Dreamy,"Intensity of the ""Dreamy"" mood evoked by the story",0--100,0.37,r,0.37,0.422,--,False,main
+mood,Gritty,mood_Gritty,"Intensity of the ""Gritty"" mood evoked by the story",0--100,0.4,r,0.4,0.421,--,False,main
+mood,Epic,mood_Epic,"Intensity of the ""Epic"" mood evoked by the story",0--100,0.49,r,0.49,0.391,--,False,main
+mood,Energetic,mood_Energetic,"Intensity of the ""Energetic"" mood evoked by the story",0--100,0.47,r,0.47,0.599,--,False,main
+mood,Eerie,mood_Eerie,"Intensity of the ""Eerie"" mood evoked by the story",0--100,0.52,r,0.52,0.488,--,False,main
 texture,Score: Jazz,score_Jazz,"Strength of the ""Jazz"" score descriptor implied by the summary",0--100,0.37,r,0.37,,A,False,main
 structure,protagonist relatable,13_how_relatable_did_you_find_this_protagonist,How relatable did you find this protagonist?,1--7,0.34,r,0.209,0.24,A,True,main
 texture,Score: Dissonant,score_Dissonant,"Strength of the ""Dissonant"" score descriptor implied by the summary",0--100,0.54,r,0.54,,A,False,main
@@ -89,8 +89,8 @@ texture,Acting: Manic,acting_Manic,"Strength of the ""Manic"" acting descriptor 
 structure,character-writing quality,5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,"In your opinion, how would you rate the quality of the character writing …",1--7,0.34,r,0.431,,A,False,main
 structure,visual interesting,4_how_interesting_did_you_find_the_visual_style_by_interesting_we_mean,How interesting did you find the visual style?,1--7,0.41,r,0.519,,A,False,main
 structure,visual evocative,3_how_evocative_did_you_find_the_visual_style_by_evocative_we_mean_aff,How evocative did you find the visual style?,1--7,0.38,r,0.593,,A,False,main
-structure,clarity (easy to follow),12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,1--7,0.34,r,0.34,,A,False,main
-structure,# settings,8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,How many major settings does the movie contain?,1--6,0.28,r,0.305,,A,False,main
+structure,clarity (easy to follow),12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,1--7,0.34,r,0.34,0.292,A,False,main
+structure,# settings,8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,How many major settings does the movie contain?,1--6,0.28,r,0.305,0.207,A,False,main
 structure,protagonist proactive,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,How proactive was this protagonist?,1--5,0.35,r,0.25,0.31,A,True,main
 texture,Score: Emotional,score_Emotional,"Strength of the ""Emotional"" score descriptor implied by the summary",0--100,0.29,r,0.29,,A,False,main
 texture,Visual: Natural,visual_Natural,"Strength of the ""Natural"" visual descriptor implied by the summary",0--100,0.37,r,0.37,,A,False,main
@@ -110,26 +110,26 @@ structure,dialogue realistic,9_how_realistic_did_you_find_the_dialogue_in_the_mo
 texture,Score: Intimate,score_Intimate,"Strength of the ""Intimate"" score descriptor implied by the summary",0--100,0.43,r,0.43,,B,False,main
 structure,familiar world,book_familiar_world,How familiar was the world of the movie?,1--7,0.26,r,0.26,,B,False,main
 texture,Acting: Subtle,acting_Subtle,"Strength of the ""Subtle"" acting descriptor implied by the summary",0--100,0.21,r,0.21,,C,False,main
-structure,protagonist investment,12_how_emotionally_invested_were_you_in_this_protagonist,How emotionally invested were you in this protagonist?,1--7,0.25,r,0.25,,B,False,main
+structure,protagonist investment,12_how_emotionally_invested_were_you_in_this_protagonist,How emotionally invested were you in this protagonist?,1--7,0.25,r,0.25,0.157,B,False,main
 structure,ending satisfying,book_satisfying_ending,On a scale of 1 (very unsatisfying) to 7 (very satisfying)?,1--7,0.28,r,0.28,,B,False,main
 texture,Visual: Sharp,visual_Sharp,"Strength of the ""Sharp"" visual descriptor implied by the summary",0--100,0.22,r,0.22,,B,False,main
 structure,themes interesting,book_themes_interesting,How interesting do you personally find the movie's themes?,1--5,0.24,r,0.24,,B,False,main
 texture,Visual: Dreamy,visual_Dreamy,"Strength of the ""Dreamy"" visual descriptor implied by the summary",0--100,0.3,r,0.3,,B,False,main
 texture,Acting: Method,acting_Method,"Strength of the ""Method"" acting descriptor implied by the summary",0--100,0.26,r,0.26,,B,False,main
-structure,side-character importance,4_how_important_would_you_say_the_side_characters_are_in_this_movie,How important would you say the side characters are in this movie?,1--5,0.26,r,0.26,,B,False,main
+structure,side-character importance,4_how_important_would_you_say_the_side_characters_are_in_this_movie,How important would you say the side characters are in this movie?,1--5,0.26,r,0.26,0.176,B,False,main
 structure,protagonist real,11_how_real_did_this_protagonist_feel_to_you,How real did this protagonist feel to you?,1--7,0.18,r,0.565,,C,False,main
 texture,Score: Choral,score_Choral,"Strength of the ""Choral"" score descriptor implied by the summary",0--100,0.37,r,0.37,,B,False,main
 texture,Acting: Theatrical,acting_Theatrical,"Strength of the ""Theatrical"" acting descriptor implied by the summary",0--100,0.34,r,0.34,,B,False,main
 structure,visual consistent,2_how_consistent_did_you_find_the_visual_style_by_consistent_we_mean_t,How consistent did you find the visual style?,1--7,0.15,r,0.412,,C,False,main
-character-arc,Likability (beginning),arc_likable_Beginning,How likable the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.32,r,0.32,,--,False,main
-character-arc,Likability (middle),arc_likable_Middle,How likable the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.38,r,0.38,,--,False,main
-character-arc,Likability (end),arc_likable_End,How likable the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.49,r,0.49,,--,False,main
-character-arc,Competence (beginning),arc_competent_Beginning,How competent the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.46,r,0.46,0.54,--,False,main
-character-arc,Competence (middle),arc_competent_Middle,How competent the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.32,r,0.32,0.54,--,False,main
-character-arc,Competence (end),arc_competent_End,How competent the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.43,r,0.43,0.54,--,False,main
-character-arc,Proactiveness (beginning),arc_proactive_Beginning,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.55,r,0.55,0.31,--,False,main
-character-arc,Proactiveness (middle),arc_proactive_Middle,How proactive the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.09,r,0.09,0.31,--,False,main
-character-arc,Proactiveness (end),arc_proactive_End,How proactive the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.24,r,0.24,0.31,--,False,main
+character-arc,Likability (beginning),arc_likable_Beginning,How likable the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.32,r,0.32,0.561,--,False,main
+character-arc,Likability (middle),arc_likable_Middle,How likable the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.38,r,0.38,0.502,--,False,main
+character-arc,Likability (end),arc_likable_End,How likable the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.49,r,0.49,0.467,--,False,main
+character-arc,Competence (beginning),arc_competent_Beginning,How competent the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.46,r,0.46,0.397,--,False,main
+character-arc,Competence (middle),arc_competent_Middle,How competent the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.32,r,0.32,0.508,--,False,main
+character-arc,Competence (end),arc_competent_End,How competent the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.43,r,0.43,0.602,--,False,main
+character-arc,Proactiveness (beginning),arc_proactive_Beginning,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,1--5,0.55,r,0.55,0.687,--,False,main
+character-arc,Proactiveness (middle),arc_proactive_Middle,How proactive the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,1--5,0.09,r,0.09,0.623,--,False,main
+character-arc,Proactiveness (end),arc_proactive_End,How proactive the main protagonist is at the end of the story; the arc is the end-minus-beginning change,1--5,0.24,r,0.24,0.547,--,False,main
 structure,plot-driven,plot_driven,How plot-driven the story is (emphasis on external events)?,1--5,0.27,r,0.27,0.54,A,True,main
 structure,character-driven,character_driven,How character-driven the story is (internal needs drive the story)?,1--5,0.51,r,0.51,0.43,A,True,main
 setting,Setting: era (when),setting_when,"When the story is set relative to the present (present day, near/distant past, near/distant future)","select-all, 5 options 0-100",0.71,r,0.71,0.78,A,True,main
@@ -175,3 +175,46 @@ structure,Inevitability,inevitability,Did the ending feel destined and inevitabl
 character,External upheaval,external_upheaval,How much does the protagonist's external world and situation change from beginning to end? 1 (barely) to 5 (transformed).,model-scored 1-N / 0-1,0.267,r,0.267,,Marginal,False,main
 narration,Narrator omniscient,narrator_omniscient,"Does the narrator have god-like access to every character's mind (omniscient) or is it confined to one (close)? 1 (close), 2 (mixed), 3 (omniscient).",model-scored 1-N / 0-1,0.355,r,,0.355,Validated,False,main
 reception,Element importance: message or theme,element_message_or_theme,"How central is a message or theme, as opposed to plot, character, or spectacle? 1 (not thematic) to 5 (deeply theme-driven).",model-scored 1-N / 0-1,0.329,r,0.329,0.3,Marginal,True,appendix_reception
+tone,Caring,tone_Caring,"Intensity of the ""Caring"" narrator tone",0--100,0.238,r,,0.238,--,False,main
+tone,Depressed,tone_Depressed,"Intensity of the ""Depressed"" narrator tone",0--100,0.292,r,,0.292,--,False,main
+tone,Philosophical,tone_Philosophical,"Intensity of the ""Philosophical"" narrator tone",0--100,0.355,r,,0.355,--,False,main
+tone,Juvenile,tone_Juvenile,"Intensity of the ""Juvenile"" narrator tone",0--100,0.319,r,,0.319,--,False,main
+tone,Devil may care,tone_Devil_may_care,"Intensity of the ""Devil may care"" narrator tone",0--100,0.458,r,,0.458,--,False,main
+tone,Irreverent,tone_Irreverent,"Intensity of the ""Irreverent"" narrator tone",0--100,0.332,r,,0.332,--,False,main
+tone,Anxious,tone_Anxious,"Intensity of the ""Anxious"" narrator tone",0--100,0.255,r,,0.255,--,False,main
+tone,Confident,tone_Confident,"Intensity of the ""Confident"" narrator tone",0--100,0.227,r,,0.227,--,False,main
+tone,Overwrought,tone_Overwrought,"Intensity of the ""Overwrought"" narrator tone",0--100,0.048,r,,0.048,--,False,main
+tone,All knowing,tone_All_knowing,"Intensity of the ""All knowing"" narrator tone",0--100,0.084,r,,0.084,--,False,main
+tone,Warm,tone_Warm,"Intensity of the ""Warm"" narrator tone",0--100,0.411,r,,0.411,--,False,main
+tone,Jaded,tone_Jaded,"Intensity of the ""Jaded"" narrator tone",0--100,0.288,r,,0.288,--,False,main
+tone,Sarcastic,tone_Sarcastic,"Intensity of the ""Sarcastic"" narrator tone",0--100,0.606,r,,0.606,--,False,main
+tone,Hypocritical,tone_Hypocritical,"Intensity of the ""Hypocritical"" narrator tone",0--100,0.214,r,,0.214,--,False,main
+tone,Judgmental,tone_Judgmental,"Intensity of the ""Judgmental"" narrator tone",0--100,0.063,r,,0.063,--,False,main
+tone,Dry,tone_Dry,"Intensity of the ""Dry"" narrator tone",0--100,0.014,r,,0.014,--,False,main
+tone,Laid back,tone_Laid_back,"Intensity of the ""Laid back"" narrator tone",0--100,0.306,r,,0.306,--,False,main
+tone,Optimistic,tone_Optimistic,"Intensity of the ""Optimistic"" narrator tone",0--100,0.421,r,,0.421,--,False,main
+tone,Pessimistic,tone_Pessimistic,"Intensity of the ""Pessimistic"" narrator tone",0--100,0.192,r,,0.192,--,False,main
+tone,Resigned,tone_Resigned,"Intensity of the ""Resigned"" narrator tone",0--100,0.146,r,,0.146,--,False,main
+tone,Defiant,tone_Defiant,"Intensity of the ""Defiant"" narrator tone",0--100,0.26,r,,0.26,--,False,main
+tone,Mischievous,tone_Mischievous,"Intensity of the ""Mischievous"" narrator tone",0--100,0.577,r,,0.577,--,False,main
+tone,Curious,tone_Curious,"Intensity of the ""Curious"" narrator tone",0--100,0.207,r,,0.207,--,False,main
+tone,Skeptical,tone_Skeptical,"Intensity of the ""Skeptical"" narrator tone",0--100,0.262,r,,0.262,--,False,main
+texture,Accessible,writing_Accessible,"Intensity of the ""Accessible"" writing style",0--100,0.357,r,,0.357,--,False,main
+texture,Minimalist,writing_Minimalist,"Intensity of the ""Minimalist"" writing style",0--100,0.128,r,,0.128,--,False,main
+texture,Humorous,writing_Humorous,"Intensity of the ""Humorous"" writing style",0--100,0.827,r,,0.827,--,False,main
+texture,Dark,writing_Dark,"Intensity of the ""Dark"" writing style",0--100,0.526,r,,0.526,--,False,main
+texture,Ironic,writing_Ironic,"Intensity of the ""Ironic"" writing style",0--100,0.157,r,,0.157,--,False,main
+texture,Verbose,writing_Verbose,"Intensity of the ""Verbose"" writing style",0--100,0.201,r,,0.201,--,False,main
+texture,Sophisticated,writing_Sophisticated,"Intensity of the ""Sophisticated"" writing style",0--100,0.344,r,,0.344,--,False,main
+texture,Lyrical,writing_Lyrical,"Intensity of the ""Lyrical"" writing style",0--100,0.386,r,,0.386,--,False,main
+texture,Serious,writing_Serious,"Intensity of the ""Serious"" writing style",0--100,0.355,r,,0.355,--,False,main
+texture,Straightforward,writing_Straightforward,"Intensity of the ""Straightforward"" writing style",0--100,0.247,r,,0.247,--,False,main
+texture,Meandering,writing_Meandering,"Intensity of the ""Meandering"" writing style",0--100,0.253,r,,0.253,--,False,main
+texture,Whimsical,writing_Whimsical,"Intensity of the ""Whimsical"" writing style",0--100,0.588,r,,0.588,--,False,main
+texture,Avant garde,writing_Avant_garde,"Intensity of the ""Avant garde"" writing style",0--100,0.39,r,,0.39,--,False,main
+texture,Sparse,writing_Sparse,"Intensity of the ""Sparse"" writing style",0--100,0.141,r,,0.141,--,False,main
+structure,Writing clarity,book_clear_prose,How clear (easy to follow) the writing style is,1--7,0.346,r,,0.346,--,False,main
+structure,Writing evocativeness,book_evocative_prose,How evocative the writing style is,1--7,0.217,r,,0.217,--,False,main
+structure,Narration share,book_narr_share,Share of the book given to narration versus dialogue (scored; no matched survey item to validate against),0--1,,r,,0.367,--,False,main
+tone,Crass,tone_Crass,"Intensity of the ""Crass"" narrator tone (scored; no reader selected it in the validation set, so not validatable)",0--100,,r,,,--,False,main
+tone,Conniving,tone_Conniving,"Intensity of the ""Conniving"" narrator tone (scored; no reader selected it in the validation set, so not validatable)",0--100,,r,,,--,False,main

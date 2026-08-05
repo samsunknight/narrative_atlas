@@ -16,14 +16,14 @@ reproduction inputs `reproduce.py` reads.
 | `atlas_canonical/data/atlas_{film,book,tv}.parquet` | 94,140 / 22,978 / 32,223 works × attributes; `idx, title, year, decade, medium` + the attribute score columns, named identically across media |
 | `atlas_canonical/prompts.csv` | **the single authoritative prompt record** (578 rows): one row per atlas column × medium — `column, medium, source, needs_rescore, deployed_prompt, canonical_prompt, …` — giving the exact prompt each score was produced from |
 | `atlas_canonical/verify_prompts.py` | the prompt guard: checks completeness and well-formedness of `prompts.csv` (and, with `--reproduce`, that each prompt reproduces its shipped score), binding the shipped prompts to the shipped scores; run by `reproduce.py` before any check |
-| `atlas_canonical/codebook.csv` | one row per attribute (176): canonical column, construct, status (`main` / `appendix_reception`), media, scale, definition, film_r, book_r, tier, cross-medium flag, source column, validated flag |
+| `atlas_canonical/codebook.csv` | one row per attribute (219): canonical column, construct, status (`main` / `appendix_reception`), media, scale, definition, film_r, book_r, tier, cross-medium flag, source column, validated flag |
 | `atlas_canonical/validation/` | `validation_summary.csv` (per-attribute validated?, tier, film_r, book_r, metric, human-N, prompt) and `VALIDATION.md` (how validation was done and how to read the tiers) |
 | `atlas_canonical/provenance/` | `PROVENANCE.md` (lineage of every column, survey → scored atlas), `QUESTIONS.md` + `questions_and_prompts.csv` (verbatim survey question and deployed LLM prompt per attribute) |
 | `atlas_canonical/README.md` | orientation for the canonical dataset |
 
-The atlas covers **173 main descriptive attributes** across **ten constructs** (structure & plot,
-setting, story shape, conflict, character, character arc, narration, mood, genre, texture), of which
-**166 clear the validation bar**. The released dataset carries **176** columns in all: the 173 main
+The atlas covers **216 main descriptive attributes** across **eleven constructs** (structure & plot,
+setting, story shape, conflict, character, character arc, narration, mood, genre, tone, texture), of which
+**195 clear the validation bar**. The released dataset carries **219** columns in all: the 216 main
 attributes plus 3 reception attributes (flagged
 in the codebook `status` column and excluded from the main descriptive constructs).
 
@@ -48,7 +48,7 @@ reuse prefer the shared-column-name copies in `atlas_canonical/data/`.
 ### `data/validation/` — human anchor + codebook
 | file | rows | contents / provenance |
 |---|---|---|
-| `attribute_dictionary.csv` | 176 | the codebook: `layer, attribute, column, definition, scale, validation, validation_metric, film_r, book_r, tier, cross_medium`. The single authoritative validation source. |
+| `attribute_dictionary.csv` | 219 | the codebook: `layer, attribute, column, definition, scale, validation, validation_metric, film_r, book_r, tier, cross_medium`. The single authoritative validation source. |
 | `human_means_book.csv` | 3,445 | `book_idx, attribute, human_mean, n_raters` — per-work MEAN human rating (reader survey) |
 | `genre_validation_layer.csv` | 18 | `genre, imdb_tag, auc, n_pos` — genre-recovery ROC-AUC vs IMDb labels |
 | `genre_reception.csv` | 18 | `genre, reach, acclaim, tilt` — within-decade partial of each genre's intensity with IMDb reach/acclaim (Supplementary Table S6) |

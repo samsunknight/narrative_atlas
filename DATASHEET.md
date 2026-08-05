@@ -2,7 +2,7 @@
 
 ## 1. Motivation & composition
 The atlas is 149,341 narrative works (94,140 films, 22,978 novels, 32,223 television
-programs), each scored on 173 attributes of narrative form across ten constructs (structure
+programs), each scored on 216 attributes of narrative form across eleven constructs (structure
 & plot, setting, story shape, conflict, character, character arc, narration, mood, genre, texture). The dataset is `data/atlas/century_frame_{film,book,tv}.parquet`
 (one row per work; `idx`, `title`, `year`, `decade`, `medium`, and the layer-prefixed
 attribute scores). A 36-attribute structural spine with column names shared across media
@@ -16,7 +16,7 @@ a disambiguation suffix (`"Casablanca (film)"`).
 films that had been carried in the television set (titles disambiguated as `"… (film)"`) —
 together with the pre-1950 television entries, which carry a year taken from a source film or
 the story's setting, or are non-television works misclassified as television, since broadcast
-television begins only in the late 1940s. The removals were: television −617, book −20, film
+television begins only in the late 1950s. The removals were: television −617, book −20, film
 −7. This is the only row-level filtering; no work is dropped for its scores.
 
 ## 2. How the scores were generated (data generation, not replication)
@@ -33,10 +33,10 @@ prompts to the shipped scores (it fails the build if any prompt is truncated, mi
 `data/validation/rescore_manifest.csv` is a legacy/secondary registry of the same prompts.
 
 ## 3. Validation / human anchoring
-Of the 173 main descriptive attributes, **155 are measured by the human survey** (structure & plot 51,
+Of the 216 main descriptive attributes, **198 are measured by the human survey** (structure & plot 51,
 setting 2, story shape 5, conflict 6, character 8, character-arc 9, narration 6, mood 31, texture 37) and
 **18 — the genre layer — against IMDb category tags** (AUC), since the survey carried only a
-coarse genre checklist; **166 clear the validation bar**. The released dataset additionally carries
+coarse genre checklist; **195 clear the validation bar**. The released dataset additionally carries
 three reception attributes (documented in
 the codebook `status` column), which sit outside the main descriptive constructs and are not analyzed. The survey attributes
 are anchored to two human surveys approved by the University of Toronto Research
@@ -84,11 +84,11 @@ than statistical significance at these sample sizes.
   most recent decade) are placed at the corpus endpoint, and the ~46 entries dated before 1950
   are mislabeled — a year taken from a source film or the story's setting, or a non-television
   work (a novel, play, or film) misclassified as television — since broadcast television begins
-  only in the late 1940s. Read television temporal trends on the **1950–2020 window** and do
+  only in the late 1950s. Read television temporal trends on the **1950–2020 window** and do
   not trust an individual early TV year.
 
 ## 6. Reproducibility status
-Every headline number reproduces from this package via `reproduce.py` (**128/128** turnkey; **142/142** once the IMDb match files are rebuilt, see §4). `[R]`
+Every headline number reproduces from this package via `reproduce.py` (**146/146** turnkey; **146/146** once the IMDb match files are rebuilt, see §4). `[R]`
 checks (corpus counts, structure/genre/texture validation, adaptation, reception, convergence,
 crystallization, variance ratio, genre lifecycles, the Production-Code difference-in-differences,
 and style-space geometry) are re-derived from the shipped tables. `[A]` checks (the mood
@@ -109,4 +109,4 @@ The complete per-work scored atlas (film/book/tv `*_atlas.csv` + pooled `century
 
   https://github.com/samsunknight/narrative_atlas/releases/tag/v1.0-data
 
-The repo itself ships the code, the `reproduce.py` harness (128/128 turnkey, 142/142 with the IMDb match files rebuilt), and the reproduce-scale data; download the release assets into `data/atlas/` for the full dataset.
+The repo itself ships the code, the `reproduce.py` harness (146/146 turnkey, 146/146 with the IMDb match files rebuilt), and the reproduce-scale data; download the release assets into `data/atlas/` for the full dataset.
