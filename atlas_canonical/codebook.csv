@@ -19,7 +19,7 @@ genre_Romance,Romance,genre,main,"film,book,tv",0--100,"Intensity of the Romance
 genre_Drama,Drama,genre,main,"film,book,tv",0--100,"Intensity of the Drama genre; scored against the IMDb ""Drama"" label",0.79,,--,False,genre_Drama,True,A,0.79,0.737,0.833
 6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,sci-fi world,structure,main,"film,tv",1--7,How science-fictional was the world of the movie?,0.785,0.87,A,True,6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,True,A,0.87,0.825,0.904
 visual_Dark,Visual: Dark,texture,main,"film,tv",0--100,"Strength of the ""Dark"" visual descriptor implied by the summary",0.73,,A,False,visual_Dark,True,A,0.73,0.665,0.784
-5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,fantastical world,structure,main,"film,tv",1--7,How fantastical was the world of the movies?,0.741,0.78,A,True,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,True,A,0.78,0.709,0.835
+5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,fantastical world,structure,main,"film,tv",1--7,How fantastical was the world of the movie?,0.741,0.78,A,True,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,True,A,0.78,0.709,0.835
 score_Ominous,Score: Ominous,texture,main,"film,tv",0--100,"Strength of the ""Ominous"" score descriptor implied by the summary",0.66,,A,False,score_Ominous,True,A,0.66,0.582,0.726
 acting_Campy,Acting: Campy,texture,main,"film,tv",0--100,"Strength of the ""Campy"" acting descriptor implied by the summary",0.62,,A,False,acting_Campy,True,A,0.62,0.536,0.692
 visual_Saturated,Visual: Saturated,texture,main,"film,tv",0--100,"Strength of the ""Saturated"" visual descriptor implied by the summary",0.65,,A,False,visual_Saturated,True,A,0.65,0.571,0.717
@@ -38,7 +38,7 @@ score_Melodic,Score: Melodic,texture,main,"film,tv",0--100,"Strength of the ""Me
 acting_Brooding,Acting: Brooding,texture,main,"film,tv",0--100,"Strength of the ""Brooding"" acting descriptor implied by the summary",0.48,,A,False,acting_Brooding,True,A,0.48,0.377,0.572
 visual_Slow,Visual: Slow,texture,main,"film,tv",0--100,"Strength of the ""Slow"" visual descriptor implied by the summary",0.4,,A,False,visual_Slow,True,B,0.4,0.288,0.501
 visual_Stylized,Visual: Stylized,texture,main,"film,tv",0--100,"Strength of the ""Stylized"" visual descriptor implied by the summary",0.49,,A,False,visual_Stylized,True,A,0.49,0.388,0.58
-score_Rock_n__Roll,Score: Rock n' Roll,texture,main,"film,tv",0--100,"Strength of the ""Rock n' Roll"" score descriptor implied by the summary",0.43,,A,False,score_Rock_n__Roll,True,A,0.43,0.321,0.528
+score_Rock_n__Roll,Score: Rock n' Roll,texture,main,"film,tv",0--100,"Strength of the ""Rock 'n' Roll"" score descriptor implied by the summary",0.43,,A,False,score_Rock_n__Roll,True,A,0.43,0.321,0.528
 acting_Deadpan,Acting: Deadpan,texture,main,"film,tv",0--100,"Strength of the ""Deadpan"" acting descriptor implied by the summary",0.37,,A,False,acting_Deadpan,True,B,0.37,0.256,0.474
 score_Electronic,Score: Electronic,texture,main,"film,tv",0--100,"Strength of the ""Electronic"" score descriptor implied by the summary",0.6,,A,False,score_Electronic,True,A,0.6,0.513,0.675
 5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,setting/world quality,structure,main,"film,tv",1--7,"In your opinion, how would you rate the quality of the setting and world-building …",0.431,0.249,A,True,5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,True,A,0.431,0.322,0.528
@@ -121,15 +121,15 @@ acting_Method,Acting: Method,texture,main,"film,tv",0--100,"Strength of the ""Me
 score_Choral,Score: Choral,texture,main,"film,tv",0--100,"Strength of the ""Choral"" score descriptor implied by the summary",0.37,,B,False,score_Choral,True,B,0.37,0.256,0.474
 acting_Theatrical,Acting: Theatrical,texture,main,"film,tv",0--100,"Strength of the ""Theatrical"" acting descriptor implied by the summary",0.34,,B,False,acting_Theatrical,True,B,0.34,0.223,0.447
 2_how_consistent_did_you_find_the_visual_style_by_consistent_we_mean_t,visual consistent,structure,main,"film,tv",1--7,How consistent did you find the visual style?,0.412,,C,False,2_how_consistent_did_you_find_the_visual_style_by_consistent_we_mean_t,True,A,0.412,0.302,0.512
-arc_likable_Beginning,Likability (beginning),character-arc,main,"film,book,tv",1--5,How likable the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,0.32,0.561,--,False,arc_likable_Beginning,True,C,0.32,0.202,0.429
-arc_likable_Middle,Likability (middle),character-arc,main,"film,book,tv",1--5,How likable the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,0.38,0.502,--,False,arc_likable_Middle,True,B,0.38,0.267,0.483
-arc_likable_End,Likability (end),character-arc,main,"film,book,tv",1--5,How likable the main protagonist is at the end of the story; the arc is the end-minus-beginning change,0.49,0.467,--,False,arc_likable_End,True,A,0.49,0.388,0.58
-arc_competent_Beginning,Competence (beginning),character-arc,main,"film,book,tv",1--5,How competent the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,0.46,0.397,--,False,arc_competent_Beginning,True,A,0.54,0.417,0.644
-arc_competent_Middle,Competence (middle),character-arc,main,"film,book,tv",1--5,How competent the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,0.32,0.508,--,False,arc_competent_Middle,True,A,0.54,0.417,0.644
-arc_competent_End,Competence (end),character-arc,main,"film,book,tv",1--5,How competent the main protagonist is at the end of the story; the arc is the end-minus-beginning change,0.43,0.602,--,False,arc_competent_End,True,A,0.54,0.417,0.644
-arc_proactive_Beginning,Proactiveness (beginning),character-arc,main,"film,book,tv",1--5,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,0.55,0.687,--,False,arc_proactive_Beginning,True,A,0.55,0.455,0.632
-arc_proactive_Middle,Proactiveness (middle),character-arc,main,"film,book,tv",1--5,How proactive the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,0.09,0.623,--,False,arc_proactive_Middle,True,C,0.31,0.159,0.447
-arc_proactive_End,Proactiveness (end),character-arc,main,"film,book,tv",1--5,How proactive the main protagonist is at the end of the story; the arc is the end-minus-beginning change,0.24,0.547,--,False,arc_proactive_End,True,C,0.31,0.159,0.447
+arc_likable_Beginning,Likability (beginning),character-arc,main,"film,book,tv",1--5,How likable the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,0.32,0.561,--,False,arc_likable_Beginning,True,B,0.561,0.238,0.772
+arc_likable_Middle,Likability (middle),character-arc,main,"film,book,tv",1--5,How likable the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,0.38,0.502,--,False,arc_likable_Middle,True,C,0.502,0.159,0.737
+arc_likable_End,Likability (end),character-arc,main,"film,book,tv",1--5,How likable the main protagonist is at the end of the story; the arc is the end-minus-beginning change,0.49,0.467,--,False,arc_likable_End,True,C,0.49,0.143,0.73
+arc_competent_Beginning,Competence (beginning),character-arc,main,"film,book,tv",1--5,How competent the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,0.46,0.397,--,False,arc_competent_Beginning,True,C,0.46,0.105,0.711
+arc_competent_Middle,Competence (middle),character-arc,main,"film,book,tv",1--5,How competent the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,0.32,0.508,--,False,arc_competent_Middle,True,C,0.508,0.166,0.741
+arc_competent_End,Competence (end),character-arc,main,"film,book,tv",1--5,How competent the main protagonist is at the end of the story; the arc is the end-minus-beginning change,0.43,0.602,--,False,arc_competent_End,True,B,0.602,0.295,0.796
+arc_proactive_Beginning,Proactiveness (beginning),character-arc,main,"film,book,tv",1--5,How proactive the main protagonist is at the beginning of the story; the arc is the end-minus-beginning change,0.55,0.687,--,False,arc_proactive_Beginning,True,A,0.687,0.422,0.844
+arc_proactive_Middle,Proactiveness (middle),character-arc,main,"film,book,tv",1--5,How proactive the main protagonist is at the middle of the story; the arc is the end-minus-beginning change,0.09,0.623,--,False,arc_proactive_Middle,True,A,0.623,0.326,0.808
+arc_proactive_End,Proactiveness (end),character-arc,main,"film,book,tv",1--5,How proactive the main protagonist is at the end of the story; the arc is the end-minus-beginning change,0.24,0.547,--,False,arc_proactive_End,True,C,0.547,0.219,0.764
 plot_driven,plot-driven,structure,main,"film,book,tv",1--5,How plot-driven the story is (emphasis on external events)?,0.27,0.54,A,True,plot_driven,True,A,0.54,0.417,0.644
 character_driven,character-driven,structure,main,"film,book,tv",1--5,How character-driven the story is (internal needs drive the story)?,0.51,0.43,A,True,character_driven,True,A,0.51,0.41,0.598
 setting_when,Setting: era (when),setting,main,"film,book,tv","select-all, 5 options 0-100","When the story is set relative to the present (present day, near/distant past, near/distant future)",0.71,0.78,A,True,setting_when,True,A,0.78,0.709,0.835
@@ -152,22 +152,22 @@ shape_riches_to_rags,Shape: Riches to Rags (steady fall),story-shape,main,"film,
 shape_man_in_a_hole,Shape: Man in a Hole (fall-rise),story-shape,main,"film,tv",0-100,Goodness-of-fit to the Vonnegut “Man in a Hole (fall-rise)” arc,0.25,,B,False,shape_man_in_a_hole,True,C,0.25,0.128,0.365
 shape_icarus,Shape: Icarus (rise-fall),story-shape,main,"film,tv",0-100,Goodness-of-fit to the Vonnegut “Icarus (rise-fall)” arc,0.23,,B,False,shape_icarus,True,C,0.23,0.107,0.346
 anagnorisis,Anagnorisis,structure,main,"film,book,tv",model-scored 1-N / 0-1,"Does the story turn on an anagnorisis, a moment of recognition in which a character suddenly grasps a crucial truth? 1 (no), 2 (somewhat), 3 (yes).",0.255,0.239,Marginal,True,anagnorisis,True,C,0.255,0.133,0.369
-competent,Competent (avg),character,main,"film,book,tv",model-scored 1-N / 0-1,How competent is the protagonists on average?,0.38,0.502,Headline,True,competent,True,A,0.502,0.373,0.612
-development,Development (avg),character,main,"film,book,tv",model-scored 1-N / 0-1,Does the protagonists on average undergo strong personal (internal) development?,0.419,0.448,Validated,True,development,True,A,0.448,0.311,0.566
+competent,Competent (avg),character,main,"film,book,tv",model-scored 1-N / 0-1,How competent are the protagonists on average?,0.38,0.502,Headline,True,competent,True,A,0.502,0.373,0.612
+development,Development (avg),character,main,"film,book,tv",model-scored 1-N / 0-1,Do the protagonists on average undergo strong personal (internal) development?,0.419,0.448,Validated,True,development,True,A,0.448,0.311,0.566
 element_emotional_impact,Element importance: emotional impact,reception,appendix_reception,"film,tv",model-scored 1-N / 0-1,Was the emotional impact one of the elements that most drove the experience of this work?,0.229,,Marginal,False,element_emotional_impact,True,C,0.229,0.106,0.345
 felt_about,Felt about,reception,appendix_reception,"film,tv",model-scored 1-N / 0-1,"Overall, how much would an audience enjoy this?",0.314,,Marginal,False,felt_about,True,C,0.314,0.196,0.423
-immersive_setting,Immersive setting (avg),structure,main,"film,book,tv",model-scored 1-N / 0-1,"How immersive (fully realized, richly detailed) is its settings on average?",0.301,0.299,Marginal,True,immersive_setting,True,C,0.301,0.182,0.411
+immersive_setting,Immersive setting (avg),structure,main,"film,book,tv",model-scored 1-N / 0-1,"How immersive (fully realized, richly detailed) are its settings on average?",0.301,0.299,Marginal,True,immersive_setting,True,C,0.301,0.182,0.411
 likable,Likable (main),character,main,"film,book,tv",model-scored 1-N / 0-1,How likable is the main protagonist?,0.614,0.518,Headline,True,likable,True,A,0.614,0.529,0.687
 n_narrators,N narrators,narration,main,book,model-scored 1-N / 0-1,How many distinct narrators tell the story?,,0.319,Marginal,False,n_narrators,True,C,0.319,0.201,0.428
 n_side_characters,N side characters,structure,main,"film,tv",model-scored 1-N / 0-1,Approximately how many named side characters appear?,0.272,,Marginal,False,n_side_characters,True,C,0.272,0.151,0.385
 narration_switches,Narration switches,narration,main,book,model-scored 1-N / 0-1,"If more than one narrator, how often does narration switch?",,0.329,Marginal,False,narration_switches,True,C,0.329,0.212,0.437
-narrator_unreliable,Narrator unreliable (avg),narration,main,book,model-scored 1-N / 0-1,How reliable or unreliable is its narrators on average?,,0.284,Marginal,False,narrator_unreliable,True,C,0.284,0.164,0.396
+narrator_unreliable,Narrator unreliable (avg),narration,main,book,model-scored 1-N / 0-1,How reliable or unreliable are its narrators on average?,,0.284,Marginal,False,narrator_unreliable,True,C,0.284,0.164,0.396
 plot_complexity,Plot complexity,structure,main,book,model-scored 1-N / 0-1,How structurally complex is the plot?,,0.265,Marginal,False,plot_complexity,True,C,0.265,0.144,0.378
 pov_first_person,Pov first person,narration,main,book,model-scored 1-N / 0-1,Is it narrated primarily in first person (I/we)?,,0.47,Validated,False,pov_first_person,True,A,0.47,0.366,0.563
 pov_third_person,Pov third person,narration,main,book,model-scored 1-N / 0-1,Is it narrated primarily in third person?,,0.481,Validated,False,pov_third_person,True,A,0.481,0.378,0.572
 proactive,Proactive (main),character,main,"film,book,tv",model-scored 1-N / 0-1,How proactive rather than passive is the main protagonist?,0.276,0.484,Validated,True,proactive,True,A,0.484,0.352,0.597
 protag_invested,Protag invested (main),character,main,"film,book,tv",model-scored 1-N / 0-1,How emotionally invested would a viewer be in the main protagonist?,0.363,0.289,Validated,True,protag_invested,True,B,0.363,0.248,0.468
-protag_real,Protag real (avg),character,main,"film,book,tv",model-scored 1-N / 0-1,How real and believable does the protagonists on average feel?,0.305,0.253,Marginal,True,protag_real,True,C,0.305,0.186,0.415
+protag_real,Protag real (avg),character,main,"film,book,tv",model-scored 1-N / 0-1,How real and believable do the protagonists on average feel?,0.305,0.253,Marginal,True,protag_real,True,C,0.305,0.186,0.415
 protag_relatable,Protag relatable (main),character,main,"film,book,tv",model-scored 1-N / 0-1,How relatable is the main protagonist?,0.438,0.326,Validated,True,protag_relatable,True,A,0.438,0.33,0.535
 side_char_importance,Side char importance,structure,main,"film,tv",model-scored 1-N / 0-1,How important are the side characters?,0.312,,Marginal,False,side_char_importance,True,C,0.312,0.194,0.422
 vivid_setting,Vivid setting (any),structure,main,book,model-scored 1-N / 0-1,"How vivid (sensory, vividly evoked) is its single most extreme setting on this?",,0.245,Marginal,False,vivid_setting,True,C,0.245,0.123,0.36
@@ -179,19 +179,19 @@ tone_Caring,Caring,tone,main,book,0--100,"Intensity of the ""Caring"" narrator t
 tone_Depressed,Depressed,tone,main,book,0--100,"Intensity of the ""Depressed"" narrator tone",,0.292,--,False,tone_Depressed,True,C,0.292,0.034,0.514
 tone_Philosophical,Philosophical,tone,main,book,0--100,"Intensity of the ""Philosophical"" narrator tone",,0.355,--,False,tone_Philosophical,True,C,0.355,0.104,0.563
 tone_Juvenile,Juvenile,tone,main,book,0--100,"Intensity of the ""Juvenile"" narrator tone",,0.319,--,False,tone_Juvenile,True,C,0.319,0.064,0.535
-tone_Devil_may_care,Devil may care,tone,main,book,0--100,"Intensity of the ""Devil may care"" narrator tone",,0.458,--,False,tone_Devil_may_care,True,B,0.458,0.224,0.642
+tone_Devil_may_care,Devil-may-care,tone,main,book,0--100,"Intensity of the ""Devil-may-care"" narrator tone",,0.458,--,False,tone_Devil_may_care,True,B,0.458,0.224,0.642
 tone_Irreverent,Irreverent,tone,main,book,0--100,"Intensity of the ""Irreverent"" narrator tone",,0.332,--,False,tone_Irreverent,True,C,0.332,0.078,0.545
 tone_Anxious,Anxious,tone,main,book,0--100,"Intensity of the ""Anxious"" narrator tone",,0.255,--,False,tone_Anxious,False,drop,0.255,-0.006,0.483
 tone_Confident,Confident,tone,main,book,0--100,"Intensity of the ""Confident"" narrator tone",,0.227,--,False,tone_Confident,False,drop,0.227,-0.036,0.46
 tone_Overwrought,Overwrought,tone,main,book,0--100,"Intensity of the ""Overwrought"" narrator tone",,0.048,--,False,tone_Overwrought,False,drop,0.048,-0.215,0.305
-tone_All_knowing,All knowing,tone,main,book,0--100,"Intensity of the ""All knowing"" narrator tone",,0.084,--,False,tone_All_knowing,False,drop,0.084,-0.181,0.337
+tone_All_knowing,All-knowing,tone,main,book,0--100,"Intensity of the ""All-knowing"" narrator tone",,0.084,--,False,tone_All_knowing,False,drop,0.084,-0.181,0.337
 tone_Warm,Warm,tone,main,book,0--100,"Intensity of the ""Warm"" narrator tone",,0.411,--,False,tone_Warm,True,C,0.411,0.168,0.607
 tone_Jaded,Jaded,tone,main,book,0--100,"Intensity of the ""Jaded"" narrator tone",,0.288,--,False,tone_Jaded,True,C,0.288,0.03,0.51
 tone_Sarcastic,Sarcastic,tone,main,book,0--100,"Intensity of the ""Sarcastic"" narrator tone",,0.606,--,False,tone_Sarcastic,True,A,0.606,0.41,0.748
 tone_Hypocritical,Hypocritical,tone,main,book,0--100,"Intensity of the ""Hypocritical"" narrator tone",,0.214,--,False,tone_Hypocritical,False,drop,0.214,-0.049,0.45
 tone_Judgmental,Judgmental,tone,main,book,0--100,"Intensity of the ""Judgmental"" narrator tone",,0.063,--,False,tone_Judgmental,False,drop,0.063,-0.201,0.318
 tone_Dry,Dry,tone,main,book,0--100,"Intensity of the ""Dry"" narrator tone",,0.014,--,False,tone_Dry,False,drop,0.014,-0.247,0.274
-tone_Laid_back,Laid back,tone,main,book,0--100,"Intensity of the ""Laid back"" narrator tone",,0.306,--,False,tone_Laid_back,True,C,0.306,0.049,0.525
+tone_Laid_back,Laid-back,tone,main,book,0--100,"Intensity of the ""Laid-back"" narrator tone",,0.306,--,False,tone_Laid_back,True,C,0.306,0.049,0.525
 tone_Optimistic,Optimistic,tone,main,book,0--100,"Intensity of the ""Optimistic"" narrator tone",,0.421,--,False,tone_Optimistic,True,C,0.421,0.18,0.614
 tone_Pessimistic,Pessimistic,tone,main,book,0--100,"Intensity of the ""Pessimistic"" narrator tone",,0.192,--,False,tone_Pessimistic,False,drop,0.192,-0.072,0.431
 tone_Resigned,Resigned,tone,main,book,0--100,"Intensity of the ""Resigned"" narrator tone",,0.146,--,False,tone_Resigned,False,drop,0.146,-0.119,0.392
@@ -211,7 +211,7 @@ writing_Serious,Serious,texture,main,book,0--100,"Intensity of the ""Serious"" w
 writing_Straightforward,Straightforward,texture,main,book,0--100,"Intensity of the ""Straightforward"" writing style",,0.247,--,False,writing_Straightforward,False,drop,0.247,-0.015,0.477
 writing_Meandering,Meandering,texture,main,book,0--100,"Intensity of the ""Meandering"" writing style",,0.253,--,False,writing_Meandering,False,drop,0.253,-0.008,0.482
 writing_Whimsical,Whimsical,texture,main,book,0--100,"Intensity of the ""Whimsical"" writing style",,0.588,--,False,writing_Whimsical,True,A,0.588,0.387,0.736
-writing_Avant_garde,Avant garde,texture,main,book,0--100,"Intensity of the ""Avant garde"" writing style",,0.39,--,False,writing_Avant_garde,True,C,0.39,0.144,0.591
+writing_Avant_garde,Avant-garde,texture,main,book,0--100,"Intensity of the ""Avant-garde"" writing style",,0.39,--,False,writing_Avant_garde,True,C,0.39,0.144,0.591
 writing_Sparse,Sparse,texture,main,book,0--100,"Intensity of the ""Sparse"" writing style",,0.141,--,False,writing_Sparse,False,drop,0.141,-0.124,0.387
 book_clear_prose,Writing clarity,structure,main,book,1--7,How clear (easy to follow) the writing style is,,0.346,--,False,book_clear_prose,True,C,0.346,0.217,0.463
 book_evocative_prose,Writing evocativeness,structure,main,book,1--7,How evocative the writing style is,,0.217,--,False,book_evocative_prose,True,C,0.217,0.08,0.346
