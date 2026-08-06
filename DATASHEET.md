@@ -49,14 +49,14 @@ book validation correlations in the codebook `attribute_dictionary.csv`) and (b)
 **per-work human means** (`human_means_book.csv`): for each work × attribute, the mean human
 rating and the rater count. Joining the book means to the model scores reproduces the published
 book-side validation correlations exactly (see `reproduce.py`); the film-side correlations are the
-deployed-corpus values recorded in the codebook. The fifteen structural attributes clearing r > 0.22 in **both** media
+deployed-corpus values recorded in the codebook. The sixteen structural attributes validated in **both** media
 carry the cross-medium geometry; the codebook's `cross_medium == True` flag marks these along
 with the settings, story shapes, and the vs-self and vs-nature conflict types that also validate cross-medium.
 
 **Recommended-use tiers.** The `tier` column grades each attribute by human-anchoring
 strength: **A** (strongest), **B** (validated), and **C** (exploratory, released for
 description and flagged for cautious use). The tiers map to how an attribute should be used.
-Cross-medium film-versus-novel geometry uses the fifteen structural attributes validated in
+Cross-medium film-versus-novel geometry uses the sixteen structural attributes validated in
 both film and the novel (the codebook's `cross_medium` flag marks these plus the settings,
 story shapes, and the vs-self and vs-nature conflict types that also validate cross-medium); within-medium and
 film/television analyses may use the wider film-validated set (tiers A and B); tier C is

@@ -499,8 +499,8 @@ chk("R", "era balanced-acc tv",   0.13, round(_erabal["tv"], 2), 0.02)
 
 # =====================================================================================
 # VALIDATED-ATTRIBUTE COUNTS per construct. The atlas carries eleven descriptive constructs; an
-#   attribute validates when its tier is A/B/Headline/Validated or its best per-medium correlation
-#   clears the r>0.22 bar (genre by ROC AUC). Counts read from the certified codebook: 216 main
+#   attribute validates when its held-out correlation with human judgment is significantly positive
+#   (95% CI lower bound above zero; genre by ROC AUC). Counts read from the certified codebook: 216 main
 #   descriptive attributes scored, 195 validated. The released dataset also carries three reception
 #   attributes, documented in the codebook (status column) but
 #   outside the main constructs and excluded from these counts.
@@ -529,8 +529,8 @@ chk("R", "validated count: texture",        45, _vc("texture"), 0)
 chk("R", "validated count: tone",           12, _vc("tone"), 0)
 chk("R", "validated count: total (195)",   195, int(_main._val.sum()), 0)
 
-# ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity validate (film r 0.29 and
-# 0.24, both clearing the 0.22 bar) per data/validation/newattr_final.csv. The values are pinned here
+# ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity are significantly positive
+# (film r 0.29 and 0.24) per data/validation/newattr_final.csv. The values are pinned here
 # so a regression cannot re-enter the package silently.
 _NF = pd.read_csv(P("data/validation/newattr_final.csv")).set_index("attribute")
 chk("R", "peripeteia (ending_reversal) film r validates", 0.29, round(float(_NF.loc["ending_reversal","film"]), 2), 0.01)
