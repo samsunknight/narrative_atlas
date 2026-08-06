@@ -637,8 +637,8 @@ chk("R", "SI§S1.4 surface r^2 log(n_char)->sci-fi",      0.034, r2_sci, 0.03)
 chk("R", "SI§S1.4 surface r^2 log(n_char)->fantastical", 0.01, r2_fan, 0.015)  # SI: '<0.01'
 
 # =====================================================================================
-# SI §S1  RELIABILITY CEILINGS  (r^2 ceiling = Spearman-Brown 2r/(1+r) of shipped r_half)
-#   generator recomputes the ceiling from the shipped split-half correlation.
+# SI §S1  HUMAN-MEAN RELIABILITY  (R = Spearman-Brown 2r/(1+r) of shipped r_half; the
+#   correlation ceiling a perfect instrument could reach is sqrt(R); recomputed from r_half.
 #   tol 0.07 = single-draw (published) vs 500-partition-averaged (shipped) sampling gap
 #   at n~23 works, documented; NOT a corpus-version discrepancy.
 # =====================================================================================
@@ -650,7 +650,7 @@ def ceil_of(attr):
 for attr, pv in [("realistic world",0.88),("fantastical",0.94),("sci-fi",0.90),
                  ("resolution",0.87),("surprise",0.84),("clarity",0.94),
                  ("immersive",0.69),("# protagonists",0.66)]:
-    chk("R", f"SI§S1 reliability r^2 ceiling: {attr}", pv, ceil_of(attr), 0.07)
+    chk("R", f"SI§S1 human-mean reliability R: {attr}", pv, ceil_of(attr), 0.07)
 
 # =====================================================================================
 # SI Table S2  PERSISTENCE SPECTRUM  (film 1915-2020, decade means, phi=lag-1 autocorr of
