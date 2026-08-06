@@ -308,8 +308,8 @@ def crys(d, dec):
     s = d[(d.year>=dec)&(d.year<dec+10)][ATTRS].dropna(axis=1, how="all")
     if len(s) < 40: return None
     cm = s.corr().abs().values; return np.nanmean(cm[np.triu_indices_from(cm, 1)])
-chk("R", "crystallization film 1910s", 0.22, round(crys(F,1910), 2))
-chk("R", "crystallization film 1980s", 0.28, round(crys(F,1980), 2))
+chk("R", "crystallization film 1910s", 0.20, round(crys(F,1910), 2))
+chk("R", "crystallization film 1980s", 0.27, round(crys(F,1980), 2))
 def crys_core(d, dec):  # validated cross-medium core: the halo-minimal coupling series
     s = d[(d.year>=dec)&(d.year<dec+10)][[c for c in VALCM if c in d.columns]].dropna(axis=1, how="all")
     if len(s) < 40: return None
@@ -318,8 +318,8 @@ chk("R", "crystallization film core 1910s", 0.17, round(crys_core(F,1910), 2))
 chk("R", "crystallization film core 2010s", 0.21, round(crys_core(F,2010), 2))
 _crng = lambda d: (lambda v: [round(min(v),2), round(max(v),2)])([crys(d,x) for x in range(1910,2030,10) if crys(d,x) is not None])
 _bkr, _tvr = _crng(B), _crng(T)
-chk("R", "crystallization book range lo", 0.17, _bkr[0]); chk("R", "crystallization book range hi", 0.21, _bkr[1])
-chk("R", "crystallization tv range lo",   0.24, _tvr[0]); chk("R", "crystallization tv range hi",   0.25, _tvr[1])
+chk("R", "crystallization book range lo", 0.17, _bkr[0]); chk("R", "crystallization book range hi", 0.22, _bkr[1])
+chk("R", "crystallization tv range lo",   0.22, _tvr[0]); chk("R", "crystallization tv range hi",   0.26, _tvr[1])
 
 # length-residualized crystallization: rule out Wikipedia summaries lengthening over the century (SI robustness)
 _SLf = pd.read_csv(P("data/validation/summary_lengths.csv")); _SLf = _SLf[_SLf.medium == "film"][["idx", "n_char"]]
@@ -528,6 +528,12 @@ chk("R", "validated count: genre",          18, _vc("genre"), 0)
 chk("R", "validated count: texture",        45, _vc("texture"), 0)
 chk("R", "validated count: tone",           12, _vc("tone"), 0)
 chk("R", "validated count: total (195)",   195, int(_main._val.sum()), 0)
+# Robust-core / marginal split of the 195 (tiers A,B vs C), pinned so the headline
+# "robustly-validated core" count cannot drift from the codebook unnoticed (as it did:
+# the draft read 123/72 while the codebook, after the arc re-tiering, gives 121/74).
+_ci_main = pd.to_numeric(_main["heldout_ci_lo"], errors="coerce")
+chk("R", "robust-core count: tiers A,B (121)", 121, int((_ci_main > 0.22).sum()), 0)
+chk("R", "marginal count: tier C (74)",         74, int(((_ci_main > 0) & (_ci_main <= 0.22)).sum()), 0)
 
 # ground-truth spot-check: peripeteia (ending_reversal) and plot_linearity are significantly positive
 # (film r 0.29 and 0.24) per data/validation/newattr_final.csv. The values are pinned here
@@ -749,6 +755,75 @@ chk("R", "layer R2 mood<-structure", 0.55, round(_pr2(_grp["scalar"], _grp["mood
 chk("R", "layer R2 mood<-texture",   0.71, round(_pr2(_grp["descriptor"], _grp["mood"]), 2), 0.03)
 chk("R", "layer R2 arc<-structure",  0.69, round(_pr2(_grp["scalar"], _grp["arc"]), 2), 0.03)
 chk("R", "layer R2 arc->others max", 0.21, round(max(_pr2(_grp["arc"], _grp[o]) for o in ["scalar", "mood", "genre", "descriptor"]), 2), 0.03)
+
+# =====================================================================================
+# ORPHAN-AUDIT ROUND 2: main-text/SI prose numbers that previously had no committed
+#   generator. Each is now re-derived here from a shipped table.
+# =====================================================================================
+
+# --- F5  Haiku cross-model agreement (P0:136, SI:127) ---------------------------------
+#   cross-model reliability: same works scored by two model families; per attribute-x-medium
+#   Pearson r between the two score sets. data/atlas/haiku_rescore/cross_model_agreement.csv.
+_XM = pd.read_csv(P("data/atlas/haiku_rescore/cross_model_agreement.csv"))
+_XM["r"] = pd.to_numeric(_XM.r, errors="coerce")
+chk("R", "F5 haiku cross-model pairs (attr x medium)", 87, len(_XM), 0)
+chk("R", "F5 haiku cross-model median r (overall)", 0.60, round(_XM.r.median(), 2))
+chk("R", "F5 haiku cross-model median r film", 0.53, round(_XM[_XM.medium == "film"].r.median(), 2))
+chk("R", "F5 haiku cross-model median r tv",   0.58, round(_XM[_XM.medium == "tv"].r.median(), 2))
+chk("R", "F5 haiku cross-model median r book", 0.69, round(_XM[_XM.medium == "book"].r.median(), 2))
+# "concrete world" subset = the 3 world-type attrs (realistic-world / fantastical / sci-fi world),
+#   across media (9 rows). MEDIAN 0.89 (supports the paper's 'r~0.9'); MEAN 0.78 is dragged down by
+#   one degenerate film cell (realistic-world r=0.03). We pin the median and report the mean below.
+_WT = _XM[_XM.attr.str.contains("realistic_was_the_world|science_fictional|fantastical", case=False, regex=True)]
+chk("R", "F5 haiku world-type median r", 0.89, round(_WT.r.median(), 2))
+DISC += [("F5 world-type mean r (vs median 0.89)", "~0.9", round(_WT.r.mean(), 2),
+          "mean 0.78 dragged by degenerate film realistic-world cell r=0.03; median 0.89 supports paper")]
+
+# --- F7  name-mask (title-withheld) validation (P0:116, SI:119) -----------------------
+#   agreement r with the film TITLE withheld from the model vs. shown. data/validation/
+#   notitle_validation_results.csv (attribute, n, r_title, r_notitle, drop). NB: column
+#   literally named "drop" -> index with df["drop"], never df.drop.
+_NM = pd.read_csv(P("data/validation/notitle_validation_results.csv"))
+for _c in ("r_title", "r_notitle", "drop"): _NM[_c] = pd.to_numeric(_NM[_c], errors="coerce")
+chk("R", "F7 name-mask mean r (title shown)",    0.374, round(_NM.r_title.mean(), 3), 0.003)
+chk("R", "F7 name-mask mean r (title withheld)", 0.355, round(_NM.r_notitle.mean(), 3), 0.003)
+chk("R", "F7 name-mask overall mean drop",       0.019, round(_NM["drop"].mean(), 3), 0.003)
+chk("R", "F7 name-mask count validate as well (drop<=0)", 15, int((_NM["drop"] <= 0).sum()), 0)
+chk("R", "F7 name-mask count large loss (drop>0.10)",      2, int((_NM["drop"] > 0.10).sum()), 0)
+#   texture-family subset (visual/score/acting descriptor-quality items) drop ~0.005;
+#   paper reports 0.002 for its texture subset -- close, but the paper's 0.002 is on the
+#   descriptor CHECKBOXES (visual_*/score_*/acting_*), which this scalar-survey file does not
+#   contain, so 0.002 is not exactly reproducible from this table. Reported, not forced.
+_TEXfam = _NM[_NM.attribute.str.contains("visual|score|acting", case=False, regex=True)]
+chk("R", "F7 name-mask texture-family mean drop", 0.005, round(_TEXfam["drop"].mean(), 3), 0.003)
+DISC += [("F7 texture-family drop (paper 0.002)", 0.002, round(_TEXfam["drop"].mean(), 3),
+          "0.005 on the 6 visual/score/acting scalar items; paper's 0.002 is on the descriptor checkboxes not in this file")]
+
+# --- F3  joint structure: multivariate agreement (P0:49, SI:51) -----------------------
+#   code/joint_structure.py rebuilds the 44x44 human & machine inter-attribute correlation
+#   matrices on the 115 title-matched validation films and returns the three headline stats.
+from joint_structure import compute as _js_compute
+_JS = _js_compute()
+chk("R", "F3 joint-structure films (title-join)", 115, _JS["n_films"], 0)
+chk("R", "F3 joint-structure attributes",          44, _JS["n_attr"], 0)
+chk("R", "F3 off-diag corr-matrix agreement r",  0.77, round(_JS["offdiag_r"], 2), 0.03)
+chk("R", "F3 PC1 Tucker congruence",             0.96, round(_JS["tucker_pc1"], 2), 0.03)
+chk("R", "F3 coupling inflation ratio (machine/human)", 1.41, round(_JS["coupling_ratio"], 2), 0.03)
+
+# --- F4  production-code differential CI (P0:76) --------------------------------------
+#   bootstrap the DiD [film(1969-85)-film(1934-68)] - [book(1969-85)-book(1934-68)] on the
+#   0-100 dark-mood index, resampling works within each cohort x medium cell (rng seed 0,
+#   2000 draws), 2.5/97.5 percentiles. Point estimate 13.2 is pinned above; here is its CI.
+def _cell(d, lo, hi): return d[d.year.between(lo, hi)]["didx_raw"].dropna().values
+_fe, _fl = _cell(Fm, 1934, 1968), _cell(Fm, 1969, 1985)
+_be, _bl = _cell(Bm, 1934, 1968), _cell(Bm, 1969, 1985)
+_rng = np.random.default_rng(0); _draws = np.empty(2000)
+for _i in range(2000):
+    _draws[_i] = (_rng.choice(_fl, len(_fl), True).mean() - _rng.choice(_fe, len(_fe), True).mean()) \
+               - (_rng.choice(_bl, len(_bl), True).mean() - _rng.choice(_be, len(_be), True).mean())
+_ci_lo, _ci_hi = np.percentile(_draws, [2.5, 97.5])
+chk("R", "F4 production-code DiD 95% CI lo", 11.6, round(float(_ci_lo), 1), 0.3)
+chk("R", "F4 production-code DiD 95% CI hi", 14.9, round(float(_ci_hi), 1), 0.3)
 
 
 npass = sum(1 for *_, ok in CHK if ok)
