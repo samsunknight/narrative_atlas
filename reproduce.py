@@ -228,23 +228,31 @@ for c in ATTRS:
         if k in c: SM[n] = c
 Fn = F.assign(nt=F.title.map(norm)).drop_duplicates("nt").set_index("nt")
 Bn = B.assign(nt=B.title.map(norm)).drop_duplicates("nt").set_index("nt")
-rows = []
+rows = []; src = []
 for _, r in PAIRS.iterrows():
     ft, bt = norm(r.filmLabel), norm(r.bookLabel)
     if ft in Fn.index and bt in Bn.index:
-        rows.append({n: (Fn.loc[ft][a] - Bn.loc[bt][a]) for n, a in SM.items()})
-AD = pd.DataFrame(rows)
+        rows.append({n: (Fn.loc[ft][a] - Bn.loc[bt][a]) for n, a in SM.items()}); src.append(bt)
+AD = pd.DataFrame(rows); SRC = pd.Series(src).values
 xs = {n: (F[a].mean() - B[a].mean()) for n, a in SM.items()}
 chk("R", "adaptation pairs matched", 437, len(AD), 6)
+# Several films adapt the same source novel, so t-statistics use standard errors
+# clustered by source work (CR1), not iid pair SEs; point estimates are unchanged.
+G = pd.Series(SRC).nunique(); N = len(AD)
 adt = {}
 for n in SM:
-    wd = AD[n].mean(); se = AD[n].std()/np.sqrt(len(AD)); adt[n] = (wd, wd/se, np.sign(wd) == np.sign(xs[n]))
+    y = AD[n].values; wd = y.mean(); e = y - wd
+    Sg = pd.Series(e).groupby(SRC).sum().values
+    se_cl = np.sqrt((G / (G - 1)) * (Sg ** 2).sum()) / N
+    adt[n] = (wd, wd / se_cl, np.sign(wd) == np.sign(xs[n]))
+chk("R", "adaptation source clusters", 316, G, 8)
 chk("R", "adaptation sci-fi delta",      -0.38, round(adt["sci-fi"][0], 2), 0.05)
 chk("R", "adaptation fantastical delta", -0.19, round(adt["fantastical"][0], 2), 0.05)
-for n, pv in [("sci-fi",-7.7),("fantastical",-3.4),("realistic",-22.2),
-              ("relatability",2.3),("world-building",-0.1),("competence",-1.0),
-              ("#protagonists",-5.7),("proactiveness",0.6),("plot-driven",5.2),("character-driven",-9.9)]:
-    chk("R", f"adaptation t {n}", pv, round(adt[n][1], 1), 0.7)
+print("  [clustered adaptation t] " + "  ".join(f"{n}={adt[n][1]:.2f}" for n in SM))
+for n, pv in [("sci-fi",-6.0),("fantastical",-2.6),("realistic",-17.1),
+              ("relatability",1.3),("world-building",-0.1),("competence",-0.8),
+              ("#protagonists",-3.3),("proactiveness",0.4),("plot-driven",4.2),("character-driven",-8.0)]:
+    chk("R", f"adaptation clustered t {n}", pv, round(adt[n][1], 1), 0.7)
 chk("R", "adaptation sign-agree (of 10)", 9, int(sum(v[2] for v in adt.values())), 0)
 
 # =====================================================================================
