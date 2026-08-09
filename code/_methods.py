@@ -23,7 +23,10 @@ def load_spine(medium):
 
 def spine_attrs(df):
     """The structural-spine attribute columns of a corpus frame (everything but the identifiers)."""
-    return [c for c in df.columns if c not in ("id", "title", "year", "dec", "medium", "loglen")]
+    # exclude identifiers; the medium idx columns are listed defensively so the spine is 36
+    # even if a caller reads the corpus CSV directly without load_spine (which renames idx to id).
+    drop = ("id", "title", "year", "dec", "medium", "loglen", "film_idx", "book_idx", "tv_idx")
+    return [c for c in df.columns if c not in drop]
 
 def cross_medium(df_or_cols):
     """The sixteen cross-medium columns present in a frame or column list, in column order."""

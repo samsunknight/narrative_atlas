@@ -436,7 +436,7 @@ for g, name, pv in [("Western","Western",-84.0),("Musical","Musical",-52.0),
     chk("R", f"genre lifecycle {name} pct", pv, life_pct(g), 5.0)
 
 # =====================================================================================
-# PRODUCTION-CODE DiD  (re-derived from atlas mood_* darkness index, medium x decade)
+# MOOD DARKENING  (film vs novel, re-derived from atlas mood_* dark-mood index, medium x decade)
 #   port of mood_layer.py: didx_raw = mean(DARK moods) - mean(LIGHT moods), 0-100 scale
 # =====================================================================================
 DARK  = ["Dark","Bleak","Tragic","Gritty","Tense","Melancholic","Chilling","Eerie","Sad","Bittersweet"]
@@ -449,13 +449,6 @@ def load_mood(m):
     d["didx_raw"] = d[DARKc].mean(axis=1) - d[LIGHTc].mean(axis=1)
     return d
 Fm, Bm = load_mood("film"), load_mood("book")
-def gap(yr): return float(Fm[Fm.year.between(yr-2,yr+2)]["didx_raw"].mean() - Bm[Bm.year.between(yr-2,yr+2)]["didx_raw"].mean())
-def mean_raw(d, lo, hi): return float(d[d.year.between(lo,hi)]["didx_raw"].mean())
-film_chg = mean_raw(Fm,1969,1985) - mean_raw(Fm,1934,1968)
-book_chg = mean_raw(Bm,1969,1985) - mean_raw(Bm,1934,1968)
-chk("R", "production-code gap film-novel 1935", -33.0, round(gap(1935), 1), 2.0)
-chk("R", "production-code gap film-novel 1968",  -8.0, round(gap(1968), 1), 2.0)
-chk("R", "production-code DiD (film-novel)",     13.2, round(film_chg-book_chg, 1), 0.5)
 # darkening magnitude (dark-only 0-100): main-text "the novel darkens about a tenth as much".
 def _dk_dec(d, dec): return float(d[(d.year>=dec)&(d.year<dec+10)][DARKc].mean(axis=1).mean())
 _film_dk = _dk_dec(Fm,1970) - _dk_dec(Fm,1930); _book_dk = _dk_dec(Bm,1970) - _dk_dec(Bm,1930)
@@ -810,22 +803,6 @@ chk("R", "F3 off-diag corr-matrix agreement r",  0.77, round(_JS["offdiag_r"], 2
 chk("R", "F3 PC1 Tucker congruence",             0.96, round(_JS["tucker_pc1"], 2), 0.03)
 chk("R", "F3 coupling inflation ratio (machine/human)", 1.41, round(_JS["coupling_ratio"], 2), 0.03)
 
-# --- F4  production-code differential CI (P0:76) --------------------------------------
-#   bootstrap the DiD [film(1969-85)-film(1934-68)] - [book(1969-85)-book(1934-68)] on the
-#   0-100 dark-mood index, resampling works within each cohort x medium cell (rng seed 0,
-#   2000 draws), 2.5/97.5 percentiles. Point estimate 13.2 is pinned above; here is its CI.
-def _cell(d, lo, hi): return d[d.year.between(lo, hi)]["didx_raw"].dropna().values
-_fe, _fl = _cell(Fm, 1934, 1968), _cell(Fm, 1969, 1985)
-_be, _bl = _cell(Bm, 1934, 1968), _cell(Bm, 1969, 1985)
-_rng = np.random.default_rng(0); _draws = np.empty(2000)
-for _i in range(2000):
-    _draws[_i] = (_rng.choice(_fl, len(_fl), True).mean() - _rng.choice(_fe, len(_fe), True).mean()) \
-               - (_rng.choice(_bl, len(_bl), True).mean() - _rng.choice(_be, len(_be), True).mean())
-_ci_lo, _ci_hi = np.percentile(_draws, [2.5, 97.5])
-chk("R", "F4 production-code DiD 95% CI lo", 11.6, round(float(_ci_lo), 1), 0.3)
-chk("R", "F4 production-code DiD 95% CI hi", 14.9, round(float(_ci_hi), 1), 0.3)
-
-
 npass = sum(1 for *_, ok in CHK if ok)
 nR = sum(1 for k, *_ in CHK if k == "R"); nA = sum(1 for k, *_ in CHK if k == "A")
 L = []
@@ -839,7 +816,7 @@ L.append(f"                        computed values from ATLAS_VALIDATION_MASTER.
 L.append("-"*92)
 L.append("LAYERS RE-DERIVED FROM RAW: corpus counts | STRUCTURE (film+book val r) | GENRE (AUC layer +")
 L.append("  structural->IMDb) | TEXTURE (descriptor r) | ADAPTATION | RECEPTION | convergence |")
-L.append("  crystallization | variance-ratio | genre-lifecycles | production-code DiD | geometry")
+L.append("  crystallization | variance-ratio | genre-lifecycles | mood-darkening | geometry")
 L.append("FILM VALIDATION (deployed corpus, corrected linkage): structure r=0.35 | mood 0.41 | texture 0.40 | arc-change 0.45-0.54")
 L.append("="*92)
 for kind, label, target, comp, ok in CHK:

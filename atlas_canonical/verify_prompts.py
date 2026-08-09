@@ -62,7 +62,7 @@ def main():
         from openai import OpenAI
         from concurrent.futures import ThreadPoolExecutor
         cli = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-        plot = {m: pd.read_parquet(os.path.expanduser(f"~/uoft/cultural_physics/data/{ 'film_wiki_text' if m=='film' else m+'_wiki_text_century'}.parquet")) for m in ["film"]}
+        plot = {m: pd.read_parquet(os.path.expanduser(f"~/uoft/style_evolves/data/{ 'film_wiki_text' if m=='film' else m+'_wiki_text_century'}.parquet")) for m in ["film"]}
         NUM = re.compile(r'-?\d+\.?\d*')
         def score(title, text, sysmsg):
             try:
