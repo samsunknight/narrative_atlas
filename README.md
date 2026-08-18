@@ -1,8 +1,17 @@
-# Replication Package for "A Human-Validated Atlas of Narrative Form across a Century of Literature, Film, and Television"
+# Replication Package for "Narrative media retain distinct signatures through a century of convergence"
 
-This repository contains the code and released data to reproduce the headline numbers, figures, and tables in the paper. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025 (film and television; the novel corpus reaches earlier), each read on 216 attributes of narrative form across eleven constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, tone, and texture), of which 195 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 714 readers and 225 viewers. A single driver, `reproduce.py`, regenerates the checked quantities from the released tables and prints `148/148 passed` (turnkey; `162/162` once the IMDb match files are rebuilt via `code/rebuild_imdb_match.py`, since IMDb's data is not redistributable).
+This repository contains the code and released data to reproduce every number, table, and figure in the paper with a single command. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on 216 attributes of narrative form across eleven constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, tone, and texture), of which 195 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 711 readers and 225 viewers.
 
-The clean, shared-column dataset for reuse lives in `atlas_canonical/`; the messy-named tables under `data/atlas/` are the reproduction inputs `reproduce.py` reads.
+Reproduction is one command:
+
+```
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+bash run_all.sh
+```
+
+`run_all.sh` rebuilds the structural spine from the canonical atlas and asserts it has not drifted, runs every analysis script (writing its outputs under `pnas-sub/analysis/out/`), regenerates the data tables from those outputs, runs the drift guards, re-derives every headline number from the released corpus through `reproduce.py` (131 checks), and finally `verify_paper.py` recomputes each reported number and confirms the manuscript agrees. It ends `Done.`; any failed check is fatal. The package is self-locating: it sets `NARRATIVE_ATLAS_ROOT` to its own directory, so it reproduces wherever it is unpacked.
+
+The clean, shared-column dataset for reuse lives in `atlas_canonical/`; the dense per-medium frames under `data/atlas/` are the reproduction inputs.
 
 ---
 
@@ -23,7 +32,7 @@ Python 3.11 or later. Dependencies are pinned in `requirements.txt`:
 
 ```
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python reproduce.py
+bash run_all.sh
 ```
 
 ---
@@ -31,7 +40,8 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 ## Contents
 
 ```
-reproduce.py            single driver; reproduces the checked headline numbers (142 checks)
+run_all.sh              single driver; reproduces every number, table, and figure (one command)
+reproduce.py            headline verifier called by run_all.sh (131 checks)
 requirements.txt        Python dependencies
 atlas_canonical/        the clean, shared-column dataset for reuse (start here)
   data/atlas_{film,book,tv}.parquet
@@ -43,7 +53,7 @@ atlas_canonical/        the clean, shared-column dataset for reuse (start here)
   validation/           validation_summary.csv + VALIDATION.md
   provenance/           PROVENANCE.md, QUESTIONS.md, questions_and_prompts.csv
   README.md
-code/                   the five reference scripts (see "Pipeline" below)
+code/                   the analysis suite: the canonical module, the A-series analysis scripts, and the reference verifiers (see "Pipeline" below)
 data/
   corpus/               structural spine, column names shared across media
     {film,book,tv}_structural_1890_2025.csv
@@ -74,7 +84,7 @@ The analysis runs in three stages, and only the last is required to reproduce th
 
 2. **Released intermediates.** The scored corpus, the per-work human means, and the matched external keys are the tables in `data/`, and they are the sole inputs to reproduction. `code/rebuild_spine_from_atlas.py` rebuilds the shared-scale structural spine from the atlas and the survey crosswalk, `code/rebuild_imdb_match.py` rejoins IMDb's public dataset, and `code/check_spine_atlas_sync.py` guards the spine against drift.
 
-3. **Reproduction.** `reproduce.py` recomputes every headline quantity from the tables in `data/` and writes `outputs/check_report.txt`.
+3. **Reproduction.** `reproduce.py` (called by `run_all.sh`) recomputes every headline quantity from the tables in `data/` and writes `outputs/check_report.txt`.
 
 ---
 
@@ -84,7 +94,7 @@ The analysis runs in three stages, and only the last is required to reproduce th
 .venv/bin/python reproduce.py
 ```
 
-This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `148/148 passed` (turnkey; `162/162` with the IMDb files rebuilt), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
+This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `131/131 passed`, and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
 
 ---
 

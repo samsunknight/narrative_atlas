@@ -1,0 +1,36 @@
+attribute,question,n_books,n_ratings,r2
+6_how_science_fictional_was_the_world_of_the_movie_by_science_fictiona,"how science-fictional was the world of the ?
+
+by s",153,323,0.623
+5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,how fantastical was the world of the ? by fantasti,153,323,0.537
+3_how_realistic_was_the_world_of_the_movie_by_realistic_we_mean_plausi,how realistic was the world of the ? by realistic ,153,323,0.355
+8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,"how competent was this protagonist? by competent, ",95,174,0.294
+1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,"how many protagonists were there?
+
+
+a protagonist ",152,307,0.281
+5_if_you_checked_any_of_the_above_how_relevant_are_these_aspect_s_of_t,"if you checked any of the above, how relevant are ",95,174,0.15
+7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,"on the whole, how would you describe the pace of t",153,323,0.147
+8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,"how likable was this protagonist? by likable, we m",95,174,0.124
+3_approximately_how_many_named_side_characters_are_in_this_movie_feel,approximately how many named side characters are i,153,323,0.104
+8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,"how proactive was this protagonist? by proactive, ",95,174,0.096
+19_how_convincing_did_you_find_the_plot_by_convincing_we_mean_believab,how convincing did you find the plot? by convincin,153,323,0.095
+13_how_relatable_did_you_find_this_protagonist,how relatable did you find this protagonist?,95,174,0.084
+12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,on a scale of 1 (entirely unresolved) to 7 (entire,153,323,0.078
+9_how_realistic_did_you_find_the_dialogue_in_the_movie,how realistic did you find the dialogue in the ?,153,323,0.077
+7_overall_how_relevant_was_world_building_to_the_movie_world_building,"overall, how relevant was world-building to the ?
+",153,323,0.075
+12_how_emotionally_invested_were_you_in_this_protagonist,how emotionally invested were you in this protagon,95,174,0.074
+5_to_what_extent_did_you_feel_moved_by_this_movie_on_an_emotional_basi,to what extent did you feel moved by this  on an e,153,323,0.073
+12c_on_a_scale_of_1_very_confusing_to_7_very_easy_to_understand,on a scale of 1 (very confusing) to 7 (very easy-t,153,323,0.071
+12b_on_a_scale_of_1_very_unsurprising_predictable_to_7_very_surprising,on a scale of 1 (very unsurprising / predictable) ,153,323,0.066
+4_how_immersive_did_you_find_this_setting_by_immersive_we_mean_fully_r,how immersive did you find this setting? by ‘immer,33,45,0.056
+11_how_real_did_this_protagonist_feel_to_you,how real did this protagonist feel to you?,95,174,0.056
+8_how_engaging_did_you_find_the_dialogue_in_the_movie,how engaging did you find the dialogue in the ?,153,323,0.029
+7_now_let_s_talk_pun_intended_about_dialogue_in_your_opinion_how_was_t,"now, let’s talk (pun intended) about dialogue! 
+
+
+",153,323,0.025
+8_how_many_major_settings_does_the_movie_contain_here_we_re_asking_you,"how many major settings does the  contain? here, w",147,303,0.02
+5_in_your_opinion_how_would_you_rate_the_quality_of_the_character_writ,"in your opinion, how would you rate the quality of",153,323,0.011
+5_in_your_opinion_how_would_you_rate_the_quality_of_the_setting_and_wo,"in your opinion, how would you rate the quality of",153,323,0.0

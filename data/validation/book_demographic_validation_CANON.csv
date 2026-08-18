@@ -1,0 +1,10 @@
+attribute,book_r,n
+identity_race,0.314,57
+identity_religion,0.431,57
+identity_ethnicity,0.537,57
+identity_gender_identity,0.384,57
+identity_sexual_identity,0.59,57
+identity_disability_status,-0.018,57
+identity_citizenship_status,0.311,57
+identity_language,0.197,57
+identity_socioeconomic_status,0.355,57

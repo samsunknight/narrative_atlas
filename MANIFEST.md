@@ -1,5 +1,16 @@
 # Manifest — what is included, and what is deliberately not
 
+**Reproduction.** `bash run_all.sh` reproduces every number, table, and figure with one command: it
+rebuilds the structural spine from the canonical atlas (asserting no drift), runs the full analysis
+suite under `pnas-sub/analysis/` (the canonical module `code/_methods.py` plus the A-series scripts),
+regenerates the data tables under `pnas-sub/tables/` from those outputs, runs the drift guards,
+re-derives every headline number through `reproduce.py` (131 checks), and verifies the manuscript
+under `pnas-sub/` against the recomputed ledger. Derived summary-form features are shipped in place of
+the raw Wikipedia text (which is not redistributed); the second-model agreement is shipped as
+`data/atlas/haiku_rescore/cross_model_agreement.csv`, the full second-model score table being a large
+intermediate held outside the release.
+
+
 Every file in this package, its columns, and where it comes from. The data are well within
 GitHub's size limits; no Git LFS is needed.
 

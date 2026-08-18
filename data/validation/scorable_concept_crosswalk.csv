@@ -1,0 +1,49 @@
+concept,qid,asks_movie,asks_book,film,tv,book,film_r,book_r
+genre (select-all),Q724,1,1,genre_Documentary,genre_Comedy,genre_Musical,0.79,
+plot-driven / character-driven,Q7,1,1,film_plot_driven,tv_plot_driven,book_plot_driven,0.51,0.43
+mood / vibe (select-all),Q8,1,1,mood_Bleak,mood_Sad,mood_Lighthearted,0.52,
+# protagonists,Q209,1,1,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,1_how_many_protagonists_were_there_a_protagonist_is_the_person_or_enti,book_Q209_n_protagonists,0.55,0.53
+# named side characters,Q211,1,1,3_approximately_how_many_named_side_characters_are_in_this_movie_feel,3_approximately_how_many_named_side_characters_are_in_this_movie_feel,—,0.26,
+side-character importance,Q212,1,1,—,—,book_Q469_imp_characters,,
+protagonist traits,Q215,1,1,—,—,—,,
+marginalized-group identity,Q216,1,1,—,—,—,,
+identity relevance,Q218,1,1,identity_relevance,identity_relevance,book_identity_relevance,0.64,
+primary conflict type,Q237,1,1,—,—,—,,
+secondary conflict type,Q238,1,1,—,—,—,,
+likability (arc),Q710,1,1,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,8a_how_likable_was_this_protagonist_by_likable_we_mean_easy_to_relate,arc_likable_End,0.49,
+competence (arc),Q241,1,1,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,8b_how_competent_was_this_protagonist_by_competent_we_mean_effective_a,arc_competent_Beginning,0.43,0.54
+proactivity (arc),Q242,1,1,8c_how_proactive_was_this_protagonist_by_proactive_we_mean_motivated_a,arc_proactive_Beginning,arc_proactive_Beginning,0.24,0.31
+external change of circumstances,Q243,1,1,—,—,—,,
+personal development (internal arc),Q244,1,1,newscore:character_development,newscore:character_development,book_character_development,0.5824,
+ensemble alignment (reinforce/contradict),Q459,1,1,—,—,—,,
+setting when (era),Q479,1,1,7_overall_how_relevant_was_world_building_to_the_movie_world_building,7_overall_how_relevant_was_world_building_to_the_movie_world_building,newscore:setting_when__around_present_day,0.7078,0.775
+setting where (location),Q480,1,1,newscore:setting_where__somewhere_on_earth_that_really_exists,newscore:setting_where__somewhere_on_earth_that_really_exists,newscore:setting_where__somewhere_on_earth_that_really_exists,0.4575,0.7049
+world realistic,Q481,1,1,9_how_realistic_did_you_find_the_dialogue_in_the_movie,9_how_realistic_did_you_find_the_dialogue_in_the_movie,book_Q481_realistic,0.34,0.6
+world fantastical,Q483,1,1,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,5_how_fantastical_was_the_world_of_the_movies_by_fantastical_we_mean_a,book_Q483_fantastical,0.77,0.73
+world science-fictional,Q484,1,1,genre_Science_Fiction,genre_Science_Fiction,book_Q484_scifi,0.78,0.79
+world-building relevance,Q485,1,1,—,—,book_Q485_wb_relevance,,
+# major settings,Q487,1,1,—,—,book_Q487_n_settings,,
+setting linearity (spatial),Q488,1,1,—,—,—,,
+plot structure (main/subplots),Q621,1,1,—,—,—,,
+time linearity,Q622,1,1,newscore:time_linearity,newscore:time_linearity,book_Q622_time_linearity,0.3163,
+plot linearity,Q623,1,1,newscore:plot_linearity,newscore:plot_linearity,newscore:plot_linearity,0.2117,0.3867
+story shape (Vonnegut),Q627,1,1,—,—,—,,
+plot causality (causal/arbitrary),Q629,1,1,—,—,—,,
+pace,Q631,1,1,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,7_on_the_whole_how_would_you_describe_the_pace_of_the_movie_pace_is_th,book_pace,0.43,
+opening hook,Q632,1,1,newscore:opening_hook,newscore:opening_hook,book_opening_hook,0.3609,
+turning points,Q633,1,1,—,—,book_turning_points,,
+ending resolution,Q638,1,1,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,12a_on_a_scale_of_1_entirely_unresolved_to_7_entirely_resolved,book_Q638_resolved,0.54,
+ending reversal-of-fortune,Q729,1,1,newscore:ending_reversal,newscore:ending_reversal,—,0.1899,
+ending inevitability,Q732,1,1,—,—,—,,
+ending sudden realization,Q730,1,1,—,—,—,,
+ending emotional release (catharsis),Q731,1,1,—,—,—,,
+theme,Q684,1,1,2_how_interesting_do_you_personally_find_the_movie_s_themes,2_how_interesting_do_you_personally_find_the_movie_s_themes,book_themes_interesting,0.24,
+narrative tense,Q19,0,1,mood_Tense,acting_Intense,mood_Tense,0.51,
+narration person/POV,Q20,0,1,—,—,book_Q209_n_protagonists,,
+third-person close/omniscient,Q21,0,1,—,—,—,,
+# narrators,Q22,0,1,—,—,—,,
+narrator reliability,Q25,0,1,—,—,—,,
+narrator tone,Q39,0,1,—,—,tone_Caring,,
+narration switches,Q51,0,1,—,—,—,,
+writing-style descriptors,Q656,0,1,—,—,writing_Accessible,,
+showing vs telling,Q663,1?,1,—,—,—,,

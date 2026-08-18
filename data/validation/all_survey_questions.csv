@@ -1,0 +1,1003 @@
+survey,qid,section,text,n_options,has_freetext
+movie,Q2,Section1: Overview,1a. What is your participant ID number?,0,True
+movie,Q720,Section1: Overview,1b. What is your Movie ID Number?,0,True
+movie,Q721,Section1: Overview,1c. What is the title of your movie?,0,True
+movie,Q860,Section1: Overview,Did you watch the movie?,2,False
+movie,Q777,Section1: Overview,How would you describe the genre of the movie you watched?,0,True
+movie,Q724,Section1: Overview,What movie genre(s) do you believe this movie belongs to? Select all that apply.,10,False
+movie,Q716,Section1: Overview,"3. In a few sentences or bullet points, summarize the plot of the movie. In other words: what happened? Don’t worry about spoiling anything! Please be clear and straightforward.",0,True
+movie,Q7,Section1: Overview,4. To what extent would you describe the movie as plot-driven and character-driven?,0,False
+movie,Q8,Section1: Overview,"5. How would you describe the mood - or, less formally, the “vibes” - of the movie? Select all that apply from the alphabetized list below.",31,True
+movie,Q10,Section1: Overview,6. How did you feel about the movie?,7,False
+movie,Q11,Section1: Overview,"7. Please rank-order the three elements that most influenced how you feel about the movie. (If it’s really only one or two, simply leave the 2nd / 3rd columns blank.)",0,False
+movie,Q12,Section1: Overview,"8. If you selected Something else above, please elaborate.",0,True
+movie,Q13,Section1: Overview,"9. How much did you like the movie relative to your expectations based on the description, blurbs, or anything else you’d heard about it before watching? For example, if you loved it - and you expected to - you’d select About as much as I expected, but if you liked it when you expected to love it, you’d choose A little less than I expected.",5,False
+movie,Q700,Section1: Overview,"10. How closely do you think you fit the director's vision of the “ideal viewer” for this movie? In other words, how well do you feel you match the intended audience?",5,False
+movie,Q15,Section1: Overview,"11. Who would you imagine really liking this movie? This could be related to personality, interests, profession, life stage, general reading preferences - whatever comes to mind. Please be honest!",0,True
+movie,Q16,Section1: Overview,"12. Who would you imagine really disliking this movie? This could be related to personality, interests, profession, life stage, general reading preferences - whatever comes to mind. Please be honest!",0,True
+movie,Q209,Section 2: Character,1. How many protagonists were there?,6,False
+movie,Q210,Section 2: Character,"2. If more than one protagonist, list all protagonists and briefly describe their relationship to one another.",0,True
+movie,Q211,Section 2: Character,3. Approximately how many named side characters are in this movie? (Feel free to guesstimate),0,True
+movie,Q212,Section 2: Character,4. How important would you say the side characters are in this movie?,5,False
+movie,Q214,1 protagonist selected,"1. What was the protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q215,1 protagonist selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q216,1 protagonist selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q235,1 protagonist selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q218,1 protagonist selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q237,1 protagonist selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q238,1 protagonist selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q239,1 protagonist selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity. There’s some subjectivity here, and that’s okay! But please try to set aside any personal preferences. For example, if the protagonist runs a circus and you have a fear of clowns, don’t factor that in (unless it’s relevant to the story!).",0,False
+movie,Q710,1 protagonist selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q241,1 protagonist selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q242,1 protagonist selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q243,1 protagonist selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q244,1 protagonist selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q245,1 protagonist selected,11. How real did this protagonist feel to you?,7,False
+movie,Q246,1 protagonist selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q247,1 protagonist selected,13.How relatable did you find this protagonist?,7,False
+movie,Q829,1 protagonist selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q824,1 protagonist selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q248,2 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q249,2 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q250,2 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q251,2 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q252,2 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q253,2 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q254,2 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q255,2 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q256,2 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q257,2 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q258,2 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q259,2 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q260,2 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q261,2 protagonists selected,11.How real did this protagonist feel to you?,7,False
+movie,Q262,2 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q263,2 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q832,2 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q831,2 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q264,2 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q265,2 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q266,2 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q267,2 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q268,2 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q269,2 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q270,2 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q271,2 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q272,2 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q224,2 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q274,2 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q275,2 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q276,2 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q277,2 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q278,2 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q279,2 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q830,2 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q833,2 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q280,3 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q281,3 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q282,3 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q283,3 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q284,3 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q285,3 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q220,3 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q287,3 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q288,3 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q289,3 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q290,3 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q291,3 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q292,3 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q293,3 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q294,3 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q295,3 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q838,3 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q835,3 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q296,3 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q297,3 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q298,3 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q299,3 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q300,3 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q301,3 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q302,3 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q303,3 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q304,3 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q305,3 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q306,3 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q307,3 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q308,3 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q309,3 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q310,3 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q311,3 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q836,3 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q839,3 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q312,3 protagonists selected,"1. What was the 3rd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q313,3 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q314,3 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q315,3 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q316,3 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q317,3 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q318,3 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q319,3 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q320,3 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q321,3 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q322,3 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q323,3 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q324,3 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q325,3 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q326,3 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q327,3 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q834,3 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q837,3 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q232,4 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q329,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q347,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q331,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q333,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q334,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q335,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q336,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q337,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q338,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q339,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q340,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q341,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q342,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q343,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q344,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q846,4 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q841,4 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q345,4 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q346,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q330,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q348,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q349,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q350,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q351,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q352,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q353,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q354,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q355,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q356,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q357,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q358,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q359,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q360,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q844,4 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q847,4 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q361,4 protagonists selected,"1. What was the 3rd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q362,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q363,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q364,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q365,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q366,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q367,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q369,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q370,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q371,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q372,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q373,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q374,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q375,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q376,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q377,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q842,4 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q845,4 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q328,4 protagonists selected,"1. What was the 4th protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q379,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q234,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+movie,Q217,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q332,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q219,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q286,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q222,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q223,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q273,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q368,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q226,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q227,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q229,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q231,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q230,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q840,4 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q843,4 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q394,5 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q395,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q396,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+movie,Q397,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q398,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q399,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q400,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q401,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q402,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q403,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q388,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q405,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q406,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q407,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q408,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q425,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q858,5 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q849,5 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q410,5 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q411,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q412,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+movie,Q413,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q414,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q415,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q416,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie? [multi select]",7,True
+movie,Q417,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q418,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q419,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q420,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q421,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q422,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q423,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q424,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q393,5 protagonists selected,"13. On a scale of 1 (not at all) to 7 (extremely), how relatable did you find this protagonist?",7,False
+movie,Q854,5 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q857,5 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q426,5 protagonists selected,"1. What was the 3rd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q427,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q428,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+movie,Q429,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q430,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q431,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q432,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q433,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q434,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q435,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q436,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q437,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q438,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q439,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q440,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q441,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q852,5 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q855,5 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q442,5 protagonists selected,"1. What was the 4th protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q443,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q444,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+movie,Q445,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q446,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q447,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q448,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q449,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q450,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q451,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q452,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q453,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q454,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q455,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q456,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q457,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q850,5 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q853,5 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q378,5 protagonists selected,"1. What was the 5th protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+movie,Q233,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+movie,Q380,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+movie,Q381,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+movie,Q382,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the movie?",5,False
+movie,Q383,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q384,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the movie?",7,True
+movie,Q385,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+movie,Q386,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+movie,Q387,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+movie,Q404,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+movie,Q389,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the movie? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+movie,Q390,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the movie? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+movie,Q391,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+movie,Q392,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+movie,Q409,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+movie,Q848,5 protagonists selected,14. Which words best describe the acting? Select all that apply,14,False
+movie,Q851,5 protagonists selected,"15. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q458,Ensemble cast (More than 5 protagonists),1. You indicated that the movie has more than 5 protagonists.,0,True
+movie,Q459,Ensemble cast (More than 5 protagonists),2. To what extent did the needs and motivations of the ensemble cast reinforce or contradict each other?,5,False
+movie,Q460,Ensemble cast (More than 5 protagonists),"3. Did any members of the ensemble cast belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+movie,Q461,Ensemble cast (More than 5 protagonists),"4. If you checked any of the above, please elaborate. In your response, please specify whether you’re referring to one member of the cast, multiple members, or all members. Whenever possible, use names!",0,True
+movie,Q462,Ensemble cast (More than 5 protagonists),"5. If you checked any of the above, which aspect(s) are most relevant to their experiences in the movie? Again, please specify whether you’re referring to one member of the cast, multiple members, or all members. Use names!",0,True
+movie,Q463,Ensemble cast (More than 5 protagonists),"For the last five questions, we’ll ask you to identify protagonists from the ensemble cast who stood out in certain ways.",0,False
+movie,Q464,Ensemble cast (More than 5 protagonists),"6a. Which protagonist(s), if any, stood out as especially likable? By likable, we mean easy to relate to, empathize with, and root for.",0,True
+movie,Q465,Ensemble cast (More than 5 protagonists),"6b. Which protagonist(s), if any, stood out as especially dislikable? By dislikable, we mean hard to relate to, empathize with, and root for.",0,True
+movie,Q466,Ensemble cast (More than 5 protagonists),"6c. Which protagonist(s), if any, stood out as especially competent? By competent, we mean effective at the activities and tasks that matter to them.",0,True
+movie,Q467,Ensemble cast (More than 5 protagonists),"6d. Which protagonist(s), if any, stood out as especially proactive? By proactive, we mean motivated and taking steps to reach their goals.",0,True
+movie,Q468,Ensemble cast (More than 5 protagonists),"6e.  Which protagonist(s), if any, stood out as especially impactful? By impactful, we mean affecting other members of the ensemble cast, regardless of whether those effects were intended or desired.",0,True
+movie,Q469,Your Opinion: Character,"1. In your opinion, how important were the characters to your experience of the movie as a whole, relative to other elements like setting and world-building, plot, pace, theme, tone or mood, and writing style?",5,False
+movie,Q735,Your Opinion: Character,"2. In your opinion, did anything about the movie's characters or character development work really well? If yes, please describe what you liked and why.",0,True
+movie,Q736,Your Opinion: Character,"3. In your opinion, did anything about the movie's characters or character development not work so well? If yes, please describe what you disliked and why.",0,True
+movie,Q472,Your Opinion: Character,"4. Compared to other movies you’ve seen, did anything about the characters or character development stand out as distinctive or unusual? If yes, please describe.",0,True
+movie,Q727,Your Opinion: Character,"5. In your opinion, how would you rate the quality of the character writing in this movie, on a scale of 1-7?",7,False
+movie,Q479,Section 3: setting,1. When does the movie take place? Select all that apply.,5,False
+movie,Q480,Section 3: setting,2. Where does the movie take place? Select all that apply.,4,False
+movie,Q481,Section 3: setting,3. How realistic was the world of the movie? By realistic we mean plausible - a faithful or true-to-life representation.,7,False
+movie,Q482,Section 3: setting,"4. How familiar was the world of the movie? By familiar we mean a setting that you know well, either from your own lived experiences or from other movies, books, or media.",7,False
+movie,Q483,Section 3: setting,"5. How fantastical was the world of the movies? By fantastical we mean a world that would be characterized as “fantasy,” typically one where magic is real, as in Lord of the Rings.",7,False
+movie,Q484,Section 3: setting,6. How science-fictional was the world of the movie?,7,False
+movie,Q485,Section 3: setting,"7. Overall, how relevant was world-building to the movie?",5,False
+movie,Q487,Section 3: setting,"8. How many major settings does the movie contain? Here, we're asking you to count at a high-level and focus on major settings only. For example, in the first Harry Potter book, the major settings would be (1) the Dursley home and (2) the Hogwarts School of Witchcraft and Wizardry - which you wouldn’t need to break down further into the Gryffindor common room, Snape’s dungeon, or Hagrid’s cabin.",6,False
+movie,Q488,Section 3: setting,"9. If more than one major setting, did the movie move linearly from one setting to the next, or did it alternate regularly between them?",3,False
+movie,Q495,1 setting selected,1. Please describe the setting by giving its location or identifying characteristics.,0,True
+movie,Q496,1 setting selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q499,1 setting selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q500,1 setting selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q501,2 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+movie,Q502,2 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q505,2 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q506,2 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q507,2 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+movie,Q508,2 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q511,2 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q512,2 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q513,3 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+movie,Q514,3 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q517,3 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q518,3 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q519,3 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+movie,Q520,3 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q523,3 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q524,3 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q489,3 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+movie,Q526,3 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q529,3 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q530,3 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q531,4 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+movie,Q532,4 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q535,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q536,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q537,4 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+movie,Q538,4 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q541,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q542,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q543,4 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+movie,Q544,4 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q547,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q548,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q549,4 settings selected,1. Please describe the 4th setting by giving its location or identifying characteristics.,0,True
+movie,Q550,4 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q553,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q554,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q555,5 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+movie,Q556,5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q559,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q560,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q561,5 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+movie,Q562,5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q565,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q566,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q567,5 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+movie,Q568,5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q571,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q572,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q573,5 settings selected,1. Please describe the 4th setting by giving its location or identifying characteristics.,0,True
+movie,Q574,5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q577,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q578,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q525,5 settings selected,1. Please describe the 5th setting by giving its location or identifying characteristics.,0,True
+movie,Q490,5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q493,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q494,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q609,More than 5 settings selected,Please choose the 5 most important settings and answer the questions accordingly.,0,False
+movie,Q582,More than 5 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+movie,Q583,More than 5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q586,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q587,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q588,More than 5 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+movie,Q589,More than 5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q592,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q593,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q594,More than 5 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+movie,Q595,More than 5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q598,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q599,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q600,More than 5 settings selected,1. Please describe the 4th setting by giving its location or identifying characteristics.,0,True
+movie,Q601,More than 5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q604,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q605,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q606,More than 5 settings selected,1. Please describe the 5th setting by giving its location or identifying characteristics.,0,True
+movie,Q607,More than 5 settings selected,"2. On a percent-of-movie basis, at what point(s) was the movie set here?",10,False
+movie,Q610,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+movie,Q611,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+movie,Q610,Your opinion: setting,"1. In your opinion, how important was the setting and world-building to your experience of the movie as a whole, relative to other elements like character, plot and pace, theme, mood, and writing style?",5,False
+movie,Q611,Your opinion: setting,"2. In your opinion, did anything about the movie's setting or world-building work really well? If yes, please describe what you liked and why.",0,True
+movie,Q738,Your opinion: setting,"3. In your opinion, did anything about the movie's setting or world-building work not work so well? If yes, please describe what you liked and why.",0,True
+movie,Q737,Your opinion: setting,"4. In your opinion, did anything about the movie's setting or world-building stand out as distinctive or unusual? If yes, please describe.",0,True
+movie,Q612,Your opinion: setting,"5. In your opinion, how would you rate the quality of the setting and world-building writing in this movie, on a scale of 1-7?",7,False
+movie,Q621,Section 4: plot and pace,1. How would you characterize the structure of the movie in terms of main plots and subplots?,3,False
+movie,Q622,Section 4: plot and pace,2. How would you characterize its linearity in terms of time?,4,False
+movie,Q623,Section 4: plot and pace,3.  How would you characterize its linearity in terms of plot?,4,False
+movie,Q624,Section 4: plot and pace,"Kurt Vonnegut famously said stories could be described in terms of a two-dimensional graph, with “how well things are going” on the Y axis and the progression of the story from Beginning to End on the X axis. Researchers later built on this work and established that there were generally “6 basic story shapes” that plots belonged to, based on these oscillations between good fortune / bad fortune over the course of the story.",0,False
+movie,Q627,Section 4: plot and pace,"4. Which story shape best describes this story’s plot, if any?",7,False
+movie,Q628,Section 4: plot and pace,"5. If none of the above, How would you describe this story’s shape, in terms of an arc such as the above?",0,True
+movie,Q629,Section 4: plot and pace,6. How related was the sequence of plot events throughout the movie?,5,False
+movie,Q631,Section 4: plot and pace,"7. On the whole, how would you describe the pace of the movie?",5,False
+movie,Q707,Section 4: plot and pace,8.,10,False
+movie,Q632,Section 4: plot and pace,"9. Did the movie begin with a “hook” - something dramatic, mysterious, or shocking that immediately made the stakes of the story clear?",3,False
+movie,Q633,Section 4: plot and pace,10. Did the movie feature one or more major turning points - where critical elements of the protagonists’ lives were never the same afterwards?,3,False
+movie,Q634,Section 4: plot and pace,"11a. On a percent-of-movie basis, please select the point in the movie where any major turning point(s) occurred.",10,False
+movie,Q708,Section 4: plot and pace,11b. Please briefly describe the major turning points.,0,True
+movie,Q637,Section 4: plot and pace,"For the next few questions, we’ll ask you to describe the ending of the movie on a series of scales. How would you describe the way it ended:",0,False
+movie,Q638,Section 4: plot and pace,12a. On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,7,False
+movie,Q639,Section 4: plot and pace,12b. On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,7,False
+movie,Q640,Section 4: plot and pace,12c. On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,7,False
+movie,Q641,Section 4: plot and pace,12d. On a scale of 1 (very unsatisfying) to 7 (very satisfying)?,7,False
+movie,Q732,Section 4: plot and pace,12e. On a scale of 1 (entirely arbitrary / could have easily happened another way) to 7 (entirely inevitable / it had to happen this way)?,7,False
+movie,Q729,Section 4: plot and pace,13. Did the ending feature a major reversal-of-fortune for the main character(s)?,3,False
+movie,Q730,Section 4: plot and pace,"14. Did the ending feature a major ""sudden realization"" on the part of the main character(s)?",3,False
+movie,Q731,Section 4: plot and pace,"15. Did the ending feature a major emotional release, or other major expression of emotion, on the part of the main character(s)?",3,False
+movie,Q643,Your opinion: plot and pacing,18. How compelling did you find the plot? By compelling we mean interesting and absorbing.,7,False
+movie,Q644,Your opinion: plot and pacing,19. How convincing did you find the plot? By convincing we mean believable.,7,False
+movie,Q645,Your opinion: plot and pacing,"20. In your opinion, how important was the plot/pacing to your experience of the movie as a whole, relative to other elements like narration, character, setting, theme, tone or mood, and writing style?",5,False
+movie,Q648,Your opinion: plot and pacing,"21. In your opinion, did anything about the movie's plot or pacing work really well? If yes, please describe what you liked and why.",0,True
+movie,Q740,Your opinion: plot and pacing,"22. In your opinion, did anything about the movie's plot or pacing work not work so well? If yes, please describe what you didn't like and why.",0,True
+movie,Q739,Your opinion: plot and pacing,"23. Compared to other movies you’ve watched, did anything about the plot or pacing stand out as distinctive or unusual? If yes, please describe.",0,True
+movie,Q1,"Section 5: Visual style, writing style, and score","Note: This section is subjective. Please answer based on your own perception; don’t try to guess how the “average” reader might respond. Be honest, and don’t overthink it!",0,False
+movie,Q2,"Section 5: Visual style, writing style, and score",1. Which words best describe the visual style? Select all that apply.,16,True
+movie,Q3,"Section 5: Visual style, writing style, and score",2. How consistent did you find the visual style? By consistent we mean that it was generally the same throughout the whole film.,7,False
+movie,Q4,"Section 5: Visual style, writing style, and score",3. How evocative did you find the visual style? By evocative we mean affecting and memorable.,7,False
+movie,Q5,"Section 5: Visual style, writing style, and score","4. How interesting did you find the visual style? By interesting we mean noteworthy, attention-grabbing, and creative.",7,False
+movie,Q817,"Section 5: Visual style, writing style, and score",5. How important was the visual style to your experience of the movie as a whole?,7,False
+movie,Q6,"Section 5: Visual style, writing style, and score","Note: Do not factor the content of the movie into your answer! Focus only on the style, including shot choice and editing.",0,False
+movie,Q7,"Section 5: Visual style, writing style, and score","The revelation of a story always includes a balance of showing and telling. By showing we mean using description and action to help the viewer understand the story, and by telling we mean summarizing or using exposition to tell the viewer directly what is happening.",0,False
+movie,Q8,"Section 5: Visual style, writing style, and score","6. In your opinion, how was the amount of showing and telling throughout the movie?",0,False
+movie,Q9,"Section 5: Visual style, writing style, and score",7.,5,False
+movie,Q11,"Section 5: Visual style, writing style, and score",8. How engaging did you find the dialogue in the movie?,7,False
+movie,Q12,"Section 5: Visual style, writing style, and score",9. How realistic did you find the dialogue in the movie?,7,False
+movie,Q13,"Section 5: Visual style, writing style, and score",10. How important was the dialogue to your experience of the movie as a whole?,5,False
+movie,Q820,"Section 5: Visual style, writing style, and score",11. Which words best describe the musical style of the movie's score? Select all that apply.,12,True
+movie,Q819,"Section 5: Visual style, writing style, and score",12. How well-matched did the score feel to the action?,7,False
+movie,Q818,"Section 5: Visual style, writing style, and score",13. How much did you like the score?,7,False
+movie,Q821,"Section 5: Visual style, writing style, and score",14. How important was the score to your experience of the movie?,7,False
+movie,Q15,"Section 5: Visual style, writing style, and score","15. In your opinion, did anything about the movie's visual style, writing style, and/or score work really well? If yes, please describe what you liked and why.",0,True
+movie,Q16,"Section 5: Visual style, writing style, and score","16. In your opinion, did anything about the movie's visual style, writing style, and/or score work not work so well? If yes, please describe what you didn't like and why.",0,True
+movie,Q17,"Section 5: Visual style, writing style, and score","17. Compared to other movies you’ve seen, did anything about the visual style, writing style, and/or score stand out as distinctive or unusual? If yes, please describe.",0,True
+movie,Q682,Section 6: Reflection and close,"Note: This section is subjective. Please answer based on your own perception; don’t try to guess how the “average” reader might respond. Be honest, and don’t overthink it!",0,False
+movie,Q683,Section 6: Reflection and close,"1. In your own words, how would you describe the movie's themes - its core ideas or central questions?",0,True
+movie,Q684,Section 6: Reflection and close,2. How interesting do you personally find the movie's themes?,5,False
+movie,Q688,Section 6: Reflection and close,"3. While you were in the process of watching the movie, how enjoyable did you find it? In other words, how much did you like it and how eager were you to keep watching?",5,False
+movie,Q689,Section 6: Reflection and close,"4. After having watched the movie, how glad are you to have devoted time and energy to it? In other words, how worthwhile of an experience was it?",5,False
+movie,Q691,Section 6: Reflection and close,5. To what extent did you feel moved by this movie on an emotional basis? An intellectual basis?,0,False
+movie,Q692,Section 6: Reflection and close,"6. If you have any other feedback about your experience of the movie you’d like to share before we close out, please add any additional remarks on the movie here.",0,True
+book,Q2,Section1: Overview,1a. What is your participant ID number?,0,True
+book,Q720,Section1: Overview,1b. What is your Book ID Number?,0,True
+book,Q721,Section1: Overview,1c. What is the title of your novel?,0,True
+book,Q777,Section1: Overview,How would you describe the genre of the book you read?,0,True
+book,Q724,Section1: Overview,What book genre(s) do you believe this book belongs to? Select all that apply.,8,False
+book,Q716,Section1: Overview,"3. In a few sentences or bullet points, summarize the plot of the book. In other words: what happened? Don’t worry about spoiling anything! Please be clear and straightforward.",0,True
+book,Q7,Section1: Overview,4. To what extent would you describe the book as plot-driven and character-driven?,0,False
+book,Q8,Section1: Overview,"5. How would you describe the mood - or, less formally, the “vibes” - of the book? Select all that apply from the alphabetized list below.",31,True
+book,Q10,Section1: Overview,6. How did you feel about the book?,7,False
+book,Q11,Section1: Overview,"7. Please rank-order the three elements that most influenced how you feel about the book. (If it’s really only one or two, simply leave the 2nd / 3rd columns blank.)",0,False
+book,Q12,Section1: Overview,"8. If you selected Something else above, please elaborate.",0,True
+book,Q13,Section1: Overview,"9. How much did you like the book relative to your expectations based on the description, blurbs, or anything else you’d heard about it before reading? For example, if you loved it - and you expected to - you’d select About as much as I expected, but if you liked it when you expected to love it, you’d choose A little less than I expected.",5,False
+book,Q700,Section1: Overview,"10. How closely do you think you fit the author’s vision of the “ideal reader” for this book? In other words, how well do you feel you match the intended audience?",5,False
+book,Q15,Section1: Overview,"11. Who would you imagine really liking this book? This could be related to personality, interests, profession, life stage, general reading preferences - whatever comes to mind. Please be honest!",0,True
+book,Q16,Section1: Overview,"12. Who would you imagine really disliking this book? This could be related to personality, interests, profession, life stage, general reading preferences - whatever comes to mind. Please be honest!",0,True
+book,Q19,Section 2: Narration and Point of View,1. Was the book narrated primarily in past or present tense?,2,True
+book,Q20,Section 2: Narration and Point of View,2. What type of narration was predominantly used?,4,False
+book,Q21,Section 2: Narration and Point of View,"3. If third person narration was used, was it predominantly close or omniscient?",3,False
+book,Q22,Section 2: Narration and Point of View,"4. In total, how many narrators were there?",6,False
+book,Q34,1 narrator selected,1. What was the narrator's name?,0,True
+book,Q33,1 narrator selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q24,1 narrator selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q25,1 narrator selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q39,1 narrator selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,33,True
+book,Q29,2 narrators selected,1. Please list all narrators and briefly describe their relationship(s) to one another.,0,True
+book,Q51,2 narrators selected,2. How many times did the narration switch?,4,False
+book,Q22,2 narrators selected,1. What was the 1st narrator's name?,0,True
+book,Q42,2 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q44,2 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q45,2 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q47,2 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,33,True
+book,Q49,2 narrators selected,1. What was the 2nd narrator's name?,0,True
+book,Q32,2 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q54,2 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q55,2 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q57,2 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,33,True
+book,Q50,3 narrators selected,1. Please list all narrators and briefly describe their relationship(s) to one another.,0,True
+book,Q77,3 narrators selected,2. How many times did the narration switch?,4,False
+book,Q41,3 narrators selected,1. What was the 1st narrator's name?,0,True
+book,Q60,3 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q62,3 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q63,3 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q65,3 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q59,3 narrators selected,1. What was the 2nd narrator's name?,0,True
+book,Q68,3 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q70,3 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q71,3 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q73,3 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q67,3 narrators selected,1. What was the 3rd narrator's name?,0,True
+book,Q52,3 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q84,3 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q85,3 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q87,3 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q76,4 narrators selected,1. Please list all narrators and briefly describe their relationship(s) to one another.,0,True
+book,Q79,4 narrators selected,2. How many times did the narration switch?,4,False
+book,Q89,4 narrators selected,1. What was the 1st narrator's name?,0,True
+book,Q90,4 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q92,4 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q93,4 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q95,4 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,38,False
+book,Q75,4 narrators selected,1. What was the 2nd narrator's name?,0,True
+book,Q98,4 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q100,4 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q101,4 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q103,4 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q97,4 narrators selected,1. What was the 3rd narrator's name?,0,True
+book,Q106,4 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q108,4 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q109,4 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q111,4 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q113,4 narrators selected,1. What was the 4th narrator's name?,0,True
+book,Q82,4 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q119,4 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q121,4 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q125,4 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q78,5 narrators selected,1. Please list all narrators and briefly describe their relationship(s) to one another.,0,True
+book,Q81,5 narrators selected,2. How many times did the narration switch?,4,False
+book,Q129,5 narrators selected,1. What was the 1st narrator's name?,0,True
+book,Q130,5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q132,5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q133,5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q135,5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q137,5 narrators selected,1. What was the 2nd narrator's name?,0,True
+book,Q138,5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q140,5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q141,5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q143,5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q145,5 narrators selected,1. What was the 3rd narrator's name?,0,True
+book,Q146,5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q148,5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q149,5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q151,5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q105,5 narrators selected,1. What was the 4th narrator's name?,0,True
+book,Q154,5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q156,5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q157,5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q159,5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q153,5 narrators selected,1. What was the 5th narrator's name?,0,True
+book,Q116,5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q120,5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q122,5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q126,5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q80,more than 5 narrators selected,1. Please list all narrators and briefly describe their relationship(s) to one another.,0,True
+book,Q30,more than 5 narrators selected,2. How many times did the narration switch?,4,False
+book,Q161,more than 5 narrators selected,1. What was the 1st narrator's name?,0,True
+book,Q162,more than 5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q164,more than 5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q165,more than 5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q175,more than 5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q169,more than 5 narrators selected,1. What was the 2nd narrator's name?,0,True
+book,Q170,more than 5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q172,more than 5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q173,more than 5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q27,more than 5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q177,more than 5 narrators selected,1. What was the 3rd narrator's name?,0,True
+book,Q178,more than 5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q180,more than 5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q181,more than 5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q183,more than 5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q185,more than 5 narrators selected,1. What was the 4th narrator's name?,0,True
+book,Q186,more than 5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q188,more than 5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q189,more than 5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q190,more than 5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q193,more than 5 narrators selected,1. What was the 5th narrator's name?,0,True
+book,Q194,more than 5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q196,more than 5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q197,more than 5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q199,more than 5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q201,more than 5 narrators selected,1. What was the 6th narrator's name?,0,True
+book,Q202,more than 5 narrators selected,2. Was this narrator an omniscient narrator or an actual character featured in the book?,2,False
+book,Q204,more than 5 narrators selected,3. Approximately what share of the book was told from this narrator's point of view?,4,False
+book,Q205,more than 5 narrators selected,4. How reliable or unreliable was this narrator?,5,False
+book,Q207,more than 5 narrators selected,5. What word would you choose to describe this narrator’s overall tone? Select all that apply from the alphabetized list below.,37,True
+book,Q711,Your Opinion: Narration / Point of View,"1. In your opinion, how important was the narration and POV to your experience of the book as a whole, relative to other elements like character, setting and world-building, plot, pace, theme, and writing style?",5,False
+book,Q733,Your Opinion: Narration / Point of View,"2. In your opinion, did anything about the book’s narration or POV work really well? If yes, please describe what you liked and why.",0,True
+book,Q734,Your Opinion: Narration / Point of View,"3. In your opinion, did anything about the book’s narration or POV not work so well? If yes, please describe what you disliked and why.",0,True
+book,Q714,Your Opinion: Narration / Point of View,"4. Compared to other fiction you’ve read, did anything about the narration or POV stand out as distinctive or unusual? If yes, please describe.",0,True
+book,Q725,Your Opinion: Narration / Point of View,"5. In your opinion, how would you rate the quality of the narration and POV writing in this book, on a scale of 1-7?",7,False
+book,Q209,Section 3: Character,1. How many protagonists were there?,6,False
+book,Q210,Section 3: Character,"2. If more than one protagonist, list all protagonists and briefly describe their relationship to one another.",0,True
+book,Q211,Section 3: Character,3. Approximately how many named side characters are in this book? (Feel free to guesstimate),0,True
+book,Q212,Section 3: Character,4. How important would you say the side characters are in this book?,5,False
+book,Q214,1 protagonist selected,"1. What was the protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q215,1 protagonist selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q216,1 protagonist selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q235,1 protagonist selected,"4. If you checked any of the above, please specify:",0,True
+book,Q218,1 protagonist selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q237,1 protagonist selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q238,1 protagonist selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q239,1 protagonist selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity. There’s some subjectivity here, and that’s okay! But please try to set aside any personal preferences. For example, if the protagonist runs a circus and you have a fear of clowns, don’t factor that in (unless it’s relevant to the story!).",0,False
+book,Q710,1 protagonist selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q241,1 protagonist selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q242,1 protagonist selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q243,1 protagonist selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q244,1 protagonist selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q245,1 protagonist selected,11. How real did this protagonist feel to you?,7,False
+book,Q246,1 protagonist selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q247,1 protagonist selected,13.How relatable did you find this protagonist?,7,False
+book,Q248,2 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q249,2 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q250,2 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q251,2 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q252,2 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q253,2 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q254,2 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q255,2 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q256,2 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q257,2 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q258,2 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q259,2 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q260,2 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q261,2 protagonists selected,11.How real did this protagonist feel to you?,7,False
+book,Q262,2 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q263,2 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q264,2 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q265,2 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q266,2 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q267,2 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q268,2 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q269,2 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q270,2 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q271,2 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q272,2 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q224,2 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q274,2 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q275,2 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q276,2 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q277,2 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q278,2 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q279,2 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q280,3 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q281,3 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q282,3 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q283,3 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q284,3 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q285,3 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q220,3 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q287,3 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q288,3 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q289,3 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q290,3 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q291,3 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q292,3 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q293,3 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q294,3 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q295,3 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q296,3 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q297,3 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q298,3 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q299,3 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q300,3 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q301,3 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q302,3 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q303,3 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q304,3 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q305,3 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q306,3 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q307,3 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q308,3 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q309,3 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q310,3 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q311,3 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q312,3 protagonists selected,"1. What was the 3rd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q313,3 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q314,3 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q315,3 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q316,3 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q317,3 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q318,3 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q319,3 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q320,3 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q321,3 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q322,3 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q323,3 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q324,3 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q325,3 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q326,3 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q327,3 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q232,4 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q329,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q347,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q331,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q333,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q334,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q335,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q336,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q337,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q338,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q339,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q340,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q341,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q342,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q343,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q344,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q345,4 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q346,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q330,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q348,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q349,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q350,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q351,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q352,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q353,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q354,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q355,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q356,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q357,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q358,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q359,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q360,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q361,4 protagonists selected,"1. What was the 3rd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q362,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q363,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q364,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q365,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q366,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q367,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q369,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q370,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q371,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q372,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q373,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q374,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q375,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q376,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q377,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q328,4 protagonists selected,"1. What was the 4th protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q379,4 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q234,4 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+book,Q217,4 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q332,4 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q219,4 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q286,4 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q222,4 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q223,4 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q273,4 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q368,4 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q226,4 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q227,4 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q229,4 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q231,4 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q230,4 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q394,5 protagonists selected,"1. What was the 1st protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q395,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q396,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+book,Q397,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q398,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q399,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q400,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q401,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q402,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q403,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q388,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q405,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q406,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q407,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q408,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q425,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q410,5 protagonists selected,"1. What was the 2nd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q411,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q412,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+book,Q413,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q414,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q415,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q416,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book? [multi select]",7,True
+book,Q417,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q418,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q419,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q420,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q421,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q422,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q423,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q424,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q393,5 protagonists selected,"13. On a scale of 1 (not at all) to 7 (extremely), how relatable did you find this protagonist?",7,False
+book,Q426,5 protagonists selected,"1. What was the 3rd protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q427,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q428,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+book,Q429,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q430,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q431,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q432,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q433,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q434,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q435,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q436,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q437,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q438,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q439,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q440,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q441,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q442,5 protagonists selected,"1. What was the 4th protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q443,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q444,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+book,Q445,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q446,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q447,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q448,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q449,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q450,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q451,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q452,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q453,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q454,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q455,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q456,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q457,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q378,5 protagonists selected,"1. What was the 5th protagonist’s name? Use their full name, if available. If they have no name, please clearly describe them.",0,True
+book,Q233,5 protagonists selected,"2. In 3-5 words or phrases, please describe the key characteristics or traits of this protagonist.",0,True
+book,Q380,5 protagonists selected,"3. Does this protagonist belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,False
+book,Q381,5 protagonists selected,"4. If you checked any of the above, please specify:",0,True
+book,Q382,5 protagonists selected,"5. If you checked any of the above, how relevant are these aspect(s) of their identity to their experience in the book?",5,False
+book,Q383,5 protagonists selected,"6. What primary type of conflict, if any, did this protagonist face in the book?",7,True
+book,Q384,5 protagonists selected,"7. What secondary type(s) of conflict, if any, did this protagonist face in the book?",7,True
+book,Q385,5 protagonists selected,"For the next several questions, we’ll ask you to rate this protagonist’s likability, competence, and proactivity.",0,False
+book,Q386,5 protagonists selected,"8a. How likable was this protagonist? By likable, we mean easy to relate to, empathize with, and root for.",0,False
+book,Q387,5 protagonists selected,"8b. How competent was this protagonist? By competent, we mean effective at the activities and tasks that matter to them.",0,False
+book,Q404,5 protagonists selected,"8c. How proactive was this protagonist? By proactive, we mean motivated and taking steps to reach their goals.",0,False
+book,Q389,5 protagonists selected,"9. Overall, would you say this protagonist’s life or circumstances changed considerably over the course of the book? In other words, did they experience significant external upheaval - for better or for worse?",3,False
+book,Q390,5 protagonists selected,"10. Overall, would you say this protagonist experienced strong personal development over the course of the book? In other words, did they undergo significant internal upheaval - for better or for worse?",3,False
+book,Q391,5 protagonists selected,11. How real did this protagonist feel to you?,7,False
+book,Q392,5 protagonists selected,12. How emotionally invested were you in this protagonist?,7,False
+book,Q409,5 protagonists selected,13. How relatable did you find this protagonist?,7,False
+book,Q458,Ensemble cast (More than 5 protagonists),"1. You indicated that the book has more than 5 protagonists. This can be the case for books with “ensemble casts” made up of interconnected short stories or slice-of-life snippets, like There There by Tommy Orange, which tells the linked stories of 12 Native protagonists with ties to Oakland, California.",0,True
+book,Q459,Ensemble cast (More than 5 protagonists),2. To what extent did the needs and motivations of the ensemble cast reinforce or contradict each other?,5,False
+book,Q460,Ensemble cast (More than 5 protagonists),"3. Did any members of the ensemble cast belong to any historically marginalized groups - i.e., groups systematically denied access to services, resources, and power - based on any of the following aspects of their identity? Select all that apply.",10,True
+book,Q461,Ensemble cast (More than 5 protagonists),"4. If you checked any of the above, please elaborate. In your response, please specify whether you’re referring to one member of the cast, multiple members, or all members. Whenever possible, use names!",0,True
+book,Q462,Ensemble cast (More than 5 protagonists),"5. If you checked any of the above, which aspect(s) are most relevant to their experiences in the book? Again, please specify whether you’re referring to one member of the cast, multiple members, or all members. Use names!",0,True
+book,Q463,Ensemble cast (More than 5 protagonists),"For the last five questions, we’ll ask you to identify protagonists from the ensemble cast who stood out in certain ways.",0,False
+book,Q464,Ensemble cast (More than 5 protagonists),"6a. Which protagonist(s), if any, stood out as especially likable? By likable, we mean easy to relate to, empathize with, and root for.",0,True
+book,Q465,Ensemble cast (More than 5 protagonists),"6b. Which protagonist(s), if any, stood out as especially dislikable? By dislikable, we mean hard to relate to, empathize with, and root for.",0,True
+book,Q466,Ensemble cast (More than 5 protagonists),"6c. Which protagonist(s), if any, stood out as especially competent? By competent, we mean effective at the activities and tasks that matter to them.",0,True
+book,Q467,Ensemble cast (More than 5 protagonists),"6d. Which protagonist(s), if any, stood out as especially proactive? By proactive, we mean motivated and taking steps to reach their goals.",0,True
+book,Q468,Ensemble cast (More than 5 protagonists),"6e.  Which protagonist(s), if any, stood out as especially impactful? By impactful, we mean affecting other members of the ensemble cast, regardless of whether those effects were intended or desired.",0,True
+book,Q469,Your Opinion: Character,"1. In your opinion, how important were the characters to your experience of the book as a whole, relative to other elements like narration and POV, setting and world-building, plot, pace, theme, tone or mood, and writing style?",5,False
+book,Q735,Your Opinion: Character,"2. In your opinion, did anything about the book’s characters or character development work really well? If yes, please describe what you liked and why.",0,True
+book,Q736,Your Opinion: Character,"3. In your opinion, did anything about the book’s characters or character development not work so well? If yes, please describe what you disliked and why.",0,True
+book,Q472,Your Opinion: Character,"4. Compared to other fiction you’ve read, did anything about the characters or character development stand out as distinctive or unusual? If yes, please describe.",0,True
+book,Q727,Your Opinion: Character,"5. In your opinion, how would you rate the quality of the character writing in this book, on a scale of 1-7?",7,False
+book,Q479,Section 4: setting,1. When does the book take place? Select all that apply.,5,False
+book,Q480,Section 4: setting,2. Where does the book take place? Select all that apply.,4,False
+book,Q481,Section 4: setting,3. How realistic was the world of the book? By realistic we mean plausible - a faithful or true-to-life representation.,7,False
+book,Q482,Section 4: setting,"4. How familiar was the world of the book? By familiar we mean a setting that you know well, either from your own lived experiences or from other books, movies, or media.",7,False
+book,Q483,Section 4: setting,"5. How fantastical was the world of the book? By fantastical we mean a world that would be characterized as “fantasy,” typically one where magic is real, as in Lord of the Rings.",7,False
+book,Q484,Section 4: setting,6. How science-fictional was the world of the book?,7,False
+book,Q485,Section 4: setting,"7. Overall, how relevant was world-building to the book?",5,False
+book,Q487,Section 4: setting,"8. How many major settings does the book contain? Here, we're asking you to count at a high-level and focus on major settings only. For example, in the first Harry Potter book, the major settings would be (1) the Dursley home and (2) the Hogwarts School of Witchcraft and Wizardry - which you wouldn’t need to break down further into the Gryffindor common room, Snape’s dungeon, or Hagrid’s cabin.",6,False
+book,Q488,Section 4: setting,"9. If more than one major setting, did the book move linearly from one setting to the next, or did it alternate regularly between them?",3,False
+book,Q495,1 setting selected,1. Please describe the setting by giving its location or identifying characteristics.,0,True
+book,Q496,1 setting selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q499,1 setting selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q500,1 setting selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q501,2 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+book,Q502,2 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q505,2 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q506,2 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q507,2 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+book,Q508,2 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q511,2 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q512,2 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q513,3 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+book,Q514,3 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q517,3 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q518,3 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q519,3 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+book,Q520,3 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q523,3 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q524,3 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q489,3 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+book,Q526,3 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q529,3 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q530,3 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q531,4 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+book,Q532,4 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q535,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q536,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q537,4 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+book,Q538,4 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q541,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q542,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q543,4 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+book,Q544,4 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q547,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q548,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q549,4 settings selected,1. Please describe the 4th setting by giving its location or identifying characteristics.,0,True
+book,Q550,4 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q553,4 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q554,4 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q555,5 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+book,Q556,5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q559,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q560,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q561,5 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+book,Q562,5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q565,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q566,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q567,5 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+book,Q568,5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q571,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q572,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q573,5 settings selected,1. Please describe the 4th setting by giving its location or identifying characteristics.,0,True
+book,Q574,5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q577,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q578,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q525,5 settings selected,1. Please describe the 5th setting by giving its location or identifying characteristics.,0,True
+book,Q490,5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here?",10,False
+book,Q493,5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q494,5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q609,More than 5 settings selected,Please choose the 5 most important settings and answer the questions accordingly.,0,False
+book,Q582,More than 5 settings selected,1. Please describe the 1st setting by giving its location or identifying characteristics.,0,True
+book,Q583,More than 5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here? Please answer on a length basis - and check page numbers to be as precise as possible!",10,False
+book,Q586,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q587,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q588,More than 5 settings selected,1. Please describe the 2nd setting by giving its location or identifying characteristics.,0,True
+book,Q589,More than 5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here? Please answer on a length basis - and check page numbers to be as precise as possible!",10,False
+book,Q592,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q593,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q594,More than 5 settings selected,1. Please describe the 3rd setting by giving its location or identifying characteristics.,0,True
+book,Q595,More than 5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here? Please answer on a length basis - and check page numbers to be as precise as possible!",10,False
+book,Q598,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q599,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q600,More than 5 settings selected,1. Please describe the 4th setting by giving its location or identifying characteristics.,0,True
+book,Q601,More than 5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here? Please answer on a length basis - and check page numbers to be as precise as possible!",10,False
+book,Q604,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q605,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q606,More than 5 settings selected,1. Please describe the 5th setting by giving its location or identifying characteristics.,0,True
+book,Q607,More than 5 settings selected,"2. On a percent-of-book basis, at what point(s) was the book set here? Please answer on a length basis - and check page numbers to be as precise as possible!",10,False
+book,Q610,More than 5 settings selected,3. How vivid did you find this setting? By vivid we mean easy to see in your mind’s eye.,7,False
+book,Q611,More than 5 settings selected,"4. How immersive did you find this setting? By ‘immersive’ we mean fully realized, with all the details fleshed-out and fully realized.",7,False
+book,Q610,Your opinion: setting,"1. In your opinion, how important was the setting and world-building to your experience of the book as a whole, relative to other elements like narration, character, plot and pace, theme, mood, and writing style?",5,False
+book,Q611,Your opinion: setting,"2. In your opinion, did anything about the book’s setting or world-building work really well? If yes, please describe what you liked and why.",0,True
+book,Q738,Your opinion: setting,"3. In your opinion, did anything about the book’s setting or world-building work not work so well? If yes, please describe what you liked and why.",0,True
+book,Q737,Your opinion: setting,"4. In your opinion, did anything about the book’s setting or world-building stand out as distinctive or unusual? If yes, please describe.",0,True
+book,Q612,Your opinion: setting,"5. In your opinion, how would you rate the quality of the setting and world-building writing in this book, on a scale of 1-7?",7,False
+book,Q621,Section 5: plot and pace,1. How would you characterize the structure of the book in terms of main plots and subplots?,3,False
+book,Q622,Section 5: plot and pace,2. How would you characterize its linearity in terms of time?,4,False
+book,Q623,Section 5: plot and pace,3.  How would you characterize its linearity in terms of plot?,4,False
+book,Q624,Section 5: plot and pace,"Kurt Vonnegut famously said stories could be described in terms of a two-dimensional graph, with “how well things are going” on the Y axis and the progression of the story from Beginning to End on the X axis. Researchers later built on this work and established that there were generally “6 basic story shapes” that plots belonged to, based on these oscillations between good fortune / bad fortune over the course of the story.",0,False
+book,Q627,Section 5: plot and pace,"4. Which story shape best describes this story’s plot, if any?",7,False
+book,Q628,Section 5: plot and pace,"5. If none of the above, How would you describe this story’s shape, in terms of an arc such as the above?",0,True
+book,Q629,Section 5: plot and pace,6. How related was the sequence of plot events throughout the book?,5,False
+book,Q631,Section 5: plot and pace,"7. On the whole, how would you describe the pace of the book?",5,False
+book,Q707,Section 5: plot and pace,8.,10,False
+book,Q632,Section 5: plot and pace,"9. Did the book begin with a “hook” - something dramatic, mysterious, or shocking that immediately made the stakes of the story clear?",3,False
+book,Q633,Section 5: plot and pace,10. Did the book feature one or more major turning points - where critical elements of the protagonists’ lives were never the same afterwards?,3,False
+book,Q634,Section 5: plot and pace,"11a. On a percent-of-book basis, please select the point in the novel where any major turning point(s) occurred.",10,False
+book,Q708,Section 5: plot and pace,11b. Please briefly describe the major turning points.,0,True
+book,Q637,Section 5: plot and pace,"For the next few questions, we’ll ask you to describe the ending of the book on a series of scales. How would you describe the way it ended:",0,False
+book,Q638,Section 5: plot and pace,14a. On a scale of 1 (entirely unresolved) to 7 (entirely resolved)?,7,False
+book,Q639,Section 5: plot and pace,14b. On a scale of 1 (very unsurprising / predictable) to 7 (very surprising)?,7,False
+book,Q640,Section 5: plot and pace,14c. On a scale of 1 (very confusing) to 7 (very easy-to-understand)?,7,False
+book,Q641,Section 5: plot and pace,14d. On a scale of 1 (very unsatisfying) to 7 (very satisfying)?,7,False
+book,Q732,Section 5: plot and pace,14e. On a scale of 1 (entirely arbitrary / could have easily happened another way) to 7 (entirely inevitable / it had to happen this way)?,7,False
+book,Q729,Section 5: plot and pace,15. Did the ending feature a major reversal-of-fortune for the main character(s)?,3,False
+book,Q730,Section 5: plot and pace,"16. Did the ending feature a major ""sudden realization"" on the part of the main character(s)?",3,False
+book,Q731,Section 5: plot and pace,"17. Did the ending feature a major emotional release, or other major expression of emotion, on the part of the main character(s)?",3,False
+book,Q643,Your opinion: plot and pacing,18. How compelling did you find the plot? By compelling we mean interesting and absorbing.,7,False
+book,Q644,Your opinion: plot and pacing,19. How convincing did you find the plot? By convincing we mean believable.,7,False
+book,Q645,Your opinion: plot and pacing,"20. In your opinion, how important was the plot/pacing to your experience of the book as a whole, relative to other elements like narration, character, setting, theme, tone or mood, and writing style?",5,False
+book,Q648,Your opinion: plot and pacing,"21. In your opinion, did anything about the book’s plot or pacing work really well? If yes, please describe what you liked and why.",0,True
+book,Q740,Your opinion: plot and pacing,"22. In your opinion, did anything about the book’s plot or pacing work not work so well? If yes, please describe what you liked and why.",0,True
+book,Q739,Your opinion: plot and pacing,"23. Compared to other fiction you’ve read, did anything about the plot or pacing stand out as distinctive or unusual? If yes, please describe.",0,True
+book,Q655,Section 6: Writing style,"Note: This section is subjective. Please answer based on your own perception; don’t try to guess how the “average” reader might respond. Be honest, and don’t overthink it!",0,False
+book,Q656,Section 6: Writing style,1. Which words best describe the writing style? Select all that apply.,19,True
+book,Q657,Section 6: Writing style,"2. How clear did you find the writing style? By clear we mean articulate, coherent, and easy to understand.",7,False
+book,Q658,Section 6: Writing style,"3. How evocative did you find the writing style? By evocative we mean expressive, eloquent, and memorable.",7,False
+book,Q666,Section 6: Writing style,"4. How interesting did you find the writing style? By interesting we mean dynamic, varied, and creative.",7,False
+book,Q661,Section 6: Writing style,"Note: Do not factor the content of the writing into your answer! Focus only on the style, including language choice and sentence construction.",0,False
+book,Q662,Section 6: Writing style,"Writing is a balance of showing and telling. By showing we mean using description and action to help the reader imagine the story, and by and telling we mean summarizing or using exposition to tell the reader directly what is happening.",0,False
+book,Q663,Section 6: Writing style,"5. In your opinion, how was the amount of showing and telling throughout the book?",0,False
+book,Q664,Section 6: Writing style,6.,5,False
+book,Q665,Section 6: Writing style,"7. In your opinion, how was the quantity of dialogue throughout the book?",5,False
+book,Q659,Section 6: Writing style,8. How engaging did you find the dialogue in the book?,7,False
+book,Q667,Section 6: Writing style,9. How realistic did you find the dialogue in the book?,7,False
+book,Q670,Section 6: Writing style,12. How important was the dialogue to your experience of the book as a whole?,5,False
+book,Q671,Section 6: Writing style,"13. In your opinion, how important was the overall writing style to your experience of the book as a whole, relative to other elements like narration, character, setting, plot, pace, theme, and tone or mood?",5,False
+book,Q675,Section 6: Writing style,"14. In your opinion, did anything about the book’s writing style work really well? If yes, please describe what you liked and why.",0,True
+book,Q742,Section 6: Writing style,"15. In your opinion, did anything about the book’s writing style work not work so well? If yes, please describe what you liked and why.",0,True
+book,Q741,Section 6: Writing style,"16. Compared to other fiction you’ve read, did anything about the writing style stand out as distinctive or unusual? If yes, please describe.",0,True
+book,Q682,Section 7: Reflection and close,"Note: This section is subjective. Please answer based on your own perception; don’t try to guess how the “average” reader might respond. Be honest, and don’t overthink it!",0,False
+book,Q683,Section 7: Reflection and close,"1. In your own words, how would you describe the book’s themes - its core ideas or central questions?",0,True
+book,Q684,Section 7: Reflection and close,2. How interesting do you personally find the book’s themes?,5,False
+book,Q688,Section 7: Reflection and close,"3. While you were in the process of reading the book, how enjoyable did you find it? In other words, how much did you like it and how eager were you to keep reading?",5,False
+book,Q689,Section 7: Reflection and close,"4. After having read the book, how glad are you to have devoted time and energy to it? In other words, how worthwhile of an experience was it?",5,False
+book,Q691,Section 7: Reflection and close,5. To what extent did you feel moved by this book on an emotional basis? An intellectual basis?,0,False
+book,Q692,Section 7: Reflection and close,"6. If you have any other feedback about your experience of the book you’d like to share before we close out, please add any additional remarks on the book here.",0,True

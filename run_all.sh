@@ -1,47 +1,76 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Narrative Atlas replication package -- single-command driver.
+# Narrative Atlas -- PNAS replication package. Single-command reproduction.
 #
-# Runs, in order:
-#   1. STRUCTURAL SPINE REBUILD   code/rebuild_spine_from_atlas.py
-#        rebuilds data/corpus_rebuilt/{film,book,tv}_structural_1890_2025.csv from the
-#        canonical atlas parquet, so the analysis spine can never drift from the scores.
-#   2. NUMBERS REPLICATION        reproduce.py
-#        regenerates every headline number in the paper from shipped data. This also runs
-#        the embedded guards (prompt-provenance, spine==atlas drift, tier vocabulary).
-#   3. F3 JOINT-STRUCTURE EXHIBIT code/joint_structure.py
-#        rebuilds the 44x44 human/machine correlation-matrix agreement (off-diag r,
-#        PC1 Tucker congruence, coupling ratio) from shipped data.
+#   bash run_all.sh
 #
-# Figures/tables: the manuscript's figure and table GENERATORS live in the full working
-# tree (they use absolute repo paths and a results/ scaffold not shipped here); this
-# package ships the RENDERED exhibits under outputs/figures/. run_all.sh therefore verifies
-# the NUMBERS and the one self-contained joint-structure exhibit, not the figure PNGs.
+# Reproduces every number in the paper from the shipped data, on one canonical
+# partition, in order:
+#   0. rebuild the structural spine FROM the canonical atlas, and assert the
+#      rebuilt spine equals the atlas on every shared column (no drift);
+#   1. run every analysis script (writes analysis outputs to pnas-sub/analysis/out/);
+#   2. regenerate the data tables from those outputs (no hand-typed table cell);
+#   3. run the guards (registries + counts, hardcoded-basis, spine==atlas);
+#   4. reproduce.py -- re-derive every headline number from the released corpus (131 checks);
+#   5. verify_paper.py -- recompute the reported numbers and confirm the manuscript agrees.
+# Ends "Done." on success; any failed check is fatal.
 #
-# Usage:  bash run_all.sh
+# The package is self-locating: NARRATIVE_ATLAS_ROOT is set to this directory, and every
+# script reads and writes relative to it, so the package reproduces wherever it is unpacked.
 # =============================================================================
 set -euo pipefail
 cd "$(dirname "$0")"
+export NARRATIVE_ATLAS_ROOT="$(pwd)"
 
-# locate a python: prefer the project venv, else python3 on PATH
 PY=""
-for cand in ../../.venv/bin/python3 ../.venv/bin/python3 .venv/bin/python3; do
+for cand in .venv/bin/python3 .venv/bin/python ../.venv/bin/python3 ../../.venv/bin/python3 "$(command -v python3 || true)"; do
     if [ -x "$cand" ]; then PY="$cand"; break; fi
 done
-if [ -z "$PY" ]; then PY="$(command -v python3)"; fi
-echo "Using python: $PY"
-echo
+[ -z "$PY" ] && { echo "no python found"; exit 1; }
+echo "Using python: $PY"; echo "ROOT: $NARRATIVE_ATLAS_ROOT"; echo
+A="pnas-sub/analysis"
 
-echo "=== [1/3] Rebuilding structural spine from the canonical atlas ==="
+echo "=== [0/5] Rebuild structural spine from the canonical atlas + assert no drift ==="
 "$PY" code/rebuild_spine_from_atlas.py
+"$PY" code/check_spine_atlas_sync.py
 echo
 
-echo "=== [2/3] Reproducing every paper number (reproduce.py) ==="
-"$PY" reproduce.py
+echo "=== [1/5] Run every analysis script ==="
+for s in A1_attribute_registry A2_variance_ratio_inference A9_medium_era_decomposition \
+         A5_variance_explained_and_normed_convergence A4_convergence_contrasts \
+         A08_all_layer_convergence A07_century_fingerprint A10_convergence_sensitivity \
+         A10_dependence A3_adaptation_one_per_source A8_adaptation_era_control \
+         A16_adaptation_hiconf A6_summary_convention_controls A12_whitened_distances \
+         A02_covariance_agreement A13_calibration_equivalence A11_validation_fdr_dif \
+         A04_tv_unit_type A15_tv_by_unit_convergence A14_country_language \
+         A09_composition A09b_lang_supplement; do
+    if [ -f "$A/$s.py" ]; then echo "  -> $s"
+        ERR="$(mktemp)"
+        if ! "$PY" "$A/$s.py" >/dev/null 2>"$ERR"; then
+            if grep -qiE "wiki_text|plot_text|_text\.(parquet|csv)" "$ERR"; then
+                echo "     [skipped: requires raw plot text, which is not redistributed; result shipped in pnas-sub/analysis/out/]"
+            else echo "     FAILED ($s):"; tail -12 "$ERR"; rm -f "$ERR"; exit 1; fi
+        fi; rm -f "$ERR"
+    fi
+done
 echo
 
-echo "=== [3/3] F3 joint-structure exhibit (joint_structure.py) ==="
-"$PY" code/joint_structure.py
+echo "=== [2/5] Regenerate data tables from analysis outputs ==="
+"$PY" "$A/build_tables.py"
 echo
 
+echo "=== [3/5] Guards: registries + counts, hardcoded-basis, spine==atlas ==="
+"$PY" code/_methods.py >/dev/null && echo "  registries + counts OK"
+"$PY" "$A/check_registries.py"
+echo
+
+echo "=== [4/5] reproduce.py -- re-derive every headline number (131 checks) ==="
+for rp in replication/reproduce.py reproduce.py; do
+    if [ -f "$rp" ]; then LOG="$(mktemp)"; "$PY" "$rp" >"$LOG" 2>&1 || { echo "reproduce.py FAILED:"; tail -15 "$LOG"; exit 1; }; grep -E "passed" "$LOG" | tail -1; rm -f "$LOG"; break; fi
+done
+echo
+
+echo "=== [5/5] verify_paper.py -- recompute reported numbers, confirm manuscript agrees ==="
+"$PY" "$A/verify_paper.py" | grep -E "PASS:|FAIL:" | tail -1; [ "${PIPESTATUS[0]}" -eq 0 ] || exit 1
+echo
 echo "Done."
