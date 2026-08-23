@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software or the released data, please cite the paper below."
+title: "Measuring narrative form across a century reveals persistent medium signatures amid convergence: replication package"
+type: software
+authors:
+  - family-names: Knight
+    given-names: Samsun
+    affiliation: University of Toronto
+  - family-names: Bart
+    given-names: Yakov
+repository-code: "https://github.com/samsunknight/narrative_atlas"
+version: "1.0.0"
+date-released: "2026-08-23"

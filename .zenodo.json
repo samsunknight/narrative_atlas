@@ -1,0 +1,11 @@
+{
+  "title": "Measuring narrative form across a century reveals persistent medium signatures amid convergence: replication package",
+  "description": "Code and released data to reproduce every number, table, and figure in the paper with a single command (run_all.sh). Includes the validated language-model instrument, the aggregate human benchmark from 711 readers and 225 viewers, the scored narrative atlas of 149,341 films, novels, and television works (1890-2025), and the codebook.",
+  "upload_type": "software",
+  "access_right": "open",
+  "creators": [
+    {"name": "Knight, Samsun", "affiliation": "University of Toronto"},
+    {"name": "Bart, Yakov"}
+  ],
+  "keywords": ["narrative form", "cultural analytics", "media specificity", "computational social science"]
+}
