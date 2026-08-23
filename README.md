@@ -1,4 +1,4 @@
-# Replication Package for "Narrative media retain distinct signatures through a century of convergence"
+# Replication Package for "Measuring narrative form across a century reveals persistent medium signatures amid convergence"
 
 This repository contains the code and released data to reproduce every number, table, and figure in the paper with a single command. The atlas is a scored corpus of 149,341 works (94,140 films, 22,978 novels, and 32,223 television programs) spanning 1890 to 2025, each read on 216 attributes of narrative form across eleven constructs (structure and plot, setting, story shape, conflict, character, character arc, narration, mood, genre, tone, and texture), of which 195 clear the validation bar. Scores are produced by a language model reading each work's English Wikipedia plot summary and answering the same questions put to human raters; the human anchor is two surveys of 711 readers and 225 viewers.
 

@@ -43,7 +43,8 @@ for s in A1_attribute_registry A2_variance_ratio_inference A9_medium_era_decompo
          A16_adaptation_hiconf A6_summary_convention_controls A12_whitened_distances \
          A02_covariance_agreement A13_calibration_equivalence A11_validation_fdr_dif \
          A04_tv_unit_type A15_tv_by_unit_convergence A14_country_language \
-         A09_composition A09b_lang_supplement; do
+         A09_composition A09b_lang_supplement \
+         A18_anchored_convergence A19_tv_series_only_fingerprint; do
     if [ -f "$A/$s.py" ]; then echo "  -> $s"
         ERR="$(mktemp)"
         if ! "$PY" "$A/$s.py" >/dev/null 2>"$ERR"; then
@@ -71,6 +72,13 @@ done
 echo
 
 echo "=== [5/5] verify_paper.py -- recompute reported numbers, confirm manuscript agrees ==="
-"$PY" "$A/verify_paper.py" | grep -E "PASS:|FAIL:" | tail -1; [ "${PIPESTATUS[0]}" -eq 0 ] || exit 1
+VP="$(mktemp)"
+if "$PY" "$A/verify_paper.py" >"$VP" 2>&1; then
+    grep -E "PASS:|FAIL:|agree" "$VP" | tail -1 \
+      || echo "  numbers recomputed (place pnas-sub/main.tex to also check manuscript agreement)"
+else
+    echo "  verify_paper FAILED:"; tail -15 "$VP"; rm -f "$VP"; exit 1
+fi
+rm -f "$VP"
 echo
 echo "Done."
