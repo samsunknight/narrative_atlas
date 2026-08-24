@@ -37,7 +37,7 @@ echo
 
 echo "=== [1/5] Run every analysis script ==="
 for s in A1_attribute_registry A2_variance_ratio_inference A9_medium_era_decomposition \
-         A5_variance_explained_and_normed_convergence A4_convergence_contrasts \
+         A4_convergence_contrasts A5_variance_explained_and_normed_convergence \
          A08_all_layer_convergence A07_century_fingerprint A10_convergence_sensitivity \
          A10_dependence A3_adaptation_one_per_source A8_adaptation_era_control \
          A16_adaptation_hiconf A6_summary_convention_controls A12_whitened_distances \
