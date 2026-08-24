@@ -9,7 +9,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 bash run_all.sh
 ```
 
-`run_all.sh` rebuilds the structural spine from the canonical atlas and asserts it has not drifted, runs every analysis script (writing its outputs under `pnas-sub/analysis/out/`), regenerates the data tables from those outputs, runs the drift guards, re-derives every headline number from the released corpus through `reproduce.py` (131 checks), and finally `verify_paper.py` recomputes each reported number and confirms the manuscript agrees. It ends `Done.`; any failed check is fatal. The package is self-locating: it sets `NARRATIVE_ATLAS_ROOT` to its own directory, so it reproduces wherever it is unpacked.
+`run_all.sh` rebuilds the structural spine from the canonical atlas and asserts it has not drifted, runs every analysis script (writing its outputs under `pnas-sub/analysis/out/`), regenerates the data tables from those outputs, runs the drift guards, re-derives every headline number from the released corpus through `reproduce.py` (117 checks on the shipped data; a further 14 require IMDb ratings and genres, which are not redistributed), and finally `verify_paper.py` recomputes each reported number and confirms the manuscript agrees. It ends `Done.`; any failed check is fatal. The package is self-locating: it sets `NARRATIVE_ATLAS_ROOT` to its own directory, so it reproduces wherever it is unpacked.
 
 The clean, shared-column dataset for reuse lives in `atlas_canonical/`; the dense per-medium frames under `data/atlas/` are the reproduction inputs.
 
@@ -41,7 +41,7 @@ bash run_all.sh
 
 ```
 run_all.sh              single driver; reproduces every number, table, and figure (one command)
-reproduce.py            headline verifier called by run_all.sh (131 checks)
+reproduce.py            headline verifier called by run_all.sh (117 checks on shipped data; 131 with IMDb metadata)
 requirements.txt        Python dependencies
 atlas_canonical/        the clean, shared-column dataset for reuse (start here)
   data/atlas_{film,book,tv}.parquet
@@ -94,7 +94,7 @@ The analysis runs in three stages, and only the last is required to reproduce th
 .venv/bin/python reproduce.py
 ```
 
-This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `131/131 passed`, and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
+This prints one line per quantity (`[PASS/FAIL][R/A] label  target=X  reproduced=Y`) and a final `117/117 passed` on the shipped data (14 further IMDb-dependent checks run only where IMDb ratings and genres are present, for 131 in total), and writes the same to `outputs/check_report.txt`. A check tagged `[R]` is re-derived from the released tables; a check tagged `[A]` is asserted against a shipped result artifact for the two layers (mood, character arc) whose raw ratings are not redistributed here.
 
 ---
 

@@ -11,7 +11,7 @@
 #   1. run every analysis script (writes analysis outputs to pnas-sub/analysis/out/);
 #   2. regenerate the data tables from those outputs (no hand-typed table cell);
 #   3. run the guards (registries + counts, hardcoded-basis, spine==atlas);
-#   4. reproduce.py -- re-derive every headline number from the released corpus (131 checks);
+#   4. reproduce.py -- re-derive every headline number from the released corpus (117 on shipped data; 14 more require IMDb, skipped);
 #   5. verify_paper.py -- recompute the reported numbers and confirm the manuscript agrees.
 # Ends "Done." on success; any failed check is fatal.
 #
@@ -65,7 +65,7 @@ echo "=== [3/5] Guards: registries + counts, hardcoded-basis, spine==atlas ==="
 "$PY" "$A/check_registries.py"
 echo
 
-echo "=== [4/5] reproduce.py -- re-derive every headline number (131 checks) ==="
+echo "=== [4/5] reproduce.py -- re-derive every headline number (117 on shipped data) ==="
 for rp in replication/reproduce.py reproduce.py; do
     if [ -f "$rp" ]; then LOG="$(mktemp)"; "$PY" "$rp" >"$LOG" 2>&1 || { echo "reproduce.py FAILED:"; tail -15 "$LOG"; exit 1; }; grep -E "passed" "$LOG" | tail -1; rm -f "$LOG"; break; fi
 done
