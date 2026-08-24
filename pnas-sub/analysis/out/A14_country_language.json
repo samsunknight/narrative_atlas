@@ -1,0 +1,481 @@
+{
+  "basis_n": 16,
+  "seed": 0,
+  "target_per_medium": 1500,
+  "n_unique_titles_queried": 4398,
+  "sparql_endpoint": "https://query.wikidata.org/sparql",
+  "coverage": {
+    "fm": {
+      "n_sampled": 1453,
+      "n_matched": 1441,
+      "match_rate": 0.9917,
+      "n_lang_known": 1091,
+      "lang_known_rate_of_matched": 0.7571,
+      "n_country_known": 1432,
+      "country_known_rate_of_matched": 0.9938
+    },
+    "bk": {
+      "n_sampled": 1441,
+      "n_matched": 1437,
+      "match_rate": 0.9972,
+      "n_lang_known": 1353,
+      "lang_known_rate_of_matched": 0.9415,
+      "n_country_known": 1103,
+      "country_known_rate_of_matched": 0.7676
+    },
+    "tv": {
+      "n_sampled": 1504,
+      "n_matched": 1484,
+      "match_rate": 0.9867,
+      "n_lang_known": 1238,
+      "lang_known_rate_of_matched": 0.8342,
+      "n_country_known": 1364,
+      "country_known_rate_of_matched": 0.9191
+    }
+  },
+  "composition_by_decade": {
+    "fm": {
+      "1890": {
+        "n_matched": 46,
+        "n_lang_known": 2,
+        "share_english": 0.5,
+        "n_country_known": 44,
+        "share_us_uk": 0.3409
+      },
+      "1900": {
+        "n_matched": 108,
+        "n_lang_known": 13,
+        "share_english": 0.7692,
+        "n_country_known": 106,
+        "share_us_uk": 0.5189
+      },
+      "1910": {
+        "n_matched": 108,
+        "n_lang_known": 19,
+        "share_english": 0.9474,
+        "n_country_known": 107,
+        "share_us_uk": 0.8411
+      },
+      "1920": {
+        "n_matched": 108,
+        "n_lang_known": 54,
+        "share_english": 0.8333,
+        "n_country_known": 108,
+        "share_us_uk": 0.8704
+      },
+      "1930": {
+        "n_matched": 108,
+        "n_lang_known": 103,
+        "share_english": 0.8835,
+        "n_country_known": 107,
+        "share_us_uk": 0.8785
+      },
+      "1940": {
+        "n_matched": 107,
+        "n_lang_known": 103,
+        "share_english": 0.835,
+        "n_country_known": 107,
+        "share_us_uk": 0.8037
+      },
+      "1950": {
+        "n_matched": 108,
+        "n_lang_known": 106,
+        "share_english": 0.7453,
+        "n_country_known": 108,
+        "share_us_uk": 0.713
+      },
+      "1960": {
+        "n_matched": 108,
+        "n_lang_known": 103,
+        "share_english": 0.4563,
+        "n_country_known": 108,
+        "share_us_uk": 0.4074
+      },
+      "1970": {
+        "n_matched": 106,
+        "n_lang_known": 105,
+        "share_english": 0.3143,
+        "n_country_known": 106,
+        "share_us_uk": 0.2925
+      },
+      "1980": {
+        "n_matched": 108,
+        "n_lang_known": 99,
+        "share_english": 0.4747,
+        "n_country_known": 108,
+        "share_us_uk": 0.3981
+      },
+      "1990": {
+        "n_matched": 107,
+        "n_lang_known": 100,
+        "share_english": 0.5,
+        "n_country_known": 107,
+        "share_us_uk": 0.4299
+      },
+      "2000": {
+        "n_matched": 106,
+        "n_lang_known": 102,
+        "share_english": 0.5,
+        "n_country_known": 106,
+        "share_us_uk": 0.4528
+      },
+      "2010": {
+        "n_matched": 107,
+        "n_lang_known": 97,
+        "share_english": 0.4742,
+        "n_country_known": 107,
+        "share_us_uk": 0.3551
+      },
+      "2020": {
+        "n_matched": 106,
+        "n_lang_known": 85,
+        "share_english": 0.4706,
+        "n_country_known": 103,
+        "share_us_uk": 0.3398
+      }
+    },
+    "bk": {
+      "1800": {
+        "n_matched": 17,
+        "n_lang_known": 16,
+        "share_english": 0.5,
+        "n_country_known": 11,
+        "share_us_uk": 0.2727
+      },
+      "1810": {
+        "n_matched": 45,
+        "n_lang_known": 43,
+        "share_english": 0.6744,
+        "n_country_known": 35,
+        "share_us_uk": 0.6286
+      },
+      "1820": {
+        "n_matched": 59,
+        "n_lang_known": 56,
+        "share_english": 0.8036,
+        "n_country_known": 32,
+        "share_us_uk": 0.3438
+      },
+      "1830": {
+        "n_matched": 66,
+        "n_lang_known": 65,
+        "share_english": 0.4154,
+        "n_country_known": 55,
+        "share_us_uk": 0.3091
+      },
+      "1840": {
+        "n_matched": 66,
+        "n_lang_known": 65,
+        "share_english": 0.5846,
+        "n_country_known": 58,
+        "share_us_uk": 0.4483
+      },
+      "1850": {
+        "n_matched": 63,
+        "n_lang_known": 57,
+        "share_english": 0.7018,
+        "n_country_known": 50,
+        "share_us_uk": 0.6
+      },
+      "1860": {
+        "n_matched": 66,
+        "n_lang_known": 66,
+        "share_english": 0.5909,
+        "n_country_known": 58,
+        "share_us_uk": 0.4483
+      },
+      "1870": {
+        "n_matched": 66,
+        "n_lang_known": 66,
+        "share_english": 0.5758,
+        "n_country_known": 60,
+        "share_us_uk": 0.5
+      },
+      "1880": {
+        "n_matched": 66,
+        "n_lang_known": 58,
+        "share_english": 0.4138,
+        "n_country_known": 54,
+        "share_us_uk": 0.3148
+      },
+      "1890": {
+        "n_matched": 66,
+        "n_lang_known": 63,
+        "share_english": 0.6349,
+        "n_country_known": 53,
+        "share_us_uk": 0.4528
+      },
+      "1900": {
+        "n_matched": 66,
+        "n_lang_known": 63,
+        "share_english": 0.8095,
+        "n_country_known": 59,
+        "share_us_uk": 0.7288
+      },
+      "1910": {
+        "n_matched": 66,
+        "n_lang_known": 60,
+        "share_english": 0.7167,
+        "n_country_known": 51,
+        "share_us_uk": 0.6078
+      },
+      "1920": {
+        "n_matched": 66,
+        "n_lang_known": 65,
+        "share_english": 0.7077,
+        "n_country_known": 51,
+        "share_us_uk": 0.6078
+      },
+      "1930": {
+        "n_matched": 66,
+        "n_lang_known": 63,
+        "share_english": 0.9365,
+        "n_country_known": 47,
+        "share_us_uk": 0.7872
+      },
+      "1940": {
+        "n_matched": 66,
+        "n_lang_known": 63,
+        "share_english": 0.8571,
+        "n_country_known": 45,
+        "share_us_uk": 0.7556
+      },
+      "1950": {
+        "n_matched": 66,
+        "n_lang_known": 63,
+        "share_english": 0.8413,
+        "n_country_known": 52,
+        "share_us_uk": 0.8077
+      },
+      "1960": {
+        "n_matched": 66,
+        "n_lang_known": 62,
+        "share_english": 0.8871,
+        "n_country_known": 53,
+        "share_us_uk": 0.7736
+      },
+      "1970": {
+        "n_matched": 66,
+        "n_lang_known": 64,
+        "share_english": 0.8594,
+        "n_country_known": 55,
+        "share_us_uk": 0.8182
+      },
+      "1980": {
+        "n_matched": 66,
+        "n_lang_known": 63,
+        "share_english": 0.8413,
+        "n_country_known": 52,
+        "share_us_uk": 0.7885
+      },
+      "1990": {
+        "n_matched": 66,
+        "n_lang_known": 60,
+        "share_english": 0.8833,
+        "n_country_known": 52,
+        "share_us_uk": 0.8077
+      },
+      "2000": {
+        "n_matched": 66,
+        "n_lang_known": 61,
+        "share_english": 0.9344,
+        "n_country_known": 58,
+        "share_us_uk": 0.8276
+      },
+      "2010": {
+        "n_matched": 65,
+        "n_lang_known": 62,
+        "share_english": 0.9032,
+        "n_country_known": 46,
+        "share_us_uk": 0.6739
+      },
+      "2020": {
+        "n_matched": 66,
+        "n_lang_known": 49,
+        "share_english": 0.9388,
+        "n_country_known": 16,
+        "share_us_uk": 0.6875
+      }
+    },
+    "tv": {
+      "1950": {
+        "n_matched": 187,
+        "n_lang_known": 145,
+        "share_english": 0.931,
+        "n_country_known": 174,
+        "share_us_uk": 0.8161
+      },
+      "1960": {
+        "n_matched": 187,
+        "n_lang_known": 156,
+        "share_english": 0.8397,
+        "n_country_known": 177,
+        "share_us_uk": 0.7571
+      },
+      "1970": {
+        "n_matched": 185,
+        "n_lang_known": 153,
+        "share_english": 0.719,
+        "n_country_known": 175,
+        "share_us_uk": 0.6686
+      },
+      "1980": {
+        "n_matched": 185,
+        "n_lang_known": 156,
+        "share_english": 0.75,
+        "n_country_known": 178,
+        "share_us_uk": 0.7079
+      },
+      "1990": {
+        "n_matched": 183,
+        "n_lang_known": 154,
+        "share_english": 0.6753,
+        "n_country_known": 177,
+        "share_us_uk": 0.6328
+      },
+      "2000": {
+        "n_matched": 184,
+        "n_lang_known": 169,
+        "share_english": 0.6213,
+        "n_country_known": 179,
+        "share_us_uk": 0.5587
+      },
+      "2010": {
+        "n_matched": 188,
+        "n_lang_known": 155,
+        "share_english": 0.4774,
+        "n_country_known": 173,
+        "share_us_uk": 0.3468
+      },
+      "2020": {
+        "n_matched": 185,
+        "n_lang_known": 150,
+        "share_english": 0.8,
+        "n_country_known": 131,
+        "share_us_uk": 0.6412
+      }
+    }
+  },
+  "compositional_trends": {
+    "fm": {
+      "english": {
+        "r_share_vs_decade": -0.817,
+        "n_decades": 12,
+        "first_dec": 1910,
+        "first_val": 0.9474,
+        "last_dec": 2020,
+        "last_val": 0.4706
+      },
+      "us_uk": {
+        "r_share_vs_decade": -0.867,
+        "n_decades": 12,
+        "first_dec": 1910,
+        "first_val": 0.8411,
+        "last_dec": 2020,
+        "last_val": 0.3398
+      }
+    },
+    "bk": {
+      "english": {
+        "r_share_vs_decade": 0.703,
+        "n_decades": 12,
+        "first_dec": 1910,
+        "first_val": 0.7167,
+        "last_dec": 2020,
+        "last_val": 0.9388
+      },
+      "us_uk": {
+        "r_share_vs_decade": 0.315,
+        "n_decades": 12,
+        "first_dec": 1910,
+        "first_val": 0.6078,
+        "last_dec": 2020,
+        "last_val": 0.6875
+      }
+    },
+    "tv": {
+      "english": {
+        "r_share_vs_decade": -0.647,
+        "n_decades": 8,
+        "first_dec": 1950,
+        "first_val": 0.931,
+        "last_dec": 2020,
+        "last_val": 0.8
+      },
+      "us_uk": {
+        "r_share_vs_decade": -0.752,
+        "n_decades": 8,
+        "first_dec": 1950,
+        "first_val": 0.8161,
+        "last_dec": 2020,
+        "last_val": 0.6412
+      }
+    }
+  },
+  "variance_ratios": {
+    "matched_all__min30": {
+      "ratio_3media": 1.23,
+      "cells_3media": 29,
+      "ratio_film_novel": 1.539,
+      "cells_film_novel": 22,
+      "n_works_in_window": 3165
+    },
+    "matched_all__min15": {
+      "ratio_3media": 1.23,
+      "cells_3media": 29,
+      "ratio_film_novel": 1.539,
+      "cells_film_novel": 22,
+      "n_works_in_window": 3165
+    },
+    "lang_known__min30": {
+      "ratio_3media": 1.316,
+      "cells_3media": 27,
+      "ratio_film_novel": 1.722,
+      "cells_film_novel": 20,
+      "n_works_in_window": 2753
+    },
+    "lang_known__min15": {
+      "ratio_3media": 1.185,
+      "cells_3media": 29,
+      "ratio_film_novel": 1.463,
+      "cells_film_novel": 22,
+      "n_works_in_window": 2753
+    },
+    "english_only__min30": {
+      "ratio_3media": 1.393,
+      "cells_3media": 27,
+      "ratio_film_novel": 1.678,
+      "cells_film_novel": 20,
+      "n_works_in_window": 1943
+    },
+    "english_only__min15": {
+      "ratio_3media": 1.287,
+      "cells_3media": 29,
+      "ratio_film_novel": 1.496,
+      "cells_film_novel": 22,
+      "n_works_in_window": 1943
+    }
+  },
+  "english_restriction_comparison": {
+    "min30": {
+      "lang_known_3media": 1.316,
+      "english_only_3media": 1.393,
+      "lang_known_film_novel": 1.722,
+      "english_only_film_novel": 1.678
+    },
+    "min15": {
+      "lang_known_3media": 1.185,
+      "english_only_3media": 1.287,
+      "lang_known_film_novel": 1.463,
+      "english_only_film_novel": 1.496
+    }
+  },
+  "a2_full_corpus_headline_3media": 1.66,
+  "notes": [
+    "Country/language recovered from public Wikidata SPARQL; matched on English Wikipedia sitelink (schema:name == corpus title). No LLM used.",
+    "Original language = P407 (works/novels) coalesced with P364 (original language of film or TV show); films/TV expose language via P364, not P407, so both are queried. English = label containing 'English' (English/American English/British English). US/UK = country of origin (P495) label containing 'United States' or 'United Kingdom'.",
+    "SPARQL query batches that failed after retries: 0 of 30.",
+    "Ratio pipeline mirrors A2 exactly: fixed pooled z-transform from the FULL corpus frames, win 1915-2020, decade=(year//10)*10, medium x decade centroids with >=MIN rows, between/within = mean over attrs of medium-centroid dispersion / mean within-medium decade-centroid dispersion. min30 mirrors A2's threshold; min15 added because the sampled + English-restricted subset thins cells, so min15 keeps more decade cells for a like-for-like full-vs-English comparison. A2's full-corpus headline is 1.66 (3 media).",
+    "'lang_known' baseline (matched works with a known original language) is the like-for-like comparison for 'english_only'; 'matched_all' additionally includes works whose language is not recorded on Wikidata."
+  ]
+}

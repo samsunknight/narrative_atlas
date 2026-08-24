@@ -22,6 +22,12 @@ import numpy as np, pandas as pd
 ROOT = os.environ.get("NARRATIVE_ATLAS_ROOT", os.path.expanduser("~/uoft/style_evolves"))
 OUT = os.path.join(ROOT, "pnas-sub/analysis/out")
 os.makedirs(OUT, exist_ok=True)
+
+# Reproduction is network-free: if the shipped Wikidata snapshot is present, use it and skip the live
+# SPARQL query. Delete out/A14_country_language.json to regenerate the country/language pull from Wikidata.
+if os.path.exists(os.path.join(OUT, "A14_country_language.json")):
+    print("[A14] using shipped A14_country_language.json; skipping live Wikidata query")
+    sys.exit(0)
 for cd in [os.path.join(os.path.dirname(ROOT), "code"), os.path.join(ROOT, "code")]:
     if os.path.isdir(cd) and cd not in sys.path:
         sys.path.insert(0, cd)
